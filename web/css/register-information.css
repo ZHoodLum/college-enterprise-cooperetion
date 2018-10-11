@@ -1,0 +1,114 @@
+body
+{
+ font-family:Arial, Sans-Serif;
+ font-size:0.85em;
+}
+::-webkit-scrollbar {display:none}
+.main{
+height: 200px;  overflow-y: scroll;
+ height: 100%;
+ float:left;
+ margin-top: 30px;
+ margin-left: 25%;
+}
+ul, ul li
+{
+ list-style-type: none;
+ margin: 0px;
+ padding: 0px;
+
+}
+ul li.first
+{
+ border-top: 1px solid #DFDFDF;
+}
+ul li.last
+{
+ border: none;
+ margin-left: 24%;
+ margin-top: 35px;
+ margin-bottom: 200px;
+}
+ul p
+{
+ float: left;
+ margin: 0px;
+ width: 310px;
+}
+ul h3
+{
+ float: left;
+ font-size: 14px;
+ font-weight: bold;
+ margin: 5px 0 0 0;
+ width: 130px;
+ margin-left:20px;
+}
+ul li
+{
+ border-bottom: 1px solid #DFDFDF;
+ padding: 15px 0;
+ width:500px;
+ overflow:hidden;
+}
+ul input[type="text"], ul input[type="password"]
+{
+ width:300px;
+ padding:5px;
+ position:relative;
+ border:solid 1px #666;
+ -moz-border-radius:11px;
+ -webkit-border-radius:11px;
+}
+ul input.required 
+{
+ border: solid 1px #f00;
+}
+input{outline:none;}
+
+/**
+按钮
+*/
+/** custom login button **/
+.flatbtn-blu {
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+ display: inline-block;
+ outline: 0;
+ border: 0;
+ color: #edf4f9;
+ text-decoration: none;
+ background-color: #4f94cf;
+ border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+ font-size: 1.3em;
+ font-weight: bold;
+ padding: 12px 26px 12px 26px;
+ line-height: normal;
+ text-align: center;
+ vertical-align: middle;
+ cursor: pointer;
+ text-transform: uppercase;
+ text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+ -webkit-border-radius: 3px;
+ -moz-border-radius: 3px;
+ border-radius: 3px;
+ -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+ -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+ box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+/*
+.flatbtn-blu:hover {
+ color: #fff;
+ background-color: #519dde;
+}*/
+.flatbtn-blu:hover {
+ color: black;
+ background-color: white;
+}
+
+.flatbtn-blu:active {
+ -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
+ -moz-box-shadow:inset 0 1px 5px rgba(0, 0, 0, 0.1);
+ box-shadow:inset 0 1px 5px rgba(0, 0, 0, 0.1);
+}
