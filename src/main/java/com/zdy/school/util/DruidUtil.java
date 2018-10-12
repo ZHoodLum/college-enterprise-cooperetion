@@ -61,17 +61,18 @@ public class DruidUtil {
 	public static void closeConnection(ResultSet rs,Connection conn,Statement state) throws Exception {
 		if(rs!=null) {
 			rs.close();
-			System.out.println("数据库rs关闭成功！");
+//			System.out.println("数据库rs关闭成功！");
 		}
 		
 		if(state!=null) {
 			state.close();
-			System.out.println("数据库pstate关闭成功！");
+//			System.out.println("数据库pstate关闭成功！");
 		}
 		
 		if(conn!=null) {
 			conn.close();
-			System.out.println("数据库con关闭成功！");
+//			System.out.println("数据库con关闭成功！");
 		}
+		System.out.println("数据库关闭成功！");
 	}
 }

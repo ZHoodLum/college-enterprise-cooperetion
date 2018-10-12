@@ -18,7 +18,7 @@ import java.sql.ResultSet;
 
 public class LoginDao {
     private PreparedStatement preparedStatement;
-    ResultSet rs = null;
+    ResultSet rs;
     boolean flag = false;
     //获取连接信息
     Connection conn = DruidUtil.getCon();
@@ -32,15 +32,13 @@ public class LoginDao {
             preparedStatement.setString(2, studentInfo.getStudentPassword());
 
             rs = preparedStatement.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 flag = true;
                 studentInfo.setStudentTel(rs.getString("student_tel"));
                 studentInfo.setStudentPassword(rs.getString("student_password"));
                 studentInfo.setStudentName(rs.getString("student_name"));
                 studentInfo.setStudentSex(rs.getString("student_sex"));
             }
-            rs.close();
-            preparedStatement.close();
         } catch (Exception ex) {
             ex.printStackTrace();
 
@@ -58,17 +56,14 @@ public class LoginDao {
             preparedStatement.setString(2, teacherInfo.getTeacherPassword());
 
             rs = preparedStatement.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 flag = true;
                 teacherInfo.setTeacherTel(rs.getString("teacher_tel"));
                 teacherInfo.setTeacherPassword(rs.getString("teacher_password"));
                 teacherInfo.setTeacherName(rs.getString("teacher_name"));
             }
-            rs.close();
-            preparedStatement.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-
         } finally {
             DruidUtil.closeConnection(rs, conn, preparedStatement);
 
@@ -84,17 +79,20 @@ public class LoginDao {
             preparedStatement.setString(2, enterpriseInfo.getEnterprisePassword());
 
             rs = preparedStatement.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 flag = true;
                 enterpriseInfo.setEnterpriseId(rs.getInt("enterprise_id"));
                 enterpriseInfo.setEnterprisePassword(rs.getString("enterprise_password"));
+                enterpriseInfo.setEnterpriseName(rs.getString("enterprise_name"));
+                enterpriseInfo.setEnterpriseIntroduce(rs.getString("enterprise_introduce"));
+                enterpriseInfo.setEnterpeiseAddress(rs.getString("enterprise_address"));
+                enterpriseInfo.setEnterpeiseTel(rs.getString("enterprise_tel"));
+                enterpriseInfo.setEmail(rs.getString("email"));
                 enterpriseInfo.setEnterpriseManager(rs.getString("enterprise_manager"));
+
             }
-            rs.close();
-            preparedStatement.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-
         } finally {
             DruidUtil.closeConnection(rs, conn, preparedStatement);
         }
@@ -110,17 +108,14 @@ public class LoginDao {
             preparedStatement.setString(2, adminInfo.getAdminPassword());
 
             rs = preparedStatement.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 flag = true;
                 adminInfo.setAdminId(rs.getInt("admin_id"));
                 adminInfo.setAdminPassword(rs.getString("admin_password"));
                 adminInfo.setAdminName(rs.getString("admin_name"));
             }
-            rs.close();
-            preparedStatement.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-
         } finally {
             DruidUtil.closeConnection(rs, conn, preparedStatement);
         }

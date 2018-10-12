@@ -1,0 +1,108 @@
+/*小标题*/
+.checkout-title{
+  font-family: 微软雅黑;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 5px;
+  font-weight: bold;
+}
+.hrLine{
+  vertical-align:middle; display:inline-block;
+}
+
+tr td{
+  margin:0 auto;
+  list-style: none;
+  padding: 10px;
+  border-bottom: 1px solid #DFDFDF;
+  overflow:hidden;
+}
+/**/
+.text1{
+  outline:none;
+  width:900px;
+  height:54px;
+  font-size: 16px;
+  outline: none;
+  resize:none;/*禁止拖动*/
+  overflow:hidden;/*无滚动条*/
+  padding-left:8px;/*输入的字始终与左边有距离*/
+  margin-left: 10px;
+  border-radius:10px;
+  border:1px solid #DFDFDF;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 3; /** 显示的行数 **/
+   overflow: hidden; /*隐藏超出的内容 **/
+/**overflow: auto;*/
+
+}
+.label1
+{
+  text-align: left;
+  padding-left: 50px;
+ font-size: 14px;
+ font-weight: bold;
+ margin: 5px 0 0 0;
+ width: 100px;
+}
+.label2
+{
+  /*文字始终与textarea第一行对齐*/
+  display:block;
+  vetical-align:top;
+  float:left;
+
+  text-align: left;
+  padding-left: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0 0 0;
+  width: 100px;
+}
+.btn { 
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  color: #edf4f9;
+  text-decoration: none;
+  background-color: #4f94cf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 12px 26px 12px 26px;
+  line-height: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.btn:hover {
+  color:black;
+  border: 1px blue solid;
+  background-color: white;
+}
+.btn:active {
+  -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow:inset 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow:inset 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+/*
+p
+{
+  margin: 0px;
+  width: 310px;
+}
+*/

@@ -48,7 +48,6 @@
 					<li>
 						<a href="" class="btn">提交简历</a>
 						<a href="#" onClick="javascript:history.go(-1);" class="btn">返回上一级</a>
-						<a href="main.jsp" class="btn">返回首页</a>
 					</li>
 					<!--
 					<li>

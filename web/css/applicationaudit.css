@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+
+.checkout-title{
+    font-family: 微软雅黑;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.hrLine{
+    vertical-align:middle; display:inline-block;
+}
+/*搜索框*/
+.sousuo{
+    float:right;
+    margin: 20px 80px 10px 0;
+}
+.search{
+    border-color:blue;
+    width: 200px;
+    height:20px;
+    outline: none;
+    border-radius:10px;
+}
+.sub{
+    background-color: blue;
+    border: 2px;
+    width: 60px;
+    height: 30px;
+    font-size: 16px;
+    font-family:YouYuan;
+}
+
+
+#recruitinformation{
+    width: 95%;
+    height: auto;
+    margin:0 auto;
+    text-align: center;
+    margin-top: 4px;
+    font-size: 16px;
+    /*
+        border-radius:5px;
+        border-top: 2px solid;
+        border-bottom: 2px solid;
+        border-left: 2px solid;
+        border-right: 2px solid;
+    */
+}
+#recruitinformation table tr td{
+    padding:8px;
+    border-bottom: 1px dashed #6bb642;
+}
+#recruitinformation table tr td a {
+    text-decoration: none;
+}
+#recruitinformation table tr td a:hover{
+    color: red;
+    border-bottom:2px solid red; /* #ccc换成链接的颜色 */
+    padding-bottom:2px;  /*这里设置你要空的距离*/
+}

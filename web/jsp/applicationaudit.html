@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application</title>
+    <link rel="stylesheet" type="text/css" href="../css/applicationaudit.css">
+    <!--
+    下拉框样式
+    -->
+    <style type="text/css">
+        .selectbox{ width: 200px; display: inline-block; overflow-x: hidden; height: 28px; line-height: 28px; font-size: 0;  background:#fff url(images/arrow.png) right center no-repeat; border: 1px solid #dcdbdb; vertical-align: middle;}
+        .selectbox select{cursor: pointer; padding: 0 8px; height: 28px; line-height: 28px; font-size: 12px; width:118%; padding-right: 18%; background:none; border: none;}
+        .selectbox select option{ padding:5px;}
+    </style>
+</head>
+<body>
+<div class="checkout-title">
+    <span><hr class="hrLine" style="width:300px;"/>请审核实习申请<hr class="hrLine" style="width:300px;"/></span>
+</div>
+<div id="recruitinformation">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr align="center">
+            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学生学号</td>
+            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学生姓名</td>
+            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">专业</td>
+            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">所在学院</td>
+            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">在校指导教师</td>
+            <td width="20%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">是否实习</td>
+        </tr>
+        <tr align="center" style="padding:10px; border-bottom: 1px dashed #6bb642;">
+            <td style="padding:15px;">15231566</td>
+            <td style="padding:15px;">ZHoodLum</td>
+            <td style="padding:15px;">架构师</td>
+            <td style="padding:15px;">计科</td>
+            <td style="padding:15px;">王岩</td>
+            <td style="padding:15px;">
+                <div class="selectbox">
+                    <select>
+                        <option value="0">审核中</option>
+                        <option value="1">未审核</option>
+                        <option value="2">通过</option>
+                        <option value="3">不通过</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+
+        <tr align="center" style="padding:10px; border-bottom: 1px dashed #6bb642;">
+            <td style="padding:15px;">15231566</td>
+            <td style="padding:15px;">ZHoodLum</td>
+            <td style="padding:15px;">架构师</td>
+            <td style="padding:15px;">计科</td>
+            <td style="padding:15px;">王岩</td>
+            <td style="padding:15px;">
+                <div class="selectbox">
+                    <select>
+                        <option value="0">审核中</option>
+                        <option value="1">未审核</option>
+                        <option value="2">通过</option>
+                        <option value="3">不通过</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>

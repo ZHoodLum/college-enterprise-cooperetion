@@ -939,27 +939,68 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="238" parent="10" name="jobinfo"/>
-    <table id="239" parent="10" name="studentinfo"/>
-    <table id="240" parent="10" name="teacherinfo"/>
-    <column id="241" parent="238" name="job_id">
+    <table id="238" parent="10" name="enterpriseinfo"/>
+    <table id="239" parent="10" name="jobinfo"/>
+    <table id="240" parent="10" name="studentinfo"/>
+    <table id="241" parent="10" name="teacherinfo"/>
+    <column id="242" parent="238" name="enterprise_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="243" parent="238" name="enterprise_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="244" parent="238" name="enterprise_password">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="245" parent="238" name="enterprise_introduce">
+      <Position>4</Position>
+      <DataType>varchar(500)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="246" parent="238" name="enterprise_address">
+      <Position>5</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="247" parent="238" name="enterprise_tel">
+      <Position>6</Position>
+      <DataType>varchar(15)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="248" parent="238" name="email">
+      <Position>7</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="249" parent="238" name="enterprise_manager">
+      <Position>8</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="250" parent="239" name="job_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="238" name="job_info">
+    <column id="251" parent="239" name="job_info">
       <Position>2</Position>
       <DataType>varchar(1000)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="238" name="job_position">
+    <column id="252" parent="239" name="job_position">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="238" name="job_date">
+    <column id="253" parent="239" name="job_date">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
@@ -967,196 +1008,196 @@
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="245" parent="238" name="enterprise_name">
+    <column id="254" parent="239" name="enterprise_name">
       <Position>5</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="238" name="e_check">
+    <column id="255" parent="239" name="e_check">
       <Position>6</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="238" name="wage">
+    <column id="256" parent="239" name="wage">
       <Position>7</Position>
       <DataType>varchar(15)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="248" parent="238" name="PRIMARY">
+    <key id="257" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>job_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="249" parent="239" name="student_id">
+    <column id="258" parent="240" name="student_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="239" name="student_account">
+    <column id="259" parent="240" name="student_account">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="239" name="student_name">
+    <column id="260" parent="240" name="student_name">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="239" name="student_tel">
+    <column id="261" parent="240" name="student_tel">
       <Position>4</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="239" name="student_password">
+    <column id="262" parent="240" name="student_password">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="239" name="student_sex">
+    <column id="263" parent="240" name="student_sex">
       <Position>6</Position>
       <DataType>varchar(2)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="239" name="major">
+    <column id="264" parent="240" name="major">
       <Position>7</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="239" name="city">
+    <column id="265" parent="240" name="city">
       <Position>8</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="239" name="email">
+    <column id="266" parent="240" name="email">
       <Position>9</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="239" name="student_college">
+    <column id="267" parent="240" name="student_college">
       <Position>10</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="239" name="student_internship">
+    <column id="268" parent="240" name="student_internship">
       <Position>11</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="239" name="student_grade">
+    <column id="269" parent="240" name="student_grade">
       <Position>12</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="239" name="class_id">
+    <column id="270" parent="240" name="class_id">
       <Position>13</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="239" name="teacher_id">
+    <column id="271" parent="240" name="teacher_id">
       <Position>14</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="263" parent="239" name="uk_student_tel">
+    <index id="272" parent="240" name="uk_student_tel">
       <ColNames>student_tel</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="264" parent="239" name="uk_email">
+    <index id="273" parent="240" name="uk_email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="265" parent="239" name="PRIMARY">
+    <key id="274" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>student_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="266" parent="239" name="uk_student_tel">
+    <key id="275" parent="240" name="uk_student_tel">
       <ColNames>student_tel</ColNames>
       <UnderlyingIndexName>uk_student_tel</UnderlyingIndexName>
     </key>
-    <key id="267" parent="239" name="uk_email">
+    <key id="276" parent="240" name="uk_email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>uk_email</UnderlyingIndexName>
     </key>
-    <column id="268" parent="240" name="teacher_id">
+    <column id="277" parent="241" name="teacher_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="240" name="teacher_account">
+    <column id="278" parent="241" name="teacher_account">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="240" name="teacher_name">
+    <column id="279" parent="241" name="teacher_name">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="240" name="teacher_tel">
+    <column id="280" parent="241" name="teacher_tel">
       <Position>4</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="240" name="teacher_password">
+    <column id="281" parent="241" name="teacher_password">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="240" name="email">
+    <column id="282" parent="241" name="email">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="240" name="teacher_college">
+    <column id="283" parent="241" name="teacher_college">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="240" name="teacher_sex">
+    <column id="284" parent="241" name="teacher_sex">
       <Position>8</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="240" name="teacher_job">
+    <column id="285" parent="241" name="teacher_job">
       <Position>9</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="277" parent="240" name="uk_teacher_tel">
+    <index id="286" parent="241" name="uk_teacher_tel">
       <ColNames>teacher_tel</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="278" parent="240" name="uk_email">
+    <index id="287" parent="241" name="uk_email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="279" parent="240" name="PRIMARY">
+    <key id="288" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>teacher_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="280" parent="240" name="uk_teacher_tel">
+    <key id="289" parent="241" name="uk_teacher_tel">
       <ColNames>teacher_tel</ColNames>
       <UnderlyingIndexName>uk_teacher_tel</UnderlyingIndexName>
     </key>
-    <key id="281" parent="240" name="uk_email">
+    <key id="290" parent="241" name="uk_email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>uk_email</UnderlyingIndexName>
     </key>

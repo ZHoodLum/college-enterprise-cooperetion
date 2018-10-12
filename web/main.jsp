@@ -46,7 +46,8 @@
                 <span class="main2"><a href="#recruitinformation">招聘信息</a></span>
                 <span class="main2"><a href="#recruitstudentimages2">实习向导</a></span>
                 <span class="main2"><a href="#footers">界面底部</a></span>
-                <span class="main2"><a href="Send? url=WEB-INF/jsp/contact.jsp">我的简历</a></span>
+                <%--<span class="main2"><a href="Send? url=WEB-INF/jsp/contact.jsp">我的简历</a></span>--%>
+                <span class="main2"><a href="jsp/contact.jsp">我的简历</a></span>
             </div>
         </div>
         <div>
