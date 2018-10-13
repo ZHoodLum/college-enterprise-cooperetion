@@ -22,13 +22,14 @@ public class JobInfoDao {
     ResultSet rs;
     boolean flag = false;
     Connection con = DruidUtil.getCon();
+//    查询全部招聘信息
     public ArrayList<JobInfo> finAllJobInfo(JobInfo jobInfo) throws Exception {
         ArrayList<JobInfo> allJobInfo = new ArrayList<JobInfo>();
         try {
             String sql = "select job_id,job_info,job_position,job_date,enterprise_name,e_check,wage from jobinfo limit 0,5";
             pstate = con.prepareStatement(sql);
             rs = pstate.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 flag = true;
                 jobInfo = new JobInfo();
                 jobInfo.setJobId(rs.getInt("job_id"));
@@ -40,7 +41,7 @@ public class JobInfoDao {
                 jobInfo.setWage(rs.getString("wage"));
                 allJobInfo.add(jobInfo);
             }
-            DruidUtil.closeConnection(rs,con,pstate);
+            DruidUtil.closeConnection(rs, con, pstate);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -74,28 +75,53 @@ public class JobInfoDao {
 //        }
 //        return i;
 //    }
-public JobInfo findJobInfo(int JobId) throws Exception {
-    JobInfo jobInfo = new JobInfo();
-    try {
-        String sql = "select job_id,job_info,job_position,job_date,enterprise_name,e_check,wage from jobinfo where job_id = ?";
-        pstate = con.prepareStatement(sql);
-        pstate.setInt(1, JobId);
-        rs = pstate.executeQuery();
-        if (rs.next()){
-            flag = true;
-            jobInfo = new JobInfo();
-            jobInfo.setJobId(rs.getInt("job_id"));
-            jobInfo.setJobInfo(rs.getString("job_info"));
-            jobInfo.setJobPosition(rs.getString("job_position"));
-            jobInfo.setJobDate(rs.getDate("job_date"));
-            jobInfo.setEnterpriseName(rs.getString("enterprise_name"));
-            jobInfo.setECheck(rs.getString("e_check"));
-            jobInfo.setWage(rs.getString("wage"));
+
+//    查找招聘信息详情
+    public JobInfo findJobInfo(int jobId) throws Exception {
+        JobInfo jobInfo = new JobInfo();
+        try {
+            String sql = "select job_id,job_info,job_position,job_date,enterprise_name,e_check,wage from jobinfo where job_id = ?";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, jobId);
+            rs = pstate.executeQuery();
+            if (rs.next()) {
+                flag = true;
+                jobInfo = new JobInfo();
+                jobInfo.setJobId(rs.getInt("job_id"));
+                jobInfo.setJobInfo(rs.getString("job_info"));
+                jobInfo.setJobPosition(rs.getString("job_position"));
+                jobInfo.setJobDate(rs.getDate("job_date"));
+                jobInfo.setEnterpriseName(rs.getString("enterprise_name"));
+                jobInfo.setECheck(rs.getString("e_check"));
+                jobInfo.setWage(rs.getString("wage"));
+            }
+            DruidUtil.closeConnection(rs, con, pstate);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        DruidUtil.closeConnection(rs,con,pstate);
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return jobInfo;
     }
-    return jobInfo;
-}
+
+//添加招聘信息
+    public int insertJobInfo(JobInfo jobInfo) throws Exception{
+        int rows = 0;
+        try {
+            String sql = "insert into jobinfo(job_info,job_position,enterprise_name,wage) values(?,?,?,?)";
+            pstate = con.prepareStatement(sql);
+            pstate.setString(1,jobInfo.getJobInfo());
+            pstate.setString(2,jobInfo.getJobPosition());
+            pstate.setString(3,jobInfo.getEnterpriseName());
+            pstate.setString(4,jobInfo.getWage());
+            rows = pstate.executeUpdate();
+            DruidUtil.closeConnection(rs,con,pstate);
+        }catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("录入招聘信息出现错误！");
+        }
+        return rows;
+    }
+
+
+
+
 }

@@ -13,14 +13,12 @@ import java.util.ArrayList;
 
 public class JobInfoService {
     JobInfoDao jobInfoDao = new JobInfoDao();
-
+//    查询全部招聘信息
     public ArrayList<JobInfo> findAllJobInfo(JobInfo jobInfo) throws Exception {
         return jobInfoDao.finAllJobInfo(jobInfo);
     }
-    public JobInfo findJobInfo(int JobId) throws Exception{
-        return jobInfoDao.findJobInfo(JobId);
-    }
-//    public PageBean findPageBean(PageBean pageBean) throws SQLException {
+
+    //    public PageBean findPageBean(PageBean pageBean) throws SQLException {
 //        PageBeanDao pageBeanDao = new PageBeanDao();
 //        // 查询 展示的信息
 //        PageBean pagebean1=pageBeanDao.findPageBean(pageBean.getCurrentPage(), pageBean.getCurrentCount());
@@ -36,5 +34,19 @@ public class JobInfoService {
 //
 //        return pagebean1;
 //    }
-
+//  查看招聘信息详情
+    public JobInfo findJobInfo(int jobId) throws Exception {
+        return jobInfoDao.findJobInfo(jobId);
+    }
+//    添加招聘信息
+    public int insertJobInfo(JobInfo jobInfo) throws Exception{
+        int datevalues = 0;
+        int rows = jobInfoDao.insertJobInfo(jobInfo);
+        if (rows>0){
+            datevalues = 1;
+        }else {
+            datevalues = 0;
+        }
+        return rows;
+    }
 }

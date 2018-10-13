@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
 							request.getSession().setAttribute("StudentName", studentInfo.getStudentName());
 							request.getSession().setAttribute("StudentInfo", studentInfo);
 
-							request.getRequestDispatcher("/JobInfoServlet").forward(request,response);
+							request.getRequestDispatcher("/JobInfoQueryAllServlet").forward(request,response);
 						} else {
 							response.sendRedirect("/college-enterprise-cooperetion/jsp/login.jsp");
 						}
@@ -98,7 +98,8 @@ public class LoginServlet extends HttpServlet {
 					System.out.println("************************************************");
 					try {
 						if (loginDao.enterpriselogin(enterpriseInfo)) {
-							request.getSession().setAttribute("EnterpriseInfo", enterpriseInfo.getEnterpriseManager());
+							request.getSession().setAttribute("enterprise_manager", enterpriseInfo.getEnterpriseManager());
+							request.getSession().setAttribute("enterprise_name", enterpriseInfo.getEnterpriseName());
 							request.getSession().setAttribute("EnterpriseInfo", enterpriseInfo);
 							
 							request.getRequestDispatcher("/jsp/company-main.jsp").forward(request,response);

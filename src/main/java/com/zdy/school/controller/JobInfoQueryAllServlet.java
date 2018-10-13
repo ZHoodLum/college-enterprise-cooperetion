@@ -17,8 +17,8 @@ import java.util.List;
  * @ Date       ：Created in 2018/10/9
  */
 
-@WebServlet("/JobInfoServlet")
-public class JobInfoServlet extends HttpServlet {
+@WebServlet("/JobInfoQueryAllServlet")
+public class JobInfoQueryAllServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

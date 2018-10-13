@@ -43,7 +43,9 @@
         <span id="title"><a href="../main.jsp" style="text-decoration: none;color:black;" target="_top">School enterprise cooperation</a></span>
         <a href="update-manger-information.html" style="text-decoration: none;color:black;" target="right">
             <img src="../images/loginusers.png"  id="circle">
-            <span id="title1">${sessionScope.EnterpriseInfo.getEnterpriseManager()}</span>
+            <span id="title1">
+                欢迎：${sessionScope.EnterpriseInfo.getEnterpriseManager()}
+            </span>
         </a>
     </div>
 </body>
