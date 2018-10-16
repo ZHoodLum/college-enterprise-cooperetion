@@ -1,6 +1,9 @@
 package com.zdy.school.controller;
 
 import com.zdy.school.dao.JobInfoDao;
+import com.zdy.school.dao.JobInfoDaoImpl;
+import com.zdy.school.service.JobInfoService;
+import com.zdy.school.service.JobInfoServiceImpl;
 import com.zdy.school.vo.JobInfo;
 
 import javax.servlet.ServletException;
@@ -19,7 +22,9 @@ import java.io.IOException;
 public class JobInfoQueryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        JobInfoDao jobInfoDao = new JobInfoDao();
+//        JobInfoDao jobInfoDao = new JobInfoDaoImpl();
+        JobInfoService jobInfoDao = new JobInfoServiceImpl();
+
         int JobId = Integer.parseInt(request.getParameter("jobid"));
         System.out.println(request.getParameter("jobid"));
         try {

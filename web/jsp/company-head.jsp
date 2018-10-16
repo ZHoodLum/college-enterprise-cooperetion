@@ -22,7 +22,7 @@
             color: black;
             text-decoration: none;
         }
-        #title:hover{cursor: pointer;/*光标点击 宽度向右移动50*/transform: translateX(50px);}
+        #title:hover{cursor: pointer;/*光标点击 宽度向右移动50*/transform: translateX(80px);}
         #title1 a:visited {color:black;}
         #title1 a:hover {color:blue; text-decoration: none;}
         #circle {
@@ -41,10 +41,10 @@
 <body>
     <div id="login">
         <span id="title"><a href="../main.jsp" style="text-decoration: none;color:black;" target="_top">School enterprise cooperation</a></span>
-        <a href="update-manger-information.html" style="text-decoration: none;color:black;" target="right">
+        <a href="../jsp/update-company-information.jsp" style="text-decoration: none;color:black;" target="right">
             <img src="../images/loginusers.png"  id="circle">
             <span id="title1">
-                欢迎：${sessionScope.EnterpriseInfo.getEnterpriseManager()}
+                欢迎：${sessionScope.EnterpriseInfo.getEnterpriseName()}&nbsp;&nbsp;&nbsp;${sessionScope.EnterpriseInfo.getEnterpriseManager()}
             </span>
         </a>
     </div>

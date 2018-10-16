@@ -6,6 +6,7 @@ package com.zdy.school.vo;
  */
 public class StudentInfo {
 	private int StudentId;
+	private int StudentAccount;
 	private String StudentName;
 	private String StudentTel;
 	private String StudentPassword;
@@ -17,7 +18,41 @@ public class StudentInfo {
 	private String StudentInternship;
 	private int StudentGrade;
 	private int ClassId;
-	
+	private int TeacherId;
+	private String ClassName;
+	private String TeacherName;
+
+	public String getClassName() {
+		return ClassName;
+	}
+
+	public void setClassName(String className) {
+		ClassName = className;
+	}
+
+	public String getTeacherName() {
+		return TeacherName;
+	}
+
+	public void setTeacherName(String teacherName) {
+		TeacherName = teacherName;
+	}
+
+	public int getStudentAccount() {
+		return StudentAccount;
+	}
+
+	public void setStudentAccount(int studentAccount) {
+		StudentAccount = studentAccount;
+	}
+	public int getTeacherId() {
+		return TeacherId;
+	}
+
+	public void setTeacherId(int teacherId) {
+		TeacherId = teacherId;
+	}
+
 	public int getStudentId() {
 		return StudentId;
 	}

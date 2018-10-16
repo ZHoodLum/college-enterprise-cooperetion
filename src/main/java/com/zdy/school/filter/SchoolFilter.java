@@ -1,10 +1,10 @@
 package com.zdy.school.filter;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-//@WebFilter("/TestFilter1")
-//@WebFilter("/TestFilter1")
+//@WebFilter("/SchoolFilter")
 //@WebFilter(filterName="/TestFilter1",urlPatterns="/*")
 public class SchoolFilter implements Filter {
 	public void destroy() {

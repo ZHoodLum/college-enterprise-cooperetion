@@ -1,6 +1,7 @@
 package com.zdy.school.controller;
 
-import com.zdy.school.dao.LoginDao;
+import com.zdy.school.service.LoginService;
+import com.zdy.school.service.LoginServiceImpl;
 import com.zdy.school.vo.AdminInfo;
 import com.zdy.school.vo.EnterpriseInfo;
 import com.zdy.school.vo.StudentInfo;
@@ -22,7 +23,8 @@ public class LoginServlet extends HttpServlet {
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		LoginDao loginDao = new LoginDao();
+//		LoginDao loginDao = new LoginDao();
+		LoginService loginDao = new LoginServiceImpl();
 		StudentInfo studentInfo = new StudentInfo();
 		TeacherInfo teacherInfo = new TeacherInfo();
 		EnterpriseInfo enterpriseInfo = new EnterpriseInfo();
@@ -100,6 +102,7 @@ public class LoginServlet extends HttpServlet {
 						if (loginDao.enterpriselogin(enterpriseInfo)) {
 							request.getSession().setAttribute("enterprise_manager", enterpriseInfo.getEnterpriseManager());
 							request.getSession().setAttribute("enterprise_name", enterpriseInfo.getEnterpriseName());
+							System.out.println("登录的公司是："+ enterpriseInfo.getEnterpriseName());
 							request.getSession().setAttribute("EnterpriseInfo", enterpriseInfo);
 							
 							request.getRequestDispatcher("/jsp/company-main.jsp").forward(request,response);

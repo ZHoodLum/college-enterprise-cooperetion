@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>addinformation</title>
+	<title>AI发布招聘信息</title>
 	<link rel="stylesheet" type="text/css" href="../css/addinformation.css">
 
 </head>
@@ -24,7 +24,7 @@
 									<h3>招聘企业：</h3>
 									<p>
 										<h3></h3>
-										<input type="text" name="enterprise_name" value="<%=session.getAttribute("enterprise_name")%>" style="border:0px; ">
+										<input type="text" name="enterprise_name" value="${sessionScope.EnterpriseInfo.getEnterpriseName()}" readonly="readonly" style="border:0px;float: left;margin-left: 10px;background-color: white;" >
 										<%--<textarea  class="text1" type="text" name="enterprise_name" placeholder="请填写招聘单位，可精确到街道单元！例如：辽宁省抚顺市望花区滨河路东段2号宏达公司！">--%>
 											<%----%>
 										<%--</textarea>--%>

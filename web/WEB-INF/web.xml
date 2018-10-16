@@ -18,7 +18,7 @@
         <!--<url-pattern>/Send</url-pattern>-->
     <!--</servlet-mapping>-->
 
-    <!--配置过滤器  -->
+    配置过滤器
     <filter>
         <filter-name>SchoolFilter</filter-name>
         <filter-class>com.zdy.school.filter.SchoolFilter</filter-class>

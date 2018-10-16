@@ -1,6 +1,9 @@
 package com.zdy.school.controller;
 
 import com.zdy.school.dao.JobInfoDao;
+import com.zdy.school.dao.JobInfoDaoImpl;
+import com.zdy.school.service.JobInfoService;
+import com.zdy.school.service.JobInfoServiceImpl;
 import com.zdy.school.vo.JobInfo;
 
 import javax.servlet.ServletException;
@@ -10,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @ Author     ：ZhoodLum
@@ -29,9 +31,12 @@ public class JobInfoQueryAllServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         JobInfo jobInfo = new JobInfo();
-        JobInfoDao jobInfoDao = new JobInfoDao();
+//        JobInfoDao jobInfoDao = new JobInfoDaoImpl();
+        JobInfoService jobInfoDao = new JobInfoServiceImpl();
+
         try {
-            ArrayList<JobInfo> allJobInfo = jobInfoDao.finAllJobInfo(jobInfo);
+
+            ArrayList<JobInfo> allJobInfo = jobInfoDao.findAllJobInfo(jobInfo);
             request.getSession().setAttribute("allJobInfo",allJobInfo);
             request.getRequestDispatcher("main.jsp").forward(request,response);
         } catch (Exception e) {

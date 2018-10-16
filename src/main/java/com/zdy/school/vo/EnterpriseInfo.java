@@ -10,8 +10,8 @@ public class EnterpriseInfo {
 	private String EnterpriseName;
 	private String EnterprisePassword;
 	private String EnterpriseIntroduce;
-	private String EnterpeiseAddress;
-	private String EnterpeiseTel;
+	private String EnterpriseAddress;
+	private String EnterpriseTel;
 	private String Email;
 	private String EnterpriseManager;
 	
@@ -39,18 +39,23 @@ public class EnterpriseInfo {
 	public void setEnterpriseIntroduce(String enterpriseIntroduce) {
 		EnterpriseIntroduce = enterpriseIntroduce;
 	}
-	public String getEnterpeiseAddress() {
-		return EnterpeiseAddress;
+
+	public String getEnterpriseAddress() {
+		return EnterpriseAddress;
 	}
-	public void setEnterpeiseAddress(String enterpeiseAddress) {
-		EnterpeiseAddress = enterpeiseAddress;
+
+	public void setEnterpriseAddress(String enterpriseAddress) {
+		EnterpriseAddress = enterpriseAddress;
 	}
-	public String getEnterpeiseTel() {
-		return EnterpeiseTel;
+
+	public String getEnterpriseTel() {
+		return EnterpriseTel;
 	}
-	public void setEnterpeiseTel(String enterpeiseTel) {
-		EnterpeiseTel = enterpeiseTel;
+
+	public void setEnterpriseTel(String enterpriseTel) {
+		EnterpriseTel = enterpriseTel;
 	}
+
 	public String getEmail() {
 		return Email;
 	}
