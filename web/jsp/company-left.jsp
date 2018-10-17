@@ -47,7 +47,7 @@
 
         <dl class="app">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="../jsp/student-information.html" target="right">查询学生信息</a>
+                <a href="../StudentQueryAllServlet" target="right">查询学生信息</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>

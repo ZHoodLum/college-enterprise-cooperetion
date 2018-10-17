@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 
 public class JobInfoServiceImpl implements JobInfoService {
-    JobInfoDaoImpl jobInfoDao = new JobInfoDaoImpl();
+    JobInfoDao jobInfoDao = new JobInfoDaoImpl();
 //    查询全部招聘信息
     public ArrayList<JobInfo> findAllJobInfo(JobInfo jobInfo) throws Exception {
         return jobInfoDao.findAllJobInfo(jobInfo);

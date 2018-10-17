@@ -32,11 +32,11 @@ public class JobInfoQueryAllServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         JobInfo jobInfo = new JobInfo();
 //        JobInfoDao jobInfoDao = new JobInfoDaoImpl();
-        JobInfoService jobInfoDao = new JobInfoServiceImpl();
+        JobInfoService jobInfoService = new JobInfoServiceImpl();
 
         try {
 
-            ArrayList<JobInfo> allJobInfo = jobInfoDao.findAllJobInfo(jobInfo);
+            ArrayList<JobInfo> allJobInfo = jobInfoService.findAllJobInfo(jobInfo);
             request.getSession().setAttribute("allJobInfo",allJobInfo);
             request.getRequestDispatcher("main.jsp").forward(request,response);
         } catch (Exception e) {

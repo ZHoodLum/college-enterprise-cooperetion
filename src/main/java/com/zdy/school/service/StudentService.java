@@ -1,4 +1,4 @@
-package com.zdy.school.dao;
+package com.zdy.school.service;
 
 import com.zdy.school.vo.StudentInfo;
 
@@ -10,6 +10,7 @@ import java.util.ArrayList;
  */
 
 
-public interface StudentDao {
+public interface StudentService {
+//    查看全部学生信息
     public ArrayList<StudentInfo> findAllStudentInfo(StudentInfo studentInfo) throws Exception;
 }
