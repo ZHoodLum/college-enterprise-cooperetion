@@ -20,14 +20,20 @@
     overflow-y:scroll;
     padding-left:8px;/*输入的字始终与左边有距离*/
     border-radius:10px;
+    text-align: left;
     border:1px solid #DFDFDF;
 
 }
 .text2{
     outline:none;
-    padding: 10px 0 10px 0;
-    border:1px solid #DFDFDF;
     width:500px;
+    height:10px;
+    resize:none;/*禁止拖动*/
+    /*overflow-x:hidden;!*无滚动条*!*/
+    overflow-y:scroll;
+    /*padding: 10px 0 0 10px;*/
+    border:1px solid #DFDFDF;
+    padding-left:8px;/*输入的字始终与左边有距离*/
     margin-left: 10px;
     border-radius:6px;
 }
@@ -46,7 +52,7 @@ ul li.last
     margin-top: 30px;
 }
 ul li{
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     margin-left: 50px;
     float: left;
     width: 800px;
@@ -55,21 +61,21 @@ ul li{
     border-bottom: 1px solid #DFDFDF;
     overflow:hidden;
 }
-ul li textarea{
-    outline:none;
-    width:500px;
-    height:80px;
-    margin-left: 10px;
-    border-radius:10px;
-    border:1px solid #DFDFDF;
-    word-break: break-all;
-    text-overflow: ellipsis;
-    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
-    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
-    -webkit-line-clamp: 3; /** 显示的行数 **/
-    overflow: hidden;  /** 隐藏超出的内容 **/
+/*ul li textarea{*/
+    /*outline:none;*/
+    /*width:500px;*/
+    /*height:80px;*/
+    /*margin-left: 10px;*/
+    /*border-radius:10px;*/
+    /*border:1px solid #DFDFDF;*/
+    /*word-break: break-all;*/
+    /*text-overflow: ellipsis;*/
+    /*display: -webkit-box; !** 对象作为伸缩盒子模型显示 **!*/
+    /*-webkit-box-orient: vertical; !** 设置或检索伸缩盒对象的子元素的排列方式 **!*/
+    /*-webkit-line-clamp: 3; !** 显示的行数 **!*/
+    /*overflow: hidden;  !** 隐藏超出的内容 **!*/
 
-}
+/*}*/
 ul li input{
     outline:none;
     padding: 0 0 10px 0;
@@ -78,20 +84,20 @@ ul li input{
     margin-left: 10px;
     border-radius:6px;
 }
-ul p
+ul li p
 {
     float: left;
-    margin: 0px;
+    margin: 0px auto;
     width: 310px;
+    padding: 5px 0 0 5px;
 }
 ul h3
 {
     float: left;
     font-size: 14px;
     font-weight: bold;
-    margin: 5px 0 0 0;
+    margin: 5px 0 0 20px;
     width: 100px;
-    margin-left:20px;
 }
 /**/
 .btn {

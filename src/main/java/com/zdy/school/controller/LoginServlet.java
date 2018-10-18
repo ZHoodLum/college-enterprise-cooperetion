@@ -100,8 +100,14 @@ public class LoginServlet extends HttpServlet {
 					System.out.println("************************************************");
 					try {
 						if (loginDao.enterpriselogin(enterpriseInfo)) {
-							request.getSession().setAttribute("enterprise_manager", enterpriseInfo.getEnterpriseManager());
+							request.getSession().setAttribute("enterprise_id", enterpriseInfo.getEnterpriseId());
 							request.getSession().setAttribute("enterprise_name", enterpriseInfo.getEnterpriseName());
+							request.getSession().setAttribute("enterprise_password", enterpriseInfo.getEnterprisePassword());
+							request.getSession().setAttribute("enterprise_introduce", enterpriseInfo.getEnterpriseIntroduce());
+							request.getSession().setAttribute("enterprise_address", enterpriseInfo.getEnterpriseAddress());
+							request.getSession().setAttribute("enterprise_tel", enterpriseInfo.getEnterpriseTel());
+							request.getSession().setAttribute("email", enterpriseInfo.getEmail());
+							request.getSession().setAttribute("enterprise_manager", enterpriseInfo.getEnterpriseManager());
 							System.out.println("登录的公司是："+ enterpriseInfo.getEnterpriseName());
 							request.getSession().setAttribute("EnterpriseInfo", enterpriseInfo);
 							
