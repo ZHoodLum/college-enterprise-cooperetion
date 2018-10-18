@@ -14,8 +14,8 @@ import java.io.IOException;
  * @ Date       ：Created in 2018/10/16
  */
 
-@WebServlet("/EnterpriseQueryServlet")
-public class EnterpriseQueryServlet extends HttpServlet {
+@WebServlet("/UpdateEnterpriseManagerServlet")
+public class UpdateEnterpriseManagerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
