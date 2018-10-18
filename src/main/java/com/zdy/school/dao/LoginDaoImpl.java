@@ -86,12 +86,8 @@ public class LoginDaoImpl implements LoginDao {
 				flag = true;
 				enterpriseinfo.setEnterpriseId(rs.getInt("enterprise_id"));
 				enterpriseinfo.setEnterprisePassword(rs.getString("enterprise_password"));
-				enterpriseinfo.setEnterpriseName(rs.getString("enterprise_name"));
-				enterpriseinfo.setEnterpriseIntroduce(rs.getString("enterprise_introduce"));
-				enterpriseinfo.setEnterpriseAddress(rs.getString("enterprise_address"));
-				enterpriseinfo.setEnterpriseTel(rs.getString("enterprise_tel"));
-				enterpriseinfo.setEmail(rs.getString("email"));
 				enterpriseinfo.setEnterpriseManager(rs.getString("enterprise_manager"));
+				enterpriseinfo.setEnterpriseName(rs.getString("enterprise_name"));
 			}
 			rs.close();
 			pstmt.close();

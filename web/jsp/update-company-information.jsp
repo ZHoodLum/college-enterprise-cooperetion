@@ -11,36 +11,8 @@
         .selectbox select{cursor: pointer; padding: 0 8px; height: 28px; line-height: 28px; font-size: 12px; width:118%; padding-right: 18%; background:none; border: none;}
         .selectbox select option{ padding:5px;}
     </style>
-    <script type="text/javascript" src="../js/update_enterprise.js"></script>
-    <script type="text/javascript">
-        var txtFocus = document.getElementById("ap_CarUnit");
-        var position = 0;
-        var userAgent=window.navigator.userAgent.toLowerCase();
-        var isMozilla = /firefox/.test(userAgent);//火狐
-        var isWwebkit = /webkit/.test(userAgent);//谷歌
-        var ismsie = /msie/.test(userAgent);//IE
-        var isOpera = /opera/.test(userAgent);
-
-        if(ismsie || isMozilla){
-            //如果是ie浏览器
-            var range = txtFocus.createTextRange();
-            range.move("character", position);
-            range.select();
-        }
-        if(isWwebkit){
-            txtFocus.setSelectionRange(position, position);
-            txtFocus.focus();
-        }
-        function check2pwd() {
-            if(enterprise_password.value != enterprise_repassword.value) {
-                alert("两次输入密码不一致！")
-                enterprise_password.value = "";
-                enterprise_repassword.value = "";
-            }
-        }
-    </script>
 </head>
-<body style="overflow-x:hidden;text-align: center">
+<body style="overflow-x:hidden;">
 <div class="container">
 
     <div class="checkout-title">
@@ -48,7 +20,7 @@
     </div>
 
     <div>
-        <form id="myform" name="myform" theme="simple" method="post" action="/UpdateEnterpriseManagerServlet">
+        <form id="myform" name="myform" theme="simple">
             <table border="0" width="100%"  style="text-align: center;margin-left: 150px;">
                 <tr>
                     <td>
@@ -56,7 +28,7 @@
                             <li>
                                 <h3>企业账号:</h3>
                                 <p>
-                                    <input class="text2" name="enterprise_id" value="<%=session.getAttribute("enterprise_id")%>"> </input>
+                                    <input class="text2" value="22"></input>
                                 </p>
                             </li>
                         </ul>
@@ -67,9 +39,7 @@
                         <ul>
                             <li>
                                 <h3>企业名称:</h3>
-                                <p>
-                                    <input class="text2" name="enterprise_name" value="<%=session.getAttribute("enterprise_name")%>"></input>
-                                </p>
+                                <p><input class="text2" value="22}"></input></p>
                             </li>
                         </ul>
                     </td>
@@ -79,21 +49,7 @@
                         <ul>
                             <li>
                                 <h3>登陆密码:</h3>
-                                <p>
-                                    <input  class="text2" name="enterprise_password" value="<%=session.getAttribute("enterprise_password")%>"></input>
-                                </p>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>
-                                <h3>重复密码:</h3>
-                                <p>
-                                    <input  class="text2" name="enterprise_repassword" value=""  placeholder="请填写再次确认您的密码！"  onblur="check2pwd()"></input>
-                                </p>
+                                <p><input  class="text2" value="22"></input></p>
                             </li>
                         </ul>
                     </td>
@@ -103,9 +59,7 @@
                         <ul>
                             <li>
                                 <h3>电话:</h3>
-                                <p>
-                                    <input class="text2" name="enterprise_tel" value="<%=session.getAttribute("enterprise_tel")%>"></input>
-                                </p>
+                                <p><input class="text2" value="22"></input> </p>
                             </li>
                         </ul>
                     </td>
@@ -115,9 +69,7 @@
                         <ul>
                             <li>
                                 <h3>邮箱:</h3>
-                                <p>
-                                    <input class="text2" name="email" value="<%=session.getAttribute("email")%>"></input>
-                                </p>
+                                <p><input class="text2" value="22"></input> </p>
                             </li>
                         </ul>
                     </td>
@@ -127,9 +79,7 @@
                         <ul>
                             <li>
                                 <h3>地址:</h3>
-                                <p>
-                                    <textarea class="text1" name="enterprise_address" value=""><%=session.getAttribute("enterprise_address")%></textarea>
-                                </p>
+                                <p><textarea class="text1" value="22"></textarea></p>
                             </li>
                         </ul>
                     </td>
@@ -137,7 +87,7 @@
 
                 <tr>
                     <td>
-                        <input type="submit" class="btn" style="float: left;margin-left: 400px;" value="保存修改信息">
+                        <a href="javascript:;" class="btn" style="float: left;margin-left: 320px;">保存修改信息</a>
                     </td>
                 </tr>
 

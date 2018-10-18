@@ -20,7 +20,6 @@ function validate() {
     //登录密码验证（5位以上位数字）
     var spwd=document.getElementById("spwd").value;
     var exp = new RegExp(/^(?!_)(?!.*?_$)([0-9a-zA-Z\s.]){6,20}$/);
-    //var exp=new RegExp(/^([123])$/);
     if(!exp.test(spwd)){
         alert("请重新输入密码，密码不符合要求");
         document.getElementById("spwd").focus(); //光标定位
@@ -28,12 +27,12 @@ function validate() {
     }
 
     //重复密码验证
-    var repwd=document.getElementById("repwd").value;
-    if(repwd!=spwd){
-        alert("重复密码与第一次输入密码不相同");
-        document.getElementById("repwd").focus(); //光标定位
-        return false;
-    }
+//    var repwd=document.getElementById("repwd").value;
+//    if(repwd!=spwd){
+//        alert("重复密码与第一次输入密码不相同");
+//        document.getElementById("repwd").focus(); //光标定位
+//        return false;
+//    }
     //专业
     var smajor = document.getElementById("major").value;
     var exp = new RegExp(/^(?!_)(?!.*?_$)([a-zA-Z]|[\u4e00-\u9fa5]){2,30}$/);
