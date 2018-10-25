@@ -7,12 +7,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>studentinformation</title>
+    <title>学生信息查询</title>
     <link rel="stylesheet" type="text/css" href="../css/applicationaudit.css">
 </head>
 <body>
 <div class="checkout-title">
-    <span><hr class="hrLine" style="width:300px;"/>学生的信息查询<hr class="hrLine" style="width:300px;"/></span>
+    <span><hr class="hrLine" style="width:260px;"/>学生的信息查询<hr class="hrLine" style="width:260px;"/></span>
 </div>
 <!--搜索框 <div class="search"></div>-->
 <div class="sousuo">

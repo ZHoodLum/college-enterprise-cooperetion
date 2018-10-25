@@ -20,7 +20,7 @@
     <div id="titletop">
         <!--登陆注册按钮 login-->
         <img id="login">
-        <span id="title">School enterprise cooperation</span>
+        <span id="title">College Enterprise Cooperetion</span>
         <!--登陆前登陆后-->
         <span class="title_login1">
 				<c:choose>

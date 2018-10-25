@@ -40,7 +40,7 @@
 </head>
 <body>
     <div id="login">
-        <span id="title"><a href="../main.jsp" style="text-decoration: none;color:black;" target="_top">School enterprise cooperation</a></span>
+        <span id="title"><a href="../main.jsp" style="text-decoration: none;color:black;" target="_top">College Enterprise Cooperetion</a></span>
         <a href="../jsp/update-company-information.jsp" style="text-decoration: none;color:black;" target="right">
             <img src="../images/loginusers.png"  id="circle">
             <span id="title1">

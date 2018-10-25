@@ -5,126 +5,148 @@ package com.zdy.school.vo;
  * 用于存放学生的相关信息
  */
 public class StudentInfo {
-	private int StudentId;
-	private int StudentAccount;
-	private String StudentName;
-	private String StudentTel;
-	private String StudentPassword;
-	private String StudentSex;
-	private String Major;
-	private String City;
-	private String Email;
-	private String StudentCollege;
-	private String StudentInternship;
-	private int StudentGrade;
-	private int ClassId;
-	private int TeacherId;
-	private String ClassName;
-	private String TeacherName;
+	private int studentId;
+	private int studentAccount;
+	private String studentName;
+	private String studentTel;
+	private String studentPassword;
+	private String studentSex;
+	private String major;
+	private String city;
+	private String email;
+	private String studentCollege;
+	private String studentInternship;
+	private int studentGrade;
+	private int classId;
+	private int teacherId;
+	private String className;
+	private String teacherName;
 
-	public String getClassName() {
-		return ClassName;
-	}
+    public int getStudentId() {
+        return studentId;
+    }
 
-	public void setClassName(String className) {
-		ClassName = className;
-	}
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
 
-	public String getTeacherName() {
-		return TeacherName;
-	}
+    public int getStudentAccount() {
+        return studentAccount;
+    }
 
-	public void setTeacherName(String teacherName) {
-		TeacherName = teacherName;
-	}
+    public void setStudentAccount(int studentAccount) {
+        this.studentAccount = studentAccount;
+    }
 
-	public int getStudentAccount() {
-		return StudentAccount;
-	}
+    public String getStudentName() {
+        return studentName;
+    }
 
-	public void setStudentAccount(int studentAccount) {
-		StudentAccount = studentAccount;
-	}
-	public int getTeacherId() {
-		return TeacherId;
-	}
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
 
-	public void setTeacherId(int teacherId) {
-		TeacherId = teacherId;
-	}
+    public String getStudentTel() {
+        return studentTel;
+    }
 
-	public int getStudentId() {
-		return StudentId;
-	}
-	public void setStudentId(int studentId) {
-		StudentId = studentId;
-	}
-	public String getStudentName() {
-		return StudentName;
-	}
-	public void setStudentName(String studentName) {
-		StudentName = studentName;
-	}
-	public String getStudentTel() {
-		return StudentTel;
-	}
-	public void setStudentTel(String studentTel) {
-		StudentTel = studentTel;
-	}
-	public String getStudentPassword() {
-		return StudentPassword;
-	}
-	public void setStudentPassword(String studentPassword) {
-		StudentPassword = studentPassword;
-	}
-	public String getStudentSex() {
-		return StudentSex;
-	}
-	public void setStudentSex(String studentSex) {
-		StudentSex = studentSex;
-	}
-	public String getMajor() {
-		return Major;
-	}
-	public void setMajor(String major) {
-		Major = major;
-	}
-	public String getCity() {
-		return City;
-	}
-	public void setCity(String city) {
-		City = city;
-	}
-	public String getEmail() {
-		return Email;
-	}
-	public void setEmail(String email) {
-		Email = email;
-	}
-	public String getStudentCollege() {
-		return StudentCollege;
-	}
-	public void setStudentCollege(String studentCollege) {
-		StudentCollege = studentCollege;
-	}
-	public String getStudentInternship() {
-		return StudentInternship;
-	}
-	public void setStudentInternship(String studentInternship) {
-		StudentInternship = studentInternship;
-	}
-	public int getStudentGrade() {
-		return StudentGrade;
-	}
-	public void setStudentGrade(int studentGrade) {
-		StudentGrade = studentGrade;
-	}
-	public int getClassId() {
-		return ClassId;
-	}
-	public void setClassId(int classId) {
-		ClassId = classId;
-	}
-	
-	
+    public void setStudentTel(String studentTel) {
+        this.studentTel = studentTel;
+    }
+
+    public String getStudentPassword() {
+        return studentPassword;
+    }
+
+    public void setStudentPassword(String studentPassword) {
+        this.studentPassword = studentPassword;
+    }
+
+    public String getStudentSex() {
+        return studentSex;
+    }
+
+    public void setStudentSex(String studentSex) {
+        this.studentSex = studentSex;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getStudentCollege() {
+        return studentCollege;
+    }
+
+    public void setStudentCollege(String studentCollege) {
+        this.studentCollege = studentCollege;
+    }
+
+    public String getStudentInternship() {
+        return studentInternship;
+    }
+
+    public void setStudentInternship(String studentInternship) {
+        this.studentInternship = studentInternship;
+    }
+
+    public int getStudentGrade() {
+        return studentGrade;
+    }
+
+    public void setStudentGrade(int studentGrade) {
+        this.studentGrade = studentGrade;
+    }
+
+    public int getClassId() {
+        return classId;
+    }
+
+    public void setClassId(int classId) {
+        this.classId = classId;
+    }
+
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
 }

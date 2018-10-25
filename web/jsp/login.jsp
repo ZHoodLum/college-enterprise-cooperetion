@@ -53,9 +53,16 @@
 </head>
 <body>
 <div class="navs">
-  <div class="nav_left">
-    <a href="../main.jsp">校企实习信息网</a>
-    
+  <div class="nav_left" style="
+	float: left;
+	margin-left: 40px;
+	line-height: 30px;
+	margin-top: 4px;
+	font-size: 24px;
+	font-weight: bold;
+	transition: 2s;
+">
+    <a href="../main.jsp">校企实习合作系统</a>
   </div>
 </div>
 <div class="content"/>

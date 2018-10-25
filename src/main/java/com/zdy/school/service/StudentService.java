@@ -3,6 +3,7 @@ package com.zdy.school.service;
 import com.zdy.school.vo.StudentInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ Author     ：ZhoodLum
@@ -12,5 +13,9 @@ import java.util.ArrayList;
 
 public interface StudentService {
 //    查看全部学生信息
-    public ArrayList<StudentInfo> findAllStudentInfo(StudentInfo studentInfo) throws Exception;
+//    public ArrayList<StudentInfo> findAllStudentInfo(StudentInfo studentInfo) throws Exception;
+    public List<StudentInfo> findAllStudentInfo(int pageNo,int pageSize);
+    public int getTotal();
 }
+
+
