@@ -25,27 +25,28 @@
     <input type="submit" value="搜索" class="sub"/>
 </div>
 <div id="recruitinformation">
-    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <table width="100%" border="0px" cellpadding="0" cellspacing="0">
         <tbody>
-            <tr align="center">
-                <td width="6%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学号</td>
-                <td width="6%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">姓名</td>
-                <td width="7%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">性别</td>
-                <td width="13%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">专业</td>
-                <td width="15%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">籍贯</td>
-                <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">邮箱</td>
-                <td width="8%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">电话</td>
-                <td width="12%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学院</td>
-                <td width="7%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">是否实习</td>
-                <td width="8%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">指导教师</td>
+            <tr align="center" style="border:0px">
+                <%--<td width="6%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学号</td>--%>
+                <td width="6%"  style="padding:10px;">学号</td>
+                <td width="6%"  style="padding:10px;">姓名</td>
+                <td width="7%"  style="padding:10px;">性别</td>
+                <td width="13%"  style="padding:10px;">专业</td>
+                <td width="15%"  style="padding:10px;">籍贯</td>
+                <td width="10%"  style="padding:10px;">邮箱</td>
+                <td width="8%"  style="padding:10px;">电话</td>
+                <td width="12%"  style="padding:10px;">学院</td>
+                <td width="7%"  style="padding:10px;">是否实习</td>
+                <td width="8%"  style="padding:10px;">指导教师</td>
             </tr>
             <!-- 分页查询 -->
             <c:forEach items="${list}" var="si" varStatus="i">
                 <c:if test="${i.index%2 == 0 }">
-                    <tr align="center" bgcolor="#FFFFFF">
+                    <tr align="center" bgcolor="#FFFFFF" style="border:0px">
                 </c:if>
                 <c:if test="${i.index%2 == 1 }">
-                    <tr align="center" bgcolor="#F5F5F5">
+                    <tr align="center" bgcolor="#F5F5F5" style="border:0px">
                 </c:if>
                 <td>${si.studentAccount}</td>
                 <td>${si.studentName}</td>
@@ -67,24 +68,26 @@
                     <td width="284" align="center"  class="text_cray">
                         <c:if test="${n%pageSize==0}">
                             <c:forEach begin="1" end="${n/pageSize}" var="i" step="1">
-                                <c:if test="${i == pageNo }">
-                                    ${i }
+                                <c:if test="${i==pageNo }">
+                                    ${i}
                                 </c:if>
 
-                                <c:if test="${i != pageNo }">
-                                    <a href="${pageContext.request.contextPath}/StudentQueryAllServlet?pageNo=${i }">${i }</a>
+                                <c:if test="${i!=pageNo }">
+                                    <a href="${pageContext.request.contextPath}/StudentQueryAllServlet?pageNo=${i}">${i}</a>
                                 </c:if>
                             </c:forEach>
                         </c:if>
+
                         <c:if test="${n%pageSize!=0}">
                             <c:forEach begin="1" end="${n/pageSize+1}" var="i" step="1">
-                                <c:if test="${i == pageNo }">
-                                    ${i }
+                                <c:if test="${i==pageNo }">
+                                    ${i}
                                 </c:if>
 
-                                <c:if test="${i != pageNo }">
-                                    <a href="${pageContext.request.contextPath}/StudentQueryAllServlet?pageNo=${i }">${i }</a>
+                                <c:if test="${i!=pageNo }">
+                                    <a href="${pageContext.request.contextPath}/StudentQueryAllServlet?pageNo=${i}">${i}</a>
                                 </c:if>
+
                             </c:forEach>
                         </c:if>
                     </td>

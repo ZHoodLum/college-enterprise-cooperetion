@@ -51,7 +51,7 @@
 
         <dl class="app">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="${pageContext.request.contextPath}/StudentQueryAllServlet?pageNo=1" target="right">查询学生信息</a>
+                <a href="${pageContext.request.contextPath}/StudentQueryAllServlet?pageNo=1&pageSize=1" target="right">查询学生信息</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>

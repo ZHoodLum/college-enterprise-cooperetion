@@ -23,7 +23,6 @@ public class StudentServiceImpl implements  StudentService {
     @Override
     public List<StudentInfo> findAllStudentInfo(int pageNo,int pageSize) {
         List<StudentInfo> list = studentDao.findAllStudentInfo(pageNo,pageSize);
-        System.out.println("数组："+list);
         return list;
     }
 

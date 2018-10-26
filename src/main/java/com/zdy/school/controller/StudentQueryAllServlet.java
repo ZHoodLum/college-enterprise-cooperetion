@@ -34,18 +34,17 @@ public class StudentQueryAllServlet extends HttpServlet {
 //        }catch (Exception e){
 //            e.printStackTrace();
 //        }
-        int pageNo = new Integer(request.getParameter("pageNo"));
-        System.out.println("Servlet中的页数"+pageNo);
+        int pageNo = Integer.parseInt(request.getParameter("pageNo"));
+//        默认每页数据量数
         int pageSize = 2;
+//        调用方法获取list集合下的数据
         List<StudentInfo> list = studentService.findAllStudentInfo(pageNo,pageSize);
         int n = studentService.getTotal();
         System.out.println("集合长度"+list.size());
         request.getSession().setAttribute("list", list);
-        request.getSession().setAttribute("n", 14);
-//		每页多些数据
-        request.getSession().setAttribute("pageSize", "5");
-//		当前页码
-        request.getSession().setAttribute("pageNo", "1");
+        request.getSession().setAttribute("n", n);
+        request.getSession().setAttribute("pageSize", pageSize);
+        request.getSession().setAttribute("pageNo", pageNo);
         response.sendRedirect("/college-enterprise-cooperetion/jsp/student-informations.jsp");
 
     }
@@ -54,3 +53,18 @@ public class StudentQueryAllServlet extends HttpServlet {
         this.doGet(request, response);
     }
 }
+//    int pageNo = new Integer(request.getParameter("pageNo"));
+//    //        默认每页数据量数
+//    int pageSize = 3;
+//    //        调用方法获取list集合下的数据
+//    List<StudentInfo> list = studentService.findAllStudentInfo(pageNo,pageSize);
+//    //        数据总数据量
+//    int n = studentService.getTotal();
+////        存入session进行调用
+//        request.getSession().setAttribute("list", list);
+//                request.setAttribute("n", n);
+////		每页多些数据
+//                request.getSession().setAttribute("pageSize", pageSize);
+////		当前页码
+//                request.setAttribute("pageNo", "pageNo");
+//                response.sendRedirect("/college-enterprise-cooperetion/jsp/student-informations.jsp");

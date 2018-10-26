@@ -56,10 +56,11 @@ public class StudentDaoImpl implements StudentDao{
 //        return allStudentInfo;
 //    }
 
+//进行数据分页查询
     public List<StudentInfo> findAllStudentInfo( int pageNo,int pageSize){
         List<StudentInfo> list = new ArrayList<StudentInfo>();
+        String sql = "select * from studentinfo s,teacher_studentinfo ts,teacherinfo t,classinfo c,class_studentinfo cs where s.student_account = ts.student_account and ts.teacher_account = t.teacher_account and c.class_id = cs.class_id and cs.student_account = s.student_account limit ?,?";
         try{
-            String sql = "select * from studentinfo s,teacher_studentinfo ts,teacherinfo t,classinfo c,class_studentinfo cs where s.student_account = ts.student_account and ts.teacher_account = t.teacher_account and c.class_id = cs.class_id and cs.student_account = s.student_account limit ?,?";
             pstate = con.prepareStatement(sql);
             pstate.setInt(1,(pageNo-1)*pageSize);
             pstate.setInt(2,pageSize);
@@ -83,6 +84,9 @@ public class StudentDaoImpl implements StudentDao{
                 studentInfo.setTeacherId(rs.getInt("teacher_id"));
                 studentInfo.setTeacherName(rs.getString("teacher_name"));
                 list.add(studentInfo);
+                for(StudentInfo li:list) {
+                    System.out.println("集合元素有："+list);
+                }
             }
 //            DruidUtil.closeConnection(rs,con,pstate);
         }catch (SQLException e){
@@ -90,13 +94,14 @@ public class StudentDaoImpl implements StudentDao{
         }
         return list;
     }
-
+//    查询数据总数量
     @Override
     public int getTotal() {
         String sql = "select count(*) c from studentinfo";
         int n = 0;
         try{
             pstate = con.prepareStatement(sql);
+            rs = pstate.executeQuery();
             if (rs.next()){
                 n = rs.getInt("c");
             }

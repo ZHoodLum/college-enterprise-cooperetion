@@ -35,7 +35,7 @@
 #recruitinformation{
     width: 95%;
     height: auto;
-    margin:0 auto;
+    /*margin:0 auto;*/
     text-align: center;
     margin-top: 4px;
     font-size: 16px;
@@ -46,10 +46,6 @@
         border-left: 2px solid;
         border-right: 2px solid;
     */
-}
-#recruitinformation table tr td{
-    padding:8px;
-    border-bottom: 1px dashed #6bb642;
 }
 #recruitinformation table tr td a {
     text-decoration: none;
