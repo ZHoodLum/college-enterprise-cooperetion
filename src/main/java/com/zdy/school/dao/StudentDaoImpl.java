@@ -1,6 +1,7 @@
 package com.zdy.school.dao;
 
 import com.zdy.school.util.DruidUtil;
+import com.zdy.school.vo.EnterpriseInfo;
 import com.zdy.school.vo.StudentInfo;
 
 import java.sql.Connection;
@@ -57,16 +58,19 @@ public class StudentDaoImpl implements StudentDao{
 //    }
 
 //进行数据分页查询
-    public List<StudentInfo> findAllStudentInfo( int pageNo,int pageSize){
+    public List<StudentInfo> findAllStudentInfo(int pageNo, int pageSize,int enterpriseId){
         List<StudentInfo> list = new ArrayList<StudentInfo>();
-        String sql = "select * from studentinfo s,teacher_studentinfo ts,teacherinfo t,classinfo c,class_studentinfo cs where s.student_account = ts.student_account and ts.teacher_account = t.teacher_account and c.class_id = cs.class_id and cs.student_account = s.student_account limit ?,?";
+        String sql = "select * from studentinfo s,teacher_studentinfo ts,teacherinfo t,classinfo c,class_studentinfo cs,enterprise_studentinfo es,enterpriseinfo e where s.student_account = ts.student_account and ts.teacher_account = t.teacher_account and c.class_id = cs.class_id and cs.student_account = s.student_account and es.enterprise_id = e.enterprise_id and es.student_account = s.student_account and e.enterprise_id= ? limit ?,?;";
         try{
             pstate = con.prepareStatement(sql);
-            pstate.setInt(1,(pageNo-1)*pageSize);
-            pstate.setInt(2,pageSize);
+            pstate.setInt(1,enterpriseId);
+            pstate.setInt(2,(pageNo-1)*pageSize);
+            pstate.setInt(3,pageSize);
             rs = pstate.executeQuery();
             while (rs.next()){
                 StudentInfo studentInfo = new StudentInfo();
+                EnterpriseInfo enterpriseInfo = new EnterpriseInfo();
+                enterpriseInfo.setEnterpriseId(rs.getInt("enterprise_id"));
                 studentInfo.setStudentId(rs.getInt("student_id"));
                 studentInfo.setStudentAccount(rs.getInt("student_account"));
                 studentInfo.setStudentName(rs.getString("student_name"));

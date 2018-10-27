@@ -6,67 +6,76 @@ package com.zdy.school.vo;
  * 用于存放企业的相关信息
  */
 public class EnterpriseInfo {
-	private int EnterpriseId;
-	private String EnterpriseName;
-	private String EnterprisePassword;
-	private String EnterpriseIntroduce;
-	private String EnterpriseAddress;
-	private String EnterpriseTel;
-	private String Email;
-	private String EnterpriseManager;
-	
+	private int enterpriseId;
+	private String enterpriseName;
+	private String enterprisePassword;
+	private String enterpriseIntroduce;
+	private String enterpriseAddress;
+	private String enterpriseTel;
+	private String email;
+	private String enterpriseManager;
+
 	public int getEnterpriseId() {
-		return EnterpriseId;
+		return enterpriseId;
 	}
+
 	public void setEnterpriseId(int enterpriseId) {
-		EnterpriseId = enterpriseId;
+		this.enterpriseId = enterpriseId;
 	}
+
 	public String getEnterpriseName() {
-		return EnterpriseName;
+		return enterpriseName;
 	}
+
 	public void setEnterpriseName(String enterpriseName) {
-		EnterpriseName = enterpriseName;
+		this.enterpriseName = enterpriseName;
 	}
+
 	public String getEnterprisePassword() {
-		return EnterprisePassword;
+		return enterprisePassword;
 	}
+
 	public void setEnterprisePassword(String enterprisePassword) {
-		EnterprisePassword = enterprisePassword;
+		this.enterprisePassword = enterprisePassword;
 	}
+
 	public String getEnterpriseIntroduce() {
-		return EnterpriseIntroduce;
+		return enterpriseIntroduce;
 	}
+
 	public void setEnterpriseIntroduce(String enterpriseIntroduce) {
-		EnterpriseIntroduce = enterpriseIntroduce;
+		this.enterpriseIntroduce = enterpriseIntroduce;
 	}
 
 	public String getEnterpriseAddress() {
-		return EnterpriseAddress;
+		return enterpriseAddress;
 	}
 
 	public void setEnterpriseAddress(String enterpriseAddress) {
-		EnterpriseAddress = enterpriseAddress;
+		this.enterpriseAddress = enterpriseAddress;
 	}
 
 	public String getEnterpriseTel() {
-		return EnterpriseTel;
+		return enterpriseTel;
 	}
 
 	public void setEnterpriseTel(String enterpriseTel) {
-		EnterpriseTel = enterpriseTel;
+		this.enterpriseTel = enterpriseTel;
 	}
 
 	public String getEmail() {
-		return Email;
-	}
-	public void setEmail(String email) {
-		Email = email;
-	}
-	public String getEnterpriseManager() {
-		return EnterpriseManager;
-	}
-	public void setEnterpriseManager(String enterpriseManager) {
-		EnterpriseManager = enterpriseManager;
+		return email;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getEnterpriseManager() {
+		return enterpriseManager;
+	}
+
+	public void setEnterpriseManager(String enterpriseManager) {
+		this.enterpriseManager = enterpriseManager;
+	}
 }

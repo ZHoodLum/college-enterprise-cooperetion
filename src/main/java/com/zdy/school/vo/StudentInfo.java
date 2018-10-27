@@ -21,6 +21,24 @@ public class StudentInfo {
 	private int teacherId;
 	private String className;
 	private String teacherName;
+    private int enterpriseId;
+    private String enterpriseName;
+
+    public int getEnterpriseId() {
+        return enterpriseId;
+    }
+
+    public void setEnterpriseId(int enterpriseId) {
+        this.enterpriseId = enterpriseId;
+    }
+
+    public String getEnterpriseName() {
+        return enterpriseName;
+    }
+
+    public void setEnterpriseName(String enterpriseName) {
+        this.enterpriseName = enterpriseName;
+    }
 
     public int getStudentId() {
         return studentId;

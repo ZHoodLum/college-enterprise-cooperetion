@@ -2,6 +2,7 @@ package com.zdy.school.controller;
 
 import com.zdy.school.service.StudentService;
 import com.zdy.school.service.StudentServiceImpl;
+import com.zdy.school.vo.EnterpriseInfo;
 import com.zdy.school.vo.StudentInfo;
 
 import javax.servlet.ServletException;
@@ -22,6 +23,7 @@ import java.util.List;
 public class StudentQueryAllServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private StudentService studentService = new StudentServiceImpl();
+    EnterpriseInfo enterpriseInfo = new EnterpriseInfo();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        StudentInfo studentInfo = new StudentInfo();
@@ -34,11 +36,12 @@ public class StudentQueryAllServlet extends HttpServlet {
 //        }catch (Exception e){
 //            e.printStackTrace();
 //        }
+        int enterpriseId = Integer.parseInt(request.getParameter("enterpriseId"));
         int pageNo = Integer.parseInt(request.getParameter("pageNo"));
 //        默认每页数据量数
-        int pageSize = 2;
+        int pageSize = 3;
 //        调用方法获取list集合下的数据
-        List<StudentInfo> list = studentService.findAllStudentInfo(pageNo,pageSize);
+        List<StudentInfo> list = studentService.findAllStudentInfo(pageNo,pageSize,enterpriseId);
         int n = studentService.getTotal();
         System.out.println("集合长度"+list.size());
         request.getSession().setAttribute("list", list);
