@@ -8,52 +8,52 @@ import java.sql.Date;
  * 用于存放招聘信息的相关信息
  */
 public class JobInfo {
-	private int JobId;
-	private String JobInfo;
-	private String JobPosition;
-	private Date JobDate;
-	private String EnterpriseName;
+	private int jobId;
+	private String jobInfo;
+	private String jobPosition;
+	private Date jobDate;
+	private String enterpriseName;
 	private String ECheck;
-	private String Wage;
+	private String wage;
 
 	public int getJobId() {
-		return JobId;
+		return jobId;
 	}
 
 	public void setJobId(int jobId) {
-		JobId = jobId;
+		this.jobId = jobId;
 	}
 
 	public String getJobInfo() {
-		return JobInfo;
+		return jobInfo;
 	}
 
 	public void setJobInfo(String jobInfo) {
-		JobInfo = jobInfo;
+		this.jobInfo = jobInfo;
 	}
 
 	public String getJobPosition() {
-		return JobPosition;
+		return jobPosition;
 	}
 
 	public void setJobPosition(String jobPosition) {
-		JobPosition = jobPosition;
+		this.jobPosition = jobPosition;
 	}
 
 	public Date getJobDate() {
-		return JobDate;
+		return jobDate;
 	}
 
 	public void setJobDate(Date jobDate) {
-		JobDate = jobDate;
+		this.jobDate = jobDate;
 	}
 
 	public String getEnterpriseName() {
-		return EnterpriseName;
+		return enterpriseName;
 	}
 
 	public void setEnterpriseName(String enterpriseName) {
-		EnterpriseName = enterpriseName;
+		this.enterpriseName = enterpriseName;
 	}
 
 	public String getECheck() {
@@ -65,10 +65,10 @@ public class JobInfo {
 	}
 
 	public String getWage() {
-		return Wage;
+		return wage;
 	}
 
 	public void setWage(String wage) {
-		Wage = wage;
+		this.wage = wage;
 	}
 }

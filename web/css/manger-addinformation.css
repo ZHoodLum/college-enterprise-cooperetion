@@ -13,7 +13,7 @@
 .text1{
     outline:none;
     width:500px;
-    height:140px;
+    height:125px;
     margin-left: 10px;
     resize:none;/*禁止拖动*/
     /*overflow-x:hidden;!*无滚动条*!*/

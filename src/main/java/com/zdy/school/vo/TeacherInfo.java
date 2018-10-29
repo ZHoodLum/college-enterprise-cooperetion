@@ -6,63 +6,76 @@ package com.zdy.school.vo;
  * 用于存放教师的相关信息
  */
 public class TeacherInfo {
-	private int TeacherId;
-	private String TeacherName;
-	private String TeacherTel;
-	private String TeacherPassword;
-	private String Email;
-	private String TeacherCollege;
-	private String TeacherSex;
-	private String TeacherJob;
-	
+	private int teacherId;
+	private String teacherName;
+	private String teacherTel;
+	private String teacherPassword;
+	private String email;
+	private String teacherCollege;
+	private String teacherSex;
+	private String teacherJob;
+
 	public int getTeacherId() {
-		return TeacherId;
+		return teacherId;
 	}
+
 	public void setTeacherId(int teacherId) {
-		TeacherId = teacherId;
+		this.teacherId = teacherId;
 	}
 
 	public String getTeacherName() {
-		return TeacherName;
+		return teacherName;
 	}
+
 	public void setTeacherName(String teacherName) {
-		TeacherName = teacherName;
+		this.teacherName = teacherName;
 	}
+
 	public String getTeacherTel() {
-		return TeacherTel;
+		return teacherTel;
 	}
+
 	public void setTeacherTel(String teacherTel) {
-		TeacherTel = teacherTel;
+		this.teacherTel = teacherTel;
 	}
+
 	public String getTeacherPassword() {
-		return TeacherPassword;
+		return teacherPassword;
 	}
+
 	public void setTeacherPassword(String teacherPassword) {
-		TeacherPassword = teacherPassword;
+		this.teacherPassword = teacherPassword;
 	}
+
 	public String getEmail() {
-		return Email;
+		return email;
 	}
+
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
+
 	public String getTeacherCollege() {
-		return TeacherCollege;
+		return teacherCollege;
 	}
+
 	public void setTeacherCollege(String teacherCollege) {
-		TeacherCollege = teacherCollege;
+		this.teacherCollege = teacherCollege;
 	}
+
 	public String getTeacherSex() {
-		return TeacherSex;
+		return teacherSex;
 	}
+
 	public void setTeacherSex(String teacherSex) {
-		TeacherSex = teacherSex;
+		this.teacherSex = teacherSex;
 	}
+
 	public String getTeacherJob() {
-		return TeacherJob;
+		return teacherJob;
 	}
+
 	public void setTeacherJob(String teacherJob) {
-		TeacherJob = teacherJob;
+		this.teacherJob = teacherJob;
 	}
-	
 }

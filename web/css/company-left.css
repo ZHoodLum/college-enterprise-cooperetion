@@ -14,11 +14,11 @@ a{text-decoration:none;}
 .leftsidebar_box dd a{color:#f5f5f5;line-height:20px;font-size: 16px;}
 .leftsidebar_box dt a{color:#f5f5f5;line-height:20px;font-size: 18px;}
 .leftsidebar_box dt img{position:absolute;right:10px;top:20px;}
-.system_log dt{background-image:url(../images/left/system.png);}
+.system_log dt{background-image:url(../images/left/channel.png);}
 .custom dt{background-image:url(../images/left/source.png)}
 .app dt{background-image:url(../images/left/statistics.png)}
 .cloud dt{background-image:url(../images/left/syetem_management.png)}
 .syetem_management dt{background-image:url(../images/left/system.png)}
-.source dt{background-image:url(../images/left/system.png)}
+.source dt{background-image:url(../images/left/custom.png)}
 .statistics dt{background-image:url(../images/left/system.png)}
 .leftsidebar_box dl dd:last-child{padding-bottom:10px;}

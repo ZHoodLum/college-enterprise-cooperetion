@@ -8,9 +8,9 @@ import java.sql.Date;
  * 用于存放简历信息的相关信息
  */
 public class Resume {
-	private int student_id;
-	private String student_name;
-	private String student_sex;
+	private int studentId;
+	private String studentName;
+	private String studentSex;
 	private String nationality;
 	private Date birthday;
 	private String city;
@@ -19,114 +19,146 @@ public class Resume {
 	private String college;
 	private String education;
 	private String major;
-	private Date graduate_time;
+	private Date graduateTime;
 	private String email;
-	private String student_contine_time;
-	private String major_course;
+	private String studentContineTime;
+	private String majorCourse;
 	private String credential;
-	private String self_evaluation;
-	
-	public int getStudent_id() {
-		return student_id;
+	private String selfEvaluation;
+
+	public int getStudentId() {
+		return studentId;
 	}
-	public void setStudent_id(int student_id) {
-		this.student_id = student_id;
+
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
-	public String getStudent_name() {
-		return student_name;
+
+	public String getStudentName() {
+		return studentName;
 	}
-	public void setStudent_name(String student_name) {
-		this.student_name = student_name;
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
-	public String getStudent_sex() {
-		return student_sex;
+
+	public String getStudentSex() {
+		return studentSex;
 	}
-	public void setStudent_sex(String student_sex) {
-		this.student_sex = student_sex;
+
+	public void setStudentSex(String studentSex) {
+		this.studentSex = studentSex;
 	}
+
 	public String getNationality() {
 		return nationality;
 	}
+
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
+
 	public Date getBirthday() {
 		return birthday;
 	}
+
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
+
 	public String getCity() {
 		return city;
 	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
+
 	public String getPolitics() {
 		return politics;
 	}
+
 	public void setPolitics(String politics) {
 		this.politics = politics;
 	}
+
 	public String getHealth() {
 		return health;
 	}
+
 	public void setHealth(String health) {
 		this.health = health;
 	}
+
 	public String getCollege() {
 		return college;
 	}
+
 	public void setCollege(String college) {
 		this.college = college;
 	}
+
 	public String getEducation() {
 		return education;
 	}
+
 	public void setEducation(String education) {
 		this.education = education;
 	}
+
 	public String getMajor() {
 		return major;
 	}
+
 	public void setMajor(String major) {
 		this.major = major;
 	}
-	public Date getGraduate_time() {
-		return graduate_time;
+
+	public Date getGraduateTime() {
+		return graduateTime;
 	}
-	public void setGraduate_time(Date graduate_time) {
-		this.graduate_time = graduate_time;
+
+	public void setGraduateTime(Date graduateTime) {
+		this.graduateTime = graduateTime;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getStudent_contine_time() {
-		return student_contine_time;
+
+	public String getStudentContineTime() {
+		return studentContineTime;
 	}
-	public void setStudent_contine_time(String student_contine_time) {
-		this.student_contine_time = student_contine_time;
+
+	public void setStudentContineTime(String studentContineTime) {
+		this.studentContineTime = studentContineTime;
 	}
-	public String getMajor_course() {
-		return major_course;
+
+	public String getMajorCourse() {
+		return majorCourse;
 	}
-	public void setMajor_course(String major_course) {
-		this.major_course = major_course;
+
+	public void setMajorCourse(String majorCourse) {
+		this.majorCourse = majorCourse;
 	}
+
 	public String getCredential() {
 		return credential;
 	}
+
 	public void setCredential(String credential) {
 		this.credential = credential;
 	}
-	public String getSelf_evaluation() {
-		return self_evaluation;
+
+	public String getSelfEvaluation() {
+		return selfEvaluation;
 	}
-	public void setSelf_evaluation(String self_evaluation) {
-		this.self_evaluation = self_evaluation;
+
+	public void setSelfEvaluation(String selfEvaluation) {
+		this.selfEvaluation = selfEvaluation;
 	}
-	
 }

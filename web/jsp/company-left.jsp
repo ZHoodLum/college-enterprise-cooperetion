@@ -63,13 +63,22 @@
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
         </dl>
-        <dl class="cloud">
+        <dl class="syetem_management">
             <dt><img src="../images/left/select_xl01.png">
                 <a href="../jsp/resumeinfo.html" target="right">审核简历信息</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
         </dl>
+
+        <dl class="source" style="position:absolute;bottom: 50px;">
+            <dt><img src="../images/left/select_xl01.png">
+                <a href="${pageContext.request.contextPath}/LogoutServlet" target="_blank">注销</a>
+            </dt>
+            <%--<dd class="first_dd"></dd>--%>
+            <%--<dd class="first_dd" style="height: 10px;"></dd>--%>
+        </dl>
+
     </div>
 </div>
 </body>

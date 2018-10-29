@@ -7,31 +7,31 @@ package com.zdy.school.vo;
 
 
 public class TeacherStudentInfo {
-    private int Id;
-    private int TeacherAccount;
-    private int StudentAccount;
+    private int id;
+    private int teacherAccount;
+    private int studentAccount;
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public int getTeacherAccount() {
-        return TeacherAccount;
+        return teacherAccount;
     }
 
     public void setTeacherAccount(int teacherAccount) {
-        TeacherAccount = teacherAccount;
+        this.teacherAccount = teacherAccount;
     }
 
     public int getStudentAccount() {
-        return StudentAccount;
+        return studentAccount;
     }
 
     public void setStudentAccount(int studentAccount) {
-        StudentAccount = studentAccount;
+        this.studentAccount = studentAccount;
     }
 }

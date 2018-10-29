@@ -7,31 +7,31 @@ package com.zdy.school.vo;
 
 
 public class EnterpriseStudentInfo {
-    private int Id;
-    private int EnterpriseId;
-    private int StudentId;
+    private int id;
+    private int enterpriseId;
+    private int studentId;
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public int getEnterpriseId() {
-        return EnterpriseId;
+        return enterpriseId;
     }
 
     public void setEnterpriseId(int enterpriseId) {
-        EnterpriseId = enterpriseId;
+        this.enterpriseId = enterpriseId;
     }
 
     public int getStudentId() {
-        return StudentId;
+        return studentId;
     }
 
     public void setStudentId(int studentId) {
-        StudentId = studentId;
+        this.studentId = studentId;
     }
 }
