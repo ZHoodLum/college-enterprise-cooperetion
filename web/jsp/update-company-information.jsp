@@ -8,6 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+    <%--<meta http-equiv="refresh" content="10">--%>
     <meta charset="UTF-8">
     <title>修改企业信息</title>
     <link rel="stylesheet" type="text/css" href="../css/manger-addinformation.css">
@@ -18,33 +19,30 @@
         .element::-webkit-scrollbar {display:none}
     </style>
     <script type="text/javascript" src="../js/update_enterprise.js"></script>
-    <script type="text/javascript">
-        var txtFocus = document.getElementById("ap_CarUnit");
-        var position = 0;
-        var userAgent=window.navigator.userAgent.toLowerCase();
-        var isMozilla = /firefox/.test(userAgent);//火狐
-        var isWwebkit = /webkit/.test(userAgent);//谷歌
-        var ismsie = /msie/.test(userAgent);//IE
-        var isOpera = /opera/.test(userAgent);
-
-        if(ismsie || isMozilla){
-            //如果是ie浏览器
-            var range = txtFocus.createTextRange();
-            range.move("character", position);
-            range.select();
-        }
-        if(isWwebkit){
-            txtFocus.setSelectionRange(position, position);
-            txtFocus.focus();
-        }
-        function check2pwd() {
-            if(enterprise_password.value != enterprise_repassword.value) {
-                alert("两次输入密码不一致！")
-                enterprise_password.value = "";
-                enterprise_repassword.value = "";
+    <script language="javascript">
+        function validate(){
+            //密码验证 ^\d{2,}$
+            var enterprise_password = document.myform.enterprise_password.value;
+            var exp = new RegExp(/^\d{2,}$/);
+            if(!exp.test(enterprise_password)){
+                alert("密码不符");
+                document.myform.enterprise_password.focus();//光标定位
+                return false;//防止向下进行
+            }
+            //重复密码
+            var enterprise_repassword = document.myform.enterprise_repassword.value;
+            if(enterprise_repassword!=enterprise_password){
+                alert("密码不一致不符");
+                document.myform.enterprise_repassword.focus();//光标定位
+                return false;//防止向下进行
             }
         }
     </script>
+    <%--<script type="text/javascript">--%>
+        <%--if(window !=top){--%>
+            <%--top.location.href=location.href;--%>
+        <%--}--%>
+    <%--</script>--%>
 </head>
 <body style="overflow-x:hidden;text-align: center;">
 <div class="container">
@@ -54,7 +52,7 @@
     </div>
 
     <div>
-        <form id="myform" name="myform" theme="simple" method="post" action="${pageContext.request.contextPath}/UpdateEnterpriseManagerServlet">
+        <form id="myform" name="myform" theme="simple" method="post" action="${pageContext.request.contextPath}/UpdateEnterpriseManagerServlet"  onsubmit="return validate()">
             <table border="0" width="100%"  style="text-align: center;margin-left: 150px;">
                 <tr>
                     <td>
@@ -62,7 +60,7 @@
                             <li>
                                 <h3>企业账号:</h3>
                                 <p>
-                                    <input class="text2" type="text" name="enterprise_id" value="<%=session.getAttribute("enterprise_id")%>" disabled="disabled" style="padding: 10px 0 10px 0"> </input>
+                                    <input class="text2" type="text" name="enterprise_id" value="<%=session.getAttribute("enterprise_id")%>" readonly="readonly" style="padding: 10px 0 10px 0"> </input>
                                 </p>
                             </li>
                         </ul>

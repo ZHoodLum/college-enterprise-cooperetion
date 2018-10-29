@@ -37,6 +37,8 @@ public class UpdateEnterpriseManagerServlet extends HttpServlet {
             boolean succ = enterpriseService.updateEnterpriseInfo(enterpriseInfo);
             if (succ = true){
                 request.getRequestDispatcher("/updatesuccess.html").forward(request,response);
+//                response.setHeader("Refresh","1;URL=http://localhost:8080/college-enterprise-cooperetion/jsp/company-main.jsp");
+//                response.sendRedirect("/college-enterprise-cooperetion/jsp/company-main.jsp");
             }else {
                 System.out.println("succ="+succ);
                 response.getWriter().print(

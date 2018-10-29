@@ -110,8 +110,8 @@ public class LoginServlet extends HttpServlet {
 							request.getSession().setAttribute("enterprise_manager", enterpriseInfo.getEnterpriseManager());
 							System.out.println("登录的公司是："+ enterpriseInfo.getEnterpriseName());
 							request.getSession().setAttribute("EnterpriseInfo", enterpriseInfo);
-							
-							request.getRequestDispatcher("/jsp/company-main.jsp").forward(request,response);
+							response.sendRedirect("/college-enterprise-cooperetion/jsp/company-main.jsp");
+//							request.getRequestDispatcher("/jsp/company-main.jsp").forward(request,response);
 						} else {
 							response.sendRedirect("/college-enterprise-cooperetion/jsp/login.jsp");
 						}
