@@ -52,9 +52,23 @@ public class LoginServlet extends HttpServlet {
 					System.out.println("************************************************");
 					try {
 						if (loginDao.studentlogin(studentInfo)) {
-	//						request.getSession().setAttribute("StudentTel", studentinfo.getStudentTel());
-	//						request.getSession().setAttribute("StudentPassword", studentinfo.getStudentPassword());
-							request.getSession().setAttribute("StudentName", studentInfo.getStudentName());
+							request.getSession().setAttribute("student_id",studentInfo.getStudentId());
+							request.getSession().setAttribute("student_account",studentInfo.getStudentAccount());
+							request.getSession().setAttribute("student_name", studentInfo.getStudentName());
+							request.getSession().setAttribute("student_tel", studentInfo.getStudentTel());
+							request.getSession().setAttribute("student_password", studentInfo.getStudentPassword());
+							request.getSession().setAttribute("student_sex",studentInfo.getStudentSex());
+							request.getSession().setAttribute("major",studentInfo.getMajor());
+							request.getSession().setAttribute("city",studentInfo.getCity());
+							request.getSession().setAttribute("email",studentInfo.getEmail());
+							request.getSession().setAttribute("student_college",studentInfo.getStudentCollege());
+							request.getSession().setAttribute("student_internship",studentInfo.getStudentInternship());
+							request.getSession().setAttribute("student_grade",studentInfo.getStudentGrade());
+							request.getSession().setAttribute("class_name",studentInfo.getClassName());
+							request.getSession().setAttribute("class_id",studentInfo.getClassId());
+							request.getSession().setAttribute("teacher_id",studentInfo.getTeacherId());
+							request.getSession().setAttribute("teacher_name",studentInfo.getTeacherName());
+
 							request.getSession().setAttribute("StudentInfo", studentInfo);
 
 							request.getRequestDispatcher("/JobInfoQueryAllServlet").forward(request,response);

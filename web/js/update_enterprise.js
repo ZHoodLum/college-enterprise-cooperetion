@@ -3,7 +3,7 @@ function validate() {
     var tid = document.getElementById("tid").value;
     var exp = new RegExp(/^\d{0,10}$/);
     if (!exp.test(tid)) {
-        alert("请重新输入教师账号，教师账号不符合要求！");
+        alert("请重新输入账号，账号不符合要求！");
         document.getElementById("tid").focus();//光标定位
         return false;//防止向下进行
     }
@@ -11,7 +11,7 @@ function validate() {
     var tname = document.getElementById("tname").value;
     var exp = new RegExp(/^(?!_)(?!.*?_$)([a-zA-Z\s.]|[\u4e00-\u9fa5\s.]){2,50}$/);
     if (!exp.test(tname)) {
-        alert("请重新输入教师名称，教师名称不符合要求！");
+        alert("请重新输入名称，名称不符合要求！");
         document.getElementById("tname").focus();//光标定位
         return false;//防止向下进行
     }
