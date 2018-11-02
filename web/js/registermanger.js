@@ -23,7 +23,7 @@ function validates() {
     //var exp=new RegExp(/^([123])$/);
     if(!exp.test(epwd)){
         alert("请重新输入密码，密码不符合要求");
-        document.getElementById("upwd")//光标定位
+        document.getElementById("upwd");//光标定位
         return false;
     }
 
@@ -31,7 +31,7 @@ function validates() {
     var repwd=document.getElementById("repwd").value;
     if(repwd!=epwd){
         alert("重复密码与第一次输入密码不相同");
-        document.getElementById("repwd").focus()//光标定位
+        document.getElementById("repwd").focus();//光标定位
         return false;
     }
 }

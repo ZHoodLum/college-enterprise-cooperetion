@@ -172,7 +172,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                 <tr>
                     <td>
-                        <a href="javascript:;" class="btn" style="float: left;margin-left: 320px;">保存修改信息</a>
+                        <a href="javascript:" class="btn" style="float: left;margin-left: 320px;">保存修改信息</a>
                         <a href="javascript: window.history.go(-1);" class="btn" style="float: left;margin-left: 10px;">返回上一页</a>
 
                     </td>

@@ -44,7 +44,7 @@ public class VerificationCodeServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response) throws ServletException, IOException {
+                          HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		// 设置响应报头信息
 		response.setHeader("Pragma", "No-cache");

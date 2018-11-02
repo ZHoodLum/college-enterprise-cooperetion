@@ -10,5 +10,5 @@ import com.zdy.school.vo.EnterpriseInfo;
 
 public interface EnterpriseDao {
     //修改企业信息
-    public boolean updateEnterpriseInfo(EnterpriseInfo enterpriseInfo);
+    boolean updateEnterpriseInfo(EnterpriseInfo enterpriseInfo);
 }

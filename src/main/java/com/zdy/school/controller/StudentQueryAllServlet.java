@@ -25,7 +25,7 @@ public class StudentQueryAllServlet extends HttpServlet {
     private StudentService studentService = new StudentServiceImpl();
     EnterpriseInfo enterpriseInfo = new EnterpriseInfo();
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 //        StudentInfo studentInfo = new StudentInfo();
 //        StudentService studentService = new StudentServiceImpl();
 //        try{

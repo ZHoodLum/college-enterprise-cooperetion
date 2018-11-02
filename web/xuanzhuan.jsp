@@ -17,8 +17,8 @@
      <li><a href="#"><img src="images/05.png" alt=""></a></li>
    </ul>
    <div class="arraw">
-      <a href="javascript:;" class="next"></a>
-      <a href="javascript:;" class='prev'></a>
+      <a href="javascript:" class="next"></a>
+      <a href="javascript:" class='prev'></a>
    </div>
   </div>
 </div>

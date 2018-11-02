@@ -93,7 +93,7 @@
             var data = [];
             for( var i =0; i<20; i++){
                 data.push(Math.round(Math.random() * (50 - 10) + 10));
-            };
+            }
             return data;
         }
         var num = my_data();

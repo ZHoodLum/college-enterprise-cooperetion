@@ -104,7 +104,7 @@
 		  <table>
 		  	<tr>   
 				<td> <input type="text" class="input-wrapper border no-border-b" id="captcha" name="code" placeholder="验证码" required="required" value=""></td>
-				<td> <img src="<%=path %>/codeServlet" alt="验证码" class="captcha" width="100" height="38" onclick="javascript:this.src='<%=path %>/codeServlet?'+ new Date().getTime()"></td>
+				<td> <img src="<%=path %>/codeServlet" alt="验证码" class="captcha" width="100" height="38" onclick="this.src='<%=path %>/codeServlet?'+ new Date().getTime()"></td>
 			</tr>
 		  </table> 
 				<%--

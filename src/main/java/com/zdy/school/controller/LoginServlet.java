@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 		this.doPost(request, response);
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws IOException {
 //		LoginDao loginDao = new LoginDao();
 		LoginService loginDao = new LoginServiceImpl();
 		StudentInfo studentInfo = new StudentInfo();
@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 		AdminInfo adminInfo = new AdminInfo();
 		//判断验证码
 		//获得用户输入的验证码
-		String code=(String)	request.getParameter("code").toLowerCase();
+		String code= request.getParameter("code").toLowerCase();
 		String servercode=(String)request.getSession().getAttribute("code");
 		servercode=servercode.toLowerCase();
 		if(code!=null&&servercode.equals(code)){

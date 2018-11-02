@@ -23,7 +23,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
     boolean flag = false;
     Connection con = DruidUtil.getCon();
 //    查询全部招聘信息
-    public ArrayList<JobInfo> findAllJobInfo(JobInfo jobInfo) throws Exception {
+    public ArrayList<JobInfo> findAllJobInfo(JobInfo jobInfo) {
         ArrayList<JobInfo> allJobInfo = new ArrayList<JobInfo>();
         try {
             String sql = "select job_id,job_info,job_position,job_date,enterprise_name,e_check,wage from jobinfo limit 0,5";
@@ -103,7 +103,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
     }
 
 //添加招聘信息
-    public int insertJobInfo(JobInfo jobInfo) throws Exception{
+    public int insertJobInfo(JobInfo jobInfo) {
         int rows = 0;
         try {
             String sql = "insert into jobinfo(job_info,job_position,enterprise_name,wage) values(?,?,?,?)";

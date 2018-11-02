@@ -24,7 +24,7 @@ public class JobInfoAddServlet extends HttpServlet {
         this.doPost(request,response);
     }
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         JobInfo jobInfo = new JobInfo();
 //        JobInfoDao jobInfoDao = new JobInfoDaoImpl();
         JobInfoService jobInfoDao = new JobInfoServiceImpl();

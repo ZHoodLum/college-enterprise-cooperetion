@@ -110,9 +110,8 @@ function move(x){
             json.push(json.shift());
         }else{
             json.unshift(json.pop());
-        };
-    };
-
+        }
+    }
     for(var i = 0; i<json.length; i++){
         animate(lis[i],{
             width: json[i].width,
@@ -121,7 +120,7 @@ function move(x){
             opacity: json[i].opacity,
             zIndex: json[i].z
         },function(){flag = true;})
-    };
+    }
 }
 
 function animate(obj, json, callback){
@@ -138,7 +137,7 @@ function animate(obj, json, callback){
             }else {
                 // console.log(json[k]);
                 leader = parseInt(getStyle(obj, k)) || 0;
-            };
+            }
 //         console.log(leader);
             // json[k]是目标位置
             var step = (json[k]-leader)/10;
@@ -156,19 +155,19 @@ function animate(obj, json, callback){
             if(leader != json[k]){
                 stoped = false;
             }
-        };
+        }
         if(stoped){
             // console.log('stop')
             clearInterval(obj.timers);
             callback && callback();
-        };
+        }
     },50);
-};
+}
 //获取属性值
 function getStyle(obj, attr){
     if(obj.currentStyle){
         return obj.currentStyle[attr];
     }else{
         return window.getComputedStyle(obj, null)[attr];
-    };
-};
+    }
+}

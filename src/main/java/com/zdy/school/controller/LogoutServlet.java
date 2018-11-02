@@ -14,7 +14,7 @@ import com.zdy.school.vo.StudentInfo;
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1599366365079846238L;
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         // 获取session
         HttpSession session = request.getSession();
         // 获取用户对象

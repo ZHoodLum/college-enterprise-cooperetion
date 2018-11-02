@@ -21,7 +21,7 @@ import java.io.IOException;
 public class UpdateEnterpriseManagerServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         EnterpriseService enterpriseService = new EnterpriseServiceImpl();
         EnterpriseInfo enterpriseInfo = new EnterpriseInfo();
         enterpriseInfo.setEnterpriseId(Integer.parseInt(request.getParameter("enterprise_id")));

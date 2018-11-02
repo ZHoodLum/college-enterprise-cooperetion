@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public interface JobInfoDao {
     //    查询全部招聘信息
-    public ArrayList<JobInfo> findAllJobInfo(JobInfo jobInfo) throws Exception ;
+    ArrayList<JobInfo> findAllJobInfo(JobInfo jobInfo) throws Exception ;
     //    查找招聘信息详情
-    public JobInfo findJobInfo(int jobId) throws Exception ;
+    JobInfo findJobInfo(int jobId) throws Exception ;
     //    添加招聘信息
-    public int insertJobInfo(JobInfo jobInfo) throws Exception;
+    int insertJobInfo(JobInfo jobInfo) throws Exception;
 }

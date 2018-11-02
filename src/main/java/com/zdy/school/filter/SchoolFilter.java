@@ -28,7 +28,7 @@ public class SchoolFilter implements Filter {
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
-	public void init(FilterConfig fConfig) throws ServletException {
+	public void init(FilterConfig fConfig) {
 		// TODO Auto-generated method stub
 		System.out.println("Filter1的初始化！");
 	}

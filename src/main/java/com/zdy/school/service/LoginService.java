@@ -13,11 +13,11 @@ import com.zdy.school.vo.TeacherInfo;
 
 public interface LoginService {
     //学生登陆
-    public boolean studentlogin(StudentInfo studentInfo) throws Exception;
+    boolean studentlogin(StudentInfo studentInfo) throws Exception;
     //教师登录
-    public boolean teacherlogin(TeacherInfo teacherInfo) throws Exception;
+    boolean teacherlogin(TeacherInfo teacherInfo) throws Exception;
     //企业登录
-    public boolean enterpriselogin(EnterpriseInfo enterpriseInfo) throws Exception;
+    boolean enterpriselogin(EnterpriseInfo enterpriseInfo) throws Exception;
     //管理员登录
-    public boolean adminlogin(AdminInfo adminInfo) throws Exception;
+    boolean adminlogin(AdminInfo adminInfo) throws Exception;
 }

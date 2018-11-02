@@ -20,7 +20,7 @@
   <script>  
            function check2pwd() {  
                    if(spwd.value != repwd.value) {  
-                       alert("两次输入密码不一致！")  
+                       alert("两次输入密码不一致！");
                        spwd.value = "";  
                        repwd.value = "";  
                    }  

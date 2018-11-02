@@ -9,5 +9,5 @@ import com.zdy.school.vo.EnterpriseInfo;
 
 
 public interface EnterpriseService {
-    public boolean updateEnterpriseInfo(EnterpriseInfo enterpriseInfo);
+    boolean updateEnterpriseInfo(EnterpriseInfo enterpriseInfo);
 }
