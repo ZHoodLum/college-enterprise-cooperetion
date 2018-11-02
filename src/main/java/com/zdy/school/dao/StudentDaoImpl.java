@@ -115,4 +115,16 @@ public class StudentDaoImpl implements StudentDao{
         return n;
     }
 
+    //修改学生信息
+    @Override
+    public boolean updateStudentInfo(StudentInfo studentInfo) {
+        int rows = 0;
+        try{
+            String sql = "update studentinfo";
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 }

@@ -17,6 +17,9 @@ public interface StudentService {
 //    public ArrayList<StudentInfo> findAllStudentInfo(StudentInfo studentInfo) throws Exception;
     public List<StudentInfo> findAllStudentInfo(int pageNo,int pageSize,int enterpriseId);
     public int getTotal();
+
+    //修改学生信息
+    public boolean uodateStudentInfo(StudentInfo studentInfo);
 }
 
 

@@ -39,6 +39,7 @@ public class LoginDaoImpl implements LoginDao {
 				studentInfo.setStudentSex(rs.getString("student_sex"));
 				studentInfo.setMajor(rs.getString("major"));
 				studentInfo.setCity(rs.getString("city"));
+				studentInfo.setEmail(rs.getString("email"));
 				studentInfo.setStudentCollege(rs.getString("student_college"));
 				studentInfo.setStudentInternship(rs.getString("student_internship"));
 				studentInfo.setStudentGrade(rs.getInt("student_grade"));

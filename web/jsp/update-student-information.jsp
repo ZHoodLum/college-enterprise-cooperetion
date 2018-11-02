@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul>
                             <li>
                                 <h3>学生学号:</h3>
-                                <p><input type="text" name="student_account" value="<%=session.getAttribute("student_account")%>" readonly="readonly"  /></p>
+                                <p><input class="text2" type="text" name="student_account" value="<%=session.getAttribute("student_account")%>" readonly="readonly"   style="padding: 10px 0 10px 0"/></p>
                             </li>
                         </ul>
                     </td>
@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul>
                             <li>
                                 <h3>学生账号:</h3>
-                                <p><input type="text" name="student_tel"/></p>
+                                <p><input class="text2" type="text" name="student_tel" value="<%=session.getAttribute("student_tel")%>" style="padding: 10px 0 10px 0"/></p>
                             </li>
                         </ul>
                     </td>
@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul>
                             <li>
                                 <h3>学生名称:</h3>
-                                <p><input type="text" name="student_name"/></p>
+                                <p><input class="text2" type="text" name="student_name" value="<%=session.getAttribute("student_name")%>" style="padding: 10px 0 10px 0"/></p>
                             </li>
                         </ul>
                     </td>
@@ -109,14 +109,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul>
                             <li>
                                 <h3>性别：</h3>
-                                <p>
                                 <div class="selectbox">
                                     <select name="student_sex">
                                         <option value="0">男</option>
                                         <option value="1">女</option>
                                     </select>
                                 </div>
-                                </p>
                             </li>
                         </ul>
                     </td>
@@ -126,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul>
                             <li >
                                 <h3>专业:</h3>
-                                <p><input type="text" name="major"/></p>
+                                <p><input class="text2" type="text" name="major" value="<%=session.getAttribute("major")%>" style="padding: 10px 0 10px 0"/></p>
                             </li>
                         </ul>
                     </td>
@@ -136,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul>
                             <li>
                                 <h3>籍贯:</h3>
-                                <p><input type="text" name="city"/></p>
+                                <p><input class="text2" type="text" name="city" value="<%=session.getAttribute("city")%>" style="padding: 10px 0 10px 0"/></p>
                             </li>
                         </ul>
                     </td>
@@ -146,7 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul>
                             <li>
                                 <h3>邮箱:</h3>
-                                <p><input type="text" name="email"/></p>
+                                <p><input class="text2" type="text" name="email" value="<%=session.getAttribute("email")%>" style="padding: 10px 0 10px 0"/></p>
                             </li>
                         </ul>
                     </td>
@@ -156,7 +154,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul>
                             <li>
                                 <h3>学院:</h3>
-                                <p><input type="text" name="student_college"/></p>
+                                <p><input class="text2" type="text" name="student_college" value="<%=session.getAttribute("student_college")%>" style="padding: 10px 0 10px 0"/></p>
                             </li>
                         </ul>
                     </td>
@@ -166,7 +164,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul>
                             <li id="lasts">
                                 <h3>在校指导教师:</h3>
-                                <p><input type="text" name="teacher_name" /></p>
+                                <p><input class="text2" type="text" name="teacher_name" value="<%=session.getAttribute("teacher_name")%>" style="padding: 10px 0 10px 0"/></p>
                             </li>
                         </ul>
                     </td>
@@ -175,6 +173,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr>
                     <td>
                         <a href="javascript:;" class="btn" style="float: left;margin-left: 320px;">保存修改信息</a>
+                        <a href="javascript: window.history.go(-1);" class="btn" style="float: left;margin-left: 10px;">返回上一页</a>
+
                     </td>
                 </tr>
 

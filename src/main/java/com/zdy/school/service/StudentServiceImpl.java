@@ -21,6 +21,7 @@ public class StudentServiceImpl implements  StudentService {
 //        return studentDao.findAllStudentInfo(studentInfo);
 //    }
 
+    //分页查询
     @Override
     public List<StudentInfo> findAllStudentInfo(int pageNo,int pageSize,int enterpriseId) {
         List<StudentInfo> list = studentDao.findAllStudentInfo(pageNo,pageSize,enterpriseId);
@@ -31,5 +32,11 @@ public class StudentServiceImpl implements  StudentService {
     public int getTotal() {
         int n = studentDao.getTotal();
         return n;
+    }
+
+    //修改学生信息
+    @Override
+    public boolean uodateStudentInfo(StudentInfo studentInfo) {
+        return false;
     }
 }

@@ -30,7 +30,9 @@
                         <a href="jsp/register.jsp"> 注册</a>
                     </c:when>
                     <c:otherwise> <!-- 否则 -->
-                        欢迎：${sessionScope.StudentInfo.getStudentName()}
+                        <a href="${pageContext.request.contextPath}/jsp/update-student-information.jsp">
+                          欢迎：${sessionScope.StudentInfo.getStudentName()}
+                        </a>
                         <img src="images/Cen_separate.gif" style="background-repeat:no-repeat;background-position:-25px -374px;height:16px;width:3px;margin-left: 3px;"/>&nbsp;
                         <span class="main2"><a href="LogoutServlet" target="_self">注销</a> </span>
                     </c:otherwise>

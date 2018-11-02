@@ -18,4 +18,7 @@ public interface StudentDao {
     public List<StudentInfo> findAllStudentInfo(int pageNo,int pageSize, int enterpriseId);
     //总结
     public int getTotal();
+
+    //修改学生信息
+    public boolean updateStudentInfo(StudentInfo studentInfo);
 }

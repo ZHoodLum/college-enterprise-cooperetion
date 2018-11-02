@@ -93,7 +93,7 @@ body{
 	 target="_blank" class="baidu-highlight">绝对定位</a>，fixed是相对于浏览器窗口定位。 */
 	top:0; /* 距离窗口顶部距离 */
 	/*left:0;*/ /* 距离窗口左边的距离 */
-	margin-right: 150px;
+	/*margin-right: 300px;*/
 	width:100%; /* 宽度设置为100% */
 	height:45px; /* 高度 */
 	z-index:99; /* 层叠顺序，数值越大就越高。页面滚动的时候就不会被其他内容所遮挡。 */
@@ -101,7 +101,7 @@ body{
 }
 #titlecontent_right{
 	float: right;
-	margin-right: 150px;
+	margin-right: 300px;
 	text-align: center;
 	width: 700px;
 	line-height: 40px;
@@ -120,7 +120,6 @@ body{
 	border-bottom:2px solid #0033CC; /* #ccc换成链接的颜色 */
 	padding-bottom:12px;  /*这里设置你要空的距离*/
 }
-
 /********************************************************************************招聘信息********************************************************************************/
 #recruitinformation{
 	width: 85%;
