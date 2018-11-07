@@ -94,7 +94,7 @@ public class LoginServlet extends HttpServlet {
 	//						request.getSession().setAttribute("TeacherPassword", teacherinfo.getTeacherPassword());
 							request.getSession().setAttribute("TeacherInfo", teacherInfo);
 							
-							request.getRequestDispatcher("/index.jsp").forward(request,response);
+							request.getRequestDispatcher("/jsp/teacher-main.jsp").forward(request,response);
 						} else {
 							response.sendRedirect("/college-enterprise-cooperetion/jsp/login.jsp");
 						}

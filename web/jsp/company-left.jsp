@@ -71,7 +71,7 @@
             <dd class="first_dd" style="height: 10px;"></dd>
         </dl>
 
-        <dl class="source" style="position:absolute;bottom: 50px;">
+        <dl class="source" style="position:absolute;bottom: 50px;width: 100%">
             <dt><img src="../images/left/select_xl01.png">
                 <a href="${pageContext.request.contextPath}/LogoutServlet" target="_blank">注销</a>
             </dt>

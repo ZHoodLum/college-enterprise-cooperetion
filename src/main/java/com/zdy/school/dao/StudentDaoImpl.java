@@ -60,7 +60,12 @@ public class StudentDaoImpl implements StudentDao{
 //进行数据分页查询
     public List<StudentInfo> findAllStudentInfo(int pageNo, int pageSize,int enterpriseId){
         List<StudentInfo> list = new ArrayList<StudentInfo>();
-        String sql = "select * from studentinfo s,teacher_studentinfo ts,teacherinfo t,classinfo c,class_studentinfo cs,enterprise_studentinfo es,enterpriseinfo e where s.student_account = ts.student_account and ts.teacher_account = t.teacher_account and c.class_id = cs.class_id and cs.student_account = s.student_account and es.enterprise_id = e.enterprise_id and es.student_account = s.student_account and e.enterprise_id= ? limit ?,?;";
+//        String sql = "select * from studentinfo s,teacher_studentinfo ts,teacherinfo t,classinfo c,class_studentinfo cs,enterprise_studentinfo es,enterpriseinfo e where s.student_account = ts.student_account and ts.teacher_account = t.teacher_account and c.class_id = cs.class_id and cs.student_account = s.student_account and es.enterprise_id = e.enterprise_id and es.student_account = s.student_account and e.enterprise_id= ? limit ?,?;";
+        String sql = "select * from  studentinfo s,teacherinfo t,classinfo c,enterpriseinfo e" +
+                " where s.teacher_id = t.teacher_id" +
+                " and c.class_id = s.class_id " +
+                " and e.enterprise_id = ?" +
+                " limit ?,?;";
         try{
             pstate = con.prepareStatement(sql);
             pstate.setInt(1,enterpriseId);
@@ -120,7 +125,7 @@ public class StudentDaoImpl implements StudentDao{
     public boolean updateStudentInfo(StudentInfo studentInfo) {
         int rows = 0;
         try{
-            String sql = "update studentinfo";
+            String sql = "update studentinfo set teacher_id = ? where student_id = ?;";
         }catch (Exception e){
             e.printStackTrace();
         }
