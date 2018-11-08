@@ -90,11 +90,18 @@ public class LoginServlet extends HttpServlet {
 					System.out.println("************************************************");
 					try {
 						if (loginDao.teacherlogin(teacherInfo)) {
-	//						request.getSession().setAttribute("TeacherTel", teacherinfo.getTeacherTel());
-	//						request.getSession().setAttribute("TeacherPassword", teacherinfo.getTeacherPassword());
+						    request.getSession().setAttribute("teacher_id",teacherInfo.getTeacherId());
+						    request.getSession().setAttribute("teacher_account",teacherInfo.getTeacherAccount());
+						    request.getSession().setAttribute("teacher_name",teacherInfo.getTeacherName());
+							request.getSession().setAttribute("teacher_tel", teacherInfo.getTeacherTel());
+							request.getSession().setAttribute("teacher_password", teacherInfo.getTeacherPassword());
+							request.getSession().setAttribute("email",teacherInfo.getEmail());
+							request.getSession().setAttribute("teacher_college",teacherInfo.getTeacherCollege());
+							request.getSession().setAttribute("teacher_sex",teacherInfo.getTeacherSex());
+							request.getSession().setAttribute("teacher_job",teacherInfo.getTeacherJob());
 							request.getSession().setAttribute("TeacherInfo", teacherInfo);
-							
-							request.getRequestDispatcher("/jsp/teacher-main.jsp").forward(request,response);
+
+                            response.sendRedirect("/college-enterprise-cooperetion/jsp/teacher-main.jsp");
 						} else {
 							response.sendRedirect("/college-enterprise-cooperetion/jsp/login.jsp");
 						}

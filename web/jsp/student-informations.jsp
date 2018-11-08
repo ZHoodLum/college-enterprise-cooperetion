@@ -30,15 +30,15 @@
             <tr align="center"  bgcolor="#FFFFFF" border: 0px;>
                 <%--<td width="6%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学号</td>--%>
                 <%--<td width="6%"  style="padding:5px 0 0 0;">学号</td>--%>
-                <td width="6%"  style="padding:5px 0 0 0;">姓名</td>
-                <td width="7%"  style="padding:5px 0 0 0;">性别</td>
-                <td width="6%"  style="padding:5px 0 0 0;">专业</td>
-                <td width="12%"  style="padding:5px 0 0 0;">籍贯</td>
-                <td width="10%"  style="padding:5px 0 0 0;">邮箱</td>
-                <td width="12%"  style="padding:5px 0 0 0;">电话</td>
-                <td width="12%"  style="padding:5px 0 0 0;">学院</td>
-                <td width="7%"  style="padding:5px 0 0 0;">是否实习</td>
-                <td width="8%"  style="padding:5px 0 0 0;">指导教师</td>
+                <td width="6%"  style="padding:10px 0 20px 0;border-bottom: 2px dashed #808080;">姓名</td>
+                <td width="7%"  style="padding:10px 0 20px 0;border-bottom: 2px dashed #808080;">性别</td>
+                <td width="6%"  style="padding:10px 0 20px 0;border-bottom: 2px dashed #808080;">专业</td>
+                <td width="12%"  style="padding:10px 0 20px 0;border-bottom: 2px dashed #808080;">籍贯</td>
+                <td width="10%"  style="padding:10px 0 20px 0;border-bottom: 2px dashed #808080;">邮箱</td>
+                <td width="12%"  style="padding:10px 0 20px 0;border-bottom: 2px dashed #808080;">电话</td>
+                <td width="12%"  style="padding:10px 0 20px 0;border-bottom: 2px dashed #808080;">学院</td>
+                <td width="7%"  style="padding:10px 0 20px 0;border-bottom: 2px dashed #808080;">是否实习</td>
+                <td width="8%"  style="padding:10px 0 20px 0;border-bottom: 2px dashed #808080;">指导教师</td>
             </tr>
             <!-- 分页查询 -->
             <c:forEach items="${list}" var="si" varStatus="i">
@@ -49,15 +49,15 @@
                     <tr align="center" bgcolor="#F5F5F5" style="border:0px;padding: 3px 0 3px 0">
                 </c:if>
                 <%--<td>${si.studentAccount}</td>--%>
-                <td>${si.studentName}</td>
-                <td>${si.studentSex}</td>
-                <td>${si.major}</td>
-                <td>${si.city}</td>
-                <td>${si.email}</td>
-                <td>${si.studentTel}</td>
-                <td>${si.studentCollege}</td>
-                <td>${si.studentInternship}</td>
-                <td>${si.teacherName}</td>
+                    <td  style="padding:7px 0 7px 0;">${si.studentName}</td>
+                    <td>${si.studentSex}</td>
+                    <td>${si.major}</td>
+                    <td>${si.city}</td>
+                    <td>${si.email}</td>
+                    <td>${si.studentTel}</td>
+                    <td>${si.studentCollege}</td>
+                    <td>${si.studentInternship}</td>
+                    <td>${si.teacherName}</td>
                 </tr>
             </c:forEach>
 
@@ -77,7 +77,7 @@
                         </c:if>
 
                         <c:if test="${i!=pageNo }">
-                            <a href="${pageContext.request.contextPath}/StudentQueryAllServlet?pageNo=${i}&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">${i}</a>
+                            <a href="${pageContext.request.contextPath}/EnterpriseStudentQueryAllServlet?pageNo=${i}&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">${i}</a>
                         </c:if>
                     </c:forEach>
                 </c:if>
@@ -89,7 +89,7 @@
                         </c:if>
 
                         <c:if test="${i!=pageNo }">
-                            <a href="${pageContext.request.contextPath}/StudentQueryAllServlet?pageNo=${i}&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">${i}</a>
+                            <a href="${pageContext.request.contextPath}/EnterpriseStudentQueryAllServlet?pageNo=${i}&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">${i}</a>
                         </c:if>
 
                     </c:forEach>

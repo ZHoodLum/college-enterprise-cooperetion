@@ -18,22 +18,22 @@
 
         <dl class="app">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="../jsp/student-informations.jsp" target="right">查询学生信息</a>
-                <dd class="first_dd"><a href="#">计科1班</a></dd>
-                <dd><a href="#">计科2班</a></dd>
-                <dd><a href="#">计科3班</a></dd>
-                <dd><a href="#">计科4班</a></dd>
-                <dd><a href="#">计科5班</a></dd>
-                <dd><a href="#">计科6班</a></dd>
-                <dd><a href="#">计科7班</a></dd>
-                <dd><a href="#">计科8班</a></dd>
+                <a href="${pageContext.request.contextPath}/ClassInfoQueryAllServlet" target="right">查询学生信息</a>
+                <%--<dd class="first_dd"><a href="#">计科1班</a></dd>--%>
+                <%--<dd><a href="#">计科2班</a></dd>--%>
+                <%--<dd><a href="#">计科3班</a></dd>--%>
+                <%--<dd><a href="#">计科4班</a></dd>--%>
+                <%--<dd><a href="#">计科5班</a></dd>--%>
+                <%--<dd><a href="#">计科6班</a></dd>--%>
+                <%--<dd><a href="#">计科7班</a></dd>--%>
+                <%--<dd><a href="#">计科8班</a></dd>--%>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
         </dl>
         <dl class="cloud">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="../jsp/teachermanger-studentscore.html" target="right">查看学生成绩</a>
+                <a href="${pageContext.request.contextPath}/TeacherStudentQueryAllServlet?teacherId=${sessionScope.TeacherInfo.getTeacherId()}" target="right">查看学生成绩</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>

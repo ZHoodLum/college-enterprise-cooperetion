@@ -21,13 +21,13 @@ public class StudentServiceImpl implements  StudentService {
 //        return studentDao.findAllStudentInfo(studentInfo);
 //    }
 
-    //分页查询
+    //分页查询   企业进行分页查询
     @Override
     public List<StudentInfo> findAllStudentInfo(int pageNo,int pageSize,int enterpriseId) {
         List<StudentInfo> list = studentDao.findAllStudentInfo(pageNo,pageSize,enterpriseId);
         return list;
     }
-
+    //数据总量
     @Override
     public int getTotal() {
         int n = studentDao.getTotal();
@@ -36,7 +36,14 @@ public class StudentServiceImpl implements  StudentService {
 
     //修改学生信息
     @Override
-    public boolean uodateStudentInfo(StudentInfo studentInfo) {
+    public boolean updateStudentInfo(StudentInfo studentInfo) {
         return false;
+    }
+
+    //教师查询全部学生的信息
+    @Override
+    public List<StudentInfo> teacherFindAllStudentInfo(int teacherId) {
+        List<StudentInfo> list = studentDao.teacherFindAllStudentInfo(teacherId);
+        return list;
     }
 }

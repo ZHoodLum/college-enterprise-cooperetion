@@ -4,13 +4,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>教师管理头部</title>
+    <title>mangerhead</title>
     <style type="text/css">
         body{
             background-color: #b7b7b7;
             color: white;
         }
-        #login{margin:5px 0 10px 0;}
+        #login{margin:2px 0 10px 0;}
         #title{font-size: 30px;margin:0 auto;float:left;margin-left:50px;transition: 2s;font-family:华文行楷}
         #title1{
             position:absolute;
@@ -22,7 +22,7 @@
             color: black;
             text-decoration: none;
         }
-        #title:hover{cursor: pointer;/*光标点击 宽度向右移动50*/transform: translateX(50px);}
+        #title:hover{cursor: pointer;/*光标点击 宽度向右移动50*/transform: translateX(80px);}
         #title1 a:visited {color:black;}
         #title1 a:hover {color:blue; text-decoration: none;}
         #circle {
@@ -43,7 +43,10 @@
         <span id="title"><a href="../main.html" style="text-decoration: none;color:black;" target="_top">School enterprise cooperation</a></span>
         <a href="update-manger-information.html" style="text-decoration: none;color:black;" target="right">
             <img src="../images/loginusers.png"  id="circle">
-            <span id="title1">胡歌</span>
+            <span id="title1">
+
+                 欢迎：${sessionScope.TeacherInfo.getTeacherName()}
+            </span>
         </a>
     </div>
 </body>

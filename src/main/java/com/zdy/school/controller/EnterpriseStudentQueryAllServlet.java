@@ -19,8 +19,8 @@ import java.util.List;
  * @ Date       ：Created in 2018/10/17
  */
 
-@WebServlet("/StudentQueryAllServlet")
-public class StudentQueryAllServlet extends HttpServlet {
+@WebServlet("/EnterpriseStudentQueryAllServlet")
+public class EnterpriseStudentQueryAllServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private StudentService studentService = new StudentServiceImpl();
     EnterpriseInfo enterpriseInfo = new EnterpriseInfo();

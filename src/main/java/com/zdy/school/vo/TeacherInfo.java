@@ -7,6 +7,7 @@ package com.zdy.school.vo;
  */
 public class TeacherInfo {
 	private int teacherId;
+	private int teacherAccount;
 	private String teacherName;
 	private String teacherTel;
 	private String teacherPassword;
@@ -77,5 +78,13 @@ public class TeacherInfo {
 
 	public void setTeacherJob(String teacherJob) {
 		this.teacherJob = teacherJob;
+	}
+
+	public int getTeacherAccount() {
+		return teacherAccount;
+	}
+
+	public void setTeacherAccount(int teacherAccount) {
+		this.teacherAccount = teacherAccount;
 	}
 }

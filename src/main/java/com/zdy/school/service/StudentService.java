@@ -15,11 +15,16 @@ import java.util.List;
 public interface StudentService {
 //    查看全部学生信息
 //    public ArrayList<StudentInfo> findAllStudentInfo(StudentInfo studentInfo) throws Exception;
-List<StudentInfo> findAllStudentInfo(int pageNo, int pageSize, int enterpriseId);
+//    企业进行分页查询
+    List<StudentInfo> findAllStudentInfo(int pageNo, int pageSize, int enterpriseId);
     int getTotal();
 
     //修改学生信息
-    boolean uodateStudentInfo(StudentInfo studentInfo);
+    boolean updateStudentInfo(StudentInfo studentInfo);
+
+    //教师查询学生信息
+    List<StudentInfo> teacherFindAllStudentInfo(int teacherId);
+
 }
 
 

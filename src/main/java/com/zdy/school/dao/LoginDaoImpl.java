@@ -62,19 +62,26 @@ public class LoginDaoImpl implements LoginDao {
 	}
 	//教师登陆
 	@Override
-	public boolean teacherlogin(TeacherInfo teacherinfo) throws Exception {
+	public boolean teacherlogin(TeacherInfo teacherInfo) throws Exception {
 		try {
 			String sql = "select * from teacherinfo where teacher_tel =? and teacher_password =?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, teacherinfo.getTeacherTel());
-			pstmt.setString(2, teacherinfo.getTeacherPassword());
+			pstmt.setString(1, teacherInfo.getTeacherTel());
+			pstmt.setString(2, teacherInfo.getTeacherPassword());
 
 			rs = pstmt.executeQuery(); 
 			if (rs.next()) {
 				flag = true;
-				teacherinfo.setTeacherTel(rs.getString("teacher_tel"));
-				teacherinfo.setTeacherPassword(rs.getString("teacher_password"));
-				teacherinfo.setTeacherName(rs.getString("teacher_name"));
+				teacherInfo.setTeacherId(rs.getInt("teacher_id"));
+				teacherInfo.setTeacherAccount(rs.getInt("teacher_account"));
+				teacherInfo.setTeacherName(rs.getString("teacher_name"));
+				teacherInfo.setTeacherTel(rs.getString("teacher_tel"));
+				teacherInfo.setTeacherPassword(rs.getString("teacher_password"));
+				teacherInfo.setEmail(rs.getString("email"));
+				teacherInfo.setTeacherCollege(rs.getString("teacher_college"));
+				teacherInfo.setTeacherSex(rs.getString("teacher_sex"));
+				teacherInfo.setTeacherJob(rs.getString("teacher_job"));
+
 			}
 			rs.close();
 			pstmt.close();

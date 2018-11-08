@@ -14,11 +14,15 @@ import java.util.List;
 
 public interface StudentDao {
 //    public ArrayList<StudentInfo> findAllStudentInfo(StudentInfo studentInfo) throws Exception;
-    //进行分页查询
-List<StudentInfo> findAllStudentInfo(int pageNo, int pageSize, int enterpriseId);
-    //总结
+    //企业进行分页查询
+    List<StudentInfo> findAllStudentInfo(int pageNo, int pageSize, int enterpriseId);
+    //数据总数
     int getTotal();
 
     //修改学生信息
     boolean updateStudentInfo(StudentInfo studentInfo);
+
+    //教师查询全部学生信息
+    List<StudentInfo> teacherFindAllStudentInfo(int teacherId);
+
 }
