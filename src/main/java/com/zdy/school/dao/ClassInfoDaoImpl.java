@@ -26,7 +26,7 @@ public class ClassInfoDaoImpl implements ClassInfoDao {
     public List<ClassInfo> findAllClassInfo(ClassInfo classInfo) {
         List<ClassInfo> allClassInfo = new ArrayList<ClassInfo>();
         try {
-            String sql = "select * from classinfo;";
+            String sql = "select * from classinfo order by class_id;";
             pstate = con.prepareStatement(sql);
             rs = pstate.executeQuery();
             while (rs.next()){

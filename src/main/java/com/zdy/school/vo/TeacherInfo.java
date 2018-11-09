@@ -6,7 +6,7 @@ package com.zdy.school.vo;
  * 用于存放教师的相关信息
  */
 public class TeacherInfo {
-	private int teacherId;
+	private Integer teacherId;
 	private int teacherAccount;
 	private String teacherName;
 	private String teacherTel;
@@ -16,11 +16,11 @@ public class TeacherInfo {
 	private String teacherSex;
 	private String teacherJob;
 
-	public int getTeacherId() {
+	public Integer getTeacherId() {
 		return teacherId;
 	}
 
-	public void setTeacherId(int teacherId) {
+	public void setTeacherId(Integer teacherId) {
 		this.teacherId = teacherId;
 	}
 

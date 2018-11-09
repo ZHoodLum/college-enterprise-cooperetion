@@ -6,7 +6,7 @@ package com.zdy.school.vo;
  */
 public class StudentInfo {
 	private int studentId;
-	private int studentAccount;
+	private Integer studentAccount;
 	private String studentName;
 	private String studentTel;
 	private String studentPassword;
@@ -48,13 +48,22 @@ public class StudentInfo {
         this.studentId = studentId;
     }
 
-    public int getStudentAccount() {
+    public Integer getStudentAccount() {
         return studentAccount;
     }
 
-    public void setStudentAccount(int studentAccount) {
+    public void setStudentAccount(Integer studentAccount) {
         this.studentAccount = studentAccount;
     }
+
+    //
+//    public int getStudentAccount() {
+//        return studentAccount;
+//    }
+//
+//    public void setStudentAccount(int studentAccount) {
+//        this.studentAccount = studentAccount;
+//    }
 
     public String getStudentName() {
         return studentName;

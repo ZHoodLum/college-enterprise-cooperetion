@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         .search{border-color:blue;width: 200px;height:20px;outline: none;border-radius:10px;padding: 3px 0 3px 3px;}
         .sub{background-color: blue;border: 2px;width: 60px;height: 30px;font-size: 16px;font-family:YouYuan;}
         <!--下拉框样式-->
-        .selectbox{ width: 200px; display: inline-block; overflow-x: hidden; height: 28px; line-height: 28px; font-size: 0;  background:#fff url(images/arrow.png) right center no-repeat;  vertical-align: middle;}
+        .selectbox{ width: 200px; display: inline-block; overflow-x: hidden; height: 28px; line-height: 28px; font-size: 0;  background:#fff url(/images/arrow.png) right center no-repeat;  vertical-align: middle;}
         .selectbox select{cursor: pointer; padding: 0 8px; height: 28px; line-height: 28px; font-size: 14px; width:100%; padding-right: 18%; background:none; border: none;}
         .selectbox select option{ padding:5px;}
     </style>
@@ -28,20 +28,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <span><hr class="hrLine" style="width:300px;"/>学生企业实习成绩<hr class="hrLine" style="width:300px;"/></span>
 </div>
 <!--搜索框 <div class="search"></div>-->
-<div>
-    <div class="sousuo">
-        <input type="text" class="search" placeholder="根据姓名进行搜索"/>
-        <input type="text" class="search" placeholder="根据学号进行搜索"/>
-        <input type="submit" value="搜索" class="sub"/>
+<form action="${pageContext.request.contextPath}/ConditionFindAllStudentInfoServlet" method="get">
+    <div>
+        <div class="sousuo">
+            <input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索"/>
+            <input type="text" name="studentAccount" class="search" placeholder="根据学号进行搜索"/>
+            <input type="submit" value="搜索" class="sub"/>
+        </div>
     </div>
-</div>
-
+</form>
 <div id="recruitinformation">
     <form id="myform" name="myform" action="*****">
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr align="center">
                 <td width="10%"  style="padding:10px; border-bottom: 2px dashed #808080;">学生学号</td>
                 <td width="10%"  style="padding:10px; border-bottom: 2px dashed #808080;">学生姓名</td>
+                <td width="10%"  style="padding:10px; border-bottom: 2px dashed #808080;">电话</td>
                 <td width="10%"  style="padding:10px; border-bottom: 2px dashed #808080;">专业</td>
                 <td width="10%"  style="padding:10px; border-bottom: 2px dashed #808080;">所在学院</td>
                 <td width="10%"  style="padding:10px; border-bottom: 2px dashed #808080;">在校指导教师</td>
@@ -58,6 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </c:if>
                     <td  style="padding:7px 0 7px 0;">${si.studentAccount}</td>
                     <td>${si.studentName}</td>
+                    <td>${si.studentTel}</td>
                     <td>${si.major}</td>
                     <td>${si.studentCollege}</td>
                     <td>${si.teacherName}</td>

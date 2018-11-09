@@ -34,7 +34,7 @@
     <span><hr class="hrLine" style="width:260px;vertical-align:middle; display:inline-block;"/>学生的信息查询<hr class="hrLine" style="width:260px;vertical-align:middle; display:inline-block;"/></span>
 </div>
 <!--搜索框 <div class="search"></div>-->
-<form action="TeacherQueryAllStudentInfoServlet">
+<form action="ConditionFindAllStudentInfoServlet">
     <div>
         <div class="selectbox" style="margin: 20px 0 10px 80px;width: 200px;float: left;border: 2px solid blue;">
             <select name="class_name">
@@ -67,8 +67,8 @@
         </div>
 
         <div class="sousuo">
-            <input type="text" class="search" placeholder="根据姓名进行搜索"/>
-            <input type="text" class="search" placeholder="根据学号进行搜索"/>
+            <input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索"/>
+            <input type="text" name="studentAccount" class="search" placeholder="根据学号进行搜索"/>
             <input type="submit" value="搜索" class="sub"/>
         </div>
     </div>

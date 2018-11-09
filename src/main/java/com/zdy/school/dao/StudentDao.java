@@ -25,4 +25,7 @@ public interface StudentDao {
     //教师查询全部学生信息
     List<StudentInfo> teacherFindAllStudentInfo(int teacherId);
 
+    //条件查询学生信息
+    List<StudentInfo> conditionFindAllStudentInfo(StudentInfo studentInfo);
+
 }

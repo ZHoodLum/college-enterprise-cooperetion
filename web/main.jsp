@@ -43,7 +43,7 @@
     <div id="top">
         <!--标题栏置顶-->
         <div id="titlecontent">
-            <div id="titlecontent_right">
+            <div id="titlecontent_right" style="margin-right: 100px;">
                 <span class="main1"><a href="javascript:scroll(0,0)">HOME</a></span>
                 <span class="main2"><a href="#recruitinformation">招聘信息</a></span>
                 <span class="main2"><a href="#recruitstudentimages2">实习向导</a></span>
