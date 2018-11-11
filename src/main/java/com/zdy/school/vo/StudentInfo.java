@@ -17,7 +17,7 @@ public class StudentInfo {
 	private String studentCollege;
 	private String studentInternship;
 	private int studentGrade;
-	private int classId;
+	private Integer classId;
 	private int teacherId;
 	private String className;
 	private String teacherName;
@@ -145,11 +145,11 @@ public class StudentInfo {
         this.studentGrade = studentGrade;
     }
 
-    public int getClassId() {
+    public Integer getClassId() {
         return classId;
     }
 
-    public void setClassId(int classId) {
+    public void setClassId(Integer classId) {
         this.classId = classId;
     }
 

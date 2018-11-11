@@ -13,7 +13,7 @@ import java.util.List;
 
 
 public interface StudentDao {
-//    public ArrayList<StudentInfo> findAllStudentInfo(StudentInfo studentInfo) throws Exception;
+    ArrayList<StudentInfo> queryAllStudentInfo(StudentInfo studentInfo) throws Exception;
     //企业进行分页查询
     List<StudentInfo> findAllStudentInfo(int pageNo, int pageSize, int enterpriseId);
     //数据总数

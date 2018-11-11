@@ -16,10 +16,12 @@ import java.util.List;
 
 public class StudentServiceImpl implements  StudentService {
     StudentDao studentDao = new StudentDaoImpl();
-//    @Override
-//    public ArrayList<StudentInfo> findAllStudentInfo(StudentInfo studentInfo) throws Exception {
-//        return studentDao.findAllStudentInfo(studentInfo);
-//    }
+//  查询全部学生信息
+    @Override
+    public ArrayList<StudentInfo> queryAllStudentInfo(StudentInfo studentInfo) throws Exception {
+        ArrayList<StudentInfo> list = studentDao.queryAllStudentInfo(studentInfo);
+        return list;
+    }
 
     //分页查询   企业进行分页查询
     @Override

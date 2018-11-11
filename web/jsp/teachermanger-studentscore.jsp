@@ -25,10 +25,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 
 <div class="checkout-title">
+    <input type="hidden" name="pageId" value="1">
     <span><hr class="hrLine" style="width:300px;"/>学生企业实习成绩<hr class="hrLine" style="width:300px;"/></span>
 </div>
 <!--搜索框 <div class="search"></div>-->
-<form action="${pageContext.request.contextPath}/ConditionFindAllStudentInfoServlet" method="get">
+<form action="${pageContext.request.contextPath}/StudentInfoConditionQueryServlet02" method="get">
     <div>
         <div class="sousuo">
             <input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索"/>

@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface StudentService {
 //    查看全部学生信息
-//    public ArrayList<StudentInfo> findAllStudentInfo(StudentInfo studentInfo) throws Exception;
+    ArrayList<StudentInfo> queryAllStudentInfo(StudentInfo studentInfo) throws Exception;
 //    企业进行分页查询
     List<StudentInfo> findAllStudentInfo(int pageNo, int pageSize, int enterpriseId);
     int getTotal();

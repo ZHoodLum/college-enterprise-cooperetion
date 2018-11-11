@@ -32,7 +32,9 @@ public class ClassInfoQueryAllServlet extends HttpServlet {
              request.getSession().setAttribute("class_id",classInfo.getClassId());
              request.getSession().setAttribute("class_name",classInfo.getClassName());
              request.getSession().setAttribute("allClassInfo",allClassInfo);
-             request.getRequestDispatcher("/jsp/teacher-student-information.jsp").forward(request, response);
+//             request.getRequestDispatcher("/jsp/teacher-student-information.jsp").forward(request, response);
+             request.getRequestDispatcher("/StudentInfoQueryAllServlet").forward(request,response);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

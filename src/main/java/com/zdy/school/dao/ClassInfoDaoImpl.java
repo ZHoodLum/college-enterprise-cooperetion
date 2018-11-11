@@ -34,11 +34,11 @@ public class ClassInfoDaoImpl implements ClassInfoDao {
                 classInfo.setClassId(rs.getInt("class_id"));
                 classInfo.setClassName(rs.getString("class_name"));
                 allClassInfo.add(classInfo);
-                for (ClassInfo s:allClassInfo){
-                    System.out.println(s);
-                }
+//                for (ClassInfo s:allClassInfo){
+//                    System.out.println(s);
+//                }
             }
-            DruidUtil.closeConnection(rs,con,pstate);
+//            DruidUtil.closeConnection(rs,con,pstate);
         }catch (SQLException s){
             s.printStackTrace();
         }catch (Exception e){

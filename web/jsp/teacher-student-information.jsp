@@ -34,20 +34,20 @@
     <span><hr class="hrLine" style="width:260px;vertical-align:middle; display:inline-block;"/>学生的信息查询<hr class="hrLine" style="width:260px;vertical-align:middle; display:inline-block;"/></span>
 </div>
 <!--搜索框 <div class="search"></div>-->
-<form action="ConditionFindAllStudentInfoServlet">
+<form action="${pageContext.request.contextPath}/StudentInfoConditionQueryServlet01" method="get">
     <div>
         <div class="selectbox" style="margin: 20px 0 10px 80px;width: 200px;float: left;border: 2px solid blue;">
-            <select name="class_name">
+            <select name="class_id">
                 <%
                     ClassInfo classInfo = new ClassInfo();
                     ClassInfoService classInfoService = new ClassInfoServiceImpl();
                     List<ClassInfo> allClassInfo = classInfoService.findAllClassInfo(classInfo);
                     for(int i=0;i<allClassInfo.size();i++){
                         classInfo = allClassInfo.get(i);
-                        if (classInfo.getClassId() == classInfo.getClassId()){
+                        if (classInfo.getClassId() == 0){
                 %>
 
-                <option value="0" selected="selected" style="font-size: 16px;"></option>
+                <option value="0" selected="selected" style="font-size: 16px;"><%=classInfo.getClassName()%></option>
                 <option value="<%=classInfo.getClassId()%>" selected="selected" style="font-size: 16px;"><%=classInfo.getClassName()%></option>
 
                 <%
@@ -78,18 +78,17 @@
         <br>
             <tr align="center"  bgcolor="#FFFFFF" border: 0px;>
                 <%--<td width="6%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学号</td>--%>
-                <%--<td width="6%"  style="padding:5px 0 0 0;">学号</td>--%>
-                <td width="6%"  style="padding:5px 0 0 0;">姓名</td>
-                <td width="7%"  style="padding:5px 0 0 0;">性别</td>
-                <td width="6%"  style="padding:5px 0 0 0;">专业</td>
-                <td width="12%"  style="padding:5px 0 0 0;">籍贯</td>
-                <td width="10%"  style="padding:5px 0 0 0;">邮箱</td>
-                <td width="12%"  style="padding:5px 0 0 0;">电话</td>
-                <td width="12%"  style="padding:5px 0 0 0;">学院</td>
-                <td width="7%"  style="padding:5px 0 0 0;">是否实习</td>
-                <td width="8%"  style="padding:5px 0 0 0;">指导教师</td>
+                <td width="6%"  style="padding:10px; border-bottom: 2px dashed #808080;">学号</td>
+                <td width="6%"  style="padding:10px; border-bottom: 2px dashed #808080;">姓名</td>
+                <td width="7%"  style="padding:10px; border-bottom: 2px dashed #808080;">性别</td>
+                <td width="6%"  style="padding:10px; border-bottom: 2px dashed #808080;">专业</td>
+                <td width="12%"  style="padding:10px; border-bottom: 2px dashed #808080;">籍贯</td>
+                <td width="10%"  style="padding:10px; border-bottom: 2px dashed #808080;">邮箱</td>
+                <td width="12%"  style="padding:10px; border-bottom: 2px dashed #808080;">电话</td>
+                <td width="12%"  style="padding:10px; border-bottom: 2px dashed #808080;">学院</td>
+                <td width="7%"  style="padding:10px; border-bottom: 2px dashed #808080;">是否实习</td>
+                <td width="8%"  style="padding:10px; border-bottom: 2px dashed #808080;">指导教师</td>
             </tr>
-            <!-- 分页查询 -->
             <c:forEach items="${list}" var="si" varStatus="i">
                 <c:if test="${i.index%2 == 0 }">
                     <tr align="center" bgcolor="#FFFFFF" style="border:0px;padding: 3px 0 3px 0">
@@ -97,8 +96,8 @@
                 <c:if test="${i.index%2 == 1 }">
                     <tr align="center" bgcolor="#F5F5F5" style="border:0px;padding: 3px 0 3px 0">
                 </c:if>
-                <%--<td>${si.studentAccount}</td>--%>
-                <td  style="padding:7px 0 7px 0;">${si.studentName}</td>
+                <td  style="padding:7px 0 7px 0;">${si.studentAccount}</td>
+                <td>${si.studentName}</td>
                 <td>${si.studentSex}</td>
                 <td>${si.major}</td>
                 <td>${si.city}</td>
@@ -109,42 +108,7 @@
                 <td>${si.teacherName}</td>
                 </tr>
             </c:forEach>
-
         <tbody>
-    </table>
-</div>
-<div id="footer">
-    <!-- 分页导航 -->
-    <table width="773" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr align="center" style="width:60%">
-            <td width="335" align="center"  class="text_cray">&nbsp;</td>
-            <td width="284" align="center"  class="text_cray">
-                <c:if test="${n%pageSize==0}">
-                    <c:forEach begin="1" end="${n/pageSize}" var="i" step="1">
-                        <c:if test="${i==pageNo }">
-                            ${i}
-                        </c:if>
-
-                        <c:if test="${i!=pageNo }">
-                            <a href="${pageContext.request.contextPath}/StudentQueryAllServlet?pageNo=${i}&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">${i}</a>
-                        </c:if>
-                    </c:forEach>
-                </c:if>
-
-                <c:if test="${n%pageSize!=0}">
-                    <c:forEach begin="1" end="${n/pageSize+1}" var="i" step="1">
-                        <c:if test="${i==pageNo }">
-                            ${i}
-                        </c:if>
-
-                        <c:if test="${i!=pageNo }">
-                            <a href="${pageContext.request.contextPath}/StudentQueryAllServlet?pageNo=${i}&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">${i}</a>
-                        </c:if>
-
-                    </c:forEach>
-                </c:if>
-            </td>
-        </tr>
     </table>
 </div>
 </body>
