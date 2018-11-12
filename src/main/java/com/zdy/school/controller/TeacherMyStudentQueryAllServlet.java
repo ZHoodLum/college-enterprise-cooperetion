@@ -2,7 +2,9 @@ package com.zdy.school.controller;
 
 import com.zdy.school.service.StudentService;
 import com.zdy.school.service.StudentServiceImpl;
+import com.zdy.school.vo.EnterpriseInfo;
 import com.zdy.school.vo.StudentInfo;
+import com.zdy.school.vo.TeacherInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,29 +16,26 @@ import java.util.List;
 
 /**
  * @ Author     ：ZhoodLum
- * @ Date       ：Created in 2018/11/9
- * 教师查询实习学生的成绩及其信息
- * 可以根据学生电话、学生学号进行一个或多个条件进行查询
+ * @ Date       ：Created in 2018/11/8
  */
-@WebServlet("/StudentInfoConditionQueryServlet02")
-public class StudentInfoConditionQueryServlet02 extends HttpServlet {
+
+@WebServlet("/TeacherMyStudentQueryAllServlet")
+public class TeacherMyStudentQueryAllServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private StudentService studentService = new StudentServiceImpl();
+    StudentInfo studentInfo = new StudentInfo();
+    EnterpriseInfo enterpriseInfo = new EnterpriseInfo();
+    TeacherInfo teacherInfo = new TeacherInfo();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        StudentInfo studentInfo = new StudentInfo();
-        if (!"" .equals(request.getParameter("studentTel"))) {
-            studentInfo.setStudentTel(request.getParameter("studentTel"));
-        }
-        if (!"" .equals(request.getParameter("studentAccount"))) {
-            studentInfo.setStudentAccount(Integer.parseInt(request.getParameter("studentAccount")));
-        }
-        List<StudentInfo> list = studentService.conditionFindAllStudentInfo(studentInfo);
+        int teacherId = Integer.parseInt(request.getParameter("teacherId"));
+        List<StudentInfo> list = studentService.teacherMyStudentInfo(teacherId);
         request.getSession().setAttribute("list", list);
-        response.sendRedirect("/college-enterprise-cooperetion/jsp/teachermanger-studentscore.jsp");
+        response.sendRedirect("/college-enterprise-cooperetion/jsp/teacher-mystudent-information.jsp");
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doGet(request,response);
+       this.doGet(request,response);
     }
 }

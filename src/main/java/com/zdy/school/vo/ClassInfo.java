@@ -6,14 +6,14 @@ package com.zdy.school.vo;
  * 用于存放班级的相关信息
  */
 public class ClassInfo {
-	private int classId;
+	private Integer classId;
 	private String className;
 
-	public int getClassId() {
+	public Integer getClassId() {
 		return classId;
 	}
 
-	public void setClassId(int classId) {
+	public void setClassId(Integer classId) {
 		this.classId = classId;
 	}
 

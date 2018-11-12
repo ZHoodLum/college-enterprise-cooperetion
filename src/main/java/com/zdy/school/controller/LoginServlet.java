@@ -15,6 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * @ Author     ：ZhoodLum
+ * @ Date       ：Created in 2018/11/9
+ * 用户登陆功能的实现
+ * 可以根据学生、教师、企业、管理员不同权限进行登陆，管理属于自己权限的信息
+ */
+
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)

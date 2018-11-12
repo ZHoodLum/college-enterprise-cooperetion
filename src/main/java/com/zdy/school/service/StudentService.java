@@ -28,6 +28,9 @@ public interface StudentService {
     //条件查询学生信息
     List<StudentInfo> conditionFindAllStudentInfo(StudentInfo studentInfo);
 
+    //教师管理的学生
+    List<StudentInfo> teacherMyStudentInfo(int teacherId);
+
 }
 
 

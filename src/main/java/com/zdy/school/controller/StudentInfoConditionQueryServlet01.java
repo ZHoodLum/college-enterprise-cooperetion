@@ -15,6 +15,8 @@ import java.util.List;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/11/9
+ * 教师查询全部学生的信息
+ * 可以根据班级、学生电话、学生学号进行一个或多个条件进行查询
  */
 @WebServlet("/StudentInfoConditionQueryServlet01")
 public class StudentInfoConditionQueryServlet01 extends HttpServlet {
@@ -31,12 +33,10 @@ public class StudentInfoConditionQueryServlet01 extends HttpServlet {
         }
         String[] classId = request.getParameterValues("class_id");
         for(int x= 0 ;x<classId.length;x++){
-            System.out.println("我选的专业是："+classId[x]);
-            if (!"" .equals(classId[x])) {
+            if (!"0" .equals(classId[x])) {
                 studentInfo.setClassId(Integer.parseInt(classId[x]));
             }
         }
-
         List<StudentInfo> list = studentService.conditionFindAllStudentInfo(studentInfo);
         request.getSession().setAttribute("list", list);
         response.sendRedirect("/college-enterprise-cooperetion/jsp/teacher-student-information.jsp");

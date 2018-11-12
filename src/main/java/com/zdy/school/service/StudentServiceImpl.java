@@ -56,5 +56,12 @@ public class StudentServiceImpl implements  StudentService {
         return list;
     }
 
+    //该教师管理的学生信息
+    @Override
+    public List<StudentInfo> teacherMyStudentInfo(int teacherId) {
+        List<StudentInfo> list = studentDao.teacherMyStudentInfo(teacherId);
+        return list;
+    }
+
 
 }

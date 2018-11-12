@@ -33,7 +33,14 @@
         </dl>
         <dl class="cloud">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="${pageContext.request.contextPath}/TeacherStudentQueryAllServlet?teacherId=${sessionScope.TeacherInfo.getTeacherId()}" target="right">查看学生成绩</a>
+                <a href="${pageContext.request.contextPath}/TeacherStudentQueryAllServlet?teacherId=${sessionScope.TeacherInfo.getTeacherId()}" target="right">查询学生成绩</a>
+            </dt>
+            <dd class="first_dd"></dd>
+            <dd class="first_dd" style="height: 10px;"></dd>
+        </dl>
+        <dl class="custom">
+            <dt><img src="../images/left/select_xl01.png">
+                <a href="${pageContext.request.contextPath}/TeacherMyStudentQueryAllServlet?teacherId=${sessionScope.TeacherInfo.getTeacherId()}" target="right">学生管理</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>

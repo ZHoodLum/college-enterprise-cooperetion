@@ -136,7 +136,7 @@ public class StudentDaoImpl implements StudentDao{
         return false;
     }
 
-    //教师查询全部学生信息
+    //教师查询学生信息成绩
     @Override
     public List<StudentInfo> teacherFindAllStudentInfo(int teacherId) {
         List<StudentInfo> list = new ArrayList<StudentInfo>();
@@ -203,7 +203,7 @@ public class StudentDaoImpl implements StudentDao{
         if (studentInfo.getStudentTel() != null && !"".equals(studentInfo.getStudentTel())){
             sql.append("and s.student_tel = ? ");
         }
-        if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId())){
+        if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId()) && !"0".equals(studentInfo.getClassId())){
             sql.append("and s.class_id = ? ");
         }
 //        String  sql = "select * from studentinfo s,teacherinfo t,classinfo c,enterprise_studentinfo es,enterpriseinfo e where c.class_id = s.class_id and t.teacher_id = s.teacher_id and e.enterprise_id = es.enterprise_id and  s.student_id = es.student_id and s.student_tel = ?;";
@@ -218,7 +218,7 @@ public class StudentDaoImpl implements StudentDao{
                 pstate.setString(1, studentInfo.getStudentTel());
                 i++;
             }
-            if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId())){
+            if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId()) && !"0".equals(studentInfo.getClassId())){
                 pstate.setInt(i, studentInfo.getClassId());
                 i++;
             }
@@ -247,6 +247,48 @@ public class StudentDaoImpl implements StudentDao{
                 studentInfo.setTeacherName(rs.getString("teacher_name"));
 //                studentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
 //                studentInfo.setEnterpriseName(rs.getString("enterprise_name"));
+                list.add(studentInfo);
+//                for(StudentInfo li:list) {
+//                    System.out.println("集合元素有："+list);
+//                }
+            }
+//            DruidUtil.closeConnection(rs,con,pstate);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    //教师查询自己管理的学生
+    @Override
+    public List<StudentInfo> teacherMyStudentInfo(int teacherId) {
+        List<StudentInfo> list = new ArrayList<StudentInfo>();
+        String sql = "select * from studentinfo s,teacherinfo t,classinfo c " +
+                "where c.class_id = s.class_id " +
+                "and t.teacher_id = s.teacher_id " +
+                " and t.teacher_id = ?;";
+        try{
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1,teacherId);
+            rs = pstate.executeQuery();
+            while (rs.next()){
+                StudentInfo studentInfo = new StudentInfo();
+                studentInfo.setStudentId(rs.getInt("student_id"));
+                studentInfo.setStudentAccount(rs.getInt("student_account"));
+                studentInfo.setStudentName(rs.getString("student_name"));
+                studentInfo.setStudentTel(rs.getString("student_tel"));
+                studentInfo.setStudentPassword(rs.getString("student_password"));
+                studentInfo.setStudentSex(rs.getString("student_sex"));
+                studentInfo.setMajor(rs.getString("major"));
+                studentInfo.setCity(rs.getString("city"));
+                studentInfo.setEmail(rs.getString("email"));
+                studentInfo.setStudentCollege(rs.getString("student_college"));
+                studentInfo.setStudentInternship(rs.getString("student_internship"));
+                studentInfo.setStudentGrade(rs.getInt("student_grade"));
+                studentInfo.setClassId(rs.getInt("class_id"));
+                studentInfo.setClassName(rs.getString("class_name"));
+                studentInfo.setTeacherId(rs.getInt("teacher_id"));
+                studentInfo.setTeacherName(rs.getString("teacher_name"));
                 list.add(studentInfo);
 //                for(StudentInfo li:list) {
 //                    System.out.println("集合元素有："+list);
