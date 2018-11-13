@@ -38,7 +38,8 @@ public class JobInfoQueryAllServlet extends HttpServlet {
 
             ArrayList<JobInfo> allJobInfo = jobInfoService.findAllJobInfo(jobInfo);
             request.getSession().setAttribute("allJobInfo",allJobInfo);
-            request.getRequestDispatcher("main.jsp").forward(request,response);
+//            request.getRequestDispatcher("main.jsp").forward(request,response);
+            response.sendRedirect("main.jsp");
         } catch (Exception e) {
             e.printStackTrace();
         }

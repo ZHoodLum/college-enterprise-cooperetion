@@ -7,13 +7,13 @@
           <element id="module-output" name="college-enterprise-cooperetion" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="jstl" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.10" />
           <element id="library" level="project" name="Maven: commons-dbutils:commons-dbutils:1.6" />
-          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.1.2" />
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.26" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="college-enterprise-cooperetion/web/Web2" />
       <element id="javaee-facet-resources" facet="college-enterprise-cooperetion/web/Web" />
     </root>
   </artifact>

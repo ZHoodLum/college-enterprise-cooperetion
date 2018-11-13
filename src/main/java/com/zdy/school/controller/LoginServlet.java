@@ -107,7 +107,6 @@ public class LoginServlet extends HttpServlet {
 							request.getSession().setAttribute("teacher_sex",teacherInfo.getTeacherSex());
 							request.getSession().setAttribute("teacher_job",teacherInfo.getTeacherJob());
 							request.getSession().setAttribute("TeacherInfo", teacherInfo);
-
                             response.sendRedirect("/college-enterprise-cooperetion/jsp/teacher-main.jsp");
 						} else {
 							response.sendRedirect("/college-enterprise-cooperetion/jsp/login.jsp");
