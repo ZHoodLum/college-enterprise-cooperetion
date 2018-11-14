@@ -136,7 +136,7 @@ public class StudentDaoImpl implements StudentDao{
         return false;
     }
 
-    //教师查询学生信息成绩
+    //教师查询自己管理的实习学生的信息成绩
     @Override
     public List<StudentInfo> teacherFindAllStudentInfo(int teacherId) {
         List<StudentInfo> list = new ArrayList<StudentInfo>();

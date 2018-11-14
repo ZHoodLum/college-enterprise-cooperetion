@@ -42,7 +42,7 @@ public class StudentServiceImpl implements  StudentService {
         return false;
     }
 
-    //教师查询全部学生的信息
+    //教师查询自己管理的实习学生的信息成绩
     @Override
     public List<StudentInfo> teacherFindAllStudentInfo(int teacherId) {
         List<StudentInfo> list = studentDao.teacherFindAllStudentInfo(teacherId);

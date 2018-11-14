@@ -22,7 +22,7 @@ public interface StudentDao {
     //修改学生信息
     boolean updateStudentInfo(StudentInfo studentInfo);
 
-    //教师查询全部学生信息
+    //教师查询自己管理的实习学生的信息成绩
     List<StudentInfo> teacherFindAllStudentInfo(int teacherId);
 
     //条件查询学生信息

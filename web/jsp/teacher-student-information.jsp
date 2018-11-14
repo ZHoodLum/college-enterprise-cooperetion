@@ -39,7 +39,7 @@
         <form action="${pageContext.request.contextPath}/StudentInfoConditionQueryServlet01" method="get">
         <div class="selectbox" style="margin: 20px 0 10px 80px;width: 200px;float: left;border: 2px solid blue;">
             <select name="class_id" id="data" class="data">
-                <%--<option value="0">未选择</option>--%>
+                <option value="0">未选择</option>
                 <%
                     ClassInfo classInfo = new ClassInfo();
                     ClassInfoService classInfoService = new ClassInfoServiceImpl();
@@ -68,7 +68,7 @@
             </select>
         </div>
         <div class="sousuo">
-            <input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索"/>
+            <input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索" value="${param.studentTel}"/>
             <input type="text" name="studentAccount" class="search" placeholder="根据学号进行搜索"/>
             <input type="submit" value="搜索" class="sub"/>
         </div>
