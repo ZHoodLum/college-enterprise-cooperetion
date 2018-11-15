@@ -1,12 +1,14 @@
 package com.zdy.school.dao;
 
 import com.zdy.school.util.DruidUtil;
+import com.zdy.school.vo.StudentInfo;
 import com.zdy.school.vo.TeacherInfo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * @ Author     ：ZhoodLum
@@ -20,6 +22,35 @@ public class TeacherDaoImpl implements TeacherDao {
     ResultSet rs;
     boolean flag = false;
     Connection con = DruidUtil.getCon();
+//  查询全部教师
+    @Override
+    public ArrayList<TeacherInfo> queryAllTeacherInfo(TeacherInfo teacherInfo) throws Exception {
+        ArrayList<TeacherInfo> list = new ArrayList<TeacherInfo>();
+        try{
+            String sql = "select * from teacherinfo ;" ;
+            pstate = con.prepareStatement(sql);
+            rs = pstate.executeQuery();
+            while (rs.next()){
+                flag = true;
+                teacherInfo = new TeacherInfo();
+                teacherInfo.setTeacherId(rs.getInt("teacher_id"));
+                teacherInfo.setTeacherAccount(rs.getInt("teacher_account"));
+                teacherInfo.setTeacherName(rs.getString("teacher_name"));
+                teacherInfo.setTeacherTel(rs.getString("teacher_tel"));
+                teacherInfo.setTeacherPassword(rs.getString("teacher_password"));
+                teacherInfo.setEmail(rs.getString("email"));
+                teacherInfo.setTeacherCollege(rs.getString("teacher_college"));
+                teacherInfo.setTeacherSex(rs.getString("teacher_sex"));
+                teacherInfo.setTeacherJob(rs.getString("teacher_job"));
+                list.add(teacherInfo);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    //修改教师信息
     @Override
     public boolean updateTeacherInfo(TeacherInfo teacherInfo) {
         int rows = 0;

@@ -1,6 +1,9 @@
 package com.zdy.school.dao;
 
+import com.zdy.school.vo.StudentInfo;
 import com.zdy.school.vo.TeacherInfo;
+
+import java.util.ArrayList;
 
 /**
  * @ Author     ：ZhoodLum
@@ -9,6 +12,9 @@ import com.zdy.school.vo.TeacherInfo;
 
 
 public interface TeacherDao {
+    //查询全部教师
+    ArrayList<TeacherInfo> queryAllTeacherInfo(TeacherInfo teacherInfo) throws Exception;
+
     //修改教师信息
     boolean updateTeacherInfo(TeacherInfo teacherInfo);
 }

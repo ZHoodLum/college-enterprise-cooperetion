@@ -68,7 +68,7 @@
             </select>
         </div>
         <div class="sousuo">
-            <input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索" value="${param.studentTel}"/>
+            <input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索"/>
             <input type="text" name="studentAccount" class="search" placeholder="根据学号进行搜索"/>
             <input type="submit" value="搜索" class="sub"/>
         </div>

@@ -129,11 +129,37 @@ public class StudentDaoImpl implements StudentDao{
     public boolean updateStudentInfo(StudentInfo studentInfo) {
         int rows = 0;
         try{
-            String sql = "update studentinfo set teacher_id = ? where student_id = ?;";
+//            String sql = "update studentinfo set student_account = ?,student_name = ?,student_tel = ?,student_password = ?," +
+//                    "student_sex = ?,major = ?,city = ?,email = ?,student_college = ?," +
+//                    "student_internship = ?,student_grade = ?,class_id = ?,teacher_id = ? " +
+//                    "where student_id = ?;";
+            String sql = "update studentinfo set student_account = ?,student_name = ?,student_tel = ?," +
+                    "student_password = ?,student_sex = ?,major = ?,city = ?,email = ?,student_college = ? " +
+                    "where student_id = ?;";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1,studentInfo.getStudentAccount());
+            pstate.setString(2,studentInfo.getStudentName());
+            pstate.setString(3,studentInfo.getStudentTel());
+            pstate.setString(4,studentInfo.getStudentPassword());
+            pstate.setString(5,studentInfo.getStudentSex());
+            pstate.setString(6,studentInfo.getMajor());
+            pstate.setString(7,studentInfo.getCity());
+            pstate.setString(8,studentInfo.getEmail());
+            pstate.setString(9,studentInfo.getStudentCollege());
+//            pstate.setInt(11,studentInfo.getClassId());
+//            pstate.setInt(12,studentInfo.getTeacherId());
+            pstate.setInt(10,studentInfo.getStudentId());
+            rows = pstate.executeUpdate();
+            if (rows>0){
+                flag = true;
+            }
+            DruidUtil.closeConnection(rs,con,pstate);
+        }catch (SQLException e){
+            e.printStackTrace();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return false;
+        return flag;
     }
 
     //教师查询自己管理的实习学生的信息成绩

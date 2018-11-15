@@ -39,7 +39,14 @@ public class StudentServiceImpl implements  StudentService {
     //修改学生信息
     @Override
     public boolean updateStudentInfo(StudentInfo studentInfo) {
-        return false;
+        int succ = 0;
+        boolean rows = studentDao.updateStudentInfo(studentInfo);
+        if (rows == true){
+            succ = 1;
+        }else {
+            succ = 0;
+        }
+        return rows;
     }
 
     //教师查询自己管理的实习学生的信息成绩

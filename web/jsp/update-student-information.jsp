@@ -1,5 +1,9 @@
+<%@ page import="com.zdy.school.vo.StudentInfo" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.zdy.school.vo.TeacherInfo" %>
+<%@ page import="com.zdy.school.service.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 String path = request.getContextPath();
@@ -48,14 +52,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
 
     <div>
-        <form id="myform" name="myform" action="${pageContext.request.contextPath}/UpdateStudentInfoServlet">
+        <form id="myform" name="myform" action="${pageContext.request.contextPath}/UpdateStudentInfoServlet" onsubmit="return validate()">
             <table border="0" width="100%"  style="text-align: center;margin-left: 260px;">
                 <tr>
                     <td>
                         <ul>
                             <li>
                                 <h3>学生学号:</h3>
-                                <p><input class="text2" type="text" name="student_account" value="<%=session.getAttribute("student_account")%>" readonly="readonly"   style="padding: 10px 0 10px 0"/></p>
+                                <p>
+                                    <input type="hidden" name="student_id" value="<%=session.getAttribute("student_id")%>" readonly style="background-color: #9d9d9d;padding: 10px 0 10px 0"/>
+                                    <input class="text2" type="text" name="student_account" value="<%=session.getAttribute("student_account")%>" readonly="readonly"   style="padding: 10px 0 10px 0"/>
+                                </p>
                             </li>
                         </ul>
                     </td>
@@ -86,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li>
                                 <h3>登陆密码:</h3>
                                 <p>
-                                    <input  class="text2" type="password" name="student_password" value="<%=session.getAttribute("enterprise_password")%>"  style="padding: 10px 0 10px 0"></input>
+                                    <input  class="text2" type="password" name="student_password" value="<%=session.getAttribute("student_password")%>"  style="padding: 10px 0 10px 0"></input>
                                 </p>
                             </li>
                         </ul>
@@ -109,10 +116,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <ul>
                             <li>
                                 <h3>性别：</h3>
+                                <%--<input type="radio" name="teacher_sex" value="男" <%=session.getAttribute("teacher_sex").equals("男")?"checked":""%>/>男--%>
+                                <%--<input type="radio" name="teacher_sex" value="女" <%=session.getAttribute("teacher_sex").equals("女")?"checked":""%>/>女--%>
                                 <div class="selectbox">
                                     <select name="student_sex">
-                                        <option value="0">男</option>
-                                        <option value="1">女</option>
+                                        <option value="男" <%=session.getAttribute("student_sex").equals("男")?"selected":""%>>男</option>
+                                        <option value="女" <%=session.getAttribute("student_sex").equals("女")?"selected":""%>>女</option>
                                     </select>
                                 </div>
                             </li>
@@ -162,17 +171,91 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr>
                     <td>
                         <ul>
-                            <li id="lasts">
-                                <h3>在校指导教师:</h3>
-                                <p><input class="text2" type="text" name="teacher_name" value="<%=session.getAttribute("teacher_name")%>" style="padding: 10px 0 10px 0"/></p>
+                            <li>
+                                <h3>班级:</h3>
+                                <div class="selectbox">
+                                    <select name="class_id">
+                                        <%
+                                            StudentInfo studentInfo = new StudentInfo();
+                                            StudentService studentService = new StudentServiceImpl();
+
+                                            List<StudentInfo> allStudentInfo = studentService.queryAllStudentInfo(studentInfo);
+                                            for(int i=0;i<allStudentInfo.size();i++){
+                                                studentInfo = allStudentInfo.get(i);
+                                        %>
+                                        <option value="<%=studentInfo.getClassId()%>" ${studentInfo.getClassId() == sessionScope.StudentInfo.getClassId()?"selected":""} style="font-size: 16px;"><%=studentInfo.getClassName()%></option>
+                                        <%
+                                            }
+                                        %>
+                                    </select>
+                                </div>
                             </li>
                         </ul>
                     </td>
                 </tr>
-
                 <tr>
                     <td>
-                        <a href="javascript:" class="btn" style="float: left;margin-left: 320px;">保存修改信息</a>
+                        <ul>
+                            <li>
+                                <h3>班级:</h3>
+                                <div class="selectbox">
+                                    <select name="class_id">
+                                        <c:forEach items="${allClassInfo}" var="st">
+                                            <option value="${st.classId }">${st.className }</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>
+                                <h3>在校指导教师2:</h3>
+                                <div class="selectbox">
+                                    <select name="teacher_id">
+                                        <c:forEach items="${list}" var="st">
+                                            <option value="${st.teacherId }" ${st.teacherId==sessionScope.StudentInfo.getTeacherId()?"selected":""}>${st.teacherName }</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <%--<tr>--%>
+                    <%--<td>--%>
+                        <%--<ul>--%>
+                            <%--<li id="lasts">--%>
+                                <%--<h3>在校指导教师:</h3>--%>
+                                <%--<div class="selectbox">--%>
+                                    <%--<select name="teacher_id">--%>
+                                        <%--<%--%>
+                                            <%--TeacherInfo teacherInfo = new TeacherInfo();--%>
+                                            <%--TeacherService teacherService = new TeacherServiceImpl();--%>
+
+                                            <%--List<TeacherInfo> allTeacherInfo = teacherService.queryAllTeacherInfo(teacherInfo);--%>
+                                            <%--for(int i=0;i<allTeacherInfo.size();i++){--%>
+                                                <%--teacherInfo = allTeacherInfo.get(i);--%>
+                                        <%--%>--%>
+
+                                        <%--<option value="<%=teacherInfo.getTeacherId()%>" ${teacherInfo.getTeacherId()==sessionScope.StudentInfo.getTeacherId()?"selected":""} style="font-size: 16px;"><%=teacherInfo.getTeacherName()%></option>--%>
+
+                                        <%--<%--%>
+                                            <%--}--%>
+                                        <%--%>--%>
+                                    <%--</select>--%>
+                                <%--</div>--%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
+                    <%--</td>--%>
+                <%--</tr>--%>
+                <tr>
+                    <td>
+                        <%--<a href="javascript:" class="btn" style="float: left;margin-left: 320px;">保存修改信息</a>--%>
+                        <input type="submit" class="btn" style="float: left;margin-left: 320px;" value="保存修改信息">
                         <a href="javascript: window.history.go(-1);" class="btn" style="float: left;margin-left: 10px;">返回上一页</a>
 
                     </td>

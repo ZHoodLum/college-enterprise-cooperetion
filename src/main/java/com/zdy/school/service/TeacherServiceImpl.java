@@ -2,7 +2,10 @@ package com.zdy.school.service;
 
 import com.zdy.school.dao.TeacherDao;
 import com.zdy.school.dao.TeacherDaoImpl;
+import com.zdy.school.vo.StudentInfo;
 import com.zdy.school.vo.TeacherInfo;
+
+import java.util.ArrayList;
 
 /**
  * @ Author     ：ZhoodLum
@@ -12,7 +15,14 @@ import com.zdy.school.vo.TeacherInfo;
 
 public class TeacherServiceImpl implements TeacherService {
     TeacherDao teacherDao = new TeacherDaoImpl();
-    //修改
+//  查询全部教师
+    @Override
+    public ArrayList<TeacherInfo> queryAllTeacherInfo(TeacherInfo teacherInfo) throws Exception {
+        ArrayList<TeacherInfo> list = teacherDao.queryAllTeacherInfo(teacherInfo);
+        return list;
+    }
+
+    //修改教师信息
     @Override
     public boolean updateTeacherInfo(TeacherInfo teacherInfo) {
 
