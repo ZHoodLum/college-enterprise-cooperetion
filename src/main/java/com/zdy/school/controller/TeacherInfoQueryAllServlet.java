@@ -31,8 +31,10 @@ public class TeacherInfoQueryAllServlet extends HttpServlet {
             ArrayList<TeacherInfo> list = teacherService.queryAllTeacherInfo(teacherInfo);
             request.getSession().setAttribute("teacher_name",teacherInfo.getTeacherName());
             request.getSession().setAttribute("list", list);
-//            request.getRequestDispatcher("/jsp/update-student-information.jsp").forward(request,response);
-            response.sendRedirect("/college-enterprise-cooperetion/jsp/update-student-information.jsp");
+
+            request.getRequestDispatcher("/ClassInfoQueryAllServlet01").forward(request,response);
+//            response.sendRedirect("/college-enterprise-cooperetion/jsp/update-student-information.jsp");
+
         } catch (Exception e) {
             e.printStackTrace();
         }

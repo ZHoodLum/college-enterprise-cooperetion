@@ -42,8 +42,8 @@ public class UpdateStudentInfoServlet extends HttpServlet {
         studentInfo.setStudentCollege(request.getParameter("student_college"));
 //        studentInfo.setStudentInternship(request.getParameter("student_internship"));
 //        studentInfo.setStudentGrade(Integer.parseInt(request.getParameter("student_grade")));
-//        studentInfo.setClassId(Integer.parseInt(request.getParameter("class_id")));
-//        studentInfo.setTeacherId(Integer.parseInt(request.getParameter("teacher_id")));
+        studentInfo.setClassId(Integer.parseInt(request.getParameter("class_id")));
+        studentInfo.setTeacherId(Integer.parseInt(request.getParameter("teacher_id")));
         studentInfo.setStudentId(Integer.parseInt(request.getParameter("student_id")));
 
         try {

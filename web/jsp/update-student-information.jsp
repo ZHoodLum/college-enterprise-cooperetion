@@ -175,6 +175,65 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <h3>班级:</h3>
                                 <div class="selectbox">
                                     <select name="class_id">
+                                        <c:forEach items="${classinfolist}" var="ct">
+                                            <option value="${ct.classId }"  ${ct.classId==sessionScope.StudentInfo.getClassId()?"selected":""}>${ct.className }</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>
+                                <h3>在校指导教师:</h3>
+                                <div class="selectbox">
+                                    <select name="teacher_id">
+                                        <c:forEach items="${list}" var="st">
+                                            <option value="${st.teacherId }" ${st.teacherId==sessionScope.StudentInfo.getTeacherId()?"selected":""}>${st.teacherName }</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+               <%-- <tr>
+                    <td>
+                        <ul>
+                            <li id="lasts">
+                                <h3>在校指导教师:</h3>
+                                <div class="selectbox">
+                                    <select name="teacher_id">
+                                        <%
+                                            TeacherInfo teacherInfo = new TeacherInfo();
+                                            TeacherService teacherService = new TeacherServiceImpl();
+
+                                            List<TeacherInfo> allTeacherInfo = teacherService.queryAllTeacherInfo(teacherInfo);
+                                            for(int i=0;i<allTeacherInfo.size();i++){
+                                                teacherInfo = allTeacherInfo.get(i);
+                                        %>
+
+                                        <option value="<%=teacherInfo.getTeacherId()%>" ${teacherInfo.getTeacherId()==sessionScope.StudentInfo.getTeacherId()?"selected":""} style="font-size: 16px;"><%=teacherInfo.getTeacherName()%></option>
+
+                                        <%
+                                            }
+                                        %>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>--%>
+               <%-- <tr>
+                    <td>
+                        <ul>
+                            <li>
+                                <h3>班级:</h3>
+                                <div class="selectbox">
+                                    <select name="class_id">
                                         <%
                                             StudentInfo studentInfo = new StudentInfo();
                                             StudentService studentService = new StudentServiceImpl();
@@ -192,66 +251,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>
-                                <h3>班级:</h3>
-                                <div class="selectbox">
-                                    <select name="class_id">
-                                        <c:forEach items="${allClassInfo}" var="st">
-                                            <option value="${st.classId }">${st.className }</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>
-                                <h3>在校指导教师2:</h3>
-                                <div class="selectbox">
-                                    <select name="teacher_id">
-                                        <c:forEach items="${list}" var="st">
-                                            <option value="${st.teacherId }" ${st.teacherId==sessionScope.StudentInfo.getTeacherId()?"selected":""}>${st.teacherName }</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <%--<tr>--%>
-                    <%--<td>--%>
-                        <%--<ul>--%>
-                            <%--<li id="lasts">--%>
-                                <%--<h3>在校指导教师:</h3>--%>
-                                <%--<div class="selectbox">--%>
-                                    <%--<select name="teacher_id">--%>
-                                        <%--<%--%>
-                                            <%--TeacherInfo teacherInfo = new TeacherInfo();--%>
-                                            <%--TeacherService teacherService = new TeacherServiceImpl();--%>
-
-                                            <%--List<TeacherInfo> allTeacherInfo = teacherService.queryAllTeacherInfo(teacherInfo);--%>
-                                            <%--for(int i=0;i<allTeacherInfo.size();i++){--%>
-                                                <%--teacherInfo = allTeacherInfo.get(i);--%>
-                                        <%--%>--%>
-
-                                        <%--<option value="<%=teacherInfo.getTeacherId()%>" ${teacherInfo.getTeacherId()==sessionScope.StudentInfo.getTeacherId()?"selected":""} style="font-size: 16px;"><%=teacherInfo.getTeacherName()%></option>--%>
-
-                                        <%--<%--%>
-                                            <%--}--%>
-                                        <%--%>--%>
-                                    <%--</select>--%>
-                                <%--</div>--%>
-                            <%--</li>--%>
-                        <%--</ul>--%>
-                    <%--</td>--%>
-                <%--</tr>--%>
+                </tr>--%>
                 <tr>
                     <td>
                         <%--<a href="javascript:" class="btn" style="float: left;margin-left: 320px;">保存修改信息</a>--%>

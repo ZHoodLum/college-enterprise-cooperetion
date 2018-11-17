@@ -134,8 +134,7 @@ public class StudentDaoImpl implements StudentDao{
 //                    "student_internship = ?,student_grade = ?,class_id = ?,teacher_id = ? " +
 //                    "where student_id = ?;";
             String sql = "update studentinfo set student_account = ?,student_name = ?,student_tel = ?," +
-                    "student_password = ?,student_sex = ?,major = ?,city = ?,email = ?,student_college = ? " +
-                    "where student_id = ?;";
+                    "student_password = ?,student_sex = ?,major = ?,city = ?,email = ?,student_college = ?,class_id = ?,teacher_id = ? where student_id = ?;";
             pstate = con.prepareStatement(sql);
             pstate.setInt(1,studentInfo.getStudentAccount());
             pstate.setString(2,studentInfo.getStudentName());
@@ -146,9 +145,9 @@ public class StudentDaoImpl implements StudentDao{
             pstate.setString(7,studentInfo.getCity());
             pstate.setString(8,studentInfo.getEmail());
             pstate.setString(9,studentInfo.getStudentCollege());
-//            pstate.setInt(11,studentInfo.getClassId());
-//            pstate.setInt(12,studentInfo.getTeacherId());
-            pstate.setInt(10,studentInfo.getStudentId());
+            pstate.setInt(10,studentInfo.getClassId());
+            pstate.setInt(11,studentInfo.getTeacherId());
+            pstate.setInt(12,studentInfo.getStudentId());
             rows = pstate.executeUpdate();
             if (rows>0){
                 flag = true;
