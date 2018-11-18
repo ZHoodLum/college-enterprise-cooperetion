@@ -325,4 +325,29 @@ public class StudentDaoImpl implements StudentDao{
         }
         return list;
     }
+
+    //注册学生信息
+    @Override
+    public int insertStudentInfo(StudentInfo studentInfo) {
+        int rows = 0;
+        try {
+            String sql = "insert into studentinfo(student_account, student_name, student_tel, student_password, student_sex, major, city, email, student_college) values(?,?,?,?,?,?,?,?,?);";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1,studentInfo.getStudentAccount());
+            pstate.setString(2,studentInfo.getStudentName());
+            pstate.setString(3,studentInfo.getStudentTel());
+            pstate.setString(4,studentInfo.getStudentPassword());
+            pstate.setString(5,studentInfo.getStudentSex());
+            pstate.setString(6,studentInfo.getMajor());
+            pstate.setString(7,studentInfo.getCity());
+            pstate.setString(8,studentInfo.getEmail());
+            pstate.setString(9,studentInfo.getStudentCollege());
+            rows = pstate.executeUpdate();
+            DruidUtil.closeConnection(rs,con,pstate);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("录入学生信息出现错误！");
+        }
+        return rows;
+    }
 }

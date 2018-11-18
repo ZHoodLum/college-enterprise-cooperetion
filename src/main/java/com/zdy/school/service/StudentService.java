@@ -31,6 +31,9 @@ public interface StudentService {
     //教师管理的学生
     List<StudentInfo> teacherMyStudentInfo(int teacherId);
 
+    //注册学生信息
+    int insertStudentInfo(StudentInfo studentInfo);
+
 }
 
 

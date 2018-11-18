@@ -70,5 +70,18 @@ public class StudentServiceImpl implements  StudentService {
         return list;
     }
 
+    //注册学生信息
+    @Override
+    public int insertStudentInfo(StudentInfo studentInfo) {
+        int datevalues = 0;
+        int rows = studentDao.insertStudentInfo(studentInfo);
+        if (rows > 1){
+            datevalues = 1;
+        }else{
+            datevalues = 0;
+        }
+        return rows;
+    }
+
 
 }
