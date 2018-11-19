@@ -25,4 +25,17 @@ public class EnterpriseServiceImpl implements EnterpriseService {
         }
         return rows;
     }
+
+    //注册
+    @Override
+    public int intsertEnterpriseInfo(EnterpriseInfo enterpriseInfo) {
+        int datavalues = 0;
+        int rows = enterpriseDao.insertEnterpriseInfo(enterpriseInfo);
+        if (rows > 0 ){
+            datavalues = 1;
+        }else {
+            datavalues = 0;
+        }
+        return datavalues;
+    }
 }

@@ -35,4 +35,17 @@ public class TeacherServiceImpl implements TeacherService {
         }
         return rows;
     }
+
+    //添加
+    @Override
+    public int insertTeacherInfo(TeacherInfo teacherInfo) {
+        int datavalues = 0;
+        int rows = teacherDao.insertTeacherIno(teacherInfo);
+        if (rows > 0){
+            datavalues = 1;
+        }else{
+            datavalues = 0;
+        }
+        return datavalues;
+    }
 }

@@ -47,4 +47,28 @@ public class EnterpriseDaoImpl implements EnterpriseDao {
         }
         return flag;
     }
+
+    //注册企业信息
+    @Override
+    public int insertEnterpriseInfo(EnterpriseInfo enterpriseInfo) {
+        int rows = 0;
+        try {
+            String sql = "insert into enterpriseinfo(enterprise_id, enterprise_name, enterprise_password, enterprise_introduce, enterprise_address, enterprise_tel, email, enterprise_manager) values(?,?,?,?,?,?,?,?);";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, enterpriseInfo.getEnterpriseId());
+            pstate.setString(2, enterpriseInfo.getEnterpriseName());
+            pstate.setString(3, enterpriseInfo.getEnterprisePassword());
+            pstate.setString(4, enterpriseInfo.getEnterpriseIntroduce());
+            pstate.setString(5, enterpriseInfo.getEnterpriseAddress());
+            pstate.setString(6, enterpriseInfo.getEnterpriseTel());
+            pstate.setString(7, enterpriseInfo.getEmail());
+            pstate.setString(8,enterpriseInfo.getEnterpriseManager());
+            rows = pstate.executeUpdate();
+
+            DruidUtil.closeConnection(rs,con,pstate);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return rows;
+    }
 }

@@ -78,4 +78,29 @@ public class TeacherDaoImpl implements TeacherDao {
         }
         return flag;
     }
+
+    //注册
+    @Override
+    public int insertTeacherIno(TeacherInfo teacherInfo) {
+        int rows  = 0;
+        try {
+            String sql = "insert into teacherinfo(teacher_account, teacher_name, teacher_tel, teacher_password, email, teacher_college, teacher_sex, teacher_job) values(?,?,?,?,?,?,?,?);";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, teacherInfo.getTeacherAccount());
+            pstate.setString(2, teacherInfo.getTeacherName());
+            pstate.setString(3, teacherInfo.getTeacherTel());
+            pstate.setString(4, teacherInfo.getTeacherPassword());
+            pstate.setString(5, teacherInfo.getEmail());
+            pstate.setString(6, teacherInfo.getTeacherCollege());
+            pstate.setString(7, teacherInfo.getTeacherSex());
+            pstate.setString(8,teacherInfo.getTeacherJob());
+            rows = pstate.executeUpdate();
+
+            DruidUtil.closeConnection(rs,con,pstate);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("录入教师信息出现错误！");
+        }
+        return rows;
+    }
 }

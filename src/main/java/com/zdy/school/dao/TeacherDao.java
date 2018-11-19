@@ -17,4 +17,7 @@ public interface TeacherDao {
 
     //修改教师信息
     boolean updateTeacherInfo(TeacherInfo teacherInfo);
+
+    //教师信息的注册
+    int insertTeacherIno(TeacherInfo teacherInfo);
 }

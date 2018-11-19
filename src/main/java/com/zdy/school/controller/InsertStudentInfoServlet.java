@@ -43,7 +43,7 @@ public class InsertStudentInfoServlet extends HttpServlet {
 
             int datevalues = studentService.insertStudentInfo(studentInfo);
             if (datevalues > 0){
-                request.getRequestDispatcher("../jsp/login.jsp").forward(request,response);
+                request.getRequestDispatcher("/registersuccess.html").forward(request,response);
             }
         }catch (Exception e){
             e.printStackTrace();

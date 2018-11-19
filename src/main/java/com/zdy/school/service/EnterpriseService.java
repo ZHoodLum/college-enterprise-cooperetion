@@ -9,5 +9,9 @@ import com.zdy.school.vo.EnterpriseInfo;
 
 
 public interface EnterpriseService {
+    //修改企业管理员信息
     boolean updateEnterpriseInfo(EnterpriseInfo enterpriseInfo);
+
+    //注册企业信息
+    int intsertEnterpriseInfo(EnterpriseInfo enterpriseInfo);
 }

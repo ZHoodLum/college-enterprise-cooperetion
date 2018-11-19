@@ -52,14 +52,14 @@
           <p>
             <input type="password" id="student_password" name="student_password" placeholder="请填写您的密码！"
                    source="{passwd}" property="text" minLength="6" maxLength="12" requiredFieldError="请输入密码，6到12个字符，不允许输入特殊字符！" tooShortError="密码长度必须大于6"
-                   tooLongError="密码不能超过12位"/>
+                   tooLongError="密码不能超过12位" value="12345678"/>
             <font color="#C0C0C0">6-20个字符，可使用大小写字母、数字等特殊字符,区分大小写！</font>
           </p>
         </li>
         <li>
           <h3>确认密码：</h3>
           <p>
-            <input type="password" id="student_repassword" name="student_repassword" placeholder="请填写再次确认您的密码！"  onblur="validate22()"/>
+            <input type="password" id="student_repassword" name="student_repassword" placeholder="请填写再次确认您的密码！" value="12345678" onblur="validate22()"/>
             <font color="#C0C0C0">请再次输入密码！</font>
           </p>
         </li>
