@@ -3,8 +3,10 @@ package com.zdy.school.service;
 import com.zdy.school.dao.JobInfoDao;
 import com.zdy.school.dao.JobInfoDaoImpl;
 import com.zdy.school.vo.JobInfo;
+import com.zdy.school.vo.StudentInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ Author     ：ZhoodLum
@@ -50,4 +52,31 @@ public class JobInfoServiceImpl implements JobInfoService {
         }
         return rows;
     }
+
+    //  企业查看自己发布的招聘信息
+    @Override
+    public ArrayList<JobInfo> findByEnterpriseId(int enterpriseId) {
+        return jobInfoDao.findByEnterpriseId(enterpriseId);
+    }
+
+    //企业修改招聘信息（除了信息状态之外）
+    @Override
+    public boolean updateEnterpriseJobInfo01(JobInfo jobInfo) {
+        int succ = 0;
+        boolean rows = jobInfoDao.updateEnterpriseJobInfo01(jobInfo);
+        if (rows == true){
+            succ = 1;
+        }else {
+            succ = 0;
+        }
+        return rows;
+    }
+
+    @Override
+    public ArrayList<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo) {
+//        List<StudentInfo> list = studentDao.conditionFindAllStudentInfo(studentInfo);
+        return null;
+    }
+
+
 }

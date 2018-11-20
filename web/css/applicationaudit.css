@@ -55,3 +55,9 @@
     border-bottom:2px solid red; /* #ccc换成链接的颜色 */
     padding-bottom:2px;  /*这里设置你要空的距离*/
 }
+#recruitinformation tr:nth-child(odd){ background: #dcdcdc;}
+#recruitinformation table tr td{
+    overflow: hidden;/*内容超出后隐藏*/
+    text-overflow: ellipsis;/* 超出内容显示为省略号*/
+    white-space: nowrap;/*文本不进行换行*/
+}

@@ -18,6 +18,7 @@ import java.io.IOException;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/11/13
+ * 教师修改自己信息
  */
 
 @WebServlet("/UpdateTeacherInfoServlet")
@@ -44,7 +45,7 @@ public class UpdateTeacherInfoServlet extends HttpServlet {
         try {
             boolean succ = teacherService.updateTeacherInfo(teacherInfo);
             if (succ = true){
-                request.getRequestDispatcher("/updatesuccess.html").forward(request,response);
+                request.getRequestDispatcher("/updatesuccess.jsp").forward(request,response);
 //                response.setHeader("Refresh","1;URL=http://localhost:8080/college-enterprise-cooperetion/jsp/company-main.jsp");
 //                response.sendRedirect("/college-enterprise-cooperetion/jsp/company-main.jsp");
             }else {

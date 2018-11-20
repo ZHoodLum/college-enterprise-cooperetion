@@ -136,6 +136,11 @@ body{
 */
 }
 #recruitinformation tr td{
+	/*overflow: hidden;!*内容超出后隐藏*!
+
+	text-overflow: ellipsis;!* 超出内容显示为省略号*!
+
+	white-space: nowrap;!*文本不进行换行*!*/
 	overflow: hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;

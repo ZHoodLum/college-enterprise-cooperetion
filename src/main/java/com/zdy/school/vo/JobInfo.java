@@ -12,9 +12,14 @@ public class JobInfo {
 	private String jobInfo;
 	private String jobPosition;
 	private Date jobDate;
-	private String enterpriseName;
-	private String ECheck;
+	private String eCheck;
 	private String wage;
+	private Integer enterpriseId;
+	private String informationState;
+	private String enterpriseName;
+	private String enterpriseAddress;
+	private String enterpriseTel;
+	private String email;
 
 	public int getJobId() {
 		return jobId;
@@ -48,20 +53,12 @@ public class JobInfo {
 		this.jobDate = jobDate;
 	}
 
-	public String getEnterpriseName() {
-		return enterpriseName;
+	public String geteCheck() {
+		return eCheck;
 	}
 
-	public void setEnterpriseName(String enterpriseName) {
-		this.enterpriseName = enterpriseName;
-	}
-
-	public String getECheck() {
-		return ECheck;
-	}
-
-	public void setECheck(String ECheck) {
-		this.ECheck = ECheck;
+	public void seteCheck(String eCheck) {
+		this.eCheck = eCheck;
 	}
 
 	public String getWage() {
@@ -70,5 +67,53 @@ public class JobInfo {
 
 	public void setWage(String wage) {
 		this.wage = wage;
+	}
+
+	public Integer getEnterpriseId() {
+		return enterpriseId;
+	}
+
+	public void setEnterpriseId(Integer enterpriseId) {
+		this.enterpriseId = enterpriseId;
+	}
+
+	public String getInformationState() {
+		return informationState;
+	}
+
+	public void setInformationState(String informationState) {
+		this.informationState = informationState;
+	}
+
+	public String getEnterpriseName() {
+		return enterpriseName;
+	}
+
+	public void setEnterpriseName(String enterpriseName) {
+		this.enterpriseName = enterpriseName;
+	}
+
+	public String getEnterpriseAddress() {
+		return enterpriseAddress;
+	}
+
+	public void setEnterpriseAddress(String enterpriseAddress) {
+		this.enterpriseAddress = enterpriseAddress;
+	}
+
+	public String getEnterpriseTel() {
+		return enterpriseTel;
+	}
+
+	public void setEnterpriseTel(String enterpriseTel) {
+		this.enterpriseTel = enterpriseTel;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

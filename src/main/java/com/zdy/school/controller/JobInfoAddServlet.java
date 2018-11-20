@@ -29,6 +29,7 @@ public class JobInfoAddServlet extends HttpServlet {
 //        JobInfoDao jobInfoDao = new JobInfoDaoImpl();
         JobInfoService jobInfoDao = new JobInfoServiceImpl();
 
+        jobInfo.setEnterpriseId(Integer.parseInt(request.getParameter("enterprise_id")));
         jobInfo.setEnterpriseName(request.getParameter("enterprise_name"));
         System.out.println(request.getParameter("enterprise_name"));
         jobInfo.setJobInfo(request.getParameter("job_info"));

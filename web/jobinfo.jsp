@@ -30,6 +30,18 @@
 						<textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEnterpriseName()%></textarea>
 					</li>
 					<li>
+						<strong>企业电话：</strong>
+						<textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEnterpriseTel()%></textarea>
+					</li>
+					<li>
+						<strong>企业邮箱：</strong>
+						<textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEmail()%></textarea>
+					</li>
+					<li>
+						<strong>企业地址：</strong>
+						<textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEnterpriseAddress()%></textarea>
+					</li>
+					<li>
 						<strong>招聘职位：</strong>
 						<textarea name="job_position" disabled="disabled" class="textarea1"><%=jobInfo.getJobPosition()%></textarea>
 					</li>
