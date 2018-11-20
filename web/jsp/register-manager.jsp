@@ -16,11 +16,11 @@
   </style>
 
   <!--js验证注册信息-->
-  <script type="text/javascript" src="../js/registermanger.js" ></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/js/registermanger.js" ></script>
 
 </head>
 <body>
-<form id="myform" name="myform" action="${pageContext.request.contextPath}/InsertStudentInfoServlet" method="post"  onsubmit="return validate()">
+<form id="myform" name="myform" action="${pageContext.request.contextPath}/InsertAdminInfoServlet" method="post"  theme="simple" onsubmit="return validate()">
   <div class="main1">
     <div class="main">
       <ul>
@@ -41,14 +41,14 @@
         <li>
           <h3>密码：</h3>
           <p>
-            <input type="password" id="admin_password" name="admin_password" placeholder="请填写您的密码！"/>
+            <input type="password" id="admin_password" name="admin_password" placeholder="请填写您的密码！" value="12345678"/>
             <font color="#C0C0C0">6-20个字符，可使用大小写字母、数字等特殊字符,区分大小写！</font>
           </p>
         </li>
         <li>
           <h3>确认密码：</h3>
           <p>
-            <input type="password" id="admin_repassword" name="admin_repassword" placeholder="请填写再次确认您的密码！"/>
+            <input type="password" id="admin_repassword" name="admin_repassword" placeholder="请填写再次确认您的密码！" value="12345678"/>
             <font color="#C0C0C0">请再次输入密码！</font>
           </p>
         </li>

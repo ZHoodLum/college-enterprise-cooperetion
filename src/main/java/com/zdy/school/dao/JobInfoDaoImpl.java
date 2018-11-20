@@ -106,7 +106,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
     public int insertJobInfo(JobInfo jobInfo) {
         int rows = 0;
         try {
-            String sql = "insert into jobinfo(job_info,job_position,enterprise_name,wage) values(?,?,?,?)";
+            String sql = "insert into jobinfo(job_info,job_position,wage,enterprise_id) values(?,?,?,?)";
             pstate = con.prepareStatement(sql);
             pstate.setString(1,jobInfo.getJobInfo());
             pstate.setString(2,jobInfo.getJobPosition());
