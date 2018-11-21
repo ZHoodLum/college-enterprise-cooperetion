@@ -3,6 +3,7 @@ package com.zdy.school.service;
 import com.zdy.school.vo.JobInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ Author     ：ZhoodLum
@@ -27,5 +28,5 @@ public interface JobInfoService {
     boolean updateEnterpriseJobInfo01(JobInfo jobInfo);
 
     //根据条件查询企业信息
-    ArrayList<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo);
+    List<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo);
 }

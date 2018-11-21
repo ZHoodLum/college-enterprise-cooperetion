@@ -3,6 +3,7 @@ package com.zdy.school.dao;
 import com.zdy.school.vo.JobInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ Author     ：ZhoodLum
@@ -27,7 +28,7 @@ public interface JobInfoDao {
     boolean updateEnterpriseJobInfo01(JobInfo jobInfo);
 
     //根据条件查询企业信息
-    ArrayList<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo);
+    List<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo);
 
 
 }

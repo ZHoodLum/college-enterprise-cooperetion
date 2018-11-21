@@ -186,75 +186,51 @@ public class JobInfoDaoImpl implements JobInfoDao{
 
     //根据条件查询企业信息
     @Override
-    public ArrayList<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo) {
-//        List<StudentInfo> list = new ArrayList<StudentInfo>();
-//        StringBuilder sql = new StringBuilder();
-//        sql.append("select *");
-//        sql.append("from studentinfo s,teacherinfo t,classinfo c,enterprise_studentinfo es,enterpriseinfo e ");
-//        sql.append("where c.class_id = s.class_id ");
-//        sql.append("and t.teacher_id = s.teacher_id ");
-//        sql.append("and e.enterprise_id = es.enterprise_id ");
-//        sql.append("and  s.student_id = es.student_id ");
-//        if (studentInfo.getStudentAccount() != null && !"".equals(studentInfo.getStudentAccount())){
-//            sql.append("and s.student_account = ? ");
-//        }
-//        if (studentInfo.getStudentTel() != null && !"".equals(studentInfo.getStudentTel())){
-//            sql.append("and s.student_tel = ? ");
-//        }
-//        if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId()) && !"0".equals(studentInfo.getClassId())){
-//            sql.append("and s.class_id = ? ");
-//        }
-////        String  sql = "select * from studentinfo s,teacherinfo t,classinfo c,enterprise_studentinfo es,enterpriseinfo e where c.class_id = s.class_id and t.teacher_id = s.teacher_id and e.enterprise_id = es.enterprise_id and  s.student_id = es.student_id and s.student_tel = ?;";
-//        try{
-//            pstate = con.prepareStatement(sql.toString());
-//            int i = 1;
-//            if (studentInfo.getStudentAccount() != null && !"".equals(studentInfo.getStudentAccount())){
-//                pstate.setInt(i, studentInfo.getStudentAccount());
-//                i++;
-//            }
-//            if (studentInfo.getStudentTel() != null && !"".equals(studentInfo.getStudentTel())){
-//                pstate.setString(1, studentInfo.getStudentTel());
-//                i++;
-//            }
-//            if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId()) && !"0".equals(studentInfo.getClassId())){
-//                pstate.setInt(i, studentInfo.getClassId());
-//                i++;
-//            }
-//            rs = pstate.executeQuery();
-//            while (rs.next()){
-//                studentInfo = new StudentInfo();
-////                TeacherInfo teacherInfo = new TeacherInfo();
-////                EnterpriseInfo enterpriseInfo = new EnterpriseInfo();
-////                studentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
-//                studentInfo.setEnterpriseName(rs.getString("enterprise_name"));
-//                studentInfo.setStudentId(rs.getInt("student_id"));
-//                studentInfo.setStudentAccount(rs.getInt("student_account"));
-//                studentInfo.setStudentName(rs.getString("student_name"));
-//                studentInfo.setStudentTel(rs.getString("student_tel"));
-//                studentInfo.setStudentPassword(rs.getString("student_password"));
-//                studentInfo.setStudentSex(rs.getString("student_sex"));
-//                studentInfo.setMajor(rs.getString("major"));
-//                studentInfo.setCity(rs.getString("city"));
-//                studentInfo.setEmail(rs.getString("email"));
-//                studentInfo.setStudentCollege(rs.getString("student_college"));
-//                studentInfo.setStudentInternship(rs.getString("student_internship"));
-//                studentInfo.setStudentGrade(rs.getInt("student_grade"));
-//                studentInfo.setClassId(rs.getInt("class_id"));
-//                studentInfo.setClassName(rs.getString("class_name"));
-//                studentInfo.setTeacherId(rs.getInt("teacher_id"));
-//                studentInfo.setTeacherName(rs.getString("teacher_name"));
-////                studentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
-////                studentInfo.setEnterpriseName(rs.getString("enterprise_name"));
-//                list.add(studentInfo);
-////                for(StudentInfo li:list) {
-////                    System.out.println("集合元素有："+list);
-////                }
-//            }
-////            DruidUtil.closeConnection(rs,con,pstate);
-//        }catch (SQLException e){
-//            e.printStackTrace();
-//        }
-        return null;
+    public List<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo) {
+        List<JobInfo> list = new ArrayList<JobInfo>();
+
+            StringBuilder sql = new StringBuilder();
+            sql.append("select *");
+            sql.append(" from jobinfo j,enterpriseinfo e ");
+            sql.append(" where j.enterprise_id = e.enterprise_id  ");
+            if (jobInfo.geteCheck() != null && !"".equals(jobInfo.geteCheck()) ) {
+                sql.append(" and j.e_check = ? ");
+            }
+            if (jobInfo.getInformationState() != null && !"".equals(jobInfo.getInformationState())) {
+                sql.append(" and j.information_state = ? ");
+            }
+        try {
+            pstate = con.prepareStatement(sql.toString());
+            int i = 1;
+            // && !"-1".equals(jobInfo.geteCheck())
+            if (jobInfo.geteCheck() != null && !"".equals(jobInfo.geteCheck()) ) {
+                pstate.setString(i,jobInfo.geteCheck());
+                i++;
+            }
+            //  && !"-1".equals(jobInfo.getInformationState())
+            if (jobInfo.getInformationState() != null && !"".equals(jobInfo.getInformationState())) {
+                pstate.setString(i,jobInfo.getInformationState());
+                i++;
+            }
+            rs = pstate.executeQuery();
+            while (rs.next()) {
+                jobInfo = new JobInfo();
+                jobInfo.setJobId(rs.getInt("job_id"));
+                jobInfo.setJobPosition(rs.getString("job_position"));
+                jobInfo.setJobInfo(rs.getString("job_info"));
+                jobInfo.setJobDate(rs.getDate("job_date"));
+                jobInfo.seteCheck(rs.getString("e_check"));
+                jobInfo.setWage(rs.getString("wage"));
+                jobInfo.setEnterpriseId(rs.getInt("enterprise_id"));
+                jobInfo.setEnterpriseName(rs.getString("enterprise_name"));
+                jobInfo.setInformationState(rs.getString("information_state"));
+                list.add(jobInfo);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 

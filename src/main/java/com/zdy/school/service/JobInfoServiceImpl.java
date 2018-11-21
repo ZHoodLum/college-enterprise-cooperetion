@@ -73,9 +73,9 @@ public class JobInfoServiceImpl implements JobInfoService {
     }
 
     @Override
-    public ArrayList<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo) {
-//        List<StudentInfo> list = studentDao.conditionFindAllStudentInfo(studentInfo);
-        return null;
+    public List<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo) {
+        List<JobInfo> list = jobInfoDao.findAllConditionQueryJobInfo(jobInfo);
+        return list;
     }
 
 

@@ -30,6 +30,14 @@
         .selectbox select option{ padding:5px;}
         #recruitinformation tr:nth-child(odd){ background: #dcdcdc;}
     </style>
+    <%--<script type="text/javascript">--%>
+        <%--$(function () {--%>
+            <%--$("[value='搜索']").click(function () {--%>
+                <%--var data1 = document.getElementById("data1").value;--%>
+                <%--alert(data1);--%>
+            <%--});--%>
+        <%--});--%>
+    <%--</script>--%>
 </head>
 <body>
 <div class="checkout-title" style="font-family: 微软雅黑;font-size: 20px;text-align: center;margin-top: 5px;font-weight: bold;">
@@ -38,21 +46,25 @@
 <!--搜索框 <div class="search"></div>-->
 
     <div>
-        <form action="${pageContext.request.contextPath}/JobInfoConditionQueryServlet" method="get">
+        <form action="${pageContext.request.contextPath}/JobInfoConditionQueryServlet" method="post">
             <div class="selectbox" style="margin: 20px 0 10px 80px;width: 200px;float: left;border: 2px solid blue;">
-                <select name="class_id" id="data" class="data">
-                    <option value="-1"  selected="selected">未选择</option>
-                    <option value="1" style="font-size: 16px;">未审核</option>
+                <select name="e_check" id="data1" class="data">
+                    <option value="">审核状态</option>
+                    <option value="1" style="font-size: 16px;" >未审核</option>
                     <option value="0" style="font-size: 16px;">审核通过</option>
                 </select>
             </div>
             <div class="selectbox" style="margin: 20px 0 10px 80px;width: 200px;float: left;border: 2px solid blue;">
-                <select name="class_id" id="data2" class="data">
-                    <option value="-1" selected="selected">未选择</option>
-                    <option value="1"  style="font-size: 16px;">正在招聘</option>
-                    <option value="0" style="font-size: 16px;">已结束</option>
+                <select name="information_state" id="data2" class="data">
+                    <option value="">信息状态</option>
+                    <option value="0"  style="font-size: 16px;">正在招聘</option>
+                    <option value="1" style="font-size: 16px;">已结束</option>
                 </select>
             </div>
+            <div class="sousuo">
+                <input type="submit" value="搜索" class="sub"/>
+            </div>
+
         </form>
     </div>
 
@@ -81,7 +93,7 @@
                     <td>${ei.jobInfo}</td>
                     <td>${ei.wage}</td>
                     <td>${ei.jobDate}</td>
-
+                    <%--<td>${ei.eCheck}</td>--%>
                     <c:if test="${ei.eCheck == 1}">
                         <td>未审核</td>
                     </c:if>
@@ -92,8 +104,8 @@
 
                 <td>
                     <div class="selectbox">
-                    <select name="" id="">
-                        <option value="1" ${ei.informationState == 1?selected:""}>已结束</option>
+                    <select>
+                        <option value="1" ${ei.informationState == 1?"selected":""}>已结束</option>
                         <option value="0" ${ei.informationState == 0?"selected":""}>正在招聘</option>
                     </select>
                     </div>

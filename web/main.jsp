@@ -63,35 +63,34 @@
             <div id="recruitinformation">
                 <img id="logins">
                 <span class="title_login1">
-				<table width="100%" border="0" cellpadding="0" cellspacing="0" style="table-layout: fixed">
-					<tr align="center" style="background: #b7b7b7;">
-						<td width="6px" height="40px" style="padding:10px;">招聘公司</td>
-						<td width="6px" style="padding:10px;">招聘职位</td>
-						<td width="6px" style="padding:10px;">发布时间</td>
-						<td width="6px" style="padding:10px;">查看详情</td>
-					</tr>
-					<%
-                        ArrayList<JobInfo> allJobInfo = (ArrayList<JobInfo>)session.getAttribute("allJobInfo");
-                        for (int i = 0; i < allJobInfo.size(); i++) {
-                            JobInfo jobInfo = allJobInfo.get(i);
-                    %>
-					<tr align="center" style="padding:10px;">
-						<td style="padding:15px;">
-                            <%=jobInfo.getEnterpriseName()%>
-                        </td>
-						<td style="padding:15px;"><%=jobInfo.getJobInfo()%></td>
-						<td style="padding:15px;"><%=jobInfo.getJobDate()%></td>
-						<td style="padding:15px;">
-							<div class="theme-buy">
-								<a class="btn btn-large theme-login" href="JobInfoQueryServlet?jobid=<%=jobInfo.getJobId()%>">查看详情</a>
-							</div>
-						</td>
-					</tr>
-					<%
-                        }
-                    %>
-				</table>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="table-layout: fixed">
+                        <tr align="center" style="background: #b7b7b7;">
+                            <td width="6px" height="40px" style="padding:10px;">招聘公司</td>
+                            <td width="6px" style="padding:10px;">招聘职位</td>
+                            <td width="6px" style="padding:10px;">发布时间</td>
+                            <td width="6px" style="padding:10px;">查看详情</td>
+                        </tr>
+                        <%
+                            ArrayList<JobInfo> allJobInfo = (ArrayList<JobInfo>)session.getAttribute("allJobInfo");
+                            for (int i = 0; i < allJobInfo.size(); i++) {
+                                JobInfo jobInfo = allJobInfo.get(i);
+                        %>
+                        <tr align="center" style="padding:10px;">
+                            <td style="padding:15px;"><%=jobInfo.getEnterpriseName()%></td>
+                            <td style="padding:15px;"><%=jobInfo.getJobInfo()%></td>
+                            <td style="padding:15px;"><%=jobInfo.getJobDate()%></td>
+                            <td style="padding:15px;">
+                                <div class="theme-buy">
+                                    <a class="btn btn-large theme-login" href="JobInfoQueryServlet?jobid=<%=jobInfo.getJobId()%>">查看详情</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <%
+                            }
+                        %>
+                    </table>
 				</span>
+
                 <span>
 					<div>
                         <a href="" style="text-align: center"><h3>查看更多招聘信息.......</h3></a>
