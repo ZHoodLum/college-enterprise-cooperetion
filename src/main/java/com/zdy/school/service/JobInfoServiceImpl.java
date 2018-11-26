@@ -72,10 +72,62 @@ public class JobInfoServiceImpl implements JobInfoService {
         return rows;
     }
 
+    //企业修改招聘信息（除了信息状态之外）
+    @Override
+    public boolean updateEnterpriseJobInfo02(JobInfo jobInfo) {
+        int succ = 0;
+        boolean rows = jobInfoDao.updateEnterpriseJobInfo01(jobInfo);
+        if (rows == true){
+            succ = 1;
+        }else {
+            succ = 0;
+        }
+        return rows;
+    }
+
+    @Override
+    public boolean updateEnterpriseJobInfo03(JobInfo jobInfo) {
+        int succ = 0;
+        boolean rows = jobInfoDao.updateEnterpriseJobInfo03(jobInfo);
+        if (rows == true){
+            succ = 1;
+        }else {
+            succ = 0;
+        }
+        return rows;
+    }
+
+    ////根据条件查询企业信息
     @Override
     public List<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo) {
         List<JobInfo> list = jobInfoDao.findAllConditionQueryJobInfo(jobInfo);
         return list;
+    }
+
+    //分页查询
+    @Override
+    public List<JobInfo> findAllPageJobInfo(int pageNo, int pageSize, String eCheck) {
+        List<JobInfo> allJobInfoList = jobInfoDao.findAllPageJobInfo(pageNo,pageSize,eCheck);
+        return allJobInfoList;
+    }
+
+    @Override
+    public int getTotal() {
+        int n = jobInfoDao.getTotal();
+        return n;
+    }
+
+    //删除
+    @Override
+    public boolean deleteJobInfo(int jobId) throws Exception {
+        int succ = 0;
+        boolean rows = jobInfoDao.deleteJobInfo(jobId);
+        if(rows == true) {
+            succ=1;//
+        }else {
+            succ=0;
+        }
+        return rows;
     }
 
 

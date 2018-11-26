@@ -2,6 +2,7 @@ package com.zdy.school.dao;
 
 import com.zdy.school.util.DruidUtil;
 import com.zdy.school.util.PageBean;
+import com.zdy.school.vo.EnterpriseInfo;
 import com.zdy.school.vo.JobInfo;
 import com.zdy.school.vo.StudentInfo;
 import org.apache.commons.dbutils.QueryRunner;
@@ -184,6 +185,49 @@ public class JobInfoDaoImpl implements JobInfoDao{
         return flag;
     }
 
+    //企业修改招聘信息状态
+    @Override
+    public boolean updateEnterpriseJobInfo02(JobInfo jobInfo) {
+        int rows = 0;
+        try {
+            String sql = "update jobinfo set information_state = ? where job_id = ?";
+            pstate = con.prepareStatement(sql);
+            pstate.setString(1, jobInfo.getInformationState());
+            pstate.setInt(2, jobInfo.getJobId());
+            rows = pstate.executeUpdate();
+            if (rows>0){
+                flag = true;
+            }
+            DruidUtil.closeConnection(rs,con,pstate);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean updateEnterpriseJobInfo03(JobInfo jobInfo) {
+        int rows = 0;
+        try {
+            String sql = "update jobinfo set e_check = ? where job_id = ?";
+            pstate = con.prepareStatement(sql);
+            pstate.setString(1, jobInfo.geteCheck());
+            pstate.setInt(2, jobInfo.getJobId());
+            rows = pstate.executeUpdate();
+            if (rows>0){
+                flag = true;
+            }
+            DruidUtil.closeConnection(rs,con,pstate);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
     //根据条件查询企业信息
     @Override
     public List<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo) {
@@ -233,7 +277,68 @@ public class JobInfoDaoImpl implements JobInfoDao{
         return list;
     }
 
+    //分页查询
+    @Override
+    public List<JobInfo> findAllPageJobInfo(int pageNo, int pageSize, String eCheck) {
+        List<JobInfo> allJobInfoList = new ArrayList<JobInfo>();
+        String sql = "select * from  jobinfo j,enterpriseinfo e where j.enterprise_id = e.enterprise_id and e_check = ?  limit ?,?;";
+        try{
+            pstate = con.prepareStatement(sql);
+            pstate.setString(1,eCheck);
+            pstate.setInt(2,(pageNo-1)*pageSize);
+            pstate.setInt(3,pageSize);
+            rs = pstate.executeQuery();
+            while (rs.next()){
+                JobInfo jobInfo = new JobInfo();
+                jobInfo.setEnterpriseId(rs.getInt("enterprise_id"));
+                jobInfo.setEnterpriseName(rs.getString("enterprise_name"));
+                jobInfo.setJobId(rs.getInt("job_id"));
+                jobInfo.setJobInfo(rs.getString("job_info"));
+                jobInfo.setJobPosition(rs.getString("job_position"));
+                jobInfo.setJobDate(rs.getDate("job_date"));
+                jobInfo.seteCheck(rs.getString("e_check"));
+                jobInfo.setWage(rs.getString("wage"));
+                allJobInfoList.add(jobInfo);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return allJobInfoList;
+    }
+    //查询数据总量
+    @Override
+    public int getTotal() {
+        String sql = "select count(*) c from jobinfo";
+        int n = 0;
+        try{
+            pstate = con.prepareStatement(sql);
+            rs = pstate.executeQuery();
+            if (rs.next()){
+                n = rs.getInt("c");
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return n;
+    }
 
+    //删除
+    @Override
+    public boolean deleteJobInfo(int jobId) throws Exception {
+        try {
+            String sql = "delete from jobinfo where job_id=?";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, jobId);
+            int c = pstate.executeUpdate();
+            if (c > 0) {
+                flag = true;
+            }
+            DruidUtil.closeConnection(rs,con,pstate);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
 
 
 }

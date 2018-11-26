@@ -19,6 +19,7 @@
     <title>招聘信息查询管理</title>
     <link rel="stylesheet" type="text/css" href="../css/applicationaudit.css">
     <script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery.json.js"></script>
     <style type="text/css">
         /*搜索框*/
         .sousuo{float:right;margin: 20px 80px 10px 0;}
@@ -30,14 +31,36 @@
         .selectbox select option{ padding:5px;}
         #recruitinformation tr:nth-child(odd){ background: #dcdcdc;}
     </style>
-    <%--<script type="text/javascript">--%>
-        <%--$(function () {--%>
-            <%--$("[value='搜索']").click(function () {--%>
-                <%--var data1 = document.getElementById("data1").value;--%>
-                <%--alert(data1);--%>
-            <%--});--%>
-        <%--});--%>
-    <%--</script>--%>
+    <script type="text/javascript">
+        //先加载界面 保证select响应
+        $(document).ready(function() {
+            //根据ID响应select下拉框
+            $("#selectValue").change(function(){
+                //可以获取到响应的选中项
+                var Obj = document.getElementById("selectValue");
+                var data = Obj.options[Obj.selectedIndex].value;
+                alert("可以获取到响应的选中项："+data);
+
+                // 或者此招聘信息的ID
+                var  jobId = document.getElementById("jobId").value;
+                alert("或者此招聘信息的ID:"+jobId);
+
+                $("#selectValue").click(function(){
+                    alert("selectssss")
+                    $.ajax({
+                        type: 'post', //post方式
+                        async: false, //是否异步，默认为true
+                        url: "${ pageContext.request.contextPath }/EnterpriseUpdateJobInfoServlet02?jobId="+jobId, //发送的接收地址。
+                        data: { "data":data}, //参数
+                        success: function (data) { //如果成功，返回一个结果，在这里处理
+                            alert(data+"策划成功！");
+                        },
+                        dataType: "text" //返回结果的类型。
+                    });
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="checkout-title" style="font-family: 微软雅黑;font-size: 20px;text-align: center;margin-top: 5px;font-weight: bold;">
@@ -88,6 +111,7 @@
                 <c:if test="${i.index%2 == 1 }">
                     <tr align="center" bgcolor="#F5F5F5" style="border:0px;padding: 3px 0 3px 0">
                 </c:if>
+                    <input id="jobId" type="hidden" value="${ei.jobId}">
                     <td  style="padding:7px 0 7px 0;">${ei.enterpriseName}</td>
                     <td>${ei.jobPosition}</td>
                     <td>${ei.jobInfo}</td>
@@ -104,7 +128,7 @@
 
                 <td>
                     <div class="selectbox">
-                    <select>
+                    <select id="selectValue">
                         <option value="1" ${ei.informationState == 1?"selected":""}>已结束</option>
                         <option value="0" ${ei.informationState == 0?"selected":""}>正在招聘</option>
                     </select>

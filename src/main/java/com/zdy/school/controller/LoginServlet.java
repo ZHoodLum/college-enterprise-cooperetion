@@ -119,7 +119,7 @@ public class LoginServlet extends HttpServlet {
 				else if(limits[x].equals("企业")) {
 					enterpriseInfo.setEnterpriseId(Integer.parseInt(request.getParameter("useraccount")));
 					System.out.println("企业表单信息"+request.getParameter("useraccount") );
-					
+
 					enterpriseInfo.setEnterprisePassword(request.getParameter("userpassword") );
 					System.out.println("企业表单信息"+request.getParameter("userpassword") );
 					
@@ -159,8 +159,9 @@ public class LoginServlet extends HttpServlet {
 					try {
 						if (loginDao.adminlogin(adminInfo)) {
 							request.getSession().setAttribute("AdminInfo", adminInfo);
-							
-							request.getRequestDispatcher("/index.jsp").forward(request,response);
+
+							response.sendRedirect("/college-enterprise-cooperetion/jsp/manger-main.jsp");
+//							request.getRequestDispatcher("/index.jsp").forward(request,response);
 						} else {
 							response.sendRedirect("/college-enterprise-cooperetion/jsp/login.jsp");
 						}

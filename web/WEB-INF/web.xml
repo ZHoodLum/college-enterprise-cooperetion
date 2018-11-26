@@ -18,7 +18,7 @@
         <!--<url-pattern>/Send</url-pattern>-->
     <!--</servlet-mapping>-->
 
-    配置过滤器
+    <!--配置过滤器-->
     <filter>
         <filter-name>SchoolFilter</filter-name>
         <filter-class>com.zdy.school.filter.SchoolFilter</filter-class>
@@ -28,4 +28,12 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/404error.jsp</location>
+    </error-page>
 </web-app>

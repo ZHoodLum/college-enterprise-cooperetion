@@ -13,36 +13,26 @@ import java.io.IOException;
 
 /**
  * @ Author     ：ZhoodLum
- * @ Date       ：Created in 2018/11/20
- *
- * 企业修改招聘信息
- * 可以修改招聘信息的详细信息，招聘职位，工资待遇
+ * @ Date       ：Created in 2018/11/25
  */
 
-@WebServlet("/EnterpriseUpdateJobInfoServlet01")
-public class EnterpriseUpdateJobInfoServlet01 extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doPost(request,response);
-    }
 
-    @Override
+@WebServlet("/AdminUpdateJobInfoServlet")
+public class AdminUpdateJobInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         JobInfoService jobInfoService = new JobInfoServiceImpl();
         JobInfo jobInfo = new JobInfo();
 
-        jobInfo.setJobId(Integer.parseInt(request.getParameter("job_id")));
-        jobInfo.setJobPosition(request.getParameter("job_position"));
-        jobInfo.setJobInfo(request.getParameter("job_info"));
-        jobInfo.setWage(request.getParameter("wage"));
-        jobInfo.setEnterpriseId(Integer.parseInt(request.getParameter("enterprise_id")));
+        jobInfo.setJobId(Integer.parseInt(request.getParameter("jobId")));
+
+        jobInfo.seteCheck(request.getParameter("eCheck"));
+
         try {
-            boolean succ = jobInfoService.updateEnterpriseJobInfo01(jobInfo);
-            if (succ = true){
+            boolean rows = jobInfoService.updateEnterpriseJobInfo03(jobInfo);
+            if (rows = true){
                 request.getRequestDispatcher("/information-update.html").forward(request,response);
-//                response.sendRedirect("JobInfoQueryByEnterpriseIdServlet");
             }else {
-                System.out.println("succ="+succ);
+                System.out.println("rows="+rows);
                 response.getWriter().print(
                         "<script >alert('修改失败');"
                                 + "history.go(-1);"
@@ -51,5 +41,9 @@ public class EnterpriseUpdateJobInfoServlet01 extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request,response);
     }
 }

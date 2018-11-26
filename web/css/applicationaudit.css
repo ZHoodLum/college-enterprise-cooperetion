@@ -61,3 +61,9 @@
     text-overflow: ellipsis;/* 超出内容显示为省略号*/
     white-space: nowrap;/*文本不进行换行*/
 }
+/*#footer {*/
+    /*position: absolute;*/
+    /*bottom: 10px;*/
+    /*text-align: center;*/
+
+/*}*/

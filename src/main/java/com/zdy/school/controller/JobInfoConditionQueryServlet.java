@@ -15,6 +15,8 @@ import java.util.List;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/11/20
+ * 根据查询条件查询招聘信息
+ * 查询条件是  ： 根据 信息状态和审核状态进行查询的
  */
 
 @WebServlet("/JobInfoConditionQueryServlet")
@@ -31,11 +33,11 @@ public class JobInfoConditionQueryServlet extends HttpServlet {
         try {
             if (request.getParameter("e_check") != null && !"".equals(request.getParameter("e_check")) ) {
                 jobInfo.seteCheck(request.getParameter("e_check"));
-                System.out.println("渠道的值111："+request.getParameter("e_check"));
+//                System.out.println("渠道的值111："+request.getParameter("e_check"));
             }
             if (request.getParameter("information_state") != null && !"".equals(request.getParameter("information_state")) ) {
                 jobInfo.setInformationState(request.getParameter("information_state"));
-                System.out.println("渠道的值222："+request.getParameter("information_state"));
+//                System.out.println("渠道的值222："+request.getParameter("information_state"));
             }
             List<JobInfo> list = jobInfoService.findAllConditionQueryJobInfo(jobInfo);
             request.getSession().setAttribute("jobInfoList", list);

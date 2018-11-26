@@ -14,6 +14,8 @@ import java.io.IOException;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/10/11
+ *  //  查看招聘信息详情
+ *  根据招聘信息主键ID进行查询  并查看其详细信息
  */
 
 @WebServlet("/EnterpriseJobInfoQueryByIdServlet")
