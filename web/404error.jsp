@@ -20,7 +20,7 @@
         </a>
     </p>
     <p>
-        <span id="totalSecond">2</span>秒后自动返回
+        <span id="totalSecond">1</span>秒后自动返回
     </p>
 </div>
 <div id="cloud" class="png"></div>

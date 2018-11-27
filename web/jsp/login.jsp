@@ -33,21 +33,19 @@
 		var path = "<%=path %>";
 	</script>
 	<script language="javascript">
-	     function check(form){
-	         if (form.getElementById("username").value==""){
-	             alert("请输入帐号!");form.name.focus();return false;[]
+	     function check(){
+	         var useraccount = document.loginform.useraccount.value;
+	         var password = document.loginform.password.value;
+	         if (useraccount ==""){
+	             alert("请重新输入帐号!");
+                 document.loginform.useraccount.focus();//光标定位
+                 return false;//防止向下进行
 	         }
-	         if (form.getElementById("username").value==""){
-	             alert("输入的账号不正确，请重新输入帐号!");form.name.focus();return false;
-	         }
-	         if (form.getElementById("password").value==""){
-	             alert("请输入密码!");form.pwd.focus();return false;
-	         }
-	         if (form.getElementById("password").value==""){
-	             alert("输入的密码不正确，请输入密码!");form.pwd.focus();return false;
-	             request.setAttribute("输入的密码不正确，请输入密码!")
-	
-	         }
+             if (password ==""){
+                 alert("请重新输入密码!");
+                 document.loginform.password.focus();//光标定位
+                 return false;//防止向下进行
+             }
 	     }
 	 </script> 
 </head>
@@ -81,7 +79,7 @@
           <h1>登陆入口</h1>
           <!-- 响应action-->
 	          <!--  <form id="loginform" name="loginform" method="post" action="../LoginServletController">-->
-	         <form id="loginform" name="loginform" method="post" action="../LoginServlet"> 
+	         <form id="loginform" name="loginform" method="post" action="../LoginServlet" onclick="check()">
 
 	            <label id="username">用户名:</label>
 	            <!-- 登录名-->

@@ -228,7 +228,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
         return flag;
     }
 
-    //根据条件查询企业信息
+    //根据条件查询招聘信息
     @Override
     public List<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo) {
         List<JobInfo> list = new ArrayList<JobInfo>();
@@ -242,7 +242,10 @@ public class JobInfoDaoImpl implements JobInfoDao{
             }
             if (jobInfo.getInformationState() != null && !"".equals(jobInfo.getInformationState())) {
                 sql.append(" and j.information_state = ? ");
+            }if (jobInfo.getEnterpriseId() != null && !"".equals(jobInfo.getEnterpriseId())) {
+                 sql.append(" and j.enterprise_id = ?");
             }
+
         try {
             pstate = con.prepareStatement(sql.toString());
             int i = 1;
@@ -254,6 +257,10 @@ public class JobInfoDaoImpl implements JobInfoDao{
             //  && !"-1".equals(jobInfo.getInformationState())
             if (jobInfo.getInformationState() != null && !"".equals(jobInfo.getInformationState())) {
                 pstate.setString(i,jobInfo.getInformationState());
+                i++;
+            }
+            if (jobInfo.getEnterpriseId() != null && !"".equals(jobInfo.getEnterpriseId())) {
+                pstate.setInt(i,jobInfo.getEnterpriseId());
                 i++;
             }
             rs = pstate.executeQuery();

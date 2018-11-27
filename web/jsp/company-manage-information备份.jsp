@@ -16,8 +16,6 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>招聘信息查询管理</title>
     <link rel="stylesheet" type="text/css" href="../css/applicationaudit.css">
     <script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery-3.2.1.js"></script>
@@ -33,16 +31,33 @@
         .selectbox select option{ padding:5px;}
         #recruitinformation tr:nth-child(odd){ background: #dcdcdc;}
     </style>
-    <script src="${ pageContext.request.contextPath }/js/lc_switch_jquery.js"></script>
-    <script src="${ pageContext.request.contextPath }/js/lc_switch.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/css/lc_switch.css">
     <script type="text/javascript">
-        $(document).ready(function(e) {
-            $('input').lc_switch();
-            // triggered each time a field changes status
-            $('body').delegate('.lcs_check', 'lcs-statuschange', function() {
-                var status = ($(this).is(':checked')) ? 'checked' : 'unchecked';
-                console.log('field changed status: '+ status );
+        //先加载界面 保证select响应
+        $(document).ready(function() {
+            //根据ID响应select下拉框
+            $("#selectValue").change(function(){
+                //可以获取到响应的选中项
+                var Obj = document.getElementById("selectValue");
+                var data = Obj.options[Obj.selectedIndex].value;
+                alert("可以获取到响应的选中项："+data);
+
+                // 或者此招聘信息的ID
+                var  jobId = document.getElementById("jobId").value;
+                alert("或者此招聘信息的ID:"+jobId);
+
+                $("#selectValue").click(function(){
+                    alert("selectssss")
+                    $.ajax({
+                        type: 'post', //post方式
+                        async: false, //是否异步，默认为true
+                        url: "${ pageContext.request.contextPath }/EnterpriseUpdateJobInfoServlet02?jobId="+jobId, //发送的接收地址。
+                        data: { "data":data}, //参数
+                        success: function (data) { //如果成功，返回一个结果，在这里处理
+                            alert(data+"策划成功！");
+                        },
+                        dataType: "text" //返回结果的类型。
+                    });
+                });
             });
         });
     </script>
@@ -54,7 +69,7 @@
 <!--搜索框 <div class="search"></div>-->
 
     <div>
-        <form action="${pageContext.request.contextPath}/JobInfoConditionQueryServlet?enterprise_id=${sessionScope.EnterpriseInfo.getEnterpriseId()}" method="post">
+        <form action="${pageContext.request.contextPath}/JobInfoConditionQueryServlet" method="post">
             <div class="selectbox" style="margin: 20px 0 10px 80px;width: 200px;float: left;border: 2px solid blue;">
                 <select name="e_check" id="data1" class="data">
                     <option value="">审核状态</option>
@@ -118,18 +133,12 @@
                         <option value="0" ${ei.informationState == 0?"selected":""}>正在招聘</option>
                     </select>
                     </div>
-
-                    <div style="float: left; width: 50%;">
-                        <p>
-                            <input type="checkbox" name="check-1" value="4" class="lcs_check" autocomplete="off" />
-                        </p>
-                    </div>
-                </td>
                 </td>
                     <td>
                         <div class="theme-buy">
                             <a class="btn btn-large theme-login" href="EnterpriseJobInfoQueryByIdServlet?jobid=${ei.jobId}">查看详情</a>
                         </div>
+                    </td>
                     </td>
                 </tr>
             </c:forEach>
