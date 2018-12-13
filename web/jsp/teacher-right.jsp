@@ -54,7 +54,7 @@ pageEncoding="UTF-8"%>
 <script src="../js/select-widget-min.js"></script>
 <script src="../js/jquery.animsition.min.js"></script>
 <script src="../js/echarts.js"></script>
-<script src="../js/macarons .js"></script>
+<script src="../js/macarons%20.js"></script>
 
 <script>
     var $j=jQuery.noConflict();

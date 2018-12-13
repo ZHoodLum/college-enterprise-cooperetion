@@ -14,6 +14,7 @@ import java.io.IOException;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/11/25
+ * 管理员查询未企业审核得招聘信息  根据eCheck = 1进行查询
  */
 
 

@@ -33,6 +33,7 @@
         .selectbox select option{ padding:5px;}
         #recruitinformation tr:nth-child(odd){ background: #dcdcdc;}
     </style>
+    <!--修改信息状态样式js-->
     <script src="${ pageContext.request.contextPath }/js/lc_switch_jquery.js"></script>
     <script src="${ pageContext.request.contextPath }/js/lc_switch.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/css/lc_switch.css">
@@ -43,6 +44,23 @@
             $('body').delegate('.lcs_check', 'lcs-statuschange', function() {
                 var status = ($(this).is(':checked')) ? 'checked' : 'unchecked';
                 console.log('field changed status: '+ status );
+                alert(status);
+            });
+            // 或者此招聘信息的ID
+            var  jobId = document.getElementById("jobId").value;
+            alert("或者此招聘信息的ID:"+jobId);
+            $("#selectValue").click(function(){
+                alert("selectssss")
+                $.ajax({
+                    type: 'post', //post方式
+                    async: false, //是否异步，默认为true
+                    url: "${ pageContext.request.contextPath }/EnterpriseUpdateJobInfoServlet02?jobId="+jobId, //发送的接收地址。
+                    data: { "data":data}, //参数
+                    success: function (data) { //如果成功，返回一个结果，在这里处理
+                        alert(data+"策划成功！");
+                    },
+                    dataType: "text" //返回结果的类型。
+                });
             });
         });
     </script>
@@ -109,21 +127,16 @@
                     <c:if test="${ei.eCheck == 0}">
                         <td>审核通过</td>
                     </c:if>
-
-
                 <td>
-                    <div class="selectbox">
-                    <select id="selectValue">
-                        <option value="1" ${ei.informationState == 1?"selected":""}>已结束</option>
-                        <option value="0" ${ei.informationState == 0?"selected":""}>正在招聘</option>
-                    </select>
-                    </div>
-
-                    <div style="float: left; width: 50%;">
-                        <p>
-                            <input type="checkbox" name="check-1" value="4" class="lcs_check" autocomplete="off" />
-                        </p>
-                    </div>
+                    <%--<div class="selectbox">--%>
+                        <%--<select id="selectValue">--%>
+                            <%--<option value="1" ${ei.informationState == 1?"selected":""}>已结束</option>--%>
+                            <%--<option value="0" ${ei.informationState == 0?"selected":""}>正在招聘</option>--%>
+                        <%--</select>--%>
+                    <%--</div>--%>
+                    <p>
+                        <input type="checkbox" name="check-3" value="6" class="lcs_check lcs_tt1" autocomplete="off" ${ei.informationState == 0?"checked":""}/>
+                    </p>
                 </td>
                 </td>
                     <td>
@@ -136,5 +149,6 @@
         <tbody>
     </table>
 </div>
+
 </body>
 </html>

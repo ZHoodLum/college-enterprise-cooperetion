@@ -41,8 +41,8 @@
 <body>
     <div id="login">
         <span id="title"><a href="../main.jsp" style="text-decoration: none;color:black;" target="_top">College Enterprise Cooperetion</a></span>
-        <a href="../jsp/update-company-information.jsp" style="text-decoration: none;color:black;" target="right">
-            <img src="../images/loginusers.png"  id="circle">
+        <a href="update-company-information.jsp" style="text-decoration: none;color:black;" target="right">
+            <img src="../images/loginusers.png" id="circle">
             <span id="title1">
                 欢迎：${sessionScope.EnterpriseInfo.getEnterpriseName()}&nbsp;&nbsp;&nbsp;${sessionScope.EnterpriseInfo.getEnterpriseManager()}
             </span>

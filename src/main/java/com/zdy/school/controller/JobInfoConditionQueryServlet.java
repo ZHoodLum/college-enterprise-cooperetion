@@ -41,7 +41,7 @@ public class JobInfoConditionQueryServlet extends HttpServlet {
             }
             if (request.getParameter("enterprise_id") != null && !"".equals(request.getParameter("enterprise_id")) ) {
                 jobInfo.setEnterpriseId(Integer.parseInt(request.getParameter("enterprise_id")));
-                System.out.println("渠道的值222："+request.getParameter("enterprise_id"));
+//                System.out.println("渠道的值222："+request.getParameter("enterprise_id"));
             }
             List<JobInfo> list = jobInfoService.findAllConditionQueryJobInfo(jobInfo);
             request.getSession().setAttribute("jobInfoList", list);

@@ -35,7 +35,7 @@
          <div class="line"></div>
         <dl class="system_log">
             <dt class="first_dd"><img src="../images/left/select_xl01.png">
-                <a href="../jsp/addinformation.jsp" target="right">发布招聘信息</a>
+                <a href="addinformation.jsp" target="right">发布招聘信息</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 15px;"></dd>
@@ -50,7 +50,7 @@
 
         <dl class="custom">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="../jsp/applicationaudit.html" target="right">审核实习申请</a>
+                <a href="applicationaudit.html" target="right">审核实习申请</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
@@ -65,14 +65,14 @@
         </dl>
         <dl class="cloud">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="../jsp/student-score.html" target="right">评判学生成绩</a>
+                <a href="student-score.html" target="right">评判学生成绩</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
         </dl>
         <dl class="syetem_management">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="../jsp/resumeinfo.html" target="right">审核简历信息</a>
+                <a href="resumeinfo.html" target="right">审核简历信息</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>

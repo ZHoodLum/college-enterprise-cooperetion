@@ -21,7 +21,7 @@
 			  <frameset rows="7%,88%,5%" frameborder="yes" framespacing="1">
 				  <frame src="manger-head.jsp" name="head" allowTransparency="true" scrolling="no" >
 				  <frame src="manger-right.jsp" name="right" allowTransparency="true" scrolling="no">
-				  <frame src="../jsp/footer.jsp" name="footer" allowTransparency="true" scrolling="no" >
+				  <frame src="footer.jsp" name="footer" allowTransparency="true" scrolling="no" >
 			  </frameset>
 
 		  </frameset>
