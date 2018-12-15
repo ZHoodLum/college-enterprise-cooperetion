@@ -38,31 +38,72 @@
     <script src="${ pageContext.request.contextPath }/js/lc_switch.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/css/lc_switch.css">
     <script type="text/javascript">
-        $(document).ready(function(e) {
+        $(document).ready(function() {
             $('input').lc_switch();
-            // triggered each time a field changes status
-            $('body').delegate('.lcs_check', 'lcs-statuschange', function() {
-                var status = ($(this).is(':checked')) ? 'checked' : 'unchecked';
-                console.log('field changed status: '+ status );
-                alert(status);
-            });
-            // 或者此招聘信息的ID
-            var  jobId = document.getElementById("jobId").value;
-            alert("或者此招聘信息的ID:"+jobId);
-            $("#selectValue").click(function(){
-                alert("selectssss")
+            $('p').delegate('.lcs_check', 'lcs-statuschange', function() {
+                // var  jobId = document.getElementsByName("jobId").value;
+                var  jobId = $("input[name='jobId']").val()
+                alert("修改此招聘信息的ID:"+jobId);
                 $.ajax({
-                    type: 'post', //post方式
-                    async: false, //是否异步，默认为true
-                    url: "${ pageContext.request.contextPath }/EnterpriseUpdateJobInfoServlet02?jobId="+jobId, //发送的接收地址。
-                    data: { "data":data}, //参数
-                    success: function (data) { //如果成功，返回一个结果，在这里处理
-                        alert(data+"策划成功！");
+                    type:"POST",
+                    url:"${ pageContext.request.contextPath }/EnterpriseUpdateJobInfoServlet02?jobId="+jobId,
+                    async:false,
+                    dataType:"json",
+                    data:{
+                        informationState:($(this).is(':checked')) ? '0' : '1'
                     },
-                    dataType: "text" //返回结果的类型。
+                    success:function(data,textStatus){
+                        if(textStatus=="success"){
+                            alert(informationState+"修改成功");
+                        }
+                    }
                 });
             });
         });
+        // var data = ($(this).is(':checked')) ? '0' : '1';
+        // alert("向后AJAX后的数据显示："+data);
+        <%--var url = "${ pageContext.request.contextPath }/EnterpriseUpdateJobInfoServlet02?jobId="+jobId;--%>
+        // $.get(url,data,function(callbackData){
+        // alert("向后AJAX后的数据显示："+data+url);
+        // if(callbackData.length == 0){
+        // alert("修改成功！！！！！");
+        // return;
+        // }
+        // });
+        //先加载界面 保证select响应
+        // function show_sub(v){
+        //     alert(v);
+        // }
+
+        <%--$(function(){--%>
+            <%--//根据ID响应select下拉框--%>
+            <%--$("#selectValue").onclick(function(){--%>
+                <%--//可以获取到响应的选中项--%>
+                <%--var Obj = document.getElementById("selectValue");--%>
+                <%--// var informationState = Obj.options[Obj.selectedIndex].value;--%>
+                <%--// alert("可以获取到响应的选中项："+informationState);--%>
+                <%--// 或者此招聘信息的ID--%>
+                <%--var  jobId = document.getElementById("jobId").value;--%>
+                <%--alert("或者此招聘信息的ID:"+jobId);--%>
+
+                <%--$("#selectValue").click(function(){--%>
+                    <%--$.ajax({--%>
+                            <%--type:"POST",--%>
+                            <%--url:"${ pageContext.request.contextPath }/EnterpriseUpdateJobInfoServlet02?jobId="+jobId,--%>
+                            <%--async:false,--%>
+                            <%--dataType:"json",--%>
+                            <%--data:{--%>
+                            <%--informationState:Obj.options[Obj.selectedIndex].value--%>
+                        <%--},--%>
+                        <%--success:function(data,textStatus){--%>
+                            <%--if(textStatus=="success"){--%>
+                                <%--alert(informationState+"修改成功");--%>
+                            <%--}--%>
+                        <%--}--%>
+                    <%--});--%>
+                <%--});--%>
+            <%--});--%>
+        <%--});--%>
     </script>
 </head>
 <body>
@@ -96,9 +137,8 @@
 
 <div id="recruitinformation">
     <table width="100%" border="0px" cellpadding="0" cellspacing="0">
-        <br>
             <tr align="center"  bgcolor="#FFFFFF" border: 0px;>
-                <td width="6%"  style="padding:10px; border-bottom: 2px dashed #808080;">招聘单位</td>
+                <td width="8%"  style="padding:10px; border-bottom: 2px dashed #808080;">招聘单位</td>
                 <td width="20%"  style="padding:10px; border-bottom: 2px dashed #808080;">招聘职位</td>
                 <td width="20%"  style="padding:10px; border-bottom: 2px dashed #808080;">详细信息</td>
                 <td width="10%"  style="padding:10px; border-bottom: 2px dashed #808080;">工资待遇</td>
@@ -114,13 +154,14 @@
                 <c:if test="${i.index%2 == 1 }">
                     <tr align="center" bgcolor="#F5F5F5" style="border:0px;padding: 3px 0 3px 0">
                 </c:if>
-                    <input id="jobId" type="hidden" value="${ei.jobId}">
+                <input id="jobId" name ="jobId" type="hidden" value="${ei.jobId}">
+                <input id="enterprise_id" name ="enterprise_id" type="hidden" value="${sessionScope.EnterpriseInfo.getEnterpriseId()}">
                     <td  style="padding:7px 0 7px 0;">${ei.enterpriseName}</td>
                     <td>${ei.jobPosition}</td>
                     <td>${ei.jobInfo}</td>
                     <td>${ei.wage}</td>
                     <td>${ei.jobDate}</td>
-                    <%--<td>${ei.eCheck}</td>--%>
+                    <%-- 审核状态 ${ei.eCheck}--%>
                     <c:if test="${ei.eCheck == 1}">
                         <td>未审核</td>
                     </c:if>
@@ -128,14 +169,16 @@
                         <td>审核通过</td>
                     </c:if>
                 <td>
+                    <%--下拉框--%>
                     <%--<div class="selectbox">--%>
-                        <%--<select id="selectValue">--%>
+                        <%--<select id="selectValue" >--%>
                             <%--<option value="1" ${ei.informationState == 1?"selected":""}>已结束</option>--%>
                             <%--<option value="0" ${ei.informationState == 0?"selected":""}>正在招聘</option>--%>
                         <%--</select>--%>
                     <%--</div>--%>
                     <p>
-                        <input type="checkbox" name="check-3" value="6" class="lcs_check lcs_tt1" autocomplete="off" ${ei.informationState == 0?"checked":""}/>
+                        <%--<input id="jobId" name ="jobId" type="hidden" value="${ei.jobId}">--%>
+                        <input type="checkbox" id="informationState" name="informationState" class="lcs_check lcs_tt1" value="${ei.informationState}" autocomplete="off" ${ei.informationState == 0?"checked":""}/>
                     </p>
                 </td>
                 </td>
@@ -149,6 +192,5 @@
         <tbody>
     </table>
 </div>
-
 </body>
 </html>

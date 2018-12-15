@@ -35,6 +35,7 @@ public class EnterpriseUpdateJobInfoServlet01 extends HttpServlet {
         jobInfo.setJobPosition(request.getParameter("job_position"));
         jobInfo.setJobInfo(request.getParameter("job_info"));
         jobInfo.setWage(request.getParameter("wage"));
+        jobInfo.setInformationState(request.getParameter("information_state"));
         jobInfo.setEnterpriseId(Integer.parseInt(request.getParameter("enterprise_id")));
         try {
             boolean succ = jobInfoService.updateEnterpriseJobInfo01(jobInfo);

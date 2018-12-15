@@ -72,11 +72,11 @@ public class JobInfoServiceImpl implements JobInfoService {
         return rows;
     }
 
-    //企业修改招聘信息（除了信息状态之外）
+    //企业修改招信息状态
     @Override
     public boolean updateEnterpriseJobInfo02(JobInfo jobInfo) {
         int succ = 0;
-        boolean rows = jobInfoDao.updateEnterpriseJobInfo01(jobInfo);
+        boolean rows = jobInfoDao.updateEnterpriseJobInfo02(jobInfo);
         if (rows == true){
             succ = 1;
         }else {

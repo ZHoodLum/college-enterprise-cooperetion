@@ -120,7 +120,7 @@ h1 {
 }
   .theme-poptit {
   border-bottom:1px solid #ddd;
-  padding:12px;
+  /*padding:12px;*/
   position: relative;
 }
 .theme-popbod {

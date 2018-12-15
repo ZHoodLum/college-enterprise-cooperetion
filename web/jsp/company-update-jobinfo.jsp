@@ -9,6 +9,13 @@
   <title>Dynamic Scrolling Shadow</title>
   <link href="../css/jobinfo.css" type="text/css" rel="stylesheet" media="screen,projection" />
 	<script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery-3.2.1.js"></script>
+	<style type="text/css">
+		<!--下拉框样式-->
+		.selectbox{ width: 50px; display: inline-block; overflow-x: hidden; height: 28px; line-height: 28px; font-size: 0;  background:#fff url(${pageContext.request.contextPath}/images/arrow.png) right center no-repeat;  vertical-align: middle;}
+		.selectbox select{cursor: pointer; text-align: center ; padding: 0 8px; height: 28px; line-height: 28px; font-size: 18px; width:100%; padding-right: 18%; background:none; border: none;}
+		.selectbox select option{ padding:8px;}
+		#recruitinformation tr:nth-child(odd){ background: #dcdcdc;}
+	</style>
 <script type="text/javascript">
 
 </script>
@@ -30,6 +37,17 @@
 					 <div class="theme-popbod" style="font-size: 18px;color: black;">
 						 <% JobInfo jobInfo = (JobInfo) session.getAttribute("jobInfo");%>
 						<ol>
+						<li style="text-align: center;margin-right: 35px;">
+							<strong>信息状态</strong>：
+							<div style="padding: 15px 0 20px 0;">
+								<div class="selectbox">
+									<select name="information_state" id="information_state" style="width: auto;padding: 0 1%;;margin: 0;background-color: palegreen ">
+										<option <%=jobInfo.getInformationState().equals("1")?"selected":""%> value="1" style="text-align: center">已结束</option>
+										<option <%=jobInfo.getInformationState().equals("0")?"selected":""%> value="0"  style="text-align: center">正在招聘</option>
+									</select>
+								</div>
+							</div>
+						</li>
 						<li>
 							<strong>招聘单位：</strong>
                             <input type="hidden" name="enterprise_id" value="${sessionScope.EnterpriseInfo.getEnterpriseId()}">

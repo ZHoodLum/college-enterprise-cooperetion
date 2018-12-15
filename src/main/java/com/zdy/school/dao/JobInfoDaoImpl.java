@@ -165,13 +165,14 @@ public class JobInfoDaoImpl implements JobInfoDao{
     public boolean updateEnterpriseJobInfo01(JobInfo jobInfo) {
         int rows = 0;
         try {
-            String sql = "update jobinfo set job_info = ?,job_position = ?,wage = ?,enterprise_id = ? where job_id = ?";
+            String sql = "update jobinfo set job_info = ?,job_position = ?,wage = ?,enterprise_id = ?,information_state = ? where job_id = ?";
             pstate = con.prepareStatement(sql);
             pstate.setString(1, jobInfo.getJobInfo());
             pstate.setString(2, jobInfo.getJobPosition());
             pstate.setString(3, jobInfo.getWage());
             pstate.setInt(4,jobInfo.getEnterpriseId());
-            pstate.setInt(5, jobInfo.getJobId());
+            pstate.setString(5,jobInfo.getInformationState());
+            pstate.setInt(6, jobInfo.getJobId());
             rows = pstate.executeUpdate();
             if (rows>0){
                 flag = true;
