@@ -1,8 +1,13 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<html>
 <head>
 	<meta charset="UTF-8">
-	<title>addinformation</title>
+	<title>审核简历信息</title>
 	<link rel="stylesheet" type="text/css" href="../css/resumeinfo.css">
 
 </head>

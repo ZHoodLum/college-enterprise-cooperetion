@@ -38,10 +38,14 @@
     <script src="${ pageContext.request.contextPath }/js/lc_switch.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/css/lc_switch.css">
     <script type="text/javascript">
+        // 异步请求正确
         $(document).ready(function() {
             $('input').lc_switch();
             $('p').delegate('.lcs_check', 'lcs-statuschange', function() {
-                // var  jobId = document.getElementsByName("jobId").value;
+                // $("input[type='checkbox']").click(function(){
+                //     this.checked = !this.checked;
+                // });
+                var  jobId = document.getElementsByName("jobId").value;
                 var  jobId = $("input[name='jobId']").val()
                 alert("修改此招聘信息的ID:"+jobId);
                 $.ajax({
@@ -178,7 +182,7 @@
                     <%--</div>--%>
                     <p>
                         <%--<input id="jobId" name ="jobId" type="hidden" value="${ei.jobId}">--%>
-                        <input type="checkbox" id="informationState" name="informationState" class="lcs_check lcs_tt1" value="${ei.informationState}" autocomplete="off" ${ei.informationState == 0?"checked":""}/>
+                        <input type="checkbox" id="informationState"  name="informationState" class="lcs_check lcs_tt1" value="${ei.informationState}"  onclick="return false" disabled="disabled"  autocomplete="off" ${ei.informationState == 0?"checked":""}/>
                     </p>
                 </td>
                 </td>

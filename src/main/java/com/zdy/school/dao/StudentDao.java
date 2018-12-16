@@ -1,6 +1,6 @@
 package com.zdy.school.dao;
 
-import com.zdy.school.vo.EnterpriseInfo;
+import com.zdy.school.vo.Resumes;
 import com.zdy.school.vo.StudentInfo;
 
 import java.util.ArrayList;
@@ -34,5 +34,10 @@ public interface StudentDao {
     //注册学生信息
     int insertStudentInfo(StudentInfo studentInfo);
 
+    //添加简历信息
+    int insertStudentResumes(Resumes resumes);
+
+    //学生查询简历信息是否存在
+    Resumes findResumesById(int studentId);
 
 }

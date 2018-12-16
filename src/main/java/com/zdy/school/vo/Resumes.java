@@ -1,5 +1,6 @@
 package com.zdy.school.vo;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
@@ -7,7 +8,17 @@ import java.sql.Date;
  * Resume 简历信息表
  * 用于存放简历信息的相关信息
  */
-public class Resume {
+public class Resumes implements Serializable {
+	private int resumeId;
+
+	public int getResumeId() {
+		return resumeId;
+	}
+
+	public void setResumeId(int resumeId) {
+		this.resumeId = resumeId;
+	}
+
 	private int studentId;
 	private String studentName;
 	private String studentSex;
@@ -160,5 +171,28 @@ public class Resume {
 
 	public void setSelfEvaluation(String selfEvaluation) {
 		this.selfEvaluation = selfEvaluation;
+	}
+
+	@Override
+	public String toString() {
+		return "Resumes{" +
+				"studentId=" + studentId +
+				", studentName='" + studentName + '\'' +
+				", studentSex='" + studentSex + '\'' +
+				", nationality='" + nationality + '\'' +
+				", birthday=" + birthday +
+				", city='" + city + '\'' +
+				", politics='" + politics + '\'' +
+				", health='" + health + '\'' +
+				", college='" + college + '\'' +
+				", education='" + education + '\'' +
+				", major='" + major + '\'' +
+				", graduateTime=" + graduateTime +
+				", email='" + email + '\'' +
+				", studentContineTime='" + studentContineTime + '\'' +
+				", majorCourse='" + majorCourse + '\'' +
+				", credential='" + credential + '\'' +
+				", selfEvaluation='" + selfEvaluation + '\'' +
+				'}';
 	}
 }

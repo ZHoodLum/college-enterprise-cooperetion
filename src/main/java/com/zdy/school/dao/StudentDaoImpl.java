@@ -2,8 +2,10 @@ package com.zdy.school.dao;
 
 import com.zdy.school.util.DruidUtil;
 import com.zdy.school.vo.EnterpriseInfo;
+import com.zdy.school.vo.Resumes;
 import com.zdy.school.vo.StudentInfo;
 import com.zdy.school.vo.TeacherInfo;
+import sun.security.rsa.RSASignature;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -350,4 +352,65 @@ public class StudentDaoImpl implements StudentDao{
         }
         return rows;
     }
+
+    //添加简历信息
+    @Override
+    public int insertStudentResumes(Resumes resumes) {
+        int rows = 0;
+        try {
+            String sql = " insert into resumes(student_id, nationality, birthday, politics, health, college, education, graduate_time, student_continue_time, major_course, credential, self_evaluation) values(?,?,?,?,?,?,?,?,?,?,?,?);";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, resumes.getStudentId());
+            pstate.setString(2, resumes.getNationality());
+            pstate.setDate(3, resumes.getBirthday());
+            pstate.setString(4, resumes.getPolitics());
+            pstate.setString(5, resumes.getHealth());
+            pstate.setString(6, resumes.getCollege());
+            pstate.setString(7, resumes.getEducation());
+            pstate.setDate(8, resumes.getGraduateTime());
+            pstate.setString(9, resumes.getStudentContineTime());
+            pstate.setString(10, resumes.getMajorCourse());
+            pstate.setString(11,resumes.getCredential());
+            pstate.setString(12, resumes.getSelfEvaluation());
+            rows = pstate.executeUpdate();
+//            DruidUtil.closeConnection(rs,con,pstate);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("录入学生信息出现错误！");
+        }
+        return rows;
+    }
+
+    //学生查询简历信息是否存在
+    @Override
+    public Resumes findResumesById(int studentId) {
+        Resumes resumes = new Resumes();
+        try {
+            String sql = "select * from studentinfo s,resumes r where s.student_id = r.student_id and r.student_id = ?;";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1,studentId);
+            rs = pstate.executeQuery();
+            while (rs.next()) {
+                flag = true;
+                resumes.setStudentId(rs.getInt("student_id"));
+                resumes.setNationality(rs.getString("nationality"));
+                resumes.setBirthday(rs.getDate("birthday"));
+                resumes.setPolitics(rs.getString("politics"));
+                resumes.setHealth(rs.getString("health"));
+                resumes.setCollege(rs.getString("college"));
+                resumes.setEducation(rs.getString("education"));
+                resumes.setGraduateTime(rs.getDate("graduate_time"));
+                resumes.setStudentContineTime(rs.getString("student_continue_time"));
+                resumes.setMajorCourse(rs.getString("major_course"));
+                resumes.setCredential(rs.getString("credential"));
+                resumes.setSelfEvaluation(rs.getString("self_evaluation"));
+//                DruidUtil.closeConnection(rs, con, pstate);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resumes;
+    }
+
 }

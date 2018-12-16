@@ -50,7 +50,14 @@
                 <span class="main2"><a href="#recruitstudentimages2">实习向导</a></span>
                 <span class="main2"><a href="#footers">界面底部</a></span>
                 <%--<span class="main2"><a href="Send? url=WEB-INF/jsp/contact.jsp">我的简历</a></span>--%>
-                <span class="main2"><a href="jsp/contact.jsp">我的简历</a></span>
+                <c:choose>
+                    <c:when test="${sessionScope.StudentInfo.getStudentName() == null}"><!-- 如果 -->
+                        <span class="main2"><a href="jsp/contact.jsp"></a></span>
+                    </c:when>
+                    <c:otherwise>
+                        <span class="main2"><a href="jsp/contact.jsp">我的简历</a></span>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
         <div>

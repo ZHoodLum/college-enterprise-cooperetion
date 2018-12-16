@@ -3,6 +3,7 @@ package com.zdy.school.service;
 import com.zdy.school.dao.StudentDao;
 import com.zdy.school.dao.StudentDaoImpl;
 import com.zdy.school.vo.EnterpriseInfo;
+import com.zdy.school.vo.Resumes;
 import com.zdy.school.vo.StudentInfo;
 
 import java.util.ArrayList;
@@ -75,12 +76,30 @@ public class StudentServiceImpl implements  StudentService {
     public int insertStudentInfo(StudentInfo studentInfo) {
         int datevalues = 0;
         int rows = studentDao.insertStudentInfo(studentInfo);
-        if (rows > 1){
+        if (rows > 0){
             datevalues = 1;
         }else{
             datevalues = 0;
         }
         return datevalues;
+    }
+
+    //添加简历信息
+    @Override
+    public int insertStudentResumes(Resumes resumes) {
+        int datevalues = 0;
+        int rows = studentDao.insertStudentResumes(resumes);
+        if (rows > 0){
+            datevalues = 1;
+        }else{
+            datevalues = 0;
+        }
+        return datevalues;
+    }
+
+    @Override
+    public Resumes findResumesById(int studentId) {
+        return studentDao.findResumesById(studentId);
     }
 
 
