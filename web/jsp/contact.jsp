@@ -116,6 +116,14 @@
                         function fanhui() {
                             location.href="${pageContext.request.contextPath}/JobInfoQueryAllServlet";
                         }
+                        $(document).ready(function () {
+                            var time = new Date();
+                            var day = ("0" + time.getDate()).slice(-2);
+                            var month = ("0" + (time.getMonth() + 1)).slice(-2);
+                            var today = time.getFullYear() + "-" + (month) + "-" + (day);
+                            $('#birthday').val(today);
+                            $('#graduate_time').val(today);
+                        })
 				</script>
 			 </ul>
 		 </div>
@@ -142,7 +150,7 @@
 				 </div><br/><br/>
 
 				 <br/>出生年月：
-				 <input  name="birthday" type="date" id="birthday"  value="${sessionScope.resumes.birthday}"></input><br/><br/>
+				 <input  name="birthday" type="date" id="birthday"  value="${sessionScope.resumes.birthday}"><br/><br/>
 
 				 <br/>政治面貌：
 				 <div class="selectbox">
@@ -177,7 +185,7 @@
 				 <textarea rows="1" id="major" name="major" readonly><%=session.getAttribute("major")%></textarea><br/>
 
 				 <br/>毕业时间:
-				 <input rows="1" id="graduate_time" name="graduate_time"  type="date" value="${sessionScope.resumes.graduateTime}" ></input><br/><br/>
+				 <input rows="1" id="graduate_time" name="graduate_time"  type="date" value="${sessionScope.resumes.graduateTime}" ><br/><br/>
 
 				 <br/>电子邮件：<br/>
 				 <textarea rows="1" id="email" name="email" readonly><%=session.getAttribute("email")%></textarea>

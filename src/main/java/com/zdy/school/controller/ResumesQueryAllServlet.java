@@ -2,9 +2,7 @@ package com.zdy.school.controller;
 
 import com.zdy.school.service.StudentService;
 import com.zdy.school.service.StudentServiceImpl;
-import com.zdy.school.vo.JobInfo;
 import com.zdy.school.vo.Resumes;
-import org.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

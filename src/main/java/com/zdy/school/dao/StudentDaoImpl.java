@@ -381,7 +381,7 @@ public class StudentDaoImpl implements StudentDao{
         return rows;
     }
 
-    //学生查询简历信息是否存在
+    //学生查询简历信息是否存在 第二次进入后不显示按钮
     @Override
     public Resumes findResumesById(int studentId) {
         Resumes resumes = new Resumes();

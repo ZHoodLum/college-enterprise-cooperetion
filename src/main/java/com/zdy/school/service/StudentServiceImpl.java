@@ -97,6 +97,7 @@ public class StudentServiceImpl implements  StudentService {
         return datevalues;
     }
 
+    //根据iD查询简历是否存在
     @Override
     public Resumes findResumesById(int studentId) {
         return studentDao.findResumesById(studentId);
