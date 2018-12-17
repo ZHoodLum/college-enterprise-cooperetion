@@ -74,16 +74,18 @@
                         <tr align="center" style="background: #b7b7b7;">
                             <td width="6px" height="40px" style="padding:10px;">招聘公司</td>
                             <td width="6px" style="padding:10px;">招聘职位</td>
+                            <td width="6px" style="padding:10px;">具体要求</td>
                             <td width="6px" style="padding:10px;">发布时间</td>
-                            <td width="6px" style="padding:10px;">查看详情</td>
+                            <td width="6px" style="padding:10px;">操作</td>
                         </tr>
                         <%
                             ArrayList<JobInfo> allJobInfo = (ArrayList<JobInfo>)session.getAttribute("allJobInfo");
-                            for (int i = 0; i < allJobInfo.size(); i++) {
+                            for (int i = 0; i < 9; i++) {
                                 JobInfo jobInfo = allJobInfo.get(i);
                         %>
                         <tr align="center" style="padding:10px;">
                             <td style="padding:15px;"><%=jobInfo.getEnterpriseName()%></td>
+                            <td style="padding:15px;"><%=jobInfo.getJobPosition()%></td>
                             <td style="padding:15px;"><%=jobInfo.getJobInfo()%></td>
                             <td style="padding:15px;"><%=jobInfo.getJobDate()%></td>
                             <td style="padding:15px;">
@@ -100,7 +102,7 @@
 
                 <span>
 					<div>
-                        <a href="" style="text-align: center"><h3>查看更多招聘信息.......</h3></a>
+                        <a href="queryalljobinfo.jsp" style="text-align: center"><h3>查看更多招聘信息.......</h3></a>
 					</div>
 				</span>
             </div>

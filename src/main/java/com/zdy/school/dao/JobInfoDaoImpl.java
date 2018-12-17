@@ -28,7 +28,8 @@ public class JobInfoDaoImpl implements JobInfoDao{
     public ArrayList<JobInfo> findAllJobInfo(JobInfo jobInfo) {
         ArrayList<JobInfo> allJobInfo = new ArrayList<JobInfo>();
         try {
-            String sql = "select * from jobinfo j ,enterpriseinfo e limit 0,5";
+//            String sql = "select * from jobinfo j ,enterpriseinfo e limit 0,10";
+            String sql = "select * from jobinfo j ,enterpriseinfo e where j.enterprise_id = e.enterprise_id";
             pstate = con.prepareStatement(sql);
             rs = pstate.executeQuery();
             while (rs.next()) {
@@ -229,7 +230,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
         return flag;
     }
 
-    //根据条件查询招聘信息
+    //根据企业条件查询招聘信息
     @Override
     public List<JobInfo> findAllConditionQueryJobInfo(JobInfo jobInfo) {
         List<JobInfo> list = new ArrayList<JobInfo>();
@@ -285,7 +286,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
         return list;
     }
 
-    //分页查询
+    //管理员分页查询
     @Override
     public List<JobInfo> findAllPageJobInfo(int pageNo, int pageSize, String eCheck) {
         List<JobInfo> allJobInfoList = new ArrayList<JobInfo>();

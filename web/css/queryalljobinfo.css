@@ -1,0 +1,293 @@
+@CHARSET "UTF-8";
+/******************************************************************全局设置**************************************************************************************************/
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-size: 13px;
+	line-height: 18px;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
+	color: #555;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	background: url(../images/5846.jpg) no-repeat center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+::-webkit-scrollbar {
+	/*隐藏滚轮*/
+	display: none;
+}
+/******************************************************************界面头部**********************************************************************************************/
+
+/*
+**登陆注册按钮 login
+*/
+#circle {
+	position:absolute;
+	top:50px;
+	left:1078px;
+	width: 30px;
+	height: 30px;
+	border: 2px white solid;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius:15px;
+}
+#login{
+	margin:55px 0 20px 0;
+}
+#title{
+	margin:0 0 5px 150px;
+	font-size: 30px;
+
+}
+.title_login1{
+	margin-left: 560px;
+	padding-right: 15px;
+	/*
+	border-right: 2px solid #DFDFDF;*/
+	font-size: 14px;
+}
+.title_login1 a{
+	text-decoration: none;
+	color: black;
+}
+.title_login1 a:hover{
+	text-decoration: none;
+	color: blue;
+}
+.title_login2 a{
+	text-decoration: none;
+}
+.title_login2{
+	margin-left: 10px;
+	font-size: 14px;
+}
+/*
+**导航栏
+*/
+#top{
+	margin-top: 5px;
+	width:100%;
+	/*height: 500px;*/
+	/*border: 10px solid #FFFFFF;*/
+	display:block;
+	/*background: url(../images/01.jpg) no-repeat center fixed;*/
+	/*-webkit-background-size: cover;*/
+	/*-moz-background-size: cover;*/
+	/*-o-background-size: cover;*/
+	/*background-size: cover;*/
+}
+#titlecontent{
+	width: 100%;
+	height: 40px;
+	background: rgba(51,55,59,0.8);
+	position:fixed; /* <a href="https://www.baidu.com/s?wd=%E7%BB%9D%E5%
+	AF%B9%E5%AE%9A%E4%BD%8D&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1d9uHRduhc1uH-WnHF9mHcd0ZwV5Hcvrjm
+	3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHf1njbYP163n1RLPWn4nWcdrf"
+	 target="_blank" class="baidu-highlight">绝对定位</a>，fixed是相对于浏览器窗口定位。 */
+	top:0; /* 距离窗口顶部距离 */
+	/*left:0;*/ /* 距离窗口左边的距离 */
+	/*margin-right: 300px;*/
+	width:100%; /* 宽度设置为100% */
+	height:45px; /* 高度 */
+	z-index:99; /* 层叠顺序，数值越大就越高。页面滚动的时候就不会被其他内容所遮挡。 */
+
+}
+#titlecontent_right{
+	float: right;
+	margin-right: 100px;
+	text-align: center;
+	width: 700px;
+	line-height: 40px;
+	font-size: 14px;
+	font-weight: bold;
+}
+#titlecontent_right a{
+	text-decoration: none;
+	color: white;
+	font-family:"宋体";
+	margin-left:70px;
+	letter-spacing: 3px;
+}
+#titlecontent_right a:hover{
+	color: #0033CC;
+	border-bottom:2px solid #0033CC; /* #ccc换成链接的颜色 */
+	padding-bottom:12px;  /*这里设置你要空的距离*/
+}
+/********************************************************************************招聘信息********************************************************************************/
+#recruitinformation{
+	width: 85%;
+	height: 723px;
+	margin:0 auto;
+	text-align: center;
+	/*margin-top: 50px;*/
+	font-size: 16px;
+/*
+	border-radius:5px;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-left: 2px solid;
+	border-right: 2px solid;
+*/
+}
+#recruitinformation tr td{
+	/*overflow: hidden;!*内容超出后隐藏*!
+
+	text-overflow: ellipsis;!* 超出内容显示为省略号*!
+
+	white-space: nowrap;!*文本不进行换行*!*/
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+#recruitinformation tr:nth-child(even){ background: white;}
+#recruitinformation tr:nth-child(odd){ background: #dcdcdc;}
+#recruitinformation table tr td a {
+	text-decoration: none;
+}
+#recruitinformation table tr td a:hover{
+	color: blue;
+	border-bottom:2px solid blue; /* #ccc换成链接的颜色 */
+	padding-bottom:5px;  /*这里设置你要空的距离*/
+}
+/********************************************************************************招生向导********************************************************************************/
+#logins{
+    margin-top: 50px;
+}
+#recruitstudentimages2{
+	width:100%;
+	height: 600px;
+	display:block;
+	background: url(../images/recruitstudent.jpg) no-repeat center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#recruitstudent{
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+}
+/** typography左右横线 中间文字 **/
+h1 {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size:24px;
+	line-height: 1.5em;
+	letter-spacing: -0.05em;
+	margin-bottom: 20px;
+	padding: .1em 0;
+	color: #444;
+	position: relative;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+}
+h1:before,
+h1:after {
+	content: "";
+	position: relative;
+	display: inline-block;
+	width: 50%;
+	height: 1px;
+	vertical-align: middle;
+	background: #f0f0f0;
+}
+h1:before {
+	left: -.5em;
+	margin: 0 0 0 -50%;
+}
+h1:after {
+	left: .5em;
+	margin: 0 -50% 0 0;
+}
+h1 > span {
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+}
+
+p {
+	display: block;
+	font-size: 1.35em;
+	line-height: 1.5em;
+	margin-bottom: 22px;
+}
+
+.center { display: block; text-align: center; }
+
+#p1{
+	font-size: 18px;
+	font-family: 微软雅黑;
+	align: left;
+	margin: 0 auto;
+
+	text-align:justify;
+	text-justify:inter-ideograph;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+
+.p2{
+	font-size: 16px;
+	margin: 0 auto;
+	font-family: 宋体;
+	align: left;
+	margin: 0 auto;
+
+	text-align:justify;
+	text-justify:inter-ideograph;
+	word-wrap:break-word;
+	word-break:break-all;
+	text-indent:2em;
+}
+/*招聘信息*/
+.comment_bubble {
+	margin-top: 90px;
+	margin-left: 110px;
+	width: 200px;
+	height: 100px;
+	/*background: #088cb7;*/
+	background:#0e90d2;
+	position: relative;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+.comment_bubble:before {
+	content: "";
+	width: 0;
+	height: 0;
+	right: 100%;
+	top: 38px;
+	position: absolute;
+	border-top: 13px solid transparent;
+	border-right: 35px solid #0e90d2;
+	border-bottom: 18px solid transparent;
+}
+.comment_bubble p{
+	position: absolute;
+	top: 30px;
+	left: 60px;
+
+}
+/********************************************************************************界面尾部********************************************************************************/
+#footers {
+	height: 280px;
+	width: 100%;
+	background-color: #363636;
+	color: white;
+	font-size: 16px;
+	text-align: center;
+	margin-top: 150px;
+}
+#footers p{
+	font-size: 16px;
+	color: #96c7ec;
+}
+

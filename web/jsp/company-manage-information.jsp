@@ -182,7 +182,8 @@
                     <%--</div>--%>
                     <p>
                         <%--<input id="jobId" name ="jobId" type="hidden" value="${ei.jobId}">--%>
-                        <input type="checkbox" id="informationState"  name="informationState" class="lcs_check lcs_tt1" value="${ei.informationState}"  onclick="return false" disabled="disabled"  autocomplete="off" ${ei.informationState == 0?"checked":""}/>
+                        <%--<input type="checkbox" id="informationState" name="informationState" class="lcs_check lcs_tt1" value="${ei.informationState}"  onclick="return false" autocomplete="off" ${ei.informationState == 0?"checked":""}/>--%>
+                        <input type="checkbox" id="informationState" disabled="disabled"   name="informationState" class="lcs_check lcs_tt1" value="${ei.informationState}"  onclick="return false" autocomplete="off" ${ei.informationState == 0?"checked":""}/>
                     </p>
                 </td>
                 </td>
