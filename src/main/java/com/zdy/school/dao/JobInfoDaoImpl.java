@@ -29,7 +29,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
         ArrayList<JobInfo> allJobInfo = new ArrayList<JobInfo>();
         try {
 //            String sql = "select * from jobinfo j ,enterpriseinfo e limit 0,10";
-            String sql = "select * from jobinfo j ,enterpriseinfo e where j.enterprise_id = e.enterprise_id";
+            String sql = "select * from jobinfo j ,enterpriseinfo e where j.enterprise_id = e.enterprise_id and j.e_check = 0 and j.information_state = 0";
             pstate = con.prepareStatement(sql);
             rs = pstate.executeQuery();
             while (rs.next()) {
@@ -329,6 +329,36 @@ public class JobInfoDaoImpl implements JobInfoDao{
             e.printStackTrace();
         }
         return n;
+    }
+    //学生查询全部的招聘信息分页查询
+    @Override
+    public List<JobInfo> studentFindAllPageJobInfo(int pageNo, int pageSize, String eCheck,String informationState) {
+        List<JobInfo> studnetQueryAllJobInfoList = new ArrayList<JobInfo>();
+        String sql = "select * from  jobinfo j,enterpriseinfo e where j.enterprise_id = e.enterprise_id and e_check = ? and information_state = ?  limit ?,?;";
+        try{
+            pstate = con.prepareStatement(sql);
+            pstate.setString(1,eCheck);
+            pstate.setString(2,informationState);
+            pstate.setInt(3,(pageNo-1)*pageSize);
+            pstate.setInt(4,pageSize);
+            rs = pstate.executeQuery();
+            while (rs.next()){
+                JobInfo jobInfo = new JobInfo();
+                jobInfo.setEnterpriseId(rs.getInt("enterprise_id"));
+                jobInfo.setEnterpriseName(rs.getString("enterprise_name"));
+                jobInfo.setJobId(rs.getInt("job_id"));
+                jobInfo.setJobInfo(rs.getString("job_info"));
+                jobInfo.setJobPosition(rs.getString("job_position"));
+                jobInfo.setJobDate(rs.getDate("job_date"));
+                jobInfo.seteCheck(rs.getString("e_check"));
+                jobInfo.setWage(rs.getString("wage"));
+                jobInfo.setInformationState("information_state");
+                studnetQueryAllJobInfoList.add(jobInfo);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return studnetQueryAllJobInfoList;
     }
 
     //删除

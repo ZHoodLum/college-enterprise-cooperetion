@@ -110,6 +110,11 @@ public class JobInfoServiceImpl implements JobInfoService {
         List<JobInfo> allJobInfoList = jobInfoDao.findAllPageJobInfo(pageNo,pageSize,eCheck);
         return allJobInfoList;
     }
+    //学生查询全部的招聘信息
+    public List<JobInfo> studentFindAllPageJobInfo(int pageNo, int pageSize, String eCheck,String informationState) {
+        List<JobInfo> studnetQueryAllJobInfoList = jobInfoDao.studentFindAllPageJobInfo(pageNo,pageSize,eCheck,informationState);
+        return studnetQueryAllJobInfoList;
+    }
 
     @Override
     public int getTotal() {

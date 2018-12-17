@@ -40,6 +40,8 @@ public interface JobInfoService {
     List<JobInfo> findAllPageJobInfo(int pageNo, int pageSize,String eCheck);
     //数据总数
     int getTotal();
+    //学生查询全部的招聘信息
+    List<JobInfo> studentFindAllPageJobInfo(int pageNo, int pageSize,String eCheck,String infomationState);
 
     // 删除
     public boolean deleteJobInfo(int jobId) throws Exception;

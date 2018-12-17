@@ -69,89 +69,33 @@
                             <td width="6px" style="padding:10px;">发布时间</td>
                             <td width="6px" style="padding:10px;">操作</td>
                         </tr>
-                        <!-- 分页查询 -->
-                        <c:forEach items="${studnetQueryAllJobInfoList}" var="sqaj" varStatus="i">
-                            <c:if test="${i.index%2 == 0 }">
-                                <tr align="center" bgcolor="#FFFFFF" style="border:0px;padding: 3px 0 3px 0">
-                            </c:if>
-                            <c:if test="${i.index%2 == 1 }">
-                                <tr align="center" bgcolor="#d4d7de" style="border:0px;padding: 3px 0 3px 0">
-                            </c:if>
-                                    <input type="hidden" name="jobId" value="${sqaj.jobId}">
-                                    <td  style="padding:7px 0 7px 0;">${sqaj.enterpriseName}</td>
-                                    <td>${sqaj.jobPosition}</td>
-                                    <td>${sqaj.jobInfo}</td>
-                                    <td>${sqaj.jobDate}</td>
-                                     <td style="padding:15px;">
-                                        <div class="theme-buy">
-                                            <a class="btn btn-large theme-login" href="JobInfoQueryServlet?jobid=${sqaj.jobId}">查看详情</a>
-                                        </div>
-                                     </td>
-                                 </tr>
-                        </c:forEach>
-                    </table>
-				</span>
-                <div id="footer" style="width: 100%;margin-top:1px; position: absolute;bottom:40px; left: 0;">
-                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#d4d7de">
-                        <tr align="center" style="width:100%;height:40px;font-size:20px;color:blue;background-color:rgba(103,143,216,0.1)">
-                            <td width="335" align="center"  class="text_cray">&nbsp;</td>
-                            <td width="284" align="center"  class="text_cray">
-                                <%--判断上一页下一下--%>
-                                <c:if test="${pageNo == 1}">
-                                    <a>第一页</a>
-                                    <a>上一页</a>
-                                </c:if>
-                                <c:if test="${pageNo > 1}">
-                                    <a href="${pageContext.request.contextPath}/JobInfoQueryAllStudentServlet?pageNo=1">第一页</a>
-                                    <a href="${pageContext.request.contextPath}/JobInfoQueryAllStudentServlet?pageNo=${pageNo-1 }">上一页</a>
-                                </c:if>
-                                <%--循环页数--%>
-                                <c:if test="${n%pageSize==0}">
-                                    <c:forEach begin="1" end="${n/pageSize}" var="vi" step="1">
-                                        <c:if test="${vi==pageNo }">
-                                            ${vi}
-                                        </c:if>
-
-                                        <c:if test="${vi!=pageNo }">
-                                            <a href="${pageContext.request.contextPath}/JobInfoQueryAllStudentServlet?pageNo=${vi}">${vi}</a>
-                                        </c:if>
-                                    </c:forEach>
-                                </c:if>
-
-                                <c:if test="${n%pageSize!=0}">
-                                    <c:forEach begin="1" end="${n/pageSize+1}" var="vi" step="1">
-                                        <c:if test="${vi==pageNo }">
-                                            ${vi}
-                                        </c:if>
-
-                                        <c:if test="${vi!=pageNo }">
-                                            <a href="${pageContext.request.contextPath}/JobInfoQueryAllStudentServlet?pageNo=${vi}">${vi}</a>
-                                        </c:if>
-
-                                    </c:forEach>
-                                </c:if>
-                                <%--判断下一页 最后一页--%>
-                                <c:if test="${pageNo == n}">
-                                    <a>下一页</a>
-                                    <a>最后一页</a>
-                                </c:if>
-                                <c:if test="${pageNo < n }">
-                                    <a href="${pageContext.request.contextPath}/JobInfoQueryAllStudentServlet?pageNo=${pageNo+1 }">下一页</a>
-                                    <a href="${pageContext.request.contextPath}/JobInfoQueryAllStudentServlet?pageNo=${n }">最后一页</a>
-                                </c:if>
-                            </td>
-
+                        <%
+                            ArrayList<JobInfo> allJobInfo = (ArrayList<JobInfo>)session.getAttribute("allJobInfo");
+                            for (int i = 0; i < allJobInfo.size(); i++) {
+                                JobInfo jobInfo = allJobInfo.get(i);
+                        %>
+                        <tr align="center" style="padding:10px;">
+                            <td style="padding:15px;"><%=jobInfo.getEnterpriseName()%></td>
+                            <td style="padding:15px;"><%=jobInfo.getJobPosition()%></td>
+                            <td style="padding:15px;"><%=jobInfo.getJobInfo()%></td>
+                            <td style="padding:15px;"><%=jobInfo.getJobDate()%></td>
+                            <td style="padding:15px;">
+                                <div class="theme-buy">
+                                    <a class="btn btn-large theme-login" href="JobInfoQueryServlet?jobid=<%=jobInfo.getJobId()%>">查看详情</a>
+                                </div>
                             </td>
                         </tr>
+                        <%
+                            }
+                        %>
                     </table>
-                </div>
+				</span>
             </div>
-
         </form>
     </div>
     <!--界面底部-->
     <div id="footers">
-        <div style="text-align: center">
+        <div style="margin-top: 40px;text-align: center">
             <table border="0" width="100%">
                 <tr>
                     <td><p style="margin-top: 20px;">频道导航</p></td>

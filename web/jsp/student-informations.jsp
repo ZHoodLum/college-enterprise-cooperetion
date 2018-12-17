@@ -64,7 +64,7 @@
         <tbody>
     </table>
 </div>
-<div id="footer">
+<div id="footer" style="width: 100%;margin-top:1px; position: absolute;bottom:40px; left: 0;">
     <!-- 分页导航 -->
     <table width="773" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr align="center" style="width:60%">

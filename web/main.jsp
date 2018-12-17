@@ -80,7 +80,7 @@
                         </tr>
                         <%
                             ArrayList<JobInfo> allJobInfo = (ArrayList<JobInfo>)session.getAttribute("allJobInfo");
-                            for (int i = 0; i < 9; i++) {
+                            for (int i = 0; i < 3; i++) {
                                 JobInfo jobInfo = allJobInfo.get(i);
                         %>
                         <tr align="center" style="padding:10px;">
@@ -102,7 +102,8 @@
 
                 <span>
 					<div>
-                        <a href="queryalljobinfo.jsp" style="text-align: center"><h3>查看更多招聘信息.......</h3></a>
+                        <%--<a href="queryalljobinfo.jsp" style="text-align: center"><h3>查看更多招聘信息.......</h3></a>--%>
+                        <a href="JobInfoQueryAllStudentServlet?pageNo=1&pageSize=1" style="text-align: center"><h3>查看更多招聘信息.......</h3></a>
 					</div>
 				</span>
             </div>
