@@ -97,6 +97,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
                 jobInfo.setJobPosition(rs.getString("job_position"));
                 jobInfo.setJobDate(rs.getDate("job_date"));
                 jobInfo.setEnterpriseName(rs.getString("enterprise_name"));
+                jobInfo.setEnterpriseId(rs.getInt("enterprise_id"));
                 jobInfo.seteCheck(rs.getString("e_check"));
                 jobInfo.setWage(rs.getString("wage"));
                 jobInfo.setInformationState(rs.getString("information_state"));

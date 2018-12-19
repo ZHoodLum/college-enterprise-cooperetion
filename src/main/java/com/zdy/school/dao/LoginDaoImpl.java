@@ -27,8 +27,7 @@ public class LoginDaoImpl implements LoginDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, studentInfo.getStudentTel());
 			pstmt.setString(2, studentInfo.getStudentPassword());
-
-			rs = pstmt.executeQuery(); 
+			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				flag = true;
 				studentInfo.setStudentId(rs.getInt("student_id"));
