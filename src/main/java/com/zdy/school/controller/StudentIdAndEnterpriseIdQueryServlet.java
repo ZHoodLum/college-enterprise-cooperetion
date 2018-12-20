@@ -3,6 +3,7 @@ package com.zdy.school.controller;
 import com.zdy.school.service.EnterpriseStudentInfoService;
 import com.zdy.school.service.EnterpriseStudentInfoServiceImpl;
 import com.zdy.school.vo.EnterpriseStudentInfo;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import javax.servlet.ServletException;
@@ -26,31 +27,27 @@ public class StudentIdAndEnterpriseIdQueryServlet extends HttpServlet {
         EnterpriseStudentInfoService enterpriseStudentInfoService = new EnterpriseStudentInfoServiceImpl();
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        enterpriseStudentInfo.setEnterpriseId(Integer.parseInt(request.getParameter("enterpriseId")));
-        enterpriseStudentInfo.setStudentId(Integer.parseInt(request.getParameter("studentId")));
-        System.out.println("前台取到企业ID的值是"+request.getParameter("enterpriseId"));
-        System.out.println("前台取到学生ID的值是"+request.getParameter("studentId"));
+        int studentId = Integer.parseInt(request.getParameter("studentId"));
+        int enterpriseId = Integer.parseInt(request.getParameter("enterpriseId"));
+        enterpriseStudentInfo.setStudentId(studentId);
+        enterpriseStudentInfo.setEnterpriseId(enterpriseId);
+        System.out.println("前台取到学生ID的值是"+studentId);
+        System.out.println("前台取到企业ID的值是"+enterpriseId);
         try {
-//            boolean succ = enterpriseStudentInfoService.QueryByIdEnterpriseStudentInfo(enterpriseStudentInfo);
-//            if (succ = true){
-//                out.print("success");
-//            }else {
-//                out.print("false");
-//            }
-            System.out.println("aaaaaa");
-            if (enterpriseStudentInfoService.QueryByIdEnterpriseStudentInfo(enterpriseStudentInfo)) {
-                System.out.println("bbbbbbbb");
+            boolean flag = enterpriseStudentInfoService.QueryByIdEnterpriseStudentInfo(studentId,enterpriseId);
+            if (flag = true) {
+                System.out.println("这里在数据库已查到数据！");
                 out.write("success");
             } else {
+                System.out.println("这里在数据库中没有查到数据！");
                 out.write("error");
-                System.out.println("cccc");
-
             }
-            out.flush();
-            out.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        out.flush();
+        out.close();
+        System.out.println("请求结束！");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -14,8 +14,11 @@ public class EnterpriseStudentInfoServiceImpl implements EnterpriseStudentInfoSe
     EnterpriseStudentInfoDao enterpriseStudentInfoDao = new EnterpriseStudentInfoDaoImpl();
     //根据学生id 企业id进行查询是否存在该条信息
     @Override
-    public boolean QueryByIdEnterpriseStudentInfo(EnterpriseStudentInfo enterpriseStudentInfo) {
-        return enterpriseStudentInfoDao.QueryByIdEnterpriseStudentInfo(enterpriseStudentInfo);
+//    public boolean QueryByIdEnterpriseStudentInfo(EnterpriseStudentInfo enterpriseStudentInfo) {
+//        return enterpriseStudentInfoDao.QueryByIdEnterpriseStudentInfo(enterpriseStudentInfo);
+//    }
+    public boolean QueryByIdEnterpriseStudentInfo(int studentId,int enterpriseId) throws Exception{
+        return enterpriseStudentInfoDao.QueryByIdEnterpriseStudentInfo(studentId,enterpriseId);
     }
 
 }

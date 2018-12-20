@@ -20,26 +20,17 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
     private Connection conn = DruidUtil.getCon();
     //根据学生id 企业id进行查询是否存在该条信息
     @Override
-    public boolean QueryByIdEnterpriseStudentInfo(EnterpriseStudentInfo enterpriseStudentInfo) {
-        try {
-            String sql = "select * from enterprise_studentinfo  where student_id = ? and enterprise_id = ?;";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, enterpriseStudentInfo.getStudentId());
-            pstmt.setInt(2, enterpriseStudentInfo.getEnterpriseId());
-            rs = pstmt.executeQuery();
-            if (rs.next()) {
-                flag = true;
-                enterpriseStudentInfo.setStudentId(rs.getInt("student_id"));
-                enterpriseStudentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
-                enterpriseStudentInfo.setId(rs.getInt("id"));
-            }
-//            DruidUtil.closeConnection(rs,conn,pstmt);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
+    public boolean QueryByIdEnterpriseStudentInfo(int studentId,int enterpriseId) throws Exception{
+        String sql = "select * from enterprise_studentinfo where student_id = ? and enterprise_id = ?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, studentId);
+        pstmt.setInt(2, enterpriseId);
+        rs = pstmt.executeQuery();
+        if(rs.next()) {
+            flag = true;
+            return flag;
+        }else{
+            return flag;
         }
-
-        return flag;
     }
 }

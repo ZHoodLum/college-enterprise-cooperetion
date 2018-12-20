@@ -10,5 +10,7 @@ import com.zdy.school.vo.EnterpriseStudentInfo;
 
 public interface EnterpriseStudentInfoService {
     //根据学生id 企业id进行查询是否存在该条信息
-    boolean QueryByIdEnterpriseStudentInfo(EnterpriseStudentInfo enterpriseStudentInfo);
+//    boolean QueryByIdEnterpriseStudentInfo(EnterpriseStudentInfo enterpriseStudentInfo);
+    boolean QueryByIdEnterpriseStudentInfo(int studentId,int enterpriseId) throws Exception;
+
 }

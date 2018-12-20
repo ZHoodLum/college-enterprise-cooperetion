@@ -11,7 +11,6 @@
 	<script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery.json.js"></script>
 </head>
-<
 <script type="text/javascript">
     $(document).ready(function(){
         $("#btn").click(function(){
@@ -21,26 +20,28 @@
                 window.location.href = "jsp/login.jsp";
                 return false;
             } else {
-                alert("响应Ajax");
                 var enterpriseId = document.getElementById("enterprise_id").value;
+                var studentId = document.getElementById("student_id").value;
                 // alert("企业信息 ID"+enterpriseId);
 				$.ajax({
                     type:"POST",
-                    url:"${ pageContext.request.contextPath }/StudentIdAndEnterpriseIdQueryServlet?enterpriseId="+enterpriseId,
+                    <%--url:"${ pageContext.request.contextPath }/StudentIdAndEnterpriseIdQueryServlet?enterpriseId="+enterpriseId,--%>
+                    url:"${ pageContext.request.contextPath }/StudentIdAndEnterpriseIdQueryServlet",
                     async:false,
-                    dataType:"json",
+                    dataType:"text",
                     data:{
-                        studentId:document.getElementById("student_id").value,
-						 // enterpriseId:document.getElementById("enterprise_id").value,
+                        "studentId":studentId,
+                        "enterpriseId":enterpriseId
                     },
                     success:function(data,textStatus){
-                        alert(studentId + enterpriseId);
-                        alert(studentId+"可以进行简历申请");
+                        alert(textStatus+",,"+studentId + ",,"+enterpriseId);
+                        alert(data+"对不起，该条招聘信息您已提交过简历！");
                     },
                     error: function (data,textStatus) {
-                        alert(studentId + enterpriseId);
-                        alert(studentId+"对不起，该条招聘信息您已提交过简历！");
-                        return false;
+                        alert(textStatus+",,"+studentId +",,"+ enterpriseId);
+                        if (confirm(data + "可以进行简历申请")) {
+                            window.location.href = "StudentSubmitResumesServlet";
+                        }
                     }
                 });
             }
@@ -63,51 +64,53 @@
 			     <div class="theme-popbod" style="font-size: 18px;color: black;">
 					 <% JobInfo jobInfo = (JobInfo) session.getAttribute("jobInfo");%>
 			        <ol>
-					<li>
-						<strong>招聘单位：</strong>
-						<input type="hidden" id="enterprise_id" name="enterprise_id" value="<%=jobInfo.getEnterpriseId()%>">
-						<input type="hidden" id="student_id" name="student_id" value="${sessionScope.StudentInfo.studentId}" >
-						<textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEnterpriseName()%></textarea>
-					</li>
-					<li>
-						<strong>企业电话：</strong>
-						<textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEnterpriseTel()%></textarea>
-					</li>
-					<li>
-						<strong>企业邮箱：</strong>
-						<textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEmail()%></textarea>
-					</li>
-					<li>
-						<strong>企业地址：</strong>
-						<textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEnterpriseAddress()%></textarea>
-					</li>
-					<li>
-						<strong>招聘职位：</strong>
-						<textarea name="job_position" disabled="disabled" class="textarea1"><%=jobInfo.getJobPosition()%></textarea>
-					</li>
-					<li>
-						<strong>详细信息：</strong>
-						<textarea name="job_info" disabled="disabled" class="textarea2" style="height:300px;"><%=jobInfo.getJobInfo()%></textarea>
-					</li>
-					<li>
-						<strong>工资待遇：</strong>
-						<textarea name="wage" disabled="disabled" class="textarea1"><%=jobInfo.getWage()%></textarea>
-					</li>
-					<li>
-						<strong>发布时间：</strong>
-						<textarea name="job_date" disabled="disabled" class="textarea1"><%=jobInfo.getJobDate()%></textarea>
-					</li>
-					<li>
-						<a href="StudentSubmitResumesServlet" class="btn" id="btn">提交简历</a>
-						<%--<a href="" class="btn" id="btn">提交简历</a>--%>
-						<a href="#" onClick="history.go(-1);" class="btn">返回上一级</a>
-					</li>
-					<!--
-					<li>
-						<a href="student-resume.html"><input class="btn" type="submit" name="submit" value="提交简历" /></a>
-					</li>
-					-->
-				</ol>
+                        <li>
+                            <strong>招聘单位：</strong>
+                            <input type="hidden" id="enterprise_id" name="enterprise_id" value="<%=jobInfo.getEnterpriseId()%>">
+                            <input type="hidden" id="student_id" name="student_id" value="${sessionScope.StudentInfo.studentId}" >
+                            <textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEnterpriseName()%></textarea>
+                        </li>
+                        <li>
+                            <strong>企业电话：</strong>
+                            <textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEnterpriseTel()%></textarea>
+                        </li>
+                        <li>
+                            <strong>企业邮箱：</strong>
+                            <textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEmail()%></textarea>
+                        </li>
+                        <li>
+                            <strong>企业地址：</strong>
+                            <textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEnterpriseAddress()%></textarea>
+                        </li>
+                        <li>
+                            <strong>招聘职位：</strong>
+                            <textarea name="job_position" disabled="disabled" class="textarea1"><%=jobInfo.getJobPosition()%></textarea>
+                        </li>
+                        <li>
+                            <strong>详细信息：</strong>
+                            <textarea name="job_info" disabled="disabled" class="textarea2" style="height:300px;"><%=jobInfo.getJobInfo()%></textarea>
+                        </li>
+                        <li>
+                            <strong>工资待遇：</strong>
+                            <textarea name="wage" disabled="disabled" class="textarea1"><%=jobInfo.getWage()%></textarea>
+                        </li>
+                        <li>
+                            <strong>发布时间：</strong>
+                            <textarea name="job_date" disabled="disabled" class="textarea1"><%=jobInfo.getJobDate()%></textarea>
+                        </li>
+                        <li>
+                            <a href="" class="btn" id="btn">提交简历</a>
+                            <%--<input id="btn" class="btn" type="button" value="提交简历" />--%>
+                            <%--<input id="btn" class="btn" type="button" value="返回上一级" onClick="history.go(-1);"/>--%>
+                            <%--<a href="" class="btn" id="btn">提交简历</a>--%>
+                            <a href="#" onClick="history.go(-1);" class="btn">返回上一级</a>
+                        </li>
+                        <!--
+                        <li>
+                            <a href="student-resume.html"><input class="btn" type="submit" name="submit" value="提交简历" /></a>
+                        </li>
+                        -->
+                    </ol>
 			     </div>
 			</div>
         <div class="shadows">
