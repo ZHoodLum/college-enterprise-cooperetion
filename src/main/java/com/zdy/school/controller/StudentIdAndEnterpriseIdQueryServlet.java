@@ -25,7 +25,7 @@ public class StudentIdAndEnterpriseIdQueryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EnterpriseStudentInfo enterpriseStudentInfo = new EnterpriseStudentInfo();
         EnterpriseStudentInfoService enterpriseStudentInfoService = new EnterpriseStudentInfoServiceImpl();
-        response.setContentType("application/json;charset=UTF-8");
+//        response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
         int studentId = Integer.parseInt(request.getParameter("studentId"));
         int enterpriseId = Integer.parseInt(request.getParameter("enterpriseId"));
@@ -35,7 +35,7 @@ public class StudentIdAndEnterpriseIdQueryServlet extends HttpServlet {
         System.out.println("前台取到企业ID的值是"+enterpriseId);
         try {
             boolean flag = enterpriseStudentInfoService.QueryByIdEnterpriseStudentInfo(studentId,enterpriseId);
-            if (flag = true) {
+            if (flag == true) {
                 System.out.println("这里在数据库已查到数据！");
                 out.write("success");
             } else {

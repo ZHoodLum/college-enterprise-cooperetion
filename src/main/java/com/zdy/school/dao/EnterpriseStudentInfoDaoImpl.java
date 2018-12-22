@@ -14,23 +14,21 @@ import java.sql.SQLException;
  */
 
 public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
-    private PreparedStatement pstmt = null;
-    private ResultSet rs = null;
-    boolean flag = false;
-    private Connection conn = DruidUtil.getCon();
+     PreparedStatement pstate;
+     ResultSet rs;
+     Connection conn = DruidUtil.getCon();
     //根据学生id 企业id进行查询是否存在该条信息
     @Override
     public boolean QueryByIdEnterpriseStudentInfo(int studentId,int enterpriseId) throws Exception{
         String sql = "select * from enterprise_studentinfo where student_id = ? and enterprise_id = ?";
-        pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, studentId);
-        pstmt.setInt(2, enterpriseId);
-        rs = pstmt.executeQuery();
+        pstate = conn.prepareStatement(sql);
+        pstate.setInt(1, studentId);
+        pstate.setInt(2, enterpriseId);
+        rs = pstate.executeQuery();
         if(rs.next()) {
-            flag = true;
-            return flag;
+            return true;
         }else{
-            return flag;
+            return false;
         }
     }
 }

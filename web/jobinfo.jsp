@@ -13,7 +13,9 @@
 </head>
 <script type="text/javascript">
     $(document).ready(function(){
+    // $(function(){
         $("#btn").click(function(){
+        // $("[value='提交简历']").click(function(){
             var studentId = document.getElementById("student_id").value;
             if (studentId == 0) {
                 alert("请先进行登录，才可以提交简历信息！");
@@ -21,28 +23,48 @@
                 return false;
             } else {
                 var enterpriseId = document.getElementById("enterprise_id").value;
-                var studentId = document.getElementById("student_id").value;
+                // var studentId = document.getElementById("student_id").value;
                 // alert("企业信息 ID"+enterpriseId);
+                <%--var url = "${ pageContext.request.contextPath }/StudentIdAndEnterpriseIdQueryServlet?enterpriseId="+enterpriseId;--%>
+                <%--alert(url);--%>
+                <%--var data = document.getElementById("student_id").value;--%>
+                <%--alert(data);--%>
+                <%--$.post(url,data,function(callbackData) {--%>
+                    <%--alert("2");--%>
+                    <%--if (callbackData == success) {--%>
+                        <%--alert(textStatus + "对不起，该条招聘信息您已提交过简历！");--%>
+                    <%--} else {--%>
+                        <%--alert(textStatus+"可以进行简历申请!");--%>
+                    <%--}--%>
+                <%--});--%>
 				$.ajax({
                     type:"POST",
-                    <%--url:"${ pageContext.request.contextPath }/StudentIdAndEnterpriseIdQueryServlet?enterpriseId="+enterpriseId,--%>
-                    url:"${ pageContext.request.contextPath }/StudentIdAndEnterpriseIdQueryServlet",
-                    async:false,
+                    url:"${ pageContext.request.contextPath }/StudentIdAndEnterpriseIdQueryServlet?enterpriseId="+enterpriseId,
+                    <%--url:"${ pageContext.request.contextPath }/StudentIdAndEnterpriseIdQueryServlet",--%>
+                    // async:false,
                     dataType:"text",
                     data:{
-                        "studentId":studentId,
-                        "enterpriseId":enterpriseId
+                        studentId:document.getElementById("student_id").value,
+                        // "enterpriseId":enterpriseId
                     },
-                    success:function(data,textStatus){
-                        alert(textStatus+",,"+studentId + ",,"+enterpriseId);
-                        alert(data+"对不起，该条招聘信息您已提交过简历！");
-                    },
-                    error: function (data,textStatus) {
-                        alert(textStatus+",,"+studentId +",,"+ enterpriseId);
-                        if (confirm(data + "可以进行简历申请")) {
-                            window.location.href = "StudentSubmitResumesServlet";
+                    success:function(textStatus){
+                        if (textStatus == "success") {
+                            alert(textStatus+"对不起，该条招聘信息您已提交过简历！");
+                        } else {
+                            alert(textStatus + "可以进行简历申请!");
+                            var statu = confirm("Are you sure to delete the current data?");
+                            if (statu) {
+                                window.location.href = "StudentSubmitResumesServlet";
+                            } else {
+                                return false;
+                            }
                         }
-                    }
+                    },
+                    // error: function (textStatus) {
+                        // if (confirm(data + "可以进行简历申请")) {
+                        //     window.location.href = "StudentSubmitResumesServlet";
+                        // }
+                    // },
                 });
             }
         });
@@ -99,7 +121,7 @@
                             <textarea name="job_date" disabled="disabled" class="textarea1"><%=jobInfo.getJobDate()%></textarea>
                         </li>
                         <li>
-                            <a href="" class="btn" id="btn">提交简历</a>
+                            <a href="javascript:;" class="btn" id="btn">提交简历</a>
                             <%--<input id="btn" class="btn" type="button" value="提交简历" />--%>
                             <%--<input id="btn" class="btn" type="button" value="返回上一级" onClick="history.go(-1);"/>--%>
                             <%--<a href="" class="btn" id="btn">提交简历</a>--%>
