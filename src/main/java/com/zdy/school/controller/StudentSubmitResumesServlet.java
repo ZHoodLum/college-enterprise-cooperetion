@@ -1,5 +1,7 @@
 package com.zdy.school.controller;
 
+import com.zdy.school.service.EnterpriseStudentInfoService;
+import com.zdy.school.service.EnterpriseStudentInfoServiceImpl;
 import com.zdy.school.service.StudentService;
 import com.zdy.school.service.StudentServiceImpl;
 import com.zdy.school.vo.EnterpriseStudentInfo;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import static com.sun.xml.internal.bind.WhiteSpaceProcessor.replace;
 import static sun.misc.MessageUtils.out;
 
 /**
@@ -26,16 +29,27 @@ import static sun.misc.MessageUtils.out;
 public class StudentSubmitResumesServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StudentService studentService = new StudentServiceImpl();
-        StudentInfo studentInfo = new StudentInfo();
         EnterpriseStudentInfo enterpriseStudentInfo = new EnterpriseStudentInfo();
+        EnterpriseStudentInfoService enterpriseStudentInfoService = new EnterpriseStudentInfoServiceImpl();
         PrintWriter out = response.getWriter();
-        try {
-//            enterpriseStudentInfo.setStudentId(Integer.parseInt(request.getParameter("student_id")));
-//            System.out.println("此登陆用户的学生ID是："+request.getParameter("student_id"));
-//            enterpriseStudentInfo.setEnterpriseId(Integer.parseInt(request.getParameter("enterprise_id")));
-//            System.out.println("此招聘信息的ID是"+request.getParameter("enterprise_id"));
-            response.sendRedirect("updatesuccess.jsp");
 
+        try {
+            enterpriseStudentInfo.setStudentId(Integer.parseInt((request.getParameter("student_id"))));
+            System.out.println("提交简历：此登陆用户的学生ID是："+request.getParameter("student_id"));
+            enterpriseStudentInfo.setEnterpriseId(Integer.parseInt((request.getParameter("enterprise_id"))));
+            System.out.println("提交简历：此招聘信息企业的ID是"+request.getParameter("enterprise_id"));
+            enterpriseStudentInfo.setJobId(Integer.parseInt((request.getParameter("job_id"))));
+            System.out.println("提交简历：此招聘信息的ID是"+request.getParameter("job_id"));
+            int datavalues = enterpriseStudentInfoService.insertEnterpriseStudentInfo(enterpriseStudentInfo);
+            if (datavalues > 0) {
+                out.print( "<script >alert('提交简历成功!');"
+                        + "history.go(-1);"
+                        + "</script>");
+            } else {
+                out.print( "<script >alert('提交简历失败!');"
+                        + "history.go(-1);"
+                        + "</script>");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

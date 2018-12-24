@@ -17,8 +17,21 @@ public class EnterpriseStudentInfoServiceImpl implements EnterpriseStudentInfoSe
 //    public boolean QueryByIdEnterpriseStudentInfo(EnterpriseStudentInfo enterpriseStudentInfo) {
 //        return enterpriseStudentInfoDao.QueryByIdEnterpriseStudentInfo(enterpriseStudentInfo);
 //    }
-    public boolean QueryByIdEnterpriseStudentInfo(int studentId,int enterpriseId) throws Exception{
-        return enterpriseStudentInfoDao.QueryByIdEnterpriseStudentInfo(studentId,enterpriseId);
+    public boolean QueryByIdEnterpriseStudentInfo(int studentId,int enterpriseId,int jobId) throws Exception{
+        return enterpriseStudentInfoDao.QueryByIdEnterpriseStudentInfo(studentId,enterpriseId,jobId);
+    }
+
+    //提交简历
+    @Override
+    public int insertEnterpriseStudentInfo(EnterpriseStudentInfo enterpriseStudentInfo) {
+        int datevalues = 0;
+        int rows = enterpriseStudentInfoDao.insertEnterpriseStudentInfo(enterpriseStudentInfo);
+        if (rows > 0) {
+            datevalues = 1;
+        } else {
+            datevalues = 0;
+        }
+        return rows;
     }
 
 }

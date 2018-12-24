@@ -29,12 +29,15 @@ public class StudentIdAndEnterpriseIdQueryServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         int studentId = Integer.parseInt(request.getParameter("studentId"));
         int enterpriseId = Integer.parseInt(request.getParameter("enterpriseId"));
+        int jobId = Integer.parseInt(request.getParameter("jobId"));
         enterpriseStudentInfo.setStudentId(studentId);
         enterpriseStudentInfo.setEnterpriseId(enterpriseId);
+        enterpriseStudentInfo.setJobId(jobId);
         System.out.println("前台取到学生ID的值是"+studentId);
         System.out.println("前台取到企业ID的值是"+enterpriseId);
+        System.out.println("前台取到招聘信息ID的值是"+jobId);
         try {
-            boolean flag = enterpriseStudentInfoService.QueryByIdEnterpriseStudentInfo(studentId,enterpriseId);
+            boolean flag = enterpriseStudentInfoService.QueryByIdEnterpriseStudentInfo(studentId,enterpriseId,jobId);
             if (flag == true) {
                 System.out.println("这里在数据库已查到数据！");
                 out.write("success");

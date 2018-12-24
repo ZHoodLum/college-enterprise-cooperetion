@@ -10,6 +10,15 @@ public class EnterpriseStudentInfo {
     private int id;
     private int enterpriseId;
     private int studentId;
+    private int jobId;
+
+    public int getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(int jobId) {
+        this.jobId = jobId;
+    }
 
     public int getId() {
         return id;

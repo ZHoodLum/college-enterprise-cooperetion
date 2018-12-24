@@ -12,8 +12,8 @@
 	<script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery.json.js"></script>
 </head>
 <script type="text/javascript">
-    $(document).ready(function(){
-    // $(function(){
+    // $(document).ready(function(){
+    $(function(){
         $("#btn").click(function(){
         // $("[value='提交简历']").click(function(){
             var studentId = document.getElementById("student_id").value;
@@ -45,16 +45,21 @@
                     dataType:"text",
                     data:{
                         studentId:document.getElementById("student_id").value,
-                        // "enterpriseId":enterpriseId
+                        jobId:document.getElementById("job_id").value,
                     },
                     success:function(textStatus){
                         if (textStatus == "success") {
-                            alert(textStatus+"对不起，该条招聘信息您已提交过简历！");
+                            alert(textStatus+"!  对不起，该条招聘信息您已提交过简历！");
+                            document.getElementById("btn").focus();//光标定位
+                            return false;//防止向下进行
                         } else {
-                            alert(textStatus + "可以进行简历申请!");
-                            var statu = confirm("Are you sure to delete the current data?");
+                            alert(textStatus + "!  可以进行简历申请!");
+                            // var enterpriseId = document.getElementById("enterprise_id").value;
+                            // var studentId = document.getElementById("student_id").value;
+                            var statu = confirm("您确定要提交简历信息吗?");
                             if (statu) {
-                                window.location.href = "StudentSubmitResumesServlet";
+                                return true;
+                                // window.location.href = 'StudentSubmitResumesServlet?studentId="+studentId+"&enterpriseId="+enterpriseId+"';
                             } else {
                                 return false;
                             }
@@ -86,10 +91,12 @@
 			     <div class="theme-popbod" style="font-size: 18px;color: black;">
 					 <% JobInfo jobInfo = (JobInfo) session.getAttribute("jobInfo");%>
 			        <ol>
+                        <form id="myform" name="myform" action="StudentSubmitResumesServlet" method="post">
                         <li>
                             <strong>招聘单位：</strong>
                             <input type="hidden" id="enterprise_id" name="enterprise_id" value="<%=jobInfo.getEnterpriseId()%>">
                             <input type="hidden" id="student_id" name="student_id" value="${sessionScope.StudentInfo.studentId}" >
+                            <input type="hidden" id="job_id" name="job_id" value="<%=jobInfo.getJobId()%>" >
                             <textarea name="enterprise_name" disabled="disabled" class="textarea1"><%=jobInfo.getEnterpriseName()%></textarea>
                         </li>
                         <li>
@@ -121,7 +128,8 @@
                             <textarea name="job_date" disabled="disabled" class="textarea1"><%=jobInfo.getJobDate()%></textarea>
                         </li>
                         <li>
-                            <a href="javascript:;" class="btn" id="btn">提交简历</a>
+                            <%--<a href="javascript:;" class="btn" id="btn">提交简历</a>--%>
+                            <a href="javascript:document.myform.submit();" class="btn" id="btn">提交简历</a>
                             <%--<input id="btn" class="btn" type="button" value="提交简历" />--%>
                             <%--<input id="btn" class="btn" type="button" value="返回上一级" onClick="history.go(-1);"/>--%>
                             <%--<a href="" class="btn" id="btn">提交简历</a>--%>
@@ -133,6 +141,7 @@
                         </li>
                         -->
                     </ol>
+                     </form>
 			     </div>
 			</div>
         <div class="shadows">
