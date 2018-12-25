@@ -140,9 +140,9 @@
                             <a href="student-resume.html"><input class="btn" type="submit" name="submit" value="提交简历" /></a>
                         </li>
                         -->
-                    </ol>
                      </form>
-			     </div>
+                    </ol>
+                 </div>
 			</div>
         <div class="shadows">
           <div class="shadow top"></div>

@@ -42,7 +42,7 @@
         </dl>
         <dl class="statistics">
             <dt class="first_dd"><img src="../images/left/select_xl01.png">
-                <a href="${pageContext.request.contextPath}/JobInfoQueryByEnterpriseIdServlet?enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}" target="right">招聘信息管理</a>
+                <a href="${pageContext.request.contextPath}/JobInfoQueryByEnterpriseIdServlet?enterpriseId=${sess0ionScope.EnterpriseInfo.getEnterpriseId()}" target="right">招聘信息管理</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 15px;"></dd>

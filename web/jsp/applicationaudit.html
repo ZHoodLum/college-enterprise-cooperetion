@@ -20,12 +20,12 @@
 <div id="recruitinformation">
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr align="center">
-            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学生学号</td>
             <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学生姓名</td>
             <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">专业</td>
-            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">所在学院</td>
-            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">在校指导教师</td>
-            <td width="20%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">是否实习</td>
+            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">毕业院校</td>
+            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">专业技能</td>
+            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">毕业时间</td>
+            <td width="20%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">自我介绍</td>
         </tr>
         <tr align="center" style="padding:10px; border-bottom: 1px dashed #6bb642;">
             <td style="padding:15px;">15231566</td>
@@ -34,31 +34,8 @@
             <td style="padding:15px;">计科</td>
             <td style="padding:15px;">王岩</td>
             <td style="padding:15px;">
-                <div class="selectbox">
-                    <select>
-                        <option value="0">审核中</option>
-                        <option value="1">未审核</option>
-                        <option value="2">通过</option>
-                        <option value="3">不通过</option>
-                    </select>
-                </div>
-            </td>
-        </tr>
-
-        <tr align="center" style="padding:10px; border-bottom: 1px dashed #6bb642;">
-            <td style="padding:15px;">15231566</td>
-            <td style="padding:15px;">ZHoodLum</td>
-            <td style="padding:15px;">架构师</td>
-            <td style="padding:15px;">计科</td>
-            <td style="padding:15px;">王岩</td>
-            <td style="padding:15px;">
-                <div class="selectbox">
-                    <select>
-                        <option value="0">审核中</option>
-                        <option value="1">未审核</option>
-                        <option value="2">通过</option>
-                        <option value="3">不通过</option>
-                    </select>
+                <div class="theme-buy">
+                    <a class="btn btn-large theme-login" href="JobInfoQueryServlet?jobid=<%=jobInfo.getJobId()%>">查看详情</a>
                 </div>
             </td>
         </tr>
