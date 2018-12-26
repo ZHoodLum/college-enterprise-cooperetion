@@ -4,6 +4,8 @@ import com.zdy.school.dao.EnterpriseStudentInfoDao;
 import com.zdy.school.dao.EnterpriseStudentInfoDaoImpl;
 import com.zdy.school.vo.EnterpriseStudentInfo;
 
+import java.util.List;
+
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/12/19
@@ -32,6 +34,12 @@ public class EnterpriseStudentInfoServiceImpl implements EnterpriseStudentInfoSe
             datevalues = 0;
         }
         return rows;
+    }
+
+    //企业查询自己的招聘信息（审核查询）
+    @Override
+    public List<EnterpriseStudentInfo> queryEnterpriseStudentinfo(EnterpriseStudentInfo enterpriseStudentInfo) {
+        return enterpriseStudentInfoDao.queryEnterpriseStudentinfo(enterpriseStudentInfo);
     }
 
 }

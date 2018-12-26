@@ -3,6 +3,8 @@ package com.zdy.school.dao;
 import com.zdy.school.vo.EnterpriseStudentInfo;
 import com.zdy.school.vo.Resumes;
 
+import java.util.List;
+
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/12/19
@@ -16,4 +18,7 @@ public interface EnterpriseStudentInfoDao {
 
     //提交简历
     public int insertEnterpriseStudentInfo(EnterpriseStudentInfo enterpriseStudentInfo);
+
+    //企业查询自己的招聘信息（审核查询）
+    public List<EnterpriseStudentInfo> queryEnterpriseStudentinfo(EnterpriseStudentInfo enterpriseStudentInfo);
 }

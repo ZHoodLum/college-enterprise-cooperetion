@@ -72,7 +72,7 @@
         </dl>
         <dl class="syetem_management">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="resumeinfo.jsp" target="right">审核简历信息</a>
+                <a href="${pageContext.request.contextPath}/EnterpriseQueryAllResumesServlet?enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}" target="right">审核简历信息</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
