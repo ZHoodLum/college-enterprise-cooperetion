@@ -29,6 +29,8 @@ public class EnterpriseQueryAllResumesServlet extends HttpServlet {
         System.out.println("审核简历渠道的企业ID是：" + enterpriseId);
         List<EnterpriseStudentInfo> list = enterpriseStudentInfoService.queryEnterpriseStudentinfo(enterpriseStudentInfo);
         request.getSession().setAttribute("list", list);
+//        response.sendRedirect("college-enterprise-cooperetion/jsp/applicationaudit.jsp");
+        request.getRequestDispatcher("jsp/applicationaudit.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

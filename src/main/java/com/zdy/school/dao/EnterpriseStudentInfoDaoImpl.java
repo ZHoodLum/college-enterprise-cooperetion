@@ -17,9 +17,10 @@ import java.util.List;
  */
 
 public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
-     PreparedStatement pstate;
-     ResultSet rs;
-     Connection conn = DruidUtil.getCon();
+    PreparedStatement pstate;
+    ResultSet rs;
+    Connection conn = DruidUtil.getCon();
+    boolean flag = false;
     //根据学生id 企业id进行查询是否存在该条信息
     @Override
     public boolean QueryByIdEnterpriseStudentInfo(int studentId,int enterpriseId,int jobId) throws Exception{
@@ -70,11 +71,20 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
                 enterpriseStudentInfo.setStudentId(rs.getInt("student_id"));
                 enterpriseStudentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
                 enterpriseStudentInfo.setStudentName(rs.getString("student_name"));
-                System.out.println(rs.getInt("id"));
-                System.out.println(rs.getInt("student_id"));
-                System.out.println(rs.getInt("job_id"));
-                System.out.println(rs.getString("student_name"));
-                System.out.println(rs.getInt("enterprise_id"));
+                enterpriseStudentInfo.setCollege(rs.getString("college"));
+                enterpriseStudentInfo.setEducation(rs.getString("education"));
+                enterpriseStudentInfo.setMajor(rs.getString("major"));
+                enterpriseStudentInfo.setSelfEvaluation(rs.getString("self_evaluation"));
+                enterpriseStudentInfo.setGraduateTime(rs.getDate("graduate_time"));
+//                System.out.print(rs.getInt("id"));
+//                System.out.print(rs.getInt("student_id"));
+//                System.out.print(rs.getInt("job_id"));
+//                System.out.print(rs.getString("student_name"));
+//                System.out.println(rs.getInt("enterprise_id"));
+//                System.out.println(rs.getString("college"));
+//                System.out.println(rs.getString("self_evaluation"));
+//                System.out.println(rs.getString("education"));
+//                System.out.println(rs.getString("major"));
                 allEnterpriseStudentInfoArrayList.add(enterpriseStudentInfo);
             }
             DruidUtil.closeConnection(rs,conn,pstate);
@@ -82,6 +92,43 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
             e.printStackTrace();
         }
         return allEnterpriseStudentInfoArrayList;
+    }
+
+    //企业查看简历信息详情
+    @Override
+    public EnterpriseStudentInfo enterpriseQueryByIdResumesServlet(int id) {
+        EnterpriseStudentInfo enterpriseStudentInfo = new EnterpriseStudentInfo();
+        try {
+            String sql = "select  * from enterprise_studentinfo es,studentinfo s,resumes r where es.student_id = s.student_id and r.student_id = s.student_id and es.id  = ?;";
+            pstate = conn.prepareStatement(sql);
+            pstate.setInt(1, id);
+            rs = pstate.executeQuery();
+            if (rs.next()) {
+                flag = true;
+                enterpriseStudentInfo.setStudentId(rs.getInt("student_id"));
+                enterpriseStudentInfo.setStudentName(rs.getString("student_name"));
+                enterpriseStudentInfo.setStudentTel(rs.getString("student_tel"));
+                enterpriseStudentInfo.setNationality(rs.getString("nationality"));
+                enterpriseStudentInfo.setBirthday(rs.getDate("birthday"));
+                enterpriseStudentInfo.setCity(rs.getString("city"));
+                enterpriseStudentInfo.setPolitics(rs.getString("politics"));
+                enterpriseStudentInfo.setHealth(rs.getString("health"));
+                enterpriseStudentInfo.setCollege(rs.getString("college"));
+                enterpriseStudentInfo.setEducation(rs.getString("education"));
+                enterpriseStudentInfo.setMajor(rs.getString("major"));
+                enterpriseStudentInfo.setGraduateTime(rs.getDate("graduate_time"));
+                enterpriseStudentInfo.setEmail(rs.getString("email"));
+                enterpriseStudentInfo.setMajorCourse(rs.getString("major_course"));
+                enterpriseStudentInfo.setCredential(rs.getString("credential"));
+                enterpriseStudentInfo.setSelfEvaluation(rs.getString("self_evaluation"));
+                enterpriseStudentInfo.setStudentSex(rs.getString("student_sex"));
+                enterpriseStudentInfo.setBirthday(rs.getDate("birthday"));
+            }
+            DruidUtil.closeConnection(rs, conn, pstate);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return enterpriseStudentInfo;
     }
 
 }

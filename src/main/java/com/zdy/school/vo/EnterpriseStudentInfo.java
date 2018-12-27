@@ -31,7 +31,6 @@ public class EnterpriseStudentInfo {
     private String credential;
     private String selfEvaluation;
     private String studentTel;
-
     public int getJobId() {
         return jobId;
     }

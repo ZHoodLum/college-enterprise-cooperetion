@@ -20,4 +20,7 @@ public interface EnterpriseStudentInfoService {
 
     //企业查询自己的招聘信息（审核查询）
     public List<EnterpriseStudentInfo> queryEnterpriseStudentinfo(EnterpriseStudentInfo enterpriseStudentInfo);
+
+    //企业查看简历信息详情
+    public EnterpriseStudentInfo enterpriseQueryByIdResumesServlet(int id);
 }

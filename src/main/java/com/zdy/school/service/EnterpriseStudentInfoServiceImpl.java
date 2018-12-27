@@ -42,4 +42,10 @@ public class EnterpriseStudentInfoServiceImpl implements EnterpriseStudentInfoSe
         return enterpriseStudentInfoDao.queryEnterpriseStudentinfo(enterpriseStudentInfo);
     }
 
+    //企业查看简历信息详情
+    @Override
+    public EnterpriseStudentInfo enterpriseQueryByIdResumesServlet(int id) {
+        return enterpriseStudentInfoDao.enterpriseQueryByIdResumesServlet(id);
+    }
+
 }
