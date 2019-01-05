@@ -1,16 +1,30 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery.json.js"></script>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>审核简历信息</title>
-	<link rel="stylesheet" type="text/css" href="../css/resumeinfo.css">
-
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/resumeinfo.css">
 </head>
+<script type="text/javascript">
+    function tongguo() {
+        if (confirm("确定通过吗？")) {
+            alert("给予通过成功！");
+        }
+    }
+    function butongguo() {
+        if (confirm("确定不通过吗？")) {
+            alert("不给予通过成功！");
+        }
+    }
+</script>
 <body>
 	<div class="container">
 
@@ -23,92 +37,102 @@
 		            <tr>
 		                <td>
 		                   <label class="label2">姓名:</label>
-		                   <textfield>153011031</textfield>
+		                   <textfield>${listenterpriseStudentInfo.studentName}</textfield>
 		                </td>
 						<td>
+							<label class="label2">性别:</label>
+							<textfield>${listenterpriseStudentInfo.studentSex}</textfield>
+						</td>
+					</tr>
+					<tr>
+						<td>
 							<label class="label2">电话:</label>
-							<textfield>张三</textfield>
+							<textfield>${listenterpriseStudentInfo.studentTel}</textfield>
+						</td>
+						<td>
+							<label class="label2">电子邮件:</label>
+							<textfield>${listenterpriseStudentInfo.email}</textfield>
 						</td>
 		            </tr>
 
 		           <tr>
 		                <td>
 		                	<label class="label2">民族:</label>
-							<textfield>汉</textfield>
+							<textfield>${listenterpriseStudentInfo.nationality}</textfield>
 		                </td>
 					   <td>
 						   <label class="label2">生日:</label>
-						   <textfield>1996-9-9</textfield>
+						   <textfield>${listenterpriseStudentInfo.birthday}</textfield>
 					   </td>
 					<tr>
 
 					<tr>
 		                <td>
 		                	<label class="label2">籍贯:</label>
-		                   <textfield>内蒙古通辽市</textfield>
+		                   <textfield>${listenterpriseStudentInfo.city}</textfield>
 		                </td>
 						<td>
 							<label class="label2">政治面貌:</label>
-							<textfield>共青团员</textfield>
+							<textfield>${listenterpriseStudentInfo.politics}</textfield>
 						</td>
 		       		 </tr>
 
 					<tr>
 		                <td>
 		                	<label class="label2">健康状况:</label>
-		                   <textfield>健康</textfield>
+		                   <textfield>${listenterpriseStudentInfo.health}</textfield>
 		                </td>
 						<td>
 							<label class="label2">毕业学校:</label>
-							<textfield>沈阳工学院</textfield>
+							<textfield>${listenterpriseStudentInfo.college}</textfield>
 						</td>
 		        	</tr>
 
 					<tr>
 		                <td>
 		                	<label class="label2">学历:</label>
-		                   <textfield>本科</textfield>
+		                   <textfield>${listenterpriseStudentInfo.education}</textfield>
 		                </td>
 						<td>
 							<label class="label2">专业:</label>
-							<textfield>内蒙古通辽市</textfield>
+							<textfield>${listenterpriseStudentInfo.major}</textfield>
 						</td>
 		       		 </tr>
 
 					<tr>
 		                <td>
 		                	<label class="label2">毕业时间:</label>
-		                   <textfield>1996-9-9</textfield>
+		                   <textfield>${listenterpriseStudentInfo.graduateTime}</textfield>
 		                </td>
 						<td>
-							<label class="label2">电子邮件:</label>
-							<textfield>1546464@qq.com</textfield>
+							<label class="label2"></label>
+							<textfield></textfield>
 						</td>
 		       		 </tr>
 					<tr>
 		                <td colspan="2" style="border-bottom: none;">
 		                	<label class="label2">主修:</label>
-		                   <textarea class="text1" type="text" name="passwd">java\html</textarea>
+		                   <textarea class="text1" type="text" name="passwd">${listenterpriseStudentInfo.majorCourse}</textarea>
 		                </td>
 		      		  </tr>
 
 					<tr>
 		                <td colspan="2" style="border-bottom: none;">
 		                	<label class="label2">获得证书:</label>
-		                   <textarea class="text1" type="text" name="passwd">大学英语四级</textarea>
+		                   <textarea class="text1" type="text" name="passwd">${listenterpriseStudentInfo.credential}</textarea>
 		                </td>
 		        	</tr>
 					<tr>
 		                <td colspan="2" style="border-bottom: none;">
 		                	<label class="label2">自我评价:</label>
-		                   <textarea class="text1" type="text" name="passwd">内蒙古通辽市</textarea>
+		                   <textarea class="text1" type="text" name="passwd">${listenterpriseStudentInfo.selfEvaluation}</textarea>
 		                </td>
 		        	</tr>
 					<tr>
 						<td style="text-align: center;border-bottom: none;" colspan="2">
-							<a href="javascript:" class="btn" >审核中</a>
-							<a href="javascript:" class="btn">通过</a>
-							<a href="javascript:" class="btn">不通过</a>
+							<a href="javascript:;" class="btn" onclick="tongguo()">审核通过</a>
+							<a href="javascript:history.go(-1)" class="btn">返回上一级...</a>
+							<a href="javascript:;" class="btn" onclick="butongguo()">审核不通过</a>
 						</td>
 					</tr>
 		        </table>

@@ -16,6 +16,7 @@ public class EnterpriseStudentInfo {
 
     private String studentName;
     private String studentSex;
+    private String studentTel;
     private String nationality;
     private Date birthday;
     private String city;
@@ -30,7 +31,6 @@ public class EnterpriseStudentInfo {
     private String majorCourse;
     private String credential;
     private String selfEvaluation;
-    private String studentTel;
     public int getJobId() {
         return jobId;
     }

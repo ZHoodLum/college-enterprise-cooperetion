@@ -48,13 +48,13 @@
             <dd class="first_dd" style="height: 15px;"></dd>
         </dl>
 
-        <dl class="custom">
-            <dt><img src="../images/left/select_xl01.png">
-                <a href="resumeinfo.jsp" target="right">审核实习申请</a>
-            </dt>
-            <dd class="first_dd"></dd>
-            <dd class="first_dd" style="height: 10px;"></dd>
-        </dl>
+        <%--<dl class="custom">--%>
+            <%--<dt><img src="../images/left/select_xl01.png">--%>
+                <%--<a href="resumeinfo.jsp" target="right">审核实习申请</a>--%>
+            <%--</dt>--%>
+            <%--<dd class="first_dd"></dd>--%>
+            <%--<dd class="first_dd" style="height: 10px;"></dd>--%>
+        <%--</dl>--%>
 
         <dl class="app">
             <dt><img src="../images/left/select_xl01.png">
