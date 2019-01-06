@@ -10,14 +10,26 @@
     <meta charset="UTF-8">
     <title>审核简历信息</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/applicationaudit.css">
+    <!--修改信息状态样式js-->
+    <script src="${ pageContext.request.contextPath }/js/lc_switch_jquery.js"></script>
+    <script src="${ pageContext.request.contextPath }/js/lc_switch.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/css/lc_switch.css">
     <!--
     下拉框样式
     -->
     <style type="text/css">
-        .selectbox{ width: 200px; display: inline-block; overflow-x: hidden; height: 28px; line-height: 28px; font-size: 0;  background:#fff url(images/arrow.png) right center no-repeat; border: 1px solid #dcdbdb; vertical-align: middle;}
+        .selectbox{ width: 200px; display: inline-block; overflow-x: hidden; height: 28px; line-height: 28px; font-size: 0;  background:#fff url(../images/arrow.png) right center no-repeat; border: 1px solid #dcdbdb; vertical-align: middle;}
         .selectbox select{cursor: pointer; padding: 0 8px; height: 28px; line-height: 28px; font-size: 12px; width:118%; padding-right: 18%; background:none; border: none;}
         .selectbox select option{ padding:5px;}
     </style>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('input').lc_switch();
+            // triggered each time a field changes status
+            $('body').delegate('.lcs_check', 'lcs-statuschange', function() {
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="checkout-title">
@@ -33,6 +45,7 @@
             <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学历</td>
             <td width="20%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">自我介绍</td>
             <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">毕业时间</td>
+            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">信息状态</td>
             <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">操作</td>
         </tr>
         <c:forEach items="${list}" var="es" varStatus="i">
@@ -51,6 +64,12 @@
             <td style="padding:15px;">${es.education}</td>
             <td style="padding:15px;">${es.selfEvaluation}</td>
             <td style="padding:15px;">${es.graduateTime}</td>
+                <td>
+                    <p>
+                        <input type="checkbox" id="informationState" disabled="disabled"   name="informationState" class="lcs_check lcs_tt1" value="${es.informationState}"  onclick="return false" autocomplete="off" ${es.informationState == 0?"checked":""}/>
+                        <%--<input type="text" value="${es.informationState}">--%>
+                    </p>
+                </td>
             <td style="padding:15px;">
                 <div class="theme-buy">
                     <a class="btn btn-large theme-login" href="EnterpriseQueryByIdResumesServlet?id=${es.id}">查看详情</a>

@@ -61,7 +61,8 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
     public List<EnterpriseStudentInfo> queryEnterpriseStudentinfo(EnterpriseStudentInfo enterpriseStudentInfo) {
         List<EnterpriseStudentInfo> allEnterpriseStudentInfoArrayList = new ArrayList<EnterpriseStudentInfo>();
         try {
-            String sql = "select * from enterprise_studentinfo es, studentinfo s,enterpriseinfo e,jobinfo j,resumes r where es.student_id = s.student_id and es.enterprise_id = e.enterprise_id and es.job_id = j.job_id and s.student_id = r.student_id and j.information_state = 0 and es.information_state = 1 and e.enterprise_id = ?;";
+            String sql = "select * from enterprise_studentinfo es, studentinfo s,enterpriseinfo e,jobinfo j,resumes r where es.student_id = s.student_id and es.enterprise_id = e.enterprise_id and es.job_id = j.job_id and s.student_id = r.student_id and j.information_state = 0  and e.enterprise_id = ?;";
+//            String sql = "select * from enterprise_studentinfo es, studentinfo s,enterpriseinfo e,jobinfo j,resumes r where es.student_id = s.student_id and es.enterprise_id = e.enterprise_id and es.job_id = j.job_id and s.student_id = r.student_id and j.information_state = 0 and es.information_state = 1 and e.enterprise_id = ?;";
             pstate = conn.prepareStatement(sql);
             pstate.setInt(1, enterpriseStudentInfo.getEnterpriseId());
             rs = pstate.executeQuery();
@@ -76,6 +77,8 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
                 enterpriseStudentInfo.setMajor(rs.getString("major"));
                 enterpriseStudentInfo.setSelfEvaluation(rs.getString("self_evaluation"));
                 enterpriseStudentInfo.setGraduateTime(rs.getDate("graduate_time"));
+                enterpriseStudentInfo.setInformationState(rs.getInt("information_state"));
+
 //                System.out.print(rs.getInt("id"));
 //                System.out.print(rs.getInt("student_id"));
 //                System.out.print(rs.getInt("job_id"));

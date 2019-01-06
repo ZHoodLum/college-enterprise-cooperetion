@@ -13,6 +13,15 @@ public class EnterpriseStudentInfo {
     private int enterpriseId;
     private int studentId;
     private int jobId;
+    private int informationState;
+
+    public int getInformationState() {
+        return informationState;
+    }
+
+    public void setInformationState(int informationState) {
+        this.informationState = informationState;
+    }
 
     private String studentName;
     private String studentSex;
