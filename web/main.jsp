@@ -20,7 +20,8 @@
     <div id="titletop">
         <!--登陆注册按钮 login-->
         <img id="login">
-        <span id="title">College Enterprise Cooperetion</span>
+        <%--<span id="title">College Enterprise Cooperetion</span>--%>
+        <span id="title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校企 实习 合作 系统</span>
         <!--登陆前登陆后-->
         <span class="title_login1">
 				<c:choose>

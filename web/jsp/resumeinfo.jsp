@@ -15,13 +15,20 @@
 </head>
 <script type="text/javascript">
     function tongguo() {
+        var informationState = 0;
+        // var id = document.getElementById("id").value;
         if (confirm("确定通过吗？")) {
+            // window.location.href = "ResumesUpdateServlet?informationState="+informationState;
+            return true;
             alert("给予通过成功！");
+        } else {
+            return false;
         }
     }
     function butongguo() {
         if (confirm("确定不通过吗？")) {
             alert("不给予通过成功！");
+            window.location.href = "ResumesDeleteServlet";
         }
     }
 </script>
@@ -32,11 +39,14 @@
             <span><hr class="hrLine" style="width:300px;"/>查看简历信息<hr class="hrLine" style="width:300px;"/></span>
         </div>
         <div style="margin-top: 20px;margin-left: 80px;">
-        	<form id="myform" name="myform" action="***********" methd="post">
+        	<form id="myform" name="myform" action="ResumesUpdateServlet" methd="post">
 		        <table border="0" width="90%">
 		            <tr>
 		                <td>
 		                   <label class="label2">姓名:</label>
+							<input type="hidden" id="id" name="id" value="${listenterpriseStudentInfo.id}">
+							<input type="hidden" id="informationState" name="informationState" value="0">
+							<input type="hidden" name="enterpriseId" id="enterpriseId" value="${listenterpriseStudentInfo.enterpriseId}">
 		                   <textfield>${listenterpriseStudentInfo.studentName}</textfield>
 		                </td>
 						<td>
@@ -130,7 +140,7 @@
 		        	</tr>
 					<tr>
 						<td style="text-align: center;border-bottom: none;" colspan="2">
-							<a href="javascript:;" class="btn" onclick="tongguo()">审核通过</a>
+							<a href="javascript:document.myform.submit();" class="btn" onclick="tongguo()">审核通过</a>
 							<a href="javascript:history.go(-1)" class="btn">返回上一级...</a>
 							<a href="javascript:;" class="btn" onclick="butongguo()">审核不通过</a>
 						</td>

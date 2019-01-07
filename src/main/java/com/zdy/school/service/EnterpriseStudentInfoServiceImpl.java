@@ -48,4 +48,17 @@ public class EnterpriseStudentInfoServiceImpl implements EnterpriseStudentInfoSe
         return enterpriseStudentInfoDao.enterpriseQueryByIdResumesServlet(id);
     }
 
+    //审核学生简历  修改简历信息的状态
+    @Override
+    public boolean ResumesUpdate(EnterpriseStudentInfo enterpriseStudentInfo) {
+        int succ = 0;
+        boolean rows = enterpriseStudentInfoDao.ResumesUpdate(enterpriseStudentInfo);
+        if (rows = true) {
+            succ = 1;
+        } else {
+            succ = 0;
+        }
+        return rows;
+    }
+
 }

@@ -24,4 +24,7 @@ public interface EnterpriseStudentInfoDao {
 
     //企业查看简历信息详情
     public EnterpriseStudentInfo enterpriseQueryByIdResumesServlet(int id);
+
+    //审核学生简历  修改简历信息的状态
+    public boolean ResumesUpdate(EnterpriseStudentInfo enterpriseStudentInfo);
 }

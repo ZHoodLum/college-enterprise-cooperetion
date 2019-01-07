@@ -108,6 +108,8 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
             rs = pstate.executeQuery();
             if (rs.next()) {
                 flag = true;
+                enterpriseStudentInfo.setId(rs.getInt("id"));
+                enterpriseStudentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
                 enterpriseStudentInfo.setStudentId(rs.getInt("student_id"));
                 enterpriseStudentInfo.setStudentName(rs.getString("student_name"));
                 enterpriseStudentInfo.setStudentTel(rs.getString("student_tel"));
@@ -132,6 +134,28 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
             e.printStackTrace();
         }
         return enterpriseStudentInfo;
+    }
+
+    //审核学生简历  修改简历信息的状态
+    @Override
+    public boolean ResumesUpdate(EnterpriseStudentInfo enterpriseStudentInfo) {
+        int rows = 0;
+        try {
+            String sql = "update enterprise_studentinfo set information_state = ? where id = ?;";
+            pstate = conn.prepareStatement(sql);
+            pstate.setInt(1, enterpriseStudentInfo.getInformationState());
+            pstate.setInt(2,enterpriseStudentInfo.getId());
+            rows = pstate.executeUpdate();
+            if (rows > 0) {
+                flag =  true;
+            }
+            DruidUtil.closeConnection(rs,conn,pstate);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
     }
 
 }
