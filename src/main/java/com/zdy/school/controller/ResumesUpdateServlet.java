@@ -26,9 +26,10 @@ public class ResumesUpdateServlet extends HttpServlet {
         enterpriseStudentInfo.setInformationState(informationState);
         enterpriseStudentInfo.setId(Integer.parseInt(request.getParameter("id")));
         enterpriseStudentInfo.setEnterpriseId(Integer.parseInt(request.getParameter("enterpriseId")));
-        System.out.println("修改信息状态1" + Integer.parseInt(request.getParameter("id")));
-        System.out.println("修改信息状态2" + Integer.parseInt(request.getParameter("informationState")));
-        System.out.println("修改信息状态3" + Integer.parseInt(request.getParameter("enterpriseId")));
+//        System.out.println("修改信息状态1" + Integer.parseInt(request.getParameter("id")));
+//        System.out.println("修改信息状态2" + Integer.parseInt(request.getParameter("informationState")));
+//        System.out.println("修改信息状态3" + Integer.parseInt(request.getParameter("enterpriseId")));
+
         try {
             boolean rows = enterpriseStudentInfoService.ResumesUpdate(enterpriseStudentInfo);
             if (rows = true){

@@ -61,4 +61,17 @@ public class EnterpriseStudentInfoServiceImpl implements EnterpriseStudentInfoSe
         return rows;
     }
 
+    //审核简历信息——不通过
+    @Override
+    public boolean ResumesDelete(int id) throws Exception {
+        int succ = 0;
+        boolean rows = enterpriseStudentInfoDao.ResumesDelete(id);
+        if(rows == true) {
+            succ=1;//
+        }else {
+            succ=0;
+        }
+        return rows;
+    }
+
 }

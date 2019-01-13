@@ -60,7 +60,7 @@
 	font-weight: bold;
 	transition: 2s;
 ">
-    <a href="../main.jsp">校企实习合作系统</a>
+    <a href="../main.jsp" style="text-decoration: none;color:black;">沈工校企实习合作系统</a>
   </div>
 </div>
 <div class="content"/>

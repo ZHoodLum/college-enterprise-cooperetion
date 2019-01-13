@@ -158,4 +158,22 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
         return flag;
     }
 
+    //审核简历信息——不通过
+    @Override
+    public boolean ResumesDelete(int id) throws Exception {
+        try {
+            String sql = "delete from enterprise_studentinfo where id = ?";
+            pstate = conn.prepareStatement(sql);
+            pstate.setInt(1, id);
+            int c = pstate.executeUpdate();
+            if (c > 0){
+                flag = true;
+            }
+            DruidUtil.closeConnection(rs,conn,pstate);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 }

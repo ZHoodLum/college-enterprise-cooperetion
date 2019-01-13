@@ -16,19 +16,25 @@
 <script type="text/javascript">
     function tongguo() {
         var informationState = 0;
-        // var id = document.getElementById("id").value;
+        var id = document.getElementById("id").value;
+        var enterpriseId = document.getElementById("enterpriseId").value;
         if (confirm("确定通过吗？")) {
-            // window.location.href = "ResumesUpdateServlet?informationState="+informationState;
-            return true;
+            window.location.href = "ResumesUpdateServlet?informationState="+informationState+"&id="+id+"&enterpriseId="+enterpriseId+"";
             alert("给予通过成功！");
+            return true;
         } else {
             return false;
         }
     }
     function butongguo() {
         if (confirm("确定不通过吗？")) {
-            alert("不给予通过成功！");
-            window.location.href = "ResumesDeleteServlet";
+            var enterpriseId = document.getElementById("enterpriseId").value;
+            var id = document.getElementById("id").value;
+            window.location.href = "ResumesDeleteServlet?id="+id+"&enterpriseId="+enterpriseId+"";
+            return true;
+            alert("给予通过成功！");
+        } else {
+            return false;
         }
     }
 </script>
@@ -140,9 +146,10 @@
 		        	</tr>
 					<tr>
 						<td style="text-align: center;border-bottom: none;" colspan="2">
-							<a href="javascript:document.myform.submit();" class="btn" onclick="tongguo()">审核通过</a>
+							<!--<a href="javascript:document.myform.submit();" class="btn" name="btn1" value="0" onclick="tongguo()">审核通过</a>-->
+							<a href="javascript:;" class="btn" name="btn1" value="0" onclick="tongguo()">审核通过</a>
 							<a href="javascript:history.go(-1)" class="btn">返回上一级...</a>
-							<a href="javascript:;" class="btn" onclick="butongguo()">审核不通过</a>
+							<a href="javascript:;" class="btn" name="btn2" value="1"  onclick="butongguo()">审核不通过</a>
 						</td>
 					</tr>
 		        </table>

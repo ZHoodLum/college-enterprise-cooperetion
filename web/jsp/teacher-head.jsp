@@ -40,7 +40,7 @@
 </head>
 <body>
     <div id="login">
-        <span id="title"><a href="../../main.jsp" style="text-decoration: none;color:black;" target="_top">School enterprise cooperation</a></span>
+        <span id="title"><a href="../../main.jsp" style="text-decoration: none;color:black;" target="_top">沈工校企实习合作系统</a></span>
         <a href="update-teacher-information.jsp" style="text-decoration: none;color:black;" target="right">
             <img src="../images/loginusers.png" id="circle">
             <span id="title1">

@@ -23,7 +23,7 @@
 <body>
 <div class="navs">
   <div class="nav_left">
-    <a href="javascript:history.go(-1)">校企实习信息网</a>
+    <a href="javascript:history.go(-1)" style="text-decoration: none;color:black;">沈工校企实习合作系统</a>
   </div>
 </div>
 <div class="content"/>

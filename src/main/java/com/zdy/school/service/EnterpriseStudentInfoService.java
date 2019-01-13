@@ -24,6 +24,9 @@ public interface EnterpriseStudentInfoService {
     //企业查看简历信息详情
     public EnterpriseStudentInfo enterpriseQueryByIdResumesServlet(int id);
 
-    //审核学生简历  修改简历信息的状态
+    //审核学生简历  修改简历信息的状态——通过
     public boolean ResumesUpdate(EnterpriseStudentInfo enterpriseStudentInfo);
+
+    //审核简历信息——不通过
+    public boolean ResumesDelete(int id) throws Exception;
 }

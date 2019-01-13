@@ -366,7 +366,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
     @Override
     public boolean deleteJobInfo(int jobId) throws Exception {
         try {
-            String sql = "delete from jobinfo where job_id=?";
+            String sql = "delete from jobinfo where job_id = ?";
             pstate = con.prepareStatement(sql);
             pstate.setInt(1, jobId);
             int c = pstate.executeUpdate();
