@@ -57,7 +57,14 @@ public class StudentServiceImpl implements  StudentService {
         return list;
     }
 
-    //条件查询
+    //条件查询1
+    @Override
+    public List<StudentInfo> conditionFindAllStudentInfo1(StudentInfo studentInfo) {
+        List<StudentInfo> list = studentDao.conditionFindAllStudentInfo1(studentInfo);
+        return list;
+    }
+
+    //条件查询2
     @Override
     public List<StudentInfo> conditionFindAllStudentInfo(StudentInfo studentInfo) {
         List<StudentInfo> list = studentDao.conditionFindAllStudentInfo(studentInfo);

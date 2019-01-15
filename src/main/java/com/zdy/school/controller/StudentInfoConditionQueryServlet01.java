@@ -27,17 +27,22 @@ public class StudentInfoConditionQueryServlet01 extends HttpServlet {
         StudentInfo studentInfo = new StudentInfo();
         if (!"" .equals(request.getParameter("studentTel"))) {
             studentInfo.setStudentTel(request.getParameter("studentTel"));
+            System.out.println("电话是："+request.getParameter("studentTel"));
+
         }
         if (!"" .equals(request.getParameter("studentAccount"))) {
             studentInfo.setStudentAccount(Integer.parseInt(request.getParameter("studentAccount")));
+            System.out.println("学号是："+Integer.parseInt(request.getParameter("studentAccount")));
+
         }
         String[] classId = request.getParameterValues("class_id");
         for(int x= 0 ;x<classId.length;x++){
             if (!"0" .equals(classId[x])) {
                 studentInfo.setClassId(Integer.parseInt(classId[x]));
+                System.out.println("班级编号是"+Integer.parseInt(classId[x]));
             }
         }
-        List<StudentInfo> list = studentService.conditionFindAllStudentInfo(studentInfo);
+        List<StudentInfo> list = studentService.conditionFindAllStudentInfo1(studentInfo);
         request.getSession().setAttribute("list", list);
         response.sendRedirect("/college-enterprise-cooperetion/jsp/teacher-student-information.jsp");
 

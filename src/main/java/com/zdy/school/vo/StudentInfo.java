@@ -145,6 +145,13 @@ public class StudentInfo {
         this.studentGrade = studentGrade;
     }
 
+//    public int getClassId() {
+//        return classId;
+//    }
+//
+//    public void setClassId(int classId) {
+//        this.classId = classId;
+//    }
     public Integer getClassId() {
         return classId;
     }

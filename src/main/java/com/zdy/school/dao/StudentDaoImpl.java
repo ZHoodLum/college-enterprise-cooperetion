@@ -70,6 +70,8 @@ public class StudentDaoImpl implements StudentDao{
         String sql = "select * from  studentinfo s,teacherinfo t,classinfo c,enterprise_studentinfo es,enterpriseinfo e" +
                 " where s.teacher_id = t.teacher_id" +
                 " and c.class_id = s.class_id " +
+                " and e.enterprise_id = es.enterprise_id  " +
+                " and s.student_id = es.student_id " +
                 " and e.enterprise_id = ?" +
                 " limit ?,?;";
         try{
@@ -211,9 +213,86 @@ public class StudentDaoImpl implements StudentDao{
         return list;
     }
 
+    //条件查询01
+    @Override
+    public List<StudentInfo> conditionFindAllStudentInfo1(StudentInfo studentInfo) {
+        List<StudentInfo> list = new ArrayList<StudentInfo>();
+        StringBuilder sql = new StringBuilder();
+        try{
+            sql.append("select * from studentinfo s,teacherinfo t,classinfo c ");
+        sql.append("where s.teacher_id = t.teacher_id ");
+        sql.append("and  c.class_id = s.class_id ");
+//        sql.append("and e.enterprise_id = es.enterprise_id ");
+//        sql.append("and  s.student_id = es.student_id ");
+        if (studentInfo.getStudentAccount() != null && !"".equals(studentInfo.getStudentAccount())){
+            sql.append("and s.student_account = ? ");
+        }
+        if (studentInfo.getStudentTel() != null && !"".equals(studentInfo.getStudentTel())){
+            sql.append("and s.student_tel = ? ");
+        }
+        if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId())){
+            sql.append("and s.class_id = ? ");
+        }
+            pstate = con.prepareStatement(sql.toString());
+            int i = 1;
+            if (studentInfo.getStudentAccount() != null && !"".equals(studentInfo.getStudentAccount())){
+                pstate.setInt(i, studentInfo.getStudentAccount());
+                i++;
+            }
+            if (studentInfo.getStudentTel() != null && !"".equals(studentInfo.getStudentTel())){
+                pstate.setString(1, studentInfo.getStudentTel());
+                i++;
+            }
+            if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId()) && !"0".equals(studentInfo.getClassId())){
+                pstate.setInt(i, studentInfo.getClassId());
+                i++;
+            }
+//            String sql = " select * from  studentinfo s,teacherinfo t,classinfo c " +
+//                    "where s.teacher_id = t.teacher_id " +
+//                    "and c.class_id = s.class_id  " +
+//                    "and  s.class_id = ?;";
+//            pstate = con.prepareStatement(sql);
+            if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId())){
+                pstate.setInt(1, studentInfo.getClassId());
+                i++;
+            }
+            rs = pstate.executeQuery();
+            while (rs.next()){
+                studentInfo = new StudentInfo();
+//                TeacherInfo teacherInfo = new TeacherInfo();
+//                EnterpriseInfo enterpriseInfo = new EnterpriseInfo();
+//                studentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
+//                studentInfo.setEnterpriseName(rs.getString("enterprise_name"));
+                studentInfo.setStudentId(rs.getInt("student_id"));
+                studentInfo.setStudentAccount(rs.getInt("student_account"));
+                studentInfo.setStudentName(rs.getString("student_name"));
+                studentInfo.setStudentTel(rs.getString("student_tel"));
+                studentInfo.setStudentPassword(rs.getString("student_password"));
+                studentInfo.setStudentSex(rs.getString("student_sex"));
+                studentInfo.setMajor(rs.getString("major"));
+                studentInfo.setCity(rs.getString("city"));
+                studentInfo.setEmail(rs.getString("email"));
+                studentInfo.setStudentCollege(rs.getString("student_college"));
+                studentInfo.setStudentInternship(rs.getString("student_internship"));
+                studentInfo.setStudentGrade(rs.getInt("student_grade"));
+                studentInfo.setClassId(rs.getInt("class_id"));
+                studentInfo.setClassName(rs.getString("class_name"));
+                studentInfo.setTeacherId(rs.getInt("teacher_id"));
+                studentInfo.setTeacherName(rs.getString("teacher_name"));
+//                studentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
+//                studentInfo.setEnterpriseName(rs.getString("enterprise_name"));
+                list.add(studentInfo);
+//                for(StudentInfo li:list) {
+//                    System.out.println("集合元素有："+list);
+//                }
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return list;
+    }
 
-    //条件查询
-
+    //条件查询02
     @Override
     public List<StudentInfo> conditionFindAllStudentInfo(StudentInfo studentInfo) {
         List<StudentInfo> list = new ArrayList<StudentInfo>();
@@ -230,9 +309,9 @@ public class StudentDaoImpl implements StudentDao{
         if (studentInfo.getStudentTel() != null && !"".equals(studentInfo.getStudentTel())){
             sql.append("and s.student_tel = ? ");
         }
-        if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId()) && !"0".equals(studentInfo.getClassId())){
-            sql.append("and s.class_id = ? ");
-        }
+//        if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId()) && !"0".equals(studentInfo.getClassId())){
+//            sql.append("and s.class_id = ? ");
+//        }
 //        String  sql = "select * from studentinfo s,teacherinfo t,classinfo c,enterprise_studentinfo es,enterpriseinfo e where c.class_id = s.class_id and t.teacher_id = s.teacher_id and e.enterprise_id = es.enterprise_id and  s.student_id = es.student_id and s.student_tel = ?;";
         try{
             pstate = con.prepareStatement(sql.toString());
@@ -245,10 +324,10 @@ public class StudentDaoImpl implements StudentDao{
                 pstate.setString(1, studentInfo.getStudentTel());
                 i++;
             }
-            if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId()) && !"0".equals(studentInfo.getClassId())){
-                pstate.setInt(i, studentInfo.getClassId());
-                i++;
-            }
+//            if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId()) && !"0".equals(studentInfo.getClassId())){
+//                pstate.setInt(i, studentInfo.getClassId());
+//                i++;
+//            }
             rs = pstate.executeQuery();
             while (rs.next()){
                 studentInfo = new StudentInfo();

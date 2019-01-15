@@ -20,7 +20,8 @@
     <div id="titletop">
         <!--登陆注册按钮 login-->
         <img id="login">
-        <span id="title">College Enterprise Cooperetion</span>
+        <span id="title" style="font-family:STLiti;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;沈工校企实习合作系统</span>
+
         <!--登陆前登陆后-->
         <span class="title_login1">
 				<c:choose>

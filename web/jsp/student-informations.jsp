@@ -15,15 +15,23 @@
     <title>学生信息查询</title>
     <link rel="stylesheet" type="text/css" href="../css/applicationaudit.css">
 </head>
+
+<!--
+    学生信息展示界面 主要向企业提供实习学生的基本信息
+-->
 <body>
 <div class="checkout-title">
     <span><hr class="hrLine" style="width:260px;"/>学生的信息查询<hr class="hrLine" style="width:260px;"/></span>
 </div>
 <!--搜索框 <div class="search"></div>-->
-<div class="sousuo">
-    <input type="text" class="search" placeholder="请填写学号进行搜索"/>
-    <input type="submit" value="搜索" class="sub"/>
-</div>
+<form action="${pageContext.request.contextPath}/StudentInfoConditionQueryServlet03" method="post">
+    <div>
+        <div class="sousuo">
+            <input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索"/>
+            <input type="submit" value="搜索" class="sub"/>
+        </div>
+    </div>
+</form>
 <div id="recruitinformation">
     <table width="100%" border="0px" cellpadding="0" cellspacing="0">
         <br>

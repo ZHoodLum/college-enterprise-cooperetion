@@ -34,7 +34,7 @@
     <span><hr class="hrLine" style="width:260px;vertical-align:middle; display:inline-block;"/>学生的信息查询<hr class="hrLine" style="width:260px;vertical-align:middle; display:inline-block;"/></span>
 </div>
 <!--搜索框 <div class="search"></div>-->
-<form action="${pageContext.request.contextPath}/StudentInfoConditionQueryServlet01" method="get">
+<form action="${pageContext.request.contextPath}/StudentInfoConditionQueryServlet02" method="get">
     <div>
         <div class="sousuo">
             <input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索"/>

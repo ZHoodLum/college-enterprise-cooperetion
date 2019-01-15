@@ -65,7 +65,7 @@
         </dl>
         <dl class="cloud">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="student-score.html" target="right">评判学生成绩</a>
+                <a href="student-score.jsp" target="right">评判学生成绩</a>
             </dt>
             <dd class="first_dd"></dd>
             <dd class="first_dd" style="height: 10px;"></dd>

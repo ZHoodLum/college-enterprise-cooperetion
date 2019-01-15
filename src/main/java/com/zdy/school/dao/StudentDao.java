@@ -25,7 +25,10 @@ public interface StudentDao {
     //教师查询自己管理的实习学生的信息成绩
     List<StudentInfo> teacherFindAllStudentInfo(int teacherId);
 
-    //条件查询学生信息
+    //条件查询学生信息1
+    List<StudentInfo> conditionFindAllStudentInfo1(StudentInfo studentInfo);
+
+    //条件查询学生信息2
     List<StudentInfo> conditionFindAllStudentInfo(StudentInfo studentInfo);
 
     //教师管理的学生
