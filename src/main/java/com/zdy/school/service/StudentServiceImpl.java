@@ -110,5 +110,17 @@ public class StudentServiceImpl implements  StudentService {
         return studentDao.findResumesById(studentId);
     }
 
+    @Override
+    public boolean enterpriseUpdateStudentScore(StudentInfo studentInfo) {
+        int succ = 0;
+        boolean rows = studentDao.enterpriseUpdateStudentScore(studentInfo);
+        if (rows == true){
+            succ = 1;
+        }else {
+            succ = 0;
+        }
+        return rows;
+    }
+
 
 }

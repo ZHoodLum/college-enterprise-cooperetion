@@ -492,4 +492,22 @@ public class StudentDaoImpl implements StudentDao{
         return resumes;
     }
 
+    @Override
+    public boolean enterpriseUpdateStudentScore(StudentInfo studentInfo) {
+        int rows = 0;
+        try {
+            String sql = "update studentinfo set student_grade = ? where student_id = ?;";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, studentInfo.getStudentGrade());
+            pstate.setInt(2, studentInfo.getStudentId());
+            rows = pstate.executeUpdate();
+            if (rows > 0) {
+                flag = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 }

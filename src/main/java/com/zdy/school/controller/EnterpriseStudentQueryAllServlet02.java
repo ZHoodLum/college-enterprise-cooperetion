@@ -28,8 +28,9 @@ public class EnterpriseStudentQueryAllServlet02 extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int enterpriseId = Integer.parseInt(request.getParameter("enterpriseId"));
         int pageNo = Integer.parseInt(request.getParameter("pageNo"));
+//        int pageNo = 1;
 //        默认每页数据量数
-        int pageSize = 4;
+        int pageSize = 3;
 //        调用方法获取list集合下的数据
         List<StudentInfo> list = studentService.findAllStudentInfo(pageNo,pageSize,enterpriseId);
         int n = studentService.getTotal();

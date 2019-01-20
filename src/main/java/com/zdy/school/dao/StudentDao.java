@@ -43,4 +43,7 @@ public interface StudentDao {
     //学生查询简历信息是否存在
     Resumes findResumesById(int studentId);
 
+    //企业修改学生成绩
+    boolean enterpriseUpdateStudentScore(StudentInfo studentInfo);
+
 }

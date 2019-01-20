@@ -29,7 +29,6 @@
     </div>
 </form>
 <div id="recruitinformation">
-    <form id="myform" name="myform" action="*****">
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr align="center">
                 <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学生姓名</td>
@@ -49,24 +48,30 @@
                 <c:if test="${i.index%2 == 1 }">
                     <tr align="center" bgcolor="#F5F5F5" style="border:0px;padding: 3px 0 3px 0">
                 </c:if>
-                <td  style="padding:7px 0 7px 0;">
-                    <input type="hidden" id="student_id" name="student_id" value="${si.studentId}"/>
-                        ${si.studentName}
-                </td>
-                <td>${si.studentSex}</td>
-                <td>${si.major}</td>
-                <td>${si.city}</td>
-                <td>${si.email}</td>
-                <td>${si.studentTel}</td>
-                <td>${si.studentCollege}</td>
-                <td>
-                    <input type="text" id="student_grade" name="student_grade" value="${si.studentGrade}"/>
-                    <input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="保存" tabindex="3"
-                           onclick="if(confirm('确定要保存吗')){alert('保存成功!');return true;}return false;"></td>
+                <form id="myform" name="myform" action="${pageContext.request.contextPath}/EnterpriseUpdateStudentScoreServlet" method="post">
+                    <td  style="padding:7px 0 7px 0;">
+                        <input type="hidden" id="student_id" name="student_id" value="${si.studentId}"/>
+                        <input type="hidden" id="pageNo" name="pageNo" value="1"/>
+                        <input type="hidden" id="enterpriseId" name="enterpriseId" value="${sessionScope.EnterpriseInfo.getEnterpriseId()}"/>
+                            ${si.studentName}
+                    </td>
+                    <td>${si.studentSex}</td>
+                    <td>${si.major}</td>
+                    <td>${si.city}</td>
+                    <td>${si.email}</td>
+                    <td>${si.studentTel}</td>
+                    <td>${si.studentCollege}</td>
+                    <td>
+                        <input type="text" id="student_grade" name="student_grade" value="${si.studentGrade}"/>
+                        <input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="保存" tabindex="3"
+                               onclick="if(confirm('确定要保存吗')){alert('保存成功!');return true;}return false;">
+                        <%--<input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="发布" tabindex="3"/>--%>
+                    </td>
+                </form>
+
                 </tr>
             </c:forEach>
         </table>
-    </form>
 </div>
 <div id="footer" style="width: 100%;margin-top:1px; position: absolute;bottom:40px; left: 0;">
     <!-- 分页导航 -->
