@@ -140,6 +140,7 @@ public class LoginDaoImpl implements LoginDao {
 			rs = pstmt.executeQuery(); 
 			if (rs.next()) {
 				flag = true;
+				admininfo.setId(rs.getInt("id"));
 				admininfo.setAdminId(rs.getInt("admin_id"));
 				admininfo.setAdminPassword(rs.getString("admin_password"));
 				admininfo.setAdminName(rs.getString("admin_name"));

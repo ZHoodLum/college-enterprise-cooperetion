@@ -24,4 +24,17 @@ public class AdminServiceImpl implements AdminService {
         }
         return datavalues;
     }
+
+    //修改管理员信息
+    @Override
+    public boolean updateAdminInfo(AdminInfo adminInfo) {
+        int succ = 0;
+        boolean rows = adminDao.updateAdminInfo(adminInfo);
+        if (rows == true){
+            succ = 1;
+        }else {
+            succ = 0;
+        }
+        return rows;
+    }
 }

@@ -161,6 +161,8 @@
                     <td>
                         <%--<a href="" class="btn" style="float: left;margin-left: 320px;">保存修改信息</a>--%>
                             <input type="submit" class="btn" style="float: left;margin-left: 320px;" value="保存修改信息">
+                            <a href="javascript: window.history.go(-1);" class="btn" style="float: left;margin-left: 10px;">返回上一页</a>
+
                     </td>
                 </tr>
 

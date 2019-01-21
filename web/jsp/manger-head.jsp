@@ -41,7 +41,7 @@
 <body>
     <div id="login">
         <span id="title"><a href="../main.jsp" style="text-decoration: none;color:black;" target="_top">沈工校企实习合作系统</a></span>
-        <a href="update-manger-information.jsp" style="text-decoration: none;color:black;" target="right">
+        <a href="update-admin-information.jsp" style="text-decoration: none;color:black;" target="right">
             <img src="../images/loginusers.png" id="circle">
             <span id="title1">${sessionScope.AdminInfo.getAdminName()}</span>
         </a>

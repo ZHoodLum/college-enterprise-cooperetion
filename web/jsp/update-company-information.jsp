@@ -166,6 +166,7 @@
                 <tr>
                     <td>
                         <input type="submit" class="btn" style="float: left;margin-left: 400px;" value="保存修改信息">
+                        <a href="javascript: window.history.go(-1);" class="btn" style="float: left;margin-left: 10px;">返回上一页</a>
                     </td>
                 </tr>
 

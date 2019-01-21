@@ -11,4 +11,7 @@ import com.zdy.school.vo.AdminInfo;
 public interface AdminService {
     //注册管理员信息
     int insertAdminInfo(AdminInfo adminInfo);
+
+    //修改管理员信息
+    boolean updateAdminInfo(AdminInfo adminInfo);
 }

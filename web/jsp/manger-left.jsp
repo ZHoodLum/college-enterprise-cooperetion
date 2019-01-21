@@ -33,27 +33,36 @@
             <dt onClick="changeImage()">企业管理<img src="../images/left/select_xl01.png"></dt>
             <dd class="first_dd"><a href="${pageContext.request.contextPath}/JobInfoQueryAllManageServlet?pageNo=1&pageSize=1" target="right">审核企业发布信息</a></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
-            <dd><a href="../manger/company-information.html" target="right">企业详细信息</a></dd>
+            <dd><a href="../manger/company-information.html" target="right">添加企业信息</a></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
-            <dd><a href="../manger/addcompany-information.html" target="right">添加企业信息</a></dd>
+            <dd><a href="../manger/addcompany-information.html" target="right">企业详细信息</a></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
         </dl>
 
         <dl class="custom">
             <dt onClick="changeImage()">教师管理<img src="../images/left/select_xl01.png"></dt>
-            <dd class="first_dd"><a href="../manger/teacher-information.html" target="right">教师详细信息</a></dd>
+            <dd class="first_dd"><a href="../manger/teacher-information.html" target="right">添加教师信息</a></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
-            <dd><a href="../manger/addteacher-information.html" target="right">添加教师信息</a></dd>
+            <dd><a href="../manger/addteacher-information.html" target="right">教师详细信息</a></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
         </dl>
 
         <dl class="app">
             <dt onClick="changeImage()">学生管理<img src="../images/left/select_xl01.png"></dt>
-            <dd class="first_dd"><a href="../manger/student-information.html" target="right">学生详细信息</a></dd>
+            <dd class="first_dd"><a href="../manger/student-information.html" target="right">添加学生信息</a></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
-            <dd><a href="../manger/addstudent-information.html" target="right">添加学生信息</a></dd>
+            <dd><a href="../manger/addstudent-information.html" target="right">学生详细信息</a></dd>
             <dd class="first_dd" style="height: 10px;"></dd>
         </dl>
+
+        <dl class="syetem_management">
+            <dt><img src="../images/left/select_xl01.png">
+                <a href="${pageContext.request.contextPath}/jsp/register-managers.jsp" target="right">注册管理员</a>
+            </dt>
+            <dd class="first_dd"></dd>
+            <dd class="first_dd" style="height: 10px;"></dd>
+        </dl>
+
         <dl class="source" style="position:absolute;bottom: 50px;width: 100%">
             <dt><img src="../images/left/select_xl01.png">
                 <a href="${pageContext.request.contextPath}/LogoutServlet" target="_blank" style="font-size: 19px;color: white;">注销</a>

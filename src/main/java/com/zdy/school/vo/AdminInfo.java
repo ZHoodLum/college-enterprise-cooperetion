@@ -6,6 +6,16 @@ package com.zdy.school.vo;
  * 用于存放管理员的相关信息
  */
 public class AdminInfo {
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	private int adminId;
 	private String adminName;
 	private String adminPassword;

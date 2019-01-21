@@ -492,6 +492,7 @@ public class StudentDaoImpl implements StudentDao{
         return resumes;
     }
 
+    //企业修改学生成绩
     @Override
     public boolean enterpriseUpdateStudentScore(StudentInfo studentInfo) {
         int rows = 0;
