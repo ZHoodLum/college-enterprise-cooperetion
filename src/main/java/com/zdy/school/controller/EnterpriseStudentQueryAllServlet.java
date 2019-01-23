@@ -43,13 +43,11 @@ public class EnterpriseStudentQueryAllServlet extends HttpServlet {
 //        调用方法获取list集合下的数据
         List<StudentInfo> list = studentService.findAllStudentInfo(pageNo,pageSize,enterpriseId);
         int n = studentService.getTotal();
-        System.out.println("集合长度"+list.size());
         request.getSession().setAttribute("list", list);
         request.getSession().setAttribute("n", n);
         request.getSession().setAttribute("pageSize", pageSize);
         request.getSession().setAttribute("pageNo", pageNo);
         response.sendRedirect("/college-enterprise-cooperetion/jsp/student-informations.jsp");
-
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -5,6 +5,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>管理员界面</title>
+	<style type="text/css">
+		body{overflow:hidden;}
+	</style>
 </head>
 	<!--
 		rows 列的高度
@@ -20,7 +23,7 @@
 
 			  <frameset rows="7%,88%,5%" frameborder="yes" framespacing="1">
 				  <frame src="manger-head.jsp" name="head" allowTransparency="true" scrolling="no" >
-				  <frame src="manger-right.jsp" name="right" allowTransparency="true" scrolling="no">
+				  <frame src="manger-right.jsp" name="right" allowTransparency="true" scrolling="auto">
 				  <frame src="footer.jsp" name="footer" allowTransparency="true" scrolling="no" >
 			  </frameset>
 

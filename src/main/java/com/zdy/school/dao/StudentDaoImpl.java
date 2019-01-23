@@ -66,7 +66,6 @@ public class StudentDaoImpl implements StudentDao{
 //  企业进行分页查询
     public List<StudentInfo> findAllStudentInfo(int pageNo, int pageSize,int enterpriseId){
         List<StudentInfo> list = new ArrayList<StudentInfo>();
-//        String sql = "select * from studentinfo s,teacher_studentinfo ts,teacherinfo t,classinfo c,class_studentinfo cs,enterprise_studentinfo es,enterpriseinfo e where s.student_account = ts.student_account and ts.teacher_account = t.teacher_account and c.class_id = cs.class_id and cs.student_account = s.student_account and es.enterprise_id = e.enterprise_id and es.student_account = s.student_account and e.enterprise_id= ? limit ?,?;";
         String sql = "select * from  studentinfo s,teacherinfo t,classinfo c,enterprise_studentinfo es,enterpriseinfo e" +
                 " where s.teacher_id = t.teacher_id" +
                 " and c.class_id = s.class_id " +
@@ -101,9 +100,6 @@ public class StudentDaoImpl implements StudentDao{
                 studentInfo.setTeacherId(rs.getInt("teacher_id"));
                 studentInfo.setTeacherName(rs.getString("teacher_name"));
                 list.add(studentInfo);
-//                for(StudentInfo li:list) {
-//                    System.out.println("集合元素有："+list);
-//                }
             }
 //            DruidUtil.closeConnection(rs,con,pstate);
         }catch (SQLException e){
@@ -247,15 +243,6 @@ public class StudentDaoImpl implements StudentDao{
                 pstate.setInt(i, studentInfo.getClassId());
                 i++;
             }
-//            String sql = " select * from  studentinfo s,teacherinfo t,classinfo c " +
-//                    "where s.teacher_id = t.teacher_id " +
-//                    "and c.class_id = s.class_id  " +
-//                    "and  s.class_id = ?;";
-//            pstate = con.prepareStatement(sql);
-            if (studentInfo.getClassId() != null && !"".equals(studentInfo.getClassId())){
-                pstate.setInt(1, studentInfo.getClassId());
-                i++;
-            }
             rs = pstate.executeQuery();
             while (rs.next()){
                 studentInfo = new StudentInfo();
@@ -282,9 +269,6 @@ public class StudentDaoImpl implements StudentDao{
 //                studentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
 //                studentInfo.setEnterpriseName(rs.getString("enterprise_name"));
                 list.add(studentInfo);
-//                for(StudentInfo li:list) {
-//                    System.out.println("集合元素有："+list);
-//                }
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -354,9 +338,6 @@ public class StudentDaoImpl implements StudentDao{
 //                studentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
 //                studentInfo.setEnterpriseName(rs.getString("enterprise_name"));
                 list.add(studentInfo);
-//                for(StudentInfo li:list) {
-//                    System.out.println("集合元素有："+list);
-//                }
             }
 //            DruidUtil.closeConnection(rs,con,pstate);
         }catch (SQLException e){

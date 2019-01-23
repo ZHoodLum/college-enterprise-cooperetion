@@ -54,6 +54,7 @@ ul li.last
 ul li{
     /*margin: 0 auto;*/
     margin-left: 50px;
+    /*margin-left: 200px;*/
     float: left;
     width: 800px;
     list-style: none;
