@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Psyduck
@@ -6,7 +5,8 @@
   Time: 12:44
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>教师信息管理</title>
@@ -45,16 +45,15 @@
     <table width="100%" border="2px" cellpadding="0" cellspacing="0">
         <br>
         <tr align="center"  bgcolor="#FFFFFF" border: 0px;>
-            <%--<td width="6%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">学号</td>--%>
             <td width="5%"  style="padding:10px;" title="teacher_id">序列号</td>
             <td width="6%"  style="padding:10px;" title="teacher_account">编号</td>
-            <td width="4%"  style="padding:10px;" title="teacher_name">姓名</td>
-            <td width="4%"  style="padding:10px;" title="teacher_sex">性别</td>
-            <td width="4%"  style="padding:10px;" title="teacher_job">职位</td>
+            <td width="6%"  style="padding:10px;" title="teacher_name">姓名</td>
+            <td width="6%"  style="padding:10px;" title="teacher_sex">性别</td>
+            <td width="6%"  style="padding:10px;" title="teacher_job">职位</td>
             <td width="8%"  style="padding:10px;" title="email">邮箱</td>
             <td width="8%"  style="padding:10px;" title="teacher_tel">电话</td>
             <td width="8%"  style="padding:10px;" title="teacher_college">学院</td>
-            <td width="10%"  style="padding:10px;">操作</td>
+            <td width="6%"  style="padding:10px;">操作</td>
         </tr>
         <c:forEach items="${list}" var="si" varStatus="i">
             <c:if test="${i.index%2 == 0 }">
@@ -71,10 +70,67 @@
             <td title="${si.email}">${si.email}</td>
             <td title="${si.teacherTel}">${si.teacherTel}</td>
             <td title="${si.teacherCollege}">${si.teacherCollege}</td>
-            <td><a href="">修改</a>|<a href="">删除</a></td>
+            <td><a href="${pageContext.request.contextPath}/AdminGetByIdTeacherInfoServlet?teacherId=${si.teacherId}">修改</a></td>
             </tr>
         </c:forEach>
         <tbody>
+    </table>
+</div>
+<div id="footer" style="width: 100%;margin-top:1px; position: absolute;bottom:40px; left: 0;">
+    <!-- 分页导航 -->
+    <table width="773" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr align="center" style="width:60%">
+            <td width="335" align="center"  class="text_cray">
+                &nbsp;&nbsp;当前数据量：${n}
+                <%--&nbsp;&nbsp;当前页数：<fmt:formatNumber type="number" value="${n/pageSize}"/>--%>
+            </td>
+            <td width="284" align="center"  class="text_cray">
+                <%--判断上一页下一下--%>
+                <c:if test="${pageNo == 1}">
+                    <a>第一页</a>
+                    <a>上一页</a>
+                </c:if>
+                <c:if test="${pageNo > 1}">
+                    <a href="${pageContext.request.contextPath}/AdminQueryAllTeacherInfoServlet?pageNo=1">第一页</a>
+                    <a href="${pageContext.request.contextPath}/AdminQueryAllTeacherInfoServlet?pageNo=${pageNo-1 }">上一页</a>
+                </c:if>
+
+                <c:if test="${n%pageSize==0}">
+                    <c:forEach begin="1" end="${n/pageSize}" var="i" step="1">
+                        <c:if test="${i==pageNo }">
+                            ${i}
+                        </c:if>
+
+                        <c:if test="${i!=pageNo }">
+                            <a href="${pageContext.request.contextPath}/AdminQueryAllTeacherInfoServlet?pageNo=${i}">${i}</a>
+                        </c:if>
+                    </c:forEach>
+                </c:if>
+
+                <c:if test="${n%pageSize!=0}">
+                    <c:forEach begin="1" end="${n/pageSize+1}" var="i" step="1">
+                        <c:if test="${i==pageNo }">
+                            ${i}
+                        </c:if>
+
+                        <c:if test="${i!=pageNo && i < 5}">
+                            <a href="${pageContext.request.contextPath}/AdminQueryAllTeacherInfoServlet?pageNo=${i}">${i}</a>
+                        </c:if>
+
+                    </c:forEach>
+                </c:if>
+
+                <%--判断下一页 最后一页--%>
+                <c:if test="${pageNo == n}">
+                    <a>下一页</a>
+                    <a>最后一页</a>
+                </c:if>
+                <c:if test="${pageNo < n }">
+                    <a href="${pageContext.request.contextPath}/AdminQueryAllTeacherInfoServlet?pageNo=${pageNo+1 }">下一页</a>
+                    <a href="${pageContext.request.contextPath}/AdminQueryAllTeacherInfoServlet?pageNo=${n }">最后一页</a>
+                </c:if>
+            </td>
+        </tr>
     </table>
 </div>
 </body>

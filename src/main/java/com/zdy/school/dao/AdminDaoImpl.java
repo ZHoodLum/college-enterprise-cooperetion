@@ -113,6 +113,49 @@ public class AdminDaoImpl implements AdminDao {
         return n;
     }
 
+    //根据ID进行查询
+    @Override
+    public EnterpriseInfo queryGetByIdEnterpriseInfo(int enterpriseId) {
+        EnterpriseInfo enterpriseInfo = new EnterpriseInfo();
+        try {
+            String sql = "select * from enterpriseinfo where enterprise_id = ?;";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, enterpriseId);
+            rs = pstate.executeQuery();
+            if (rs.next()) {
+                enterpriseInfo.setEnterpriseId(rs.getInt("enterprise_id"));
+                enterpriseInfo.setEnterpriseName(rs.getString("enterprise_name"));
+                enterpriseInfo.setEnterprisePassword(rs.getString("enterprise_password"));
+                enterpriseInfo.setEnterpriseIntroduce(rs.getString("enterprise_introduce"));
+                enterpriseInfo.setEnterpriseAddress(rs.getString("enterprise_address"));
+                enterpriseInfo.setEnterpriseTel(rs.getString("enterprise_tel"));
+                enterpriseInfo.setEmail(rs.getString("email"));
+                enterpriseInfo.setEnterpriseManager(rs.getString("enterprise_manager"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return enterpriseInfo;
+    }
+
+    //删除
+    @Override
+    public boolean deleteEnterpriseInfo(int enterpriseId) {
+        try {
+            String sql = "delete from enterpriseinfo where enterprise_id = ?";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, enterpriseId);
+            int c = pstate.executeUpdate();
+            if (c > 0) {
+                flag = true;
+            }
+            DruidUtil.closeConnection(rs,con,pstate);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return flag;
+    }
+
     //教师信息查询分页
     @Override
     public List<TeacherInfo> findAllTeacherInfo(int pageNo, int pageSize) {
@@ -156,6 +199,50 @@ public class AdminDaoImpl implements AdminDao {
             e.printStackTrace();
         }
         return n;
+    }
+
+    //教师修改查询操作
+    @Override
+    public TeacherInfo queryGetByIdTeacherInfo(int teacherId) {
+        TeacherInfo teacherInfo = new TeacherInfo();
+        try {
+            String sql = "select * from teacherinfo where teacher_id = ?;";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, teacherId);
+            rs = pstate.executeQuery();
+            if (rs.next()) {
+                teacherInfo.setTeacherId(rs.getInt("teacher_id"));
+                teacherInfo.setTeacherAccount(rs.getInt("teacher_account"));
+                teacherInfo.setTeacherName(rs.getString("teacher_name"));
+                teacherInfo.setTeacherTel(rs.getString("teacher_tel"));
+                teacherInfo.setTeacherPassword(rs.getString("teacher_password"));
+                teacherInfo.setEmail(rs.getString("email"));
+                teacherInfo.setTeacherCollege(rs.getString("teacher_college"));
+                teacherInfo.setTeacherSex(rs.getString("teacher_sex"));
+                teacherInfo.setTeacherJob(rs.getString("teacher_job"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return teacherInfo;
+    }
+
+    //删除教师信息
+    @Override
+    public boolean deleteTeacherInfo(int teacherId) {
+        try {
+            String sql = "delete from teacherinfo where teacher_id = ?";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, teacherId);
+            int c = pstate.executeUpdate();
+            if (c > 0) {
+                flag = true;
+            }
+            DruidUtil.closeConnection(rs,con,pstate);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return flag;
     }
 
     //学生分页查询
@@ -236,6 +323,8 @@ public class AdminDaoImpl implements AdminDao {
         }
         return studentInfo;
     }
+
+
 
     //修改学生信息
     @Override

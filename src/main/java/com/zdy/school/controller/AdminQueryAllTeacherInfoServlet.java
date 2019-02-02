@@ -24,13 +24,16 @@ public class AdminQueryAllTeacherInfoServlet extends HttpServlet {
         AdminService adminService = new AdminServiceImpl();
         TeacherInfo teacherInfo = new TeacherInfo();
         int pageNo = Integer.parseInt(request.getParameter("pageNo"));
-        int pageSize = 5;
+        int pageSize = 12;
         //将数据存放在List中
         List<TeacherInfo> list = adminService.findAllTeacherInfo(pageNo, pageSize);
         //获取的总数据量
         int n = adminService.getTeacherInfoTotal();
+        //页数
+        int y = n/pageSize;
         request.getSession().setAttribute("list", list);
         request.getSession().setAttribute("n", n);
+        request.getSession().setAttribute("y", y);
         request.getSession().setAttribute("pageSize", pageSize);
         request.getSession().setAttribute("pageNo", pageNo);
         response.sendRedirect("/college-enterprise-cooperetion/jsp/manger-teacherinfo.jsp");

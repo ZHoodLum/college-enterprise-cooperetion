@@ -9,7 +9,8 @@ function validate() {
     }
     //教师名称的校验
     var teacher_name = document.getElementById("teacher_name").value;
-    var exp = new RegExp(/^(?!_)(?!.*?_$)([a-zA-Z\s.]|[\u4e00-\u9fa5\s.]){2,50}$/);
+    // var exp = new RegExp(/^(?!_)(?!.*?_$)([a-zA-Z\s.]|[\u4e00-\u9fa5\s.]){2,50}$/);
+    var exp = new RegExp(/^(?!_)(?!.*?_$)([0-9a-zA-Z\s.]|[\u4e00-\u9fa5\s.]){5,50}$/);
     if (!exp.test(teacher_name)  && teacher_name != null) {
         alert("请重新输入教师名称，教师名称不符合要求！");
         document.getElementById("teacher_name").focus();//光标定位

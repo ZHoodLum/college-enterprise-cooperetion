@@ -30,8 +30,11 @@ public class AdminQueryAllStudentInfoServlet extends HttpServlet {
         List<StudentInfo> list = adminService.findAllStudentInfo(pageNo, pageSize);
         //获取的总数据量
         int n = adminService.getStudentInfoTotal();
+        //页数
+        int y = n/pageSize;
         request.getSession().setAttribute("list", list);
         request.getSession().setAttribute("n", n);
+        request.getSession().setAttribute("y", y);
         request.getSession().setAttribute("pageSize", pageSize);
         request.getSession().setAttribute("pageNo", pageNo);
         response.sendRedirect("/college-enterprise-cooperetion/jsp/manger-studentinfo.jsp");

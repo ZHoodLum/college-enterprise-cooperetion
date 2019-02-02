@@ -16,14 +16,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>管理员修改学生信息</title>
     <link rel="stylesheet" type="text/css" href="../css/manger-addinformation.css">
     <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-    <!--
- 下拉框样式
- -->
+    <!--下拉框样式-->
     <style type="text/css">
         .selectbox{ float:left;margin-left:10px;width: 200px; display: inline-block; overflow-x: hidden; height: 28px; line-height: 28px; font-size: 0;  background:#fff url(images/arrow.png) right center no-repeat; border: 1px solid #dcdbdb; vertical-align: middle;}
         .selectbox select{cursor: pointer; padding: 0 8px; height: 28px; line-height: 28px; font-size: 12px; width:118%; padding-right: 18%; background:none; border: none;}
         .selectbox select option{ padding:5px;}
-        ul li{margin-left: 260px;}
+        /*ul li{margin-left: 260px;}*/
     </style>
     <script type="text/javascript">
         function del(studentId,pageNo){
@@ -50,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <p>
                                     <input type="hidden" id="student_id" name="student_id" value="${list.studentId}" readonly style="background-color: #9d9d9d;padding: 10px 0 10px 0"/>
                                     <input type="hidden" id="pageNo" name="pageNo" value="1" />
-                                    <input class="text2" type="text" name="student_account" value="${list.studentAccount}" readonly="readonly"   style="padding: 10px 0 10px 0"/>
+                                    <input class="text2" type="text" name="student_account" value="${list.studentAccount}"  style="background-color: #9d9d9d;padding: 10px 0 10px 0"/>
                                 </p>
                             </li>
                         </ul>
@@ -145,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" class="btn" style="float: left;margin-left: 420px;" value="保存信息">
+                        <input type="submit" class="btn" style="float: left;margin-left: px;" value="保存信息">
                         <a href="javascript: window.history.go(-1);" class="btn" style="float: left;margin-left: 10px;">返回上一页</a>
                     <a href="javascript:void(0)" id="btn1" class="btn" style="float: left;margin-left: 10px;background-color: red" onclick="return del(${list.studentId},1)">删除信息</a>
                     </td>

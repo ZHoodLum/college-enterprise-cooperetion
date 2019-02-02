@@ -9,7 +9,8 @@ function validate() {
     }
     //对学生名称的校验
     var student_name = document.getElementById("student_name").value;
-    var exp = new RegExp(/^(?!_)(?!.*?_$)([a-zA-Z\s.]|[\u4e00-\u9fa5\s.]){2,50}$/);
+    // var exp = new RegExp(/^(?!_)(?!.*?_$)([a-zA-Z\s.]|[\u4e00-\u9fa5\s.]){2,50}$/);
+    var exp = new RegExp(/^(?!_)(?!.*?_$)([0-9a-zA-Z\s.]|[\u4e00-\u9fa5\s.]){5,50}$/);
     if (!exp.test(student_name) && student_name != null) {
         alert("请重新输入学生名称，学生名称不符合要求！");
         document.getElementById("student_name").focus();//光标定位

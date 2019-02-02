@@ -38,7 +38,7 @@ function validate() {
 	 var enterprise_address = document.myform.enterprise_address.value;
      var exp = new RegExp(/^(?!_)(?!.*?_$)([a-zA-Z]|[\u4e00-\u9fa5]){6,60}$/);
 	 if (!exp.test(enterprise_address)) {
-	 alert("请重新输入地址，地址不一致！");
+	 alert("请重新输入地址，地址输入错误！");
 	 document.myform.enterprise_address.focus();//光标定位
 	 return false;//防止向下进行
 

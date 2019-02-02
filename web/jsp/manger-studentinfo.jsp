@@ -1,12 +1,13 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Psyduck
-  Date: 2019/1/22
+  Date: 2019/1/22f
   Time: 12:44
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java"  contentType="text/html;charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>学生全部信息</title>
@@ -79,57 +80,60 @@
     </div>
     <div id="footer" style="width: 100%;margin-top:1px; position: absolute;bottom:40px; left: 0;">
     <!-- 分页导航 -->
-    <table width="773" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tr align="center" style="width:60%">
-    <td width="335" align="center"  class="text_cray">&nbsp;&nbsp;当前页数：${pageNo}/${n}</td>
-    <td width="284" align="center"  class="text_cray">
-    <%--判断上一页下一下--%>
-    <c:if test="${pageNo == 1}">
-    <a>第一页</a>
-    <a>上一页</a>
-    </c:if>
-    <c:if test="${pageNo > 1}">
-    <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=1">第一页</a>
-    <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=${pageNo-1 }">上一页</a>
-    </c:if>
+        <table width="773" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr align="center" style="width:60%">
+            <td width="335" align="center"  class="text_cray">
+                &nbsp;&nbsp;当前数据量：${n}
+                <%--&nbsp;&nbsp;当前页数:<fmt:formatNumber type="number" value="${n/pageSize}" maxFractionDigits="0"/>--%>
+            </td>
+            <td width="284" align="center"  class="text_cray">
+            <%--判断上一页下一下--%>
+            <c:if test="${pageNo == 1}">
+            <a>第一页</a>
+            <a>上一页</a>
+            </c:if>
+            <c:if test="${pageNo > 1}">
+            <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=1">第一页</a>
+            <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=${pageNo-1 }">上一页</a>
+            </c:if>
 
-    <c:if test="${n%pageSize==0}">
-    <c:forEach begin="1" end="${n/pageSize}" var="i" step="1">
-    <c:if test="${i==pageNo }">
-    ${i}
-    </c:if>
-
-    <c:if test="${i!=pageNo }">
-    <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=${i}">${i}</a>
-    </c:if>
-    </c:forEach>
-    </c:if>
-
-    <c:if test="${n%pageSize!=0}">
-        <c:forEach begin="1" end="${n/pageSize+1}" var="i" step="1">
+            <c:if test="${n%pageSize==0}">
+            <c:forEach begin="1" end="${n/pageSize}" var="i" step="1">
             <c:if test="${i==pageNo }">
             ${i}
             </c:if>
 
-            <c:if test="${i!=pageNo && i < 5}">
+            <c:if test="${i!=pageNo }">
             <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=${i}">${i}</a>
             </c:if>
+            </c:forEach>
+            </c:if>
 
-        </c:forEach>
-    </c:if>
+            <c:if test="${n%pageSize!=0}">
+                <c:forEach begin="1" end="${n/pageSize+1}" var="i" step="1">
+                    <c:if test="${i==pageNo }">
+                    ${i}
+                    </c:if>
 
-    <%--判断下一页 最后一页--%>
-    <c:if test="${pageNo == n}">
-    <a>下一页</a>
-    <a>最后一页</a>
-    </c:if>
-    <c:if test="${pageNo < n }">
-    <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=${pageNo+1 }">下一页</a>
-    <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=${n }">最后一页</a>
-    </c:if>
-    </td>
-    </tr>
-    </table>
+                    <c:if test="${i!=pageNo && i < 5}">
+                    <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=${i}">${i}</a>
+                    </c:if>
+
+                </c:forEach>
+            </c:if>
+
+            <%--判断下一页 最后一页--%>
+            <c:if test="${pageNo == n}">
+            <a>下一页</a>
+            <a>最后一页</a>
+            </c:if>
+            <c:if test="${pageNo < n }">
+            <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=${pageNo+1 }">下一页</a>
+            <a href="${pageContext.request.contextPath}/AdminQueryAllStudentInfoServlet?pageNo=${n }">最后一页</a>
+            </c:if>
+            </td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>

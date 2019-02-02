@@ -49,11 +49,31 @@ public class AdminServiceImpl implements AdminService {
         List<EnterpriseInfo> list = adminDao.findAllEnterpriseInfo(pageNo, pageSize);
         return list;
     }
+
     //查询总数数据
     @Override
     public int getEnterpriseInfoTotal() {
         int n = adminDao.getEnterpriseInfoTotal();
         return n;
+    }
+
+    //根据ID进行查询
+    @Override
+    public EnterpriseInfo queryGetByIdEnterpriseInfo(int enterpriseId) {
+        return adminDao.queryGetByIdEnterpriseInfo(enterpriseId);
+    }
+
+    //删除企业信息
+    @Override
+    public boolean deleteEnterpriseInfo(int enterpriseId) {
+        int succ = 0;
+        boolean rows = adminDao.deleteEnterpriseInfo(enterpriseId);
+        if(rows == true) {
+            succ=1;//
+        }else {
+            succ=0;
+        }
+        return rows;
     }
 
     //教师分页查询
@@ -62,10 +82,31 @@ public class AdminServiceImpl implements AdminService {
         List<TeacherInfo> list = adminDao.findAllTeacherInfo(pageNo, pageSize);
         return list;
     }
+
+    //教师总数据量
     @Override
     public int getTeacherInfoTotal() {
         int n = adminDao.getTeacherInfoTotal();
         return n;
+    }
+
+    //教师根据ID查询
+    @Override
+    public TeacherInfo queryGetByIdTeacherInfo(int teacherId) {
+        return adminDao.queryGetByIdTeacherInfo(teacherId);
+    }
+
+    //教师删除
+    @Override
+    public boolean deleteTeacherInfo(int teacherId) {
+        int succ = 0;
+        boolean rows = adminDao.deleteTeacherInfo(teacherId);
+        if(rows == true) {
+            succ=1;//
+        }else {
+            succ=0;
+        }
+        return rows;
     }
 
     //学生分页查询
@@ -75,6 +116,7 @@ public class AdminServiceImpl implements AdminService {
         return list;
     }
 
+    //学生总数据
     @Override
     public int getStudentInfoTotal() {
         int n = adminDao.getStudentInfoTotal();

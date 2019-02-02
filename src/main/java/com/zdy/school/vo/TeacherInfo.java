@@ -16,6 +16,16 @@ public class TeacherInfo {
 	private String teacherSex;
 	private String teacherJob;
 
+	private int pageNo;
+
+	public int getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+
 	public Integer getTeacherId() {
 		return teacherId;
 	}

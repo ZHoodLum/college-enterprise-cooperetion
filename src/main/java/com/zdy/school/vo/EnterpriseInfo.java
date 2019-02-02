@@ -14,7 +14,15 @@ public class EnterpriseInfo {
 	private String enterpriseTel;
 	private String email;
 	private String enterpriseManager;
+	private int pageNo;
 
+	public int getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
 	public int getEnterpriseId() {
 		return enterpriseId;
 	}

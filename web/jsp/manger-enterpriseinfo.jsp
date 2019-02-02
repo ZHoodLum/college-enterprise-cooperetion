@@ -66,65 +66,68 @@
                     <td title="${si.enterpriseTel}">${si.enterpriseTel}</td>
                     <td title="${si.email}">${si.email}</td>
                     <td title="${si.enterpriseManager}">${si.enterpriseManager}</td>
-                    <td><a href="">修改</a>|<a href="">删除</a></td>
+                    <td><a href="${pageContext.request.contextPath}/AdminGetByIdEnterpriseInfoServlet?enterpriseId=${si.enterpriseId}">修改</a></td>
                     </tr>
                 </c:forEach>
             <tbody>
         </table>
     </div>
-<%--<div id="footer" style="width: 100%;margin-top:1px; position: absolute;bottom:40px; left: 0;">--%>
-    <%--<!-- 分页导航 -->--%>
-    <%--<table width="773" border="0" align="center" cellpadding="0" cellspacing="0">--%>
-        <%--<tr align="center" style="width:60%">--%>
-            <%--<td width="335" align="center"  class="text_cray">&nbsp;</td>--%>
-            <%--<td width="284" align="center"  class="text_cray">--%>
-                <%--&lt;%&ndash;判断上一页下一下&ndash;%&gt;--%>
-                <%--<c:if test="${pageNo == 1}">--%>
-                    <%--<a>第一页</a>--%>
-                    <%--<a>上一页</a>--%>
-                <%--</c:if>--%>
-                <%--<c:if test="${pageNo > 1}">--%>
-                    <%--<a href="${pageContext.request.contextPath}/EnterpriseStudentQueryAllServlet?pageNo=1&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">第一页</a>--%>
-                    <%--<a href="${pageContext.request.contextPath}/EnterpriseStudentQueryAllServlet?pageNo=${pageNo-1 }&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">上一页</a>--%>
-                <%--</c:if>--%>
+    <div id="footer" style="width: 100%;margin-top:1px; position: absolute;bottom:40px; left: 0;">
+        <!-- 分页导航 -->
+        <table width="773" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr align="center" style="width:60%">
+                <td width="335" align="center"  class="text_cray">
+                    &nbsp;&nbsp;当前数据量：${n}
+                    <%--&nbsp;&nbsp;当前页数：<fmt:formatNumber type="number" value="${n/pageSize}"/>--%>
+                </td>
+                <td width="284" align="center"  class="text_cray">
+                    <%--判断上一页下一下--%>
+                    <c:if test="${pageNo == 1}">
+                        <a>第一页</a>
+                        <a>上一页</a>
+                    </c:if>
+                    <c:if test="${pageNo > 1}">
+                        <a href="${pageContext.request.contextPath}/AdminQueryAllEnterpriseInfoServlet?pageNo=1">第一页</a>
+                        <a href="${pageContext.request.contextPath}/AdminQueryAllEnterpriseInfoServlet?pageNo=${pageNo-1 }">上一页</a>
+                    </c:if>
 
-                <%--<c:if test="${n%pageSize==0}">--%>
-                    <%--<c:forEach begin="1" end="${n/pageSize}" var="i" step="1">--%>
-                        <%--<c:if test="${i==pageNo }">--%>
-                            <%--${i}--%>
-                        <%--</c:if>--%>
+                    <c:if test="${n%pageSize==0}">
+                        <c:forEach begin="1" end="${n/pageSize}" var="i" step="1">
+                            <c:if test="${i==pageNo }">
+                                ${i}
+                            </c:if>
 
-                        <%--<c:if test="${i!=pageNo }">--%>
-                            <%--<a href="${pageContext.request.contextPath}/EnterpriseStudentQueryAllServlet?pageNo=${i}&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">${i}</a>--%>
-                        <%--</c:if>--%>
-                    <%--</c:forEach>--%>
-                <%--</c:if>--%>
+                            <c:if test="${i!=pageNo }">
+                                <a href="${pageContext.request.contextPath}/AdminQueryAllEnterpriseInfoServlet?pageNo=${i}">${i}</a>
+                            </c:if>
+                        </c:forEach>
+                    </c:if>
 
-                <%--<c:if test="${n%pageSize!=0}">--%>
-                    <%--<c:forEach begin="1" end="${n/pageSize+1}" var="i" step="1">--%>
-                        <%--<c:if test="${i==pageNo }">--%>
-                            <%--${i}--%>
-                        <%--</c:if>--%>
+                    <c:if test="${n%pageSize!=0}">
+                        <c:forEach begin="1" end="${n/pageSize+1}" var="i" step="1">
+                            <c:if test="${i==pageNo }">
+                                ${i}
+                            </c:if>
 
-                        <%--<c:if test="${i!=pageNo }">--%>
-                            <%--<a href="${pageContext.request.contextPath}/EnterpriseStudentQueryAllServlet?pageNo=${i}&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">${i}</a>--%>
-                        <%--</c:if>--%>
+                            <c:if test="${i!=pageNo && i < 5}">
+                                <a href="${pageContext.request.contextPath}/AdminQueryAllEnterpriseInfoServlet?pageNo=${i}">${i}</a>
+                            </c:if>
 
-                    <%--</c:forEach>--%>
-                <%--</c:if>--%>
+                        </c:forEach>
+                    </c:if>
 
-                <%--&lt;%&ndash;判断下一页 最后一页&ndash;%&gt;--%>
-                <%--<c:if test="${pageNo == n}">--%>
-                    <%--<a>下一页</a>--%>
-                    <%--<a>最后一页</a>--%>
-                <%--</c:if>--%>
-                <%--<c:if test="${pageNo < n }">--%>
-                    <%--<a href="${pageContext.request.contextPath}/EnterpriseStudentQueryAllServlet?pageNo=${pageNo+1 }&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">下一页</a>--%>
-                    <%--<a href="${pageContext.request.contextPath}/EnterpriseStudentQueryAllServlet?pageNo=${n }&enterpriseId=${sessionScope.EnterpriseInfo.getEnterpriseId()}">最后一页</a>--%>
-                <%--</c:if>--%>
-            <%--</td>--%>
-        <%--</tr>--%>
-    <%--</table>--%>
-<%--</div>--%>
+                    <%--判断下一页 最后一页--%>
+                    <c:if test="${pageNo == n}">
+                        <a>下一页</a>
+                        <a>最后一页</a>
+                    </c:if>
+                    <c:if test="${pageNo < n }">
+                        <a href="${pageContext.request.contextPath}/AdminQueryAllEnterpriseInfoServlet?pageNo=${pageNo+1 }">下一页</a>
+                        <a href="${pageContext.request.contextPath}/AdminQueryAllEnterpriseInfoServlet?pageNo=${n }">最后一页</a>
+                    </c:if>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
