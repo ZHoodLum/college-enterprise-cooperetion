@@ -15,8 +15,8 @@ import java.util.List;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/11/9
- * 企业查询学生信息
- * 根据学生电话进行查询 跳转student-information.jsp界面
+ * 企业查询学生成绩信息
+ * 根据学生电话进行查询 跳转student-score.jsp界面
  */
 @WebServlet("/StudentInfoConditionQueryServlet04")
 public class StudentInfoConditionQueryServlet04 extends HttpServlet {

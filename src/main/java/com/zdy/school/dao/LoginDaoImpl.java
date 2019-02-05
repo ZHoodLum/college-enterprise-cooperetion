@@ -23,7 +23,8 @@ public class LoginDaoImpl implements LoginDao {
 	public boolean studentlogin(StudentInfo studentInfo) throws Exception {
 		try {
 //			String sql = "select * from studentinfo where student_tel =? and student_password =?";
-			String sql = " select * from  studentinfo s,teacherinfo t,classinfo c where s.teacher_id = t.teacher_id and c.class_id = s.class_id and student_tel =? and student_password =?";
+//			String sql = " select * from  studentinfo s,teacherinfo t,classinfo c where s.teacher_id = t.teacher_id and c.class_id = s.class_id and student_tel =? and student_password =?";
+			String sql = " select * from  studentinfo where student_tel =? and student_password =?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, studentInfo.getStudentTel());
 			pstmt.setString(2, studentInfo.getStudentPassword());
@@ -43,8 +44,8 @@ public class LoginDaoImpl implements LoginDao {
 				studentInfo.setStudentInternship(rs.getString("student_internship"));
 				studentInfo.setStudentGrade(rs.getInt("student_grade"));
 				studentInfo.setClassId(rs.getInt("class_id"));
-				studentInfo.setClassName(rs.getString("class_name"));
-				studentInfo.setTeacherName(rs.getString("teacher_name"));
+//				studentInfo.setClassName(rs.getString("class_name"));
+//				studentInfo.setTeacherName(rs.getString("teacher_name"));
 				studentInfo.setTeacherId(rs.getInt("teacher_id"));
 //				studentInfo.setEnterpriseId(rs.getInt("enterprise_id"));
 //				studentInfo.setEnterpriseName(rs.getString("enterprise_name"));

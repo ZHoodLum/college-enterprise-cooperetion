@@ -42,8 +42,13 @@ public class InsertStudentInfoServlet extends HttpServlet {
         try {
 
             int datevalues = studentService.insertStudentInfo(studentInfo);
-            if (datevalues > 0){
-                request.getRequestDispatcher("/registersuccess.html").forward(request,response);
+            if (datevalues > 0) {
+//                response.sendRedirect("/college-enterprise-cooperetion/jsp/login.jsp");
+                request.getRequestDispatcher("/registersuccess.html").forward(request, response);
+            } else {
+                response.getWriter().print(
+                        "<script >alert('注册学生信息失败！');"
+                                + "</script>");
             }
         }catch (Exception e){
             e.printStackTrace();

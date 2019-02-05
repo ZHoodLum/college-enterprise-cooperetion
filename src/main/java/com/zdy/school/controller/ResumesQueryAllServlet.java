@@ -15,6 +15,7 @@ import java.io.PrintWriter;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/12/16
+ * 企业查询全部的简历信息
  */
 
 

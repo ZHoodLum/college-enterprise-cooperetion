@@ -17,6 +17,7 @@ import java.util.ArrayList;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/10/9
+ *用户查询全部招聘信息到main.jsp
  */
 
 @WebServlet("/JobInfoQueryAllServlet")
@@ -38,7 +39,6 @@ public class JobInfoQueryAllServlet extends HttpServlet {
 
             ArrayList<JobInfo> allJobInfo = jobInfoService.findAllJobInfo(jobInfo);
             request.getSession().setAttribute("allJobInfo",allJobInfo);
-//            request.getRequestDispatcher("main.jsp").forward(request,response);
             response.sendRedirect("main.jsp");
         } catch (Exception e) {
             e.printStackTrace();

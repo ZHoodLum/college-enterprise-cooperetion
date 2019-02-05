@@ -43,6 +43,10 @@ public class InsertTeacherInfoServlet extends HttpServlet
             int datevalues = teacherService.insertTeacherInfo(teacherInfo);
             if (datevalues > 0 ){
                 request.getRequestDispatcher("/registersuccess.html").forward(request,response);
+            }else {
+                response.getWriter().print(
+                        "<script >alert('注册教师信息失败!');"
+                                + "</script>");
             }
         }catch (Exception e){
             e.printStackTrace();

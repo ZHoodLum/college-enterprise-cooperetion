@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/11/9
- * 管理员查询学生信息
+ * 管理员按条件查询学生信息
  */
 @WebServlet("/StudentInfoConditionQueryServlet05")
 public class StudentInfoConditionQueryServlet05 extends HttpServlet {

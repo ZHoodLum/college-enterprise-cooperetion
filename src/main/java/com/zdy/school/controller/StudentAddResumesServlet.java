@@ -15,6 +15,7 @@ import java.sql.Date;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/12/16
+ * 学生提交  保存简历信息
  */
 
 @WebServlet("/StudentAddResumesServlet")

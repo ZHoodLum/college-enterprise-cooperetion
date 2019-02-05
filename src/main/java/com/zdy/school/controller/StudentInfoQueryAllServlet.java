@@ -19,6 +19,7 @@ import java.util.List;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/11/10
+ *  教师查询全部学生信息
  */
 
 @WebServlet("/StudentInfoQueryAllServlet")

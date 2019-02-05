@@ -40,6 +40,10 @@ public class InsertEnterpriseInfoServlet extends HttpServlet {
         int datevalues = enterpriseService.intsertEnterpriseInfo(enterpriseInfo);
         if (datevalues > 0 ){
             request.getRequestDispatcher("/registersuccess.html").forward(request,response);
+        }else {
+            response.getWriter().print(
+                    "<script >alert('注册管理员信息失败！');"
+                            + "</script>");
         }
     }
 }

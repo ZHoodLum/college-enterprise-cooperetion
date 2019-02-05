@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/11/25
+ * 学生登陆后  查询全部的招聘信息
  */
 
 

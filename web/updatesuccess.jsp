@@ -44,7 +44,7 @@
 <body>
 <h2>恭喜您，修改成功！</h2>
 <!--<h5>提示：重新登录后即可生效！！！！！<a href="jsp/login.jsp">重新登陆</a> </h5>-->
-<h5>提示：重新登录后即可生效！！！！！<a href="${pageContext.request.contextPath}/LogoutServlet"  target="_blank">重新登陆</a> </h5>
+<h5>提示：重新登录后即可生效！！！！！<a href="${pageContext.request.contextPath}/LogoutServlet"  target="">重新登陆</a> </h5>
 <div class='base'>
 
     <div class='cube'><i>新</i></div>

@@ -190,7 +190,7 @@
 				 <br/>电子邮件：<br/>
 				 <textarea rows="1" id="email" name="email" readonly><%=session.getAttribute("email")%></textarea>
 
-				 <br/>学习时间（结束时间）：<br/>
+				 <br/>学习时间（结束时间 例如：2019/2/4-2019/6/24）：<br/>
 				 <textarea rows="1" id="student_continue_time" name="student_continue_time">${sessionScope.resumes.studentContineTime}</textarea>
 
 				 <br/>主修：<br/>

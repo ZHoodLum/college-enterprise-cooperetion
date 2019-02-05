@@ -14,6 +14,7 @@ import java.io.IOException;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2019/1/6
+ * 企业审核简历信息  给予通过请求
  */
 
 

@@ -18,6 +18,7 @@ import java.util.ArrayList;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/11/10
+ * //查询全部教师  学生修改个人信息时 选择导师
  */
 
 @WebServlet("/TeacherInfoQueryAllServlet")

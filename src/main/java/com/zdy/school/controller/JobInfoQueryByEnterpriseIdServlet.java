@@ -16,6 +16,7 @@ import java.util.ArrayList;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/11/20
+ * 企业查询招聘信息   用于企业管理自己发布的招聘信息
  */
 
 @WebServlet("/JobInfoQueryByEnterpriseIdServlet")

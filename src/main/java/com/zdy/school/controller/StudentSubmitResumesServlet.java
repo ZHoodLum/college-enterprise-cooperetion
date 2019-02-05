@@ -22,6 +22,7 @@ import static sun.misc.MessageUtils.out;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/12/18
+ * 学生向企业提交简历信息
  */
 
 

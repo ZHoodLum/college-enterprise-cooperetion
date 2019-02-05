@@ -17,6 +17,9 @@ import java.io.PrintWriter;
 /**
  * @ Author     ：ZhoodLum
  * @ Date       ：Created in 2018/12/19
+ *
+ * /根据学生id 企业id进行查询是否存在该条信息
+ * 学生向企业提交简历前检索是否已存在该用户简历信息的Servlet
  */
 
 

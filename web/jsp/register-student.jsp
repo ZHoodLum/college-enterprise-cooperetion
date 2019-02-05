@@ -18,7 +18,16 @@
   <!--js验证注册信息-->
   <script type="text/javascript" src="../js/registerstudent.js" ></script>
   <script language="javascript">
-
+      function validate() {
+          //对学生名称的校验
+          var student_name = document.getElementById("student_name").value;
+          var exp = new RegExp(/^(?!_)(?!.*?_$)([a-zA-Z]|[\u4e00-\u9fa5]){2,30}$/);
+          if (!exp.test(student_name) && student_name == "") {
+              alert("请重新输入学生名称，学生名称不符合要求！");
+              document.getElementById("student_name").focus();//光标定位
+              return false;//防止向下进行
+          }
+      }
   </script>
 </head>
 <body>
