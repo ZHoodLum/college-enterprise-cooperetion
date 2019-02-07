@@ -22,10 +22,23 @@
         .search{border-color:blue;width: 200px;height:30px;outline: none;border-radius:10px;padding: 3px 0 3px 3px;}
         .sub{background-color: blue;border: 2px;width: 60px;height: 30px;font-size: 16px;font-family:YouYuan;}
         <!--下拉框样式-->
-            .selectbox{ width: 200px; display: inline-block; overflow-x: hidden; height: 28px; line-height: 28px; font-size: 0;  background:#fff url(images/arrow.png) right center no-repeat;  vertical-align: middle;}
+            .selectbox{ width: 200px; display: inline-block; overflow-x: hidden; height: 28px; line-height: 28px; font-size: 0;  background:#fff url(../images/arrow.png) right center no-repeat;  vertical-align: middle;}
         .selectbox select{cursor: pointer; padding: 0 8px; height: 28px; line-height: 28px; font-size: 14px; width:100%; padding-right: 18%; background:none; border: none;}
         .selectbox select option{ padding:5px;}
     </style>
+    <script type="text/javascript">
+        function shanchu() {
+            if (confirm("确定删除？")) {
+                var studentId = document.getElementById("studentId").value;
+                var pageNo = 1;
+                window.location.href = "${pageContext.request.contextPath}/AdminDeleteStudentReusmesServlet?studentId="+studentId+"&pageNo="+pageNo+"";
+                return true;
+                alert("删除成功！");
+            } else {
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="checkout-title" style="font-family: 微软雅黑;font-size: 20px;text-align: center;margin-top: 5px;font-weight: bold;">
@@ -63,7 +76,10 @@
                 <c:if test="${i.index%2 == 1 }">
                     <tr align="center" bgcolor="#dcdcdc" style="border:0px;padding: 3px 0 3px 0">
                 </c:if>
-                <td  style="padding:7px 0 7px 0;" title="${si.studentId}">${si.studentId}</td>
+                <td  style="padding:7px 0 7px 0;" title="${si.studentId}">
+                        ${si.studentId}
+                    <input id="studentId" name="studentId" value="${si.studentId}" type="hidden">
+                </td>
                 <td  style="padding:7px 0 7px 0;" title="${si.studentAccount}">${si.studentAccount}</td>
                 <td title="${si.studentName}">${si.studentName}</td>
                 <td title="${si.studentSex}">${si.studentSex}</td>
@@ -72,7 +88,10 @@
                 <td title="${si.email}">${si.email}</td>
                 <td title="${si.studentTel}">${si.studentTel}</td>
                 <td title="${si.studentCollege}">${si.studentCollege}</td>
-                <td ><a href="${pageContext.request.contextPath}/AdminGetByIdStudentInfoServlet?studentId=${si.studentId}">修改</a></td>
+                <td >
+                    <a href="${pageContext.request.contextPath}/AdminGetByIdStudentInfoServlet?studentId=${si.studentId}">修改</a>
+                    <a href="javascript:;" onclick="shanchu()">删除简历</a>
+                </td>
                 </tr>
             </c:forEach>
             <tbody>

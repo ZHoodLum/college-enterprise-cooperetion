@@ -62,4 +62,7 @@ public interface AdminDao {
     //删除学生信息
     boolean deleteStudentInfo(int studentId);
 
+    //删除学生简历信息
+    boolean deleteStudentResumes(int studentId);
+
 }

@@ -47,7 +47,10 @@ public class StudentAddResumesServlet extends HttpServlet {
 //            request.getRequestDispatcher("jsp/contact.jsp").forward(request,response);
 //            response.sendRedirect("jsp/contact.jsp");
 //            response.sendRedirect("ResumesQueryAllServlet");
-
+        }else {
+            response.getWriter().print(
+                    "<script >alert('修改简历信息失败!');"
+                            + "</script>");
         }
     }
 }

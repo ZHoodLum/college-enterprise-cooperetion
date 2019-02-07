@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             //重复密码
             var student_repassword = document.myform.student_repassword.value;
             if(student_repassword!=student_password){
-                alert("密码不一致不符");
+                alert("密码不一致，不符合要求！");
                 document.myform.student_repassword.focus();//光标定位
                 return false;//防止向下进行
             }
@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="container">
 
     <div class="checkout-title">
-        <span><hr class="hrLine" style="width:500px;"/>修改学生信息<hr class="hrLine" style="width:500px;"/></span>
+        <span><hr class="hrLine" style="width:500px;"/>学生个人信息管理<hr class="hrLine" style="width:500px;"/></span>
     </div>
 
     <div>

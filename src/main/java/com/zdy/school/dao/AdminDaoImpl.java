@@ -374,4 +374,23 @@ public class AdminDaoImpl implements AdminDao {
         }
         return flag;
     }
+
+    //删除学生简历信息
+    @Override
+    public boolean deleteStudentResumes(int studentId) {
+        try {
+            String sql = "delete from resumes where student_id = ?";
+            pstate = con.prepareStatement(sql);
+            pstate.setInt(1, studentId);
+            int c = pstate.executeUpdate();
+            if (c > 0) {
+                flag = true;
+            }
+            DruidUtil.closeConnection(rs,con,pstate);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return flag;
+    }
+
 }

@@ -155,4 +155,17 @@ public class AdminServiceImpl implements AdminService {
         return rows;
     }
 
+    //删除学生简历信息
+    @Override
+    public boolean deleteStudentResumes(int studentId) {
+        int succ = 0;
+        boolean rows = adminDao.deleteStudentResumes(studentId);
+        if(rows == true) {
+            succ=1;//
+        }else {
+            succ=0;
+        }
+        return rows;
+    }
+
 }

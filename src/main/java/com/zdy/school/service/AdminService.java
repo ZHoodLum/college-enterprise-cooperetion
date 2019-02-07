@@ -30,7 +30,7 @@ public interface AdminService {
     //根据id进行查询修改
     EnterpriseInfo queryGetByIdEnterpriseInfo(int enterpriseId);
 
-    //删除学生信息
+    //删除企业信息
     boolean deleteEnterpriseInfo(int enterpriseId);
 
     /*********************************************教师****************************************************/
@@ -62,4 +62,6 @@ public interface AdminService {
     //删除学生信息
     boolean deleteStudentInfo(int studentId);
 
+    //删除学生简历信息
+    boolean deleteStudentResumes(int studentId);
 }

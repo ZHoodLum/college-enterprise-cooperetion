@@ -81,7 +81,7 @@
                         </tr>
                         <%
                             ArrayList<JobInfo> allJobInfo = (ArrayList<JobInfo>)session.getAttribute("allJobInfo");
-                            for (int i = 0; i < 3; i++) {
+                            for (int i = 0; i < 6; i++) {
                                 JobInfo jobInfo = allJobInfo.get(i);
                         %>
                         <tr align="center" style="padding:10px;">
