@@ -1,3 +1,4 @@
+<%@ page import="com.zdy.school.vo.Resumes" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -201,10 +202,10 @@
 
 				<br/><p>自我评价：</p>
 				 <textarea cols="77" rows="6" id="self_evaluation" name="self_evaluation">${sessionScope.resumes.selfEvaluation}</textarea>
-
 				<div class="send" id="send">
 					<c:choose>
-						<c:when test="${sessionScope.resumes.resumeId == null}"><!-- 如果 -->
+						<c:when test="${sessionScope.resumes.resumeId == 0}"><!-- 如果 -->
+						<%--<c:when test="<%=session.getAttribute("resume_id").equals("党员")%>"><!-- 如果 -->--%>
 							<input type="submit" value="提交"/>
 						</c:when>
 						<c:otherwise>

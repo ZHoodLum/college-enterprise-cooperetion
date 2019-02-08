@@ -1,9 +1,9 @@
 function validate() {
-    //教师账号验证
+    //教师工号验证
     var teacher_account = document.getElementById("teacher_account").value;
-    var exp = new RegExp(/^\d{0,10}$/);
+    var exp = new RegExp(/^\d{4,10}$/);
     if (!exp.test(teacher_account)  && teacher_account == "") {
-        alert("请重新输入教师账号，教师账号不符合要求！");
+        alert("请重新输入教师工号，教师工号不符合要求！");
         document.getElementById("teacher_account").focus();//光标定位
         return false;//防止向下进行
     }

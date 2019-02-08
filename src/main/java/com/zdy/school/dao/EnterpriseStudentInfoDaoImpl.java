@@ -58,15 +58,17 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
 
     //企业查询自己的招聘信息（审核查询）
     @Override
-    public List<EnterpriseStudentInfo> queryEnterpriseStudentinfo(EnterpriseStudentInfo enterpriseStudentInfo) {
+    public List<EnterpriseStudentInfo> queryEnterpriseStudentinfo(int enterpriseId) {
         List<EnterpriseStudentInfo> allEnterpriseStudentInfoArrayList = new ArrayList<EnterpriseStudentInfo>();
         try {
-            String sql = "select * from enterprise_studentinfo es, studentinfo s,enterpriseinfo e,jobinfo j,resumes r where es.student_id = s.student_id and es.enterprise_id = e.enterprise_id and es.job_id = j.job_id and s.student_id = r.student_id and j.information_state = 0  and e.enterprise_id = ?;";
-//            String sql = "select * from enterprise_studentinfo es, studentinfo s,enterpriseinfo e,jobinfo j,resumes r where es.student_id = s.student_id and es.enterprise_id = e.enterprise_id and es.job_id = j.job_id and s.student_id = r.student_id and j.information_state = 0 and es.information_state = 1 and e.enterprise_id = ?;";
+            String sql = "select * from enterprise_studentinfo es, studentinfo s,enterpriseinfo e,jobinfo j,resumes r where es.student_id = s.student_id and es.enterprise_id = e.enterprise_id and es.job_id = j.job_id and s.student_id = r.student_id and es.enterprise_id = ?;";
+//            String sql1 ="select * from enterprise_studentinfo es, studentinfo s,enterpriseinfo e,jobinfo j,resumes r where es.student_id = s.student_id and es.enterprise_id = e.enterprise_id and es.job_id = j.job_id and s.student_id = r.student_id and j.information_state = 0 and es.information_state = 1 and e.enterprise_id = ?;";
             pstate = conn.prepareStatement(sql);
-            pstate.setInt(1, enterpriseStudentInfo.getEnterpriseId());
+//            pstate = conn.prepareStatement(sql1);
+            pstate.setInt(1, enterpriseId);
             rs = pstate.executeQuery();
             while (rs.next()) {
+                EnterpriseStudentInfo enterpriseStudentInfo = new EnterpriseStudentInfo();
                 enterpriseStudentInfo.setId(rs.getInt("id"));
                 enterpriseStudentInfo.setJobId(rs.getInt("job_id"));
                 enterpriseStudentInfo.setStudentId(rs.getInt("student_id"));
@@ -90,7 +92,7 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
 //                System.out.println(rs.getString("major"));
                 allEnterpriseStudentInfoArrayList.add(enterpriseStudentInfo);
             }
-            DruidUtil.closeConnection(rs,conn,pstate);
+//            DruidUtil.closeConnection(rs,conn,pstate);
         } catch (Exception e) {
             e.printStackTrace();
         }

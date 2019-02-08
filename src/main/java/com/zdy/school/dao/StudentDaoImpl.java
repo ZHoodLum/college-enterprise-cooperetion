@@ -71,6 +71,7 @@ public class StudentDaoImpl implements StudentDao{
                 " and c.class_id = s.class_id " +
                 " and e.enterprise_id = es.enterprise_id  " +
                 " and s.student_id = es.student_id " +
+                " and es.information_state = 0" +
                 " and e.enterprise_id = ?" +
                 " limit ?,?;";
         try{
@@ -152,7 +153,7 @@ public class StudentDaoImpl implements StudentDao{
             if (rows>0){
                 flag = true;
             }
-            DruidUtil.closeConnection(rs,con,pstate);
+//            DruidUtil.closeConnection(rs,con,pstate);
         }catch (SQLException e){
             e.printStackTrace();
         }catch (Exception e){
@@ -170,6 +171,7 @@ public class StudentDaoImpl implements StudentDao{
                 " and es.enterprise_id = e.enterprise_id " +
                 "and c.class_id = s.class_id  " +
                 "and t.teacher_id = s.teacher_id" +
+                " and es.information_state = 0" +
                 " and t.teacher_id = ?;";
         try{
             pstate = con.prepareStatement(sql);
@@ -453,6 +455,7 @@ public class StudentDaoImpl implements StudentDao{
             while (rs.next()) {
                 flag = true;
                 resumes.setStudentId(rs.getInt("student_id"));
+                resumes.setResumeId(rs.getInt("resume_id"));
                 resumes.setNationality(rs.getString("nationality"));
                 resumes.setBirthday(rs.getDate("birthday"));
                 resumes.setPolitics(rs.getString("politics"));

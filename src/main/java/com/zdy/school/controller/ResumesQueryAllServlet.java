@@ -28,18 +28,19 @@ public class ResumesQueryAllServlet extends HttpServlet {
         int studentId = Integer.parseInt(request.getParameter("student_id"));
         try {
             Resumes resumes = studentService.findResumesById(studentId);
-            request.getSession().setAttribute("resumes",resumes);
+            request.getSession().setAttribute("resumes", resumes);
+            request.getSession().setAttribute("resume_id",resumes.getResumeId());
             request.getSession().setAttribute("health",resumes.getHealth());
             request.getSession().setAttribute("politics",resumes.getPolitics());
             response.sendRedirect("jsp/contact.jsp");
 
-            out.print(resumes);
-            if (resumes != null){
-                out.print("success");
-//                out.write("success");
-            }else {
-                out.print("false");
-            }
+//            out.print(resumes);
+//            if (resumes != null){
+//                out.print("success");
+////                out.write("success");
+//            }else {
+//                out.print("false");
+//            }
 
         } catch (Exception e) {
             e.printStackTrace();

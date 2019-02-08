@@ -27,7 +27,7 @@
           <h3>企业账号：</h3>
           <p>
             <input type="text" id="enterprise_id" name="enterprise_id" placeholder="请填写贵公司账号！"
-                    property="text" minLength="6" maxLength="10" requiredFieldError="请输入密码，6到10个字符，不允许输入特殊字符！" tooShortError="密码长度必须大于6"
+                    property="text" minLength="4" maxLength="10" requiredFieldError="请输入密码，4到10个字符，不允许输入特殊字符！" tooShortError="密码长度必须大于6"
                     tooLongError="密码不能超过12位"/>
             <font color="#C0C0C0">6-10个数字，可使用数字！</font>
           </p>

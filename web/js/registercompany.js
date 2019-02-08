@@ -1,7 +1,7 @@
 function validate() {
     //企业账号验证
     var enterprise_id = document.myform.enterprise_id.value;
-    var exp = new RegExp(/^\d{0,10}$/);
+    var exp = new RegExp(/^\d{4,10}$/);
     if (!exp.test(enterprise_id) && enterprise_id == "") {
         alert("请重新输入企业账号，企业账号不符合要求！");
         document.myform.enterprise_id.focus();//光标定位

@@ -65,7 +65,7 @@
 
         <dl class="source" style="position:absolute;bottom: 50px;width: 100%">
             <dt><img src="../images/left/select_xl01.png">
-                <a href="${pageContext.request.contextPath}/LogoutServlet" target="" style="font-size: 19px;color: white;">注销</a>
+                <a href="${pageContext.request.contextPath}/LogoutServlet" target="_blank" style="font-size: 19px;color: white;">注销</a>
             </dt>
             <%--<dd class="first_dd"></dd>--%>
             <%--<dd class="first_dd" style="height: 10px;"></dd>--%>

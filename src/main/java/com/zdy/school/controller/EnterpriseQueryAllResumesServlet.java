@@ -24,11 +24,12 @@ public class EnterpriseQueryAllResumesServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EnterpriseStudentInfoService enterpriseStudentInfoService = new EnterpriseStudentInfoServiceImpl();
         EnterpriseStudentInfo enterpriseStudentInfo = new EnterpriseStudentInfo();
+
         int enterpriseId = Integer.parseInt(request.getParameter("enterpriseId"));
-        enterpriseStudentInfo.setEnterpriseId(enterpriseId);
-        System.out.println("审核简历渠道的企业ID是：" + enterpriseId);
-        List<EnterpriseStudentInfo> list = enterpriseStudentInfoService.queryEnterpriseStudentinfo(enterpriseStudentInfo);
-        request.getSession().setAttribute("list", list);
+//        enterpriseStudentInfo.setEnterpriseId(enterpriseId);
+//        System.out.println("审核简历渠道的企业ID是：" + enterpriseId);
+        List<EnterpriseStudentInfo> allEnterpriseStudentInfo = enterpriseStudentInfoService.queryEnterpriseStudentinfo(enterpriseId);
+        request.getSession().setAttribute("allEnterpriseStudentInfo", allEnterpriseStudentInfo);
 //        response.sendRedirect("college-enterprise-cooperetion/jsp/applicationaudit.jsp");
         request.getRequestDispatcher("jsp/applicationaudit.jsp").forward(request, response);
     }

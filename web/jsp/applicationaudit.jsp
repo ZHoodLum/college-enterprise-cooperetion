@@ -1,3 +1,7 @@
+<%@ page import="com.zdy.school.vo.Resumes" %>
+<%@ page import="com.zdy.school.vo.EnterpriseStudentInfo" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -48,37 +52,34 @@
             <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">信息状态</td>
             <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">操作</td>
         </tr>
-        <c:forEach items="${list}" var="es" varStatus="i">
+        <c:forEach items="${allEnterpriseStudentInfo}" var="es" varStatus="i">
             <c:if test="${i.index%2 == 0}">
                  <tr align="center" bgcolor="#FFFFFF" style="border:0px;padding: 3px 0 3px 0">
             </c:if>
             <c:if test="${i.index%2 == 1}">
                 <tr align="center" bgcolor="#F5F5F5" style="border:0px;padding: 3px 0 3px 0">
             </c:if>
-        <%--<tr align="center" style="padding:10px; border-bottom: 1px dashed #6bb642;">--%>
-            <%--<input type="text" name="id" value="${es.id}">--%>
-            <td style="padding:15px;">${es.jobId}</td>
-            <td style="padding:15px;">${es.studentName}</td>
-            <td style="padding:15px;">${es.major}</td>
-            <td style="padding:15px;">${es.college}</td>
-            <td style="padding:15px;">${es.education}</td>
-            <td style="padding:15px;">${es.selfEvaluation}</td>
-            <td style="padding:15px;">${es.graduateTime}</td>
-                <td>
-                    <p>
-                        <input type="checkbox" id="informationState" disabled="disabled"   name="informationState" class="lcs_check lcs_tt1" value="${es.informationState}"  onclick="return false" autocomplete="off" ${es.informationState == 0?"checked":""}/>
-                        <%--<input type="text" value="${es.informationState}">--%>
-                    </p>
-                </td>
-            <td style="padding:15px;">
-                <div class="theme-buy">
-                    <a class="btn btn-large theme-login" href="EnterpriseQueryByIdResumesServlet?id=${es.id}">查看详情</a>
-                </div>
-            </td>
-        </c:forEach>
-
-    <%--</tr>--%>
-
+                <%--<tr align="center" style="padding:10px; border-bottom: 1px dashed #6bb642;">--%>
+                <%--<input type="text" name="id" value="${es.id}">--%>
+                    <td style="padding:15px;">${es.jobId}</td>
+                    <td style="padding:15px;">${es.studentName}</td>
+                    <td style="padding:15px;">${es.major}</td>
+                    <td style="padding:15px;">${es.college}</td>
+                    <td style="padding:15px;">${es.education}</td>
+                    <td style="padding:15px;">${es.selfEvaluation}</td>
+                    <td style="padding:15px;">${es.graduateTime}</td>
+                    <td>
+                        <p>
+                            <input type="checkbox" id="informationState" disabled="disabled"   name="informationState" class="lcs_check lcs_tt1" value="${es.informationState}"  onclick="return false" autocomplete="off" ${es.informationState == 0?"checked":""}/>
+                        </p>
+                    </td>
+                    <td style="padding:15px;">
+                        <div class="theme-buy">
+                            <a class="btn btn-large theme-login" href="EnterpriseQueryByIdResumesServlet?id=${es.id}">查看详情</a>
+                        </div>
+                    </td>
+                </tr>
+            </c:forEach>
     </table>
 </div>
 </body>

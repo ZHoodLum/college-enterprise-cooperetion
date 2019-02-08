@@ -22,7 +22,7 @@
   <div class="main">
     <ul>
       <li class="first">
-        <h3>教师账号：</h3>
+        <h3>教师工号：</h3>
         <p>
           <input type="text" id="teacher_account" name="teacher_account" placeholder="请填写您的工号！"/>
           <font color="#C0C0C0">6-10个数字，可使用数字！</font>

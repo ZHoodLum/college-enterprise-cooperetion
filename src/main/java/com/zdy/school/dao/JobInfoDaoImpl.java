@@ -1,7 +1,6 @@
 package com.zdy.school.dao;
 
 import com.zdy.school.util.DruidUtil;
-import com.zdy.school.util.PageBean;
 import com.zdy.school.vo.EnterpriseInfo;
 import com.zdy.school.vo.JobInfo;
 import com.zdy.school.vo.StudentInfo;

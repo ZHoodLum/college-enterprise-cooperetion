@@ -3,7 +3,9 @@ package com.zdy.school.service;
 import com.zdy.school.dao.EnterpriseStudentInfoDao;
 import com.zdy.school.dao.EnterpriseStudentInfoDaoImpl;
 import com.zdy.school.vo.EnterpriseStudentInfo;
+import com.zdy.school.vo.StudentInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,8 +40,9 @@ public class EnterpriseStudentInfoServiceImpl implements EnterpriseStudentInfoSe
 
     //企业查询自己的招聘信息（审核查询）
     @Override
-    public List<EnterpriseStudentInfo> queryEnterpriseStudentinfo(EnterpriseStudentInfo enterpriseStudentInfo) {
-        return enterpriseStudentInfoDao.queryEnterpriseStudentinfo(enterpriseStudentInfo);
+    public List<EnterpriseStudentInfo> queryEnterpriseStudentinfo(int enterpriseId) {
+        List<EnterpriseStudentInfo> list = enterpriseStudentInfoDao.queryEnterpriseStudentinfo(enterpriseId);
+        return list;
     }
 
     //企业查看简历信息详情

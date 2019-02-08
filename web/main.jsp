@@ -56,7 +56,8 @@
                         <span class="main2"><a href="jsp/contact.jsp"></a></span>
                     </c:when>
                     <c:otherwise>
-                        <span class="main2"><a href="jsp/contact.jsp">我的简历</a></span>
+                        <%--<span class="main2"><a href="jsp/contact.jsp">我的简历</a></span>--%>
+                        <span class="main2"><a href="${pageContext.request.contextPath}/ResumesQueryAllServlet?student_id=${sessionScope.StudentInfo.getStudentId()}">我的简历</a></span>
                     </c:otherwise>
                 </c:choose>
             </div>
