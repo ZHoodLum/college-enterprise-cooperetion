@@ -44,7 +44,7 @@ public class AdminUpdateStudentInfoServlet extends HttpServlet {
             }else {
                 System.out.println("succ="+succ);
                 response.getWriter().print(
-                        "<script >alert('修改失败');"
+                        "<script >alert('修改学生信息失败！');"
                                 + "history.go(-1);"
                                 + "</script>");
             }

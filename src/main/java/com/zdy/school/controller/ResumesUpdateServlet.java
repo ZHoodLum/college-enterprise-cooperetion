@@ -33,7 +33,7 @@ public class ResumesUpdateServlet extends HttpServlet {
 
         try {
             boolean rows = enterpriseStudentInfoService.ResumesUpdate(enterpriseStudentInfo);
-            if (rows = true){
+            if (rows == true){
 //                response.sendRedirect("/EnterpriseQueryAllResumesServlet");
                 request.getRequestDispatcher("/EnterpriseQueryAllResumesServlet").forward(request, response);
 

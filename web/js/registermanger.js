@@ -12,7 +12,7 @@ function validate() {
     // var exp = new RegExp(/^(?!_)(?!.*?_$)([0-9a-zA-Z\s.]|[\u4e00-\u9fa5\s.]){2,50}$/);
     var exp = new RegExp(/^(?!_)(?!.*?_$)([a-zA-Z\s.]|[\u4e00-\u9fa5\s.]){2,50}$/);
     if (!exp.test(admin_name) && admin_name == "") {
-        alert("请重新输入管理员名称，1111管理员名称不符合要求！");
+        alert("请重新输入管理员名称，管理员名称不符合要求！");
         document.getElementById("admin_name").focus();//光标定位
         return false;//防止向下进行
 

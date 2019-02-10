@@ -31,15 +31,15 @@
         <span><hr class="hrLine" style="width:260px;vertical-align:middle; display:inline-block;"/>企业信息管理<hr class="hrLine" style="width:260px;vertical-align:middle; display:inline-block;"/></span>
     </div>
     <!--搜索框 <div class="search"></div>-->
-    <form action="${pageContext.request.contextPath}/StudentInfoConditionQueryServlet02" method="get">
-        <div>
-            <div class="sousuo">
-                <input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索"/>
-                <input type="text" name="studentAccount" class="search" placeholder="根据学号进行搜索"/>
-                <input type="submit" value="搜索" class="sub"/>
-            </div>
-        </div>
-    </form>
+    <%--<form action="${pageContext.request.contextPath}/StudentInfoConditionQueryServlet02" method="get">--%>
+        <%--<div>--%>
+            <%--<div class="sousuo">--%>
+                <%--<input type="text" name="studentTel" class="search" placeholder="根据电话进行搜索"/>--%>
+                <%--<input type="text" name="studentAccount" class="search" placeholder="根据学号进行搜索"/>--%>
+                <%--<input type="submit" value="搜索" class="sub"/>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</form>--%>
     <div id="recruitinformation">
         <table width="100%" border="2px" cellpadding="0" cellspacing="0">
                 <tr align="center"  bgcolor="#FFFFFF" border: 0px;>

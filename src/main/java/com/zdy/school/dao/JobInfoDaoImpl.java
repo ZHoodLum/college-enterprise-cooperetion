@@ -135,7 +135,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
     public ArrayList<JobInfo> findByEnterpriseId(int enterpriseId) {
         ArrayList<JobInfo> jobInfoList = new ArrayList<JobInfo>();
         try {
-            String sql = "select * from jobinfo j,enterpriseinfo e where j.enterprise_id = e.enterprise_id and e.enterprise_id = ?";
+            String sql = "select * from jobinfo j,enterpriseinfo e where j.enterprise_id = e.enterprise_id and e.enterprise_id = ? order by j.job_date desc ";
             pstate = con.prepareStatement(sql);
             pstate.setInt(1,enterpriseId);
             rs = pstate.executeQuery();
@@ -247,7 +247,7 @@ public class JobInfoDaoImpl implements JobInfoDao{
             }if (jobInfo.getEnterpriseId() != null && !"".equals(jobInfo.getEnterpriseId())) {
                  sql.append(" and j.enterprise_id = ?");
             }
-
+             sql.append(" order by j.job_date desc ");
         try {
             pstate = con.prepareStatement(sql.toString());
             int i = 1;

@@ -49,23 +49,23 @@
                 <c:if test="${i.index%2 == 1 }">
                     <tr align="center" bgcolor="#F5F5F5" style="border:0px;padding: 3px 0 3px 0">
                 </c:if>
-                <form action="${pageContext.request.contextPath}/AdminUpdateJobInfoServlet" method="post">
+                    <form action="${pageContext.request.contextPath}/AdminUpdateJobInfoServlet" method="post">
 
-                     <input type="hidden" name="jobId" value="${ajf.jobId}">
-                    <td  style="padding:7px 0 7px 0;">${ajf.enterpriseName}</td>
-                    <td>${ajf.jobPosition}</td>
-                    <td>${ajf.jobInfo}</td>
-                    <td>${ajf.wage}</td>
-                    <td>${ajf.jobDate}</td>
-                    <td>
-                        <div class="selectbox">
-                            <select name="eCheck" id="eCheck">
-                                <option value="1" ${ei.eCheck == 1?"selected":""}>未审核</option>
-                                <option value="0" ${ei.eCheck == 0?"selected":""}>审核通过</option>
-                            </select>
-                        </div>
-                        <input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="发布" tabindex="3"/>
-                        </form>
+                         <input type="hidden" name="jobId" value="${ajf.jobId}">
+                        <td  style="padding:7px 0 7px 0;">${ajf.enterpriseName}</td>
+                        <td>${ajf.jobPosition}</td>
+                        <td>${ajf.jobInfo}</td>
+                        <td>${ajf.wage}</td>
+                        <td>${ajf.jobDate}</td>
+                        <td>
+                            <div class="selectbox">
+                                <select name="eCheck" id="eCheck">
+                                    <option value="1" ${ei.eCheck == 1?"selected":""}>未审核</option>
+                                    <option value="0" ${ei.eCheck == 0?"selected":""}>审核通过</option>
+                                </select>
+                            </div>
+                            <input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="发布" tabindex="3"/>
+                     </form>
                     </td>
                      <td><a href="javascript:del(${ajf.jobId})">删除</a></td>
                 </tr>

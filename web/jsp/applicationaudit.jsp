@@ -42,7 +42,7 @@
 <div id="recruitinformation">
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr align="center">
-            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">招聘信息代码</td>
+            <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">招聘信息流水号</td>
             <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">姓名</td>
             <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">专业</td>
             <td width="10%"  style="padding:10px; border-bottom: 2px dashed #6bb642;">毕业院校</td>

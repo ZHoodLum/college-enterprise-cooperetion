@@ -31,7 +31,7 @@ public class AdminDeleteStudentInfoServlet extends HttpServlet {
                 request.getRequestDispatcher("/AdminQueryAllStudentInfoServlet").forward(request, response);
             } else {
                 response.getWriter().print(
-                        "<script >alert('修改失败');"
+                        "<script >alert('删除学生信息失败!');"
                                 + "</script>");
             }
 

@@ -142,6 +142,7 @@
 <div id="recruitinformation">
     <table width="100%" border="0px" cellpadding="0" cellspacing="0">
             <tr align="center"  bgcolor="#FFFFFF" border: 0px;>
+                <td width="8%"  style="padding:10px; border-bottom: 2px dashed #808080;">招聘单信息流水号</td>
                 <td width="8%"  style="padding:10px; border-bottom: 2px dashed #808080;">招聘单位</td>
                 <td width="20%"  style="padding:10px; border-bottom: 2px dashed #808080;">招聘职位</td>
                 <td width="20%"  style="padding:10px; border-bottom: 2px dashed #808080;">详细信息</td>
@@ -160,6 +161,7 @@
                 </c:if>
                 <input id="jobId" name ="jobId" type="hidden" value="${ei.jobId}">
                 <input id="enterprise_id" name ="enterprise_id" type="hidden" value="${sessionScope.EnterpriseInfo.getEnterpriseId()}">
+                    <td  style="padding:7px 0 7px 0;">${ei.jobId}</td>
                     <td  style="padding:7px 0 7px 0;">${ei.enterpriseName}</td>
                     <td>${ei.jobPosition}</td>
                     <td>${ei.jobInfo}</td>

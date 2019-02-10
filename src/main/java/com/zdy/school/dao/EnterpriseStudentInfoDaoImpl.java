@@ -61,7 +61,7 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
     public List<EnterpriseStudentInfo> queryEnterpriseStudentinfo(int enterpriseId) {
         List<EnterpriseStudentInfo> allEnterpriseStudentInfoArrayList = new ArrayList<EnterpriseStudentInfo>();
         try {
-            String sql = "select * from enterprise_studentinfo es, studentinfo s,enterpriseinfo e,jobinfo j,resumes r where es.student_id = s.student_id and es.enterprise_id = e.enterprise_id and es.job_id = j.job_id and s.student_id = r.student_id and es.enterprise_id = ?;";
+            String sql = "select * from enterprise_studentinfo es, studentinfo s,enterpriseinfo e,jobinfo j,resumes r where es.student_id = s.student_id and es.enterprise_id = e.enterprise_id and es.job_id = j.job_id and s.student_id = r.student_id and es.enterprise_id = ? order by es.id desc ;";
 //            String sql1 ="select * from enterprise_studentinfo es, studentinfo s,enterpriseinfo e,jobinfo j,resumes r where es.student_id = s.student_id and es.enterprise_id = e.enterprise_id and es.job_id = j.job_id and s.student_id = r.student_id and j.information_state = 0 and es.information_state = 1 and e.enterprise_id = ?;";
             pstate = conn.prepareStatement(sql);
 //            pstate = conn.prepareStatement(sql1);
@@ -143,7 +143,7 @@ public class EnterpriseStudentInfoDaoImpl implements EnterpriseStudentInfoDao {
     public boolean ResumesUpdate(EnterpriseStudentInfo enterpriseStudentInfo) {
         int rows = 0;
         try {
-            String sql = "update enterprise_studentinfo set information_state = ? where id = ?;";
+            String sql = "update enterprise_studentinfo es,studentinfo s set information_state = ?, s.student_internship='是' where s.student_id = es.student_id and id = ? ;";
             pstate = conn.prepareStatement(sql);
             pstate.setInt(1, enterpriseStudentInfo.getInformationState());
             pstate.setInt(2,enterpriseStudentInfo.getId());

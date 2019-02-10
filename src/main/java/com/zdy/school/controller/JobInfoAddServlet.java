@@ -40,6 +40,10 @@ public class JobInfoAddServlet extends HttpServlet {
             int datevalues = jobInfoDao.insertJobInfo(jobInfo);
             if (datevalues > 0){
                 request.getRequestDispatcher("/jobinfoaddsuccess.html").forward(request,response);
+            }else {
+                response.getWriter().print(
+                        "<script >alert('录入招聘信息失败！');"
+                                + "</script>");
             }
         }catch (Exception e){
             e.printStackTrace();
